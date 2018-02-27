@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://www.31415.cf/"/>
+  <updated>2018-02-26T15:26:35.521Z</updated>
+  <id>http://www.31415.cf/</id>
+  
+  <author>
+    <name>31415926535x</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>1_The_blog</title>
+    <link href="http://www.31415.cf/2018/02/23/1-The-blog/"/>
+    <id>http://www.31415.cf/2018/02/23/1-The-blog/</id>
+    <published>2018-02-23T14:46:52.000Z</published>
+    <updated>2018-02-26T15:26:35.521Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="The-first-blog"><a href="#The-first-blog" class="headerlink" title="The first blog"></a>The first blog</h1><h3 id="2018-2-23-22-46"><a href="#2018-2-23-22-46" class="headerlink" title="2018.2.23/22.46"></a>2018.2.23/22.46</h3><blockquote><p>是故当知，世皆无常，会必有离，勿怀忧恼，世相如是。</p><p>当勤精进，早求解脱；以智慧明，灭诸痴暗</p></blockquote><p><br></p><ul><li>哈哈，自己的第一个博客终于上线了ヽ(●´∀`●)ﾉ</li><li>虽然，这个博客是完全傻瓜式的按着网上各位大佬的教程一步一步做的，，，，嘿嘿(ﾉ&gt;ω&lt;)ﾉ</li></ul><p>放寒假前就早已定下目标，，，自己搭建一个博客，，把自己今后学习编程时想到的写下来，，，一来是为了提炼自己的所学，做个笔记，，还有就是想着记录这学习编程以来的点点滴滴，，希望能够坚持做一件事，，坚持做一件自己真正喜欢的事，，哈哈，，，(ﾉ&gt;ω&lt;)ﾉ，，也算是自己的一个小目标吧，，，，d(`･∀･)b，，，，同时，，也希望自己能够以此来锻炼一下文笔吧，，，，，(」・ω・)」うー！(／・ω・)／にゃー！</p><p>回想这一个多月，，花在学习上的时间几乎可以忽略不计啊，，，(≧∀≦)ゞ</p><p>花了两三天把崩掉的vps救好了，，，，然后又花了两三天把这个博客做好，，，现在，，又在马上开学时写这第一篇，，，（逃(๑´ㅁ`)</p><p>昨日，，囫囵吞枣地看了些C++的文件操作，，哎，，，这假期看来就充了这一点电啊啊啊，，，，😂(´///☁///`)<br>英语是一点都没看啊啊啊，，，<br><br><br><br>现在才感觉到上大学可真不是单纯的可以玩啊啊，，有太多的事、目标要完成了啊，，感觉时间很多，，实际上却很少啊，，尤其是对于像我这样的“重度拖延症患者”，，，，</p><p>希望自己能够三年后有所为吧！！！，，<br>希望自己能够三年一直保持着想现在的心态！！乐观，平静，有目标，干预追求自己所想的！！！<br>哈哈！！！，，，(灬ºωº灬)</p><p>来来来，，，听歌d(`･∀･)b，，，，</p><iframe id="b" class="b video_pc" src="https://www.bilibili.com/video/av19891003/" frameborder="0" allowfullscreen="true" width="1080px" height="768px"><br></iframe> <p>（话说我就是边听边码的这篇，，嘿嘿(ゝ∀･)，，，，<br><img src="https://i.imgur.com/AoC8mYQ.jpg" alt=""><br>(原谅我不会提取B站视频的链接，，，，只能把整个页面弄上来了，，，，，233</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;The-first-blog&quot;&gt;&lt;a href=&quot;#The-first-blog&quot; class=&quot;headerlink&quot; title=&quot;The first blog&quot;&gt;&lt;/a&gt;The first blog&lt;/h1&gt;&lt;h3 id=&quot;2018-2-23-22-46&quot;&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="Diary" scheme="http://www.31415.cf/tags/Diary/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://www.31415.cf/2018/02/09/hello-world/"/>
+    <id>http://www.31415.cf/2018/02/09/hello-world/</id>
+    <published>2018-02-09T03:24:50.683Z</published>
+    <updated>2018-02-09T03:24:50.683Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
