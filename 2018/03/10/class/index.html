@@ -340,16 +340,24 @@
 <li>类的成员函数描述的是<strong>类的行为</strong>；<h3 id="成员函数的实现"><a href="#成员函数的实现" class="headerlink" title="成员函数的实现"></a>成员函数的实现</h3></li>
 <li>函数的原型声明要写在类体中，原型说明了函数的<strong>参数表</strong>和<strong>返回值类型</strong>；</li>
 <li>函数的具体实现是在类定义之外的；</li>
-<li>实现成员函数是要指明类的名称；  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">返回值类型 类名::函数成员名 （参数表）</span><br><span class="line">&#123;</span><br><span class="line">	函数体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="成员函数调用中的目的对象"><a href="#成员函数调用中的目的对象" class="headerlink" title="成员函数调用中的目的对象"></a>成员函数调用中的目的对象</h3><ul>
+<li><p>实现成员函数是要指明类的名称；</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">返回值类型 类名::函数成员名 （参数表）</span><br><span class="line">&#123;</span><br><span class="line">	函数体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="成员函数调用中的目的对象"><a href="#成员函数调用中的目的对象" class="headerlink" title="成员函数调用中的目的对象"></a>成员函数调用中的目的对象</h3></li>
 <li>需使用” . “操作符指出调用所针对的对象，这一对象在本次调用中称为<strong>目的对象</strong>；</li>
 <li>在<strong>成员函数</strong>中可以不使用” . “操作符直接引用目的对象的数据成员；</li>
 <li>在成员函数中调用当前类的成员函数时，如果不使用” . “操作符，那么这一次调用所针对的仍是目的对象；</li>
 <li>在成员函数中<strong>引用其他对象的属性和调用其它对象的方法时</strong>，都需要使用” . “操作符；</li>
 <li>在类的成员函数中，既可以访问目的对象的私有成员，又可以访问当前类的其他对象的私有成员；（复制构造函数可能会用到…..）<h3 id="带默认形参值的成员函数"><a href="#带默认形参值的成员函数" class="headerlink" title="带默认形参值的成员函数"></a>带默认形参值的成员函数</h3></li>
-<li>loading。。。</li>
+<li><p>类成员函数的默认值，一定要写在<strong>类定义</strong>中，不能写在类定义之外的函数实现中；</p>
+<h3 id="内联成员函数"><a href="#内联成员函数" class="headerlink" title="内联成员函数"></a>内联成员函数</h3></li>
+<li>内联函数的声明：<strong>隐式声明</strong>与<strong>显示声明</strong>；</li>
+<li><strong>隐式声明</strong> ： 将函数体直接放在类内；</li>
+<li><strong>显式声明</strong> ： 在函数实现时在函数返回值类型前使用关键字：<code>inline</code>；</li>
+</ul>
+<p><br></p>
+<h1 id="构造函数和析构函数："><a href="#构造函数和析构函数：" class="headerlink" title="构造函数和析构函数："></a><em>构造函数和析构函数</em>：</h1><ul>
+<li>对象之间的区别有：对象的名称（外在区别）、对象自身的属性值，集数据成员的值（内在区别）；</li>
+<li><strong>对象的初始化</strong> ： 在定义对象时进行的数据成员设置；<br><br><h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2>loading。。。</li>
 </ul>
 
       
@@ -427,7 +435,7 @@
     <span class="title" id="toc-switch"><span>文章导航</span></span>
     <div class="toc-inner syuanpi back-1 fallIn-light">
       <li class="title-link"><a href="javascript:;" class="toTop">class</a></li>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#面向对象的特点："><span class="toc-text">面向对象的特点：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#类和对象："><span class="toc-text">类和对象：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#类的定义："><span class="toc-text">类的定义：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类成员的访问控制"><span class="toc-text">类成员的访问控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象"><span class="toc-text">对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类的成员函数"><span class="toc-text">类的成员函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#成员函数的实现"><span class="toc-text">成员函数的实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#成员函数调用中的目的对象"><span class="toc-text">成员函数调用中的目的对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#带默认形参值的成员函数"><span class="toc-text">带默认形参值的成员函数</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#面向对象的特点："><span class="toc-text">面向对象的特点：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#类和对象："><span class="toc-text">类和对象：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#类的定义："><span class="toc-text">类的定义：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类成员的访问控制"><span class="toc-text">类成员的访问控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象"><span class="toc-text">对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类的成员函数"><span class="toc-text">类的成员函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#成员函数的实现"><span class="toc-text">成员函数的实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#成员函数调用中的目的对象"><span class="toc-text">成员函数调用中的目的对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#带默认形参值的成员函数"><span class="toc-text">带默认形参值的成员函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内联成员函数"><span class="toc-text">内联成员函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#构造函数和析构函数："><span class="toc-text">构造函数和析构函数：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#构造函数"><span class="toc-text">构造函数</span></a></li></ol></li></ol>
     </div>
   </aside>
 
