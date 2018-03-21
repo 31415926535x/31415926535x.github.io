@@ -384,7 +384,15 @@
 </li>
 </ul>
 <h2 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h2><ul>
-<li>loading,,,</li>
+<li>用来完成对象被删除前的一些清理工作；</li>
+<li>析构函数是在对象的生存期即将结束的时候被自动调用的，调用完成后，对象消失，<strong>相应的内存空间也被释放</strong>；</li>
+<li>析构函数通常是类的公有函数成员，他的名称时由类名前加” ~ “构成 ，没有返回值；</li>
+<li>析构函数不接受任何参数 ， 但可以是虚函数；</li>
+<li>如果不进行显式说明 ， 系统会自动生成一个函数体为空的隐含析构函数；</li>
+<li><strong>如果希望程序在对象被删除之前的时刻自动 （ 不需要人为的进行函数调用 ） 完成某些事情 ， 就可以把他们写到析构函数中</strong>；</li>
+</ul>
+<h1 id="类的组合"><a href="#类的组合" class="headerlink" title="类的组合"></a><em>类的组合</em></h1><ul>
+<li>loading。。。。</li>
 </ul>
 
       
@@ -462,7 +470,7 @@
     <span class="title" id="toc-switch"><span>文章导航</span></span>
     <div class="toc-inner syuanpi back-1 fallIn-light">
       <li class="title-link"><a href="javascript:;" class="toTop">class</a></li>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#面向对象的特点："><span class="toc-text">面向对象的特点：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#类和对象："><span class="toc-text">类和对象：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#类的定义："><span class="toc-text">类的定义：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类成员的访问控制"><span class="toc-text">类成员的访问控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象"><span class="toc-text">对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类的成员函数"><span class="toc-text">类的成员函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#成员函数的实现"><span class="toc-text">成员函数的实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#成员函数调用中的目的对象"><span class="toc-text">成员函数调用中的目的对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#带默认形参值的成员函数"><span class="toc-text">带默认形参值的成员函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内联成员函数"><span class="toc-text">内联成员函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#构造函数和析构函数："><span class="toc-text">构造函数和析构函数：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#构造函数"><span class="toc-text">构造函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复制构造函数"><span class="toc-text">复制构造函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#复制构造函数被调用的情况："><span class="toc-text">复制构造函数被调用的情况：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#析构函数"><span class="toc-text">析构函数</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#面向对象的特点："><span class="toc-text">面向对象的特点：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#类和对象："><span class="toc-text">类和对象：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#类的定义："><span class="toc-text">类的定义：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类成员的访问控制"><span class="toc-text">类成员的访问控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象"><span class="toc-text">对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类的成员函数"><span class="toc-text">类的成员函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#成员函数的实现"><span class="toc-text">成员函数的实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#成员函数调用中的目的对象"><span class="toc-text">成员函数调用中的目的对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#带默认形参值的成员函数"><span class="toc-text">带默认形参值的成员函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内联成员函数"><span class="toc-text">内联成员函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#构造函数和析构函数："><span class="toc-text">构造函数和析构函数：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#构造函数"><span class="toc-text">构造函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复制构造函数"><span class="toc-text">复制构造函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#复制构造函数被调用的情况："><span class="toc-text">复制构造函数被调用的情况：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#析构函数"><span class="toc-text">析构函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#类的组合"><span class="toc-text">类的组合</span></a></li></ol>
     </div>
   </aside>
 
