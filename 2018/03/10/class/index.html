@@ -307,7 +307,10 @@
     </header>
     <div class="post-content syuanpi riseIn-light back-3">
       
-        <h1 id="面向对象的特点："><a href="#面向对象的特点：" class="headerlink" title="面向对象的特点："></a>面向对象的特点：</h1><ul>
+        <h3 id="2018-3-22-19-22-完"><a href="#2018-3-22-19-22-完" class="headerlink" title="2018.3.22/19.22(完)"></a>2018.3.22/19.22(完)</h3><blockquote>
+<p>不愤不启 ，不悱不发 ， 举一隅 ， 不以三隅反 ， 则不复也</p>
+</blockquote>
+<h1 id="面向对象的特点："><a href="#面向对象的特点：" class="headerlink" title="面向对象的特点："></a>面向对象的特点：</h1><ul>
 <li>抽象：指对具体问题（对象）进行概括，抽出一类对象的公共性质并加以描述的过程；包括<strong>数据抽象</strong>与<strong>行为抽象</strong>（或称功能抽象、代码抽象）；</li>
 <li>封装：指将抽象得到的 数据 和 行为（功能）相结合，形成一个有机的整体，也就是将<strong>数据</strong>与<strong>操作数据的函数代码</strong>进行有机的结合，形成”类”，其中的数据和函数都是类的成员；</li>
 <li>继承：（将特殊与一般的关系描述清楚，使得特殊概念之间既能共享一般的属性和行为，又能具有特殊的属性和行为）可以在保持原有 类 特性的基础上，进行更具体、更详尽的说明；</li>
@@ -391,9 +394,34 @@
 <li>如果不进行显式说明 ， 系统会自动生成一个函数体为空的隐含析构函数；</li>
 <li><strong>如果希望程序在对象被删除之前的时刻自动 （ 不需要人为的进行函数调用 ） 完成某些事情 ， 就可以把他们写到析构函数中</strong>；</li>
 </ul>
-<h1 id="类的组合"><a href="#类的组合" class="headerlink" title="类的组合"></a><em>类的组合</em></h1><ul>
-<li>loading。。。。</li>
+<h1 id="类的组合"><a href="#类的组合" class="headerlink" title="类的组合"></a><em>类的组合</em></h1><h2 id="组合："><a href="#组合：" class="headerlink" title="组合："></a>组合：</h2><ul>
+<li>解决复杂问题的有效方法就是将其层层分解为简单的问题的<strong>组合</strong>；</li>
+<li>类的成员数据既可以是<strong>基本类型</strong>也可以是<strong>自定义类型</strong>，当然也可以是<strong>类的对象</strong>，由此可以采用部件组装的方法，利用已有的类的对象来构成新的类；</li>
+<li><strong>类的组合</strong>描述的就是一个类内嵌其他类的对象作为成员的情况；他们之间的关系是包含与被包含的关系；</li>
+<li><strong>当创建类的对象时，如果这个类具有内嵌对象成员，那么各个内嵌对象将首先被自动创建</strong>，<strong>因为部件对象是复杂对象的一部分，所以，在创建对象时既要对本类的基本类型数据成员进行初始化，又要对内嵌对象成员进行初始化</strong>；</li>
+<li><p>组合类构造函数定义的一般形式：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">类名 :: 类名 (形参表) : 内嵌对象<span class="number">1</span> (形参表) , 内嵌对象<span class="number">2</span> (形参表) ,......</span><br><span class="line">&#123;</span><br><span class="line">	类的初始化</span><br><span class="line">&#125;</span><br><span class="line">	<span class="comment">//"内嵌对象1 (形参表) , 内嵌对象2 (形参表) ,......"称作初始化列表 ， 作用是对内嵌对象的初始化；</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对基本类型的数据成员也可以这样初始化；</p>
+</li>
+<li><p><strong>在创建一个组合类的对象时，不仅它自身的构造函数的函数体将被执行，而且还将调用其内嵌对象的构造函数</strong> ，此时构造函数的调用顺序如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1.调用内嵌对象的构造函数 ， 调用顺序按照内嵌对象在组合类的定义中出现的次序；**注意：内嵌对象在构造函数的初始化列表中出现的顺序与对象构造函数的调用顺序无关**；</span><br><span class="line">2.执行被类构造函数的函数体；</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>析构函数的调用顺序与构造函数刚好相反；</p>
+</li>
+<li>组合类的<strong>复制构造函数</strong> ：需要为内嵌成员对象的复制构造函数传递参数：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//假设C类中包含B类的对象b作为成员 ， C类的复制构造函数的形式：</span><br><span class="line">C :: C (C &amp;c1) : B (c1.b) &#123;...&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
+<h2 id="前向引用声明"><a href="#前向引用声明" class="headerlink" title="前向引用声明"></a>前向引用声明</h2><ul>
+<li>两个类的相互引用成为循环依赖；</li>
+<li>前向引用声明，是在引用为定义的类之前 ， 将该类的名字告诉编译器 ， 是编译器知道那是一个类名 ， 而类的完整定义可以在程序的其他地方 (类似函数的定义QAQ);</li>
+<li>尽管使用了前向引用声明 ， 但在提供一个完整的类定义之前 ， 不能定义该类的对象 ， 也不能在内联成员函数中使用该类的对象 ， 即当使用前向引用声明时 ， 只能使用被声明的符号 ， 而不能涉及类的任何细节；</li>
+</ul>
+<h2 id="组合类的一个实例："><a href="#组合类的一个实例：" class="headerlink" title="组合类的一个实例："></a>组合类的一个实例：</h2><p><img src="https://i.imgur.com/OcEpTZQ.jpg" alt="1"><br><img src="https://i.imgur.com/7l6jYfh.jpg" alt="2"><br><img src="https://i.imgur.com/Slh1Fij.jpg" alt="3"></p>
+<p><img src="https://i.imgur.com/AoC8mYQ.jpg" alt=""></p>
+<blockquote>
+<p>繁花似锦觅安宁 ， 淡云流水渡此生</p>
+</blockquote>
 
       
     
@@ -470,7 +498,7 @@
     <span class="title" id="toc-switch"><span>文章导航</span></span>
     <div class="toc-inner syuanpi back-1 fallIn-light">
       <li class="title-link"><a href="javascript:;" class="toTop">class</a></li>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#面向对象的特点："><span class="toc-text">面向对象的特点：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#类和对象："><span class="toc-text">类和对象：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#类的定义："><span class="toc-text">类的定义：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类成员的访问控制"><span class="toc-text">类成员的访问控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象"><span class="toc-text">对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类的成员函数"><span class="toc-text">类的成员函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#成员函数的实现"><span class="toc-text">成员函数的实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#成员函数调用中的目的对象"><span class="toc-text">成员函数调用中的目的对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#带默认形参值的成员函数"><span class="toc-text">带默认形参值的成员函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内联成员函数"><span class="toc-text">内联成员函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#构造函数和析构函数："><span class="toc-text">构造函数和析构函数：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#构造函数"><span class="toc-text">构造函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复制构造函数"><span class="toc-text">复制构造函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#复制构造函数被调用的情况："><span class="toc-text">复制构造函数被调用的情况：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#析构函数"><span class="toc-text">析构函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#类的组合"><span class="toc-text">类的组合</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#2018-3-22-19-22-完"><span class="toc-text">2018.3.22/19.22(完)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#面向对象的特点："><span class="toc-text">面向对象的特点：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#类和对象："><span class="toc-text">类和对象：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#类的定义："><span class="toc-text">类的定义：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类成员的访问控制"><span class="toc-text">类成员的访问控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象"><span class="toc-text">对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类的成员函数"><span class="toc-text">类的成员函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#成员函数的实现"><span class="toc-text">成员函数的实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#成员函数调用中的目的对象"><span class="toc-text">成员函数调用中的目的对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#带默认形参值的成员函数"><span class="toc-text">带默认形参值的成员函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内联成员函数"><span class="toc-text">内联成员函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#构造函数和析构函数："><span class="toc-text">构造函数和析构函数：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#构造函数"><span class="toc-text">构造函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复制构造函数"><span class="toc-text">复制构造函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#复制构造函数被调用的情况："><span class="toc-text">复制构造函数被调用的情况：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#析构函数"><span class="toc-text">析构函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#类的组合"><span class="toc-text">类的组合</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#组合："><span class="toc-text">组合：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#前向引用声明"><span class="toc-text">前向引用声明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组合类的一个实例："><span class="toc-text">组合类的一个实例：</span></a>
     </div>
   </aside>
 
