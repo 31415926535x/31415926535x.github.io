@@ -59,6 +59,8 @@
 
 
 
+  <meta name="keywords" content="c++, 类, 面向对象, Nlvi" />
+
 <!--顶部进度加载条-->
 <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
 <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
@@ -75,11 +77,7 @@
         border-left-color: #1E92FB;    /*左边框颜色*/
     }
 </style>
-  <title>
-  
-    归档 · 31415926535x
-  
-</title>
+  <title> 数据的共享与保护 · 31415926535x </title>
 </head>
 <body>
   <div class="progress">
@@ -273,99 +271,132 @@
         <div class="main-wrapper">
           
     
-    <div class="archive syuanpi riseIn-light" id="archive">
-        
-            <h1 class="archive-title">Total</h1>
-            <span class="archive-num">一共有 4 篇文章</span>
-        
-        <div class="archive-list">
-            <ul>
-        
+  <article class="
+  post
+   is_post 
+  ">
+    <header class="post-header">
+      <div class="post-time syuanpi riseIn-light back-1">
+        <div class="post-time-wrapper">
+          <span>2018-03-29</span>
+          
+          
             
-                
-                
-                
-                    
-                     
-                        <h2 class="archive-year"> 2018 </h2>
-                    
-                
+              <aside class="post-tags syuanpi riseIn-light back-3">
+              
+                <a href="/tags/c/">c++</a>
+              
+                <a href="/tags/类/">类</a>
+              
+                <a href="/tags/面向对象/">面向对象</a>
+              
+              </aside>
             
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    03-29
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/03/29/数据的共享与保护/">数据的共享与保护</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    03-10
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/03/10/class/">class</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    02-23
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/02/23/1-The-blog/">1_The_blog</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    02-09
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/02/09/hello-world/">Hello World</a>
-                </span>
-            </li>
-
-        
-            </ul>
+          
         </div>
+      </div>
+      <h1 class="post-title syuanpi riseIn-light back-2">
+        
+          数据的共享与保护
+        
+      </h1>
+    </header>
+    <div class="post-content syuanpi riseIn-light back-3">
+      
+        <h1 id="标识符的作用域与可见性"><a href="#标识符的作用域与可见性" class="headerlink" title="标识符的作用域与可见性"></a>标识符的作用域与可见性</h1><h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><ul>
+<li>作用域是一个标识符在程序正文中有效的区域；</li>
+<li>c++中标识符的作用域有 <strong>函数原型作用域</strong> 、 <strong>局部作用域（块作用域）</strong> 、 <strong>类作用域</strong> 、 <strong>命名空间作用域</strong>;<h3 id="函数原型作用域："><a href="#函数原型作用域：" class="headerlink" title="函数原型作用域："></a>函数原型作用域：</h3></li>
+<li>函数原型作用域是c++程序中最小的作用域；</li>
+<li>在函数原型声明时形参的作用范围就是函数原型作用域；</li>
+<li>在函数原型的参数列表中起的作用的只是形参类型，标识符不起作用，因此可以省去，但为了程序的可读性，通常还是要在函数原型声明时给出形参标识符；<h3 id="局部作用域："><a href="#局部作用域：" class="headerlink" title="局部作用域："></a>局部作用域：</h3></li>
+<li>函数形参列表中形参的作用域，从形参列表中的声明处开始，到整个函数体结束之处为止；</li>
+<li>函数体内声明的变量，其作用域从声明处开始，一直到声明所在的块结束的大括号为止；</li>
+<li>具有局部作用域的变量也称作局部变量；<h3 id="类作用域："><a href="#类作用域：" class="headerlink" title="类作用域："></a>类作用域：</h3></li>
+<li>类可以看作一组有名成员的集合，类X的成员m具有类作用域，对m的访问方式有：</li>
+<li>1.如果在X的成员函数中没有声明同名的局部作用</li>
+</ul>
+
+      
+    
     </div>
     
-  <nav class="pagination">
-      <span class="page-number current">1</span>
+      
+      
+  <hr class="copy-line">
+  <div class="post-copyright">
+    <div class="copy-author">
+      <span>作者 :</span>
+      <span>31415926535x</span>
+    </div>
+    <div class="copy-url">
+      <span>地址 :</span>
+      <a href="http://www.31415.cf/2018/03/29/数据的共享与保护/">http://www.31415.cf/2018/03/29/数据的共享与保护/</a>
+    </div>
+    <div class="copy-origin">
+      <span>来源 :</span>
+      <a href="http://www.31415.cf">http://www.31415.cf</a>
+    </div>
+    <div class="copy-license">
+      
+      著作权归作者所有，转载请联系作者获得授权。
+    </div>
+  </div>
+
+    
+  </article>
+  
+    
+  <nav class="article-page">
+    
+    
+      <a href="/2018/03/10/class/" id="art-right" class="art-right">
+        <span class="prev-title"> 
+          class<i class="iconfont icon-right"></i>  
+        </span>
+      </a>
+    
   </nav>
 
+    
+  <i id="com-switch" class="iconfont icon-more jumping-in long infinite" style="font-size:24px;display:block;text-align:center;transform:rotate(180deg);"></i>
+  <div class="post-comments" id="post-comments" style="display: block;margin: auto 16px;">
+    
+    
+    
+<!-- Disqus Comments -->
+<div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+<script type="text/javascript">
+    var disqus_shortname = 'www-31415-cf';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+  </div>
+
+
+  
+   
+    
+  
+  <aside class="post-toc">
+    <span class="title" id="toc-switch"><span>文章导航</span></span>
+    <div class="toc-inner syuanpi back-1 fallIn-light">
+      <li class="title-link"><a href="javascript:;" class="toTop">数据的共享与保护</a></li>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#标识符的作用域与可见性"><span class="toc-text">标识符的作用域与可见性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#作用域"><span class="toc-text">作用域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#函数原型作用域："><span class="toc-text">函数原型作用域：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#局部作用域："><span class="toc-text">局部作用域：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类作用域："><span class="toc-text">类作用域：</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </aside>
+
+
+  
 
 
         </div>
