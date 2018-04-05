@@ -308,48 +308,17 @@
 <li>具有局部作用域的变量也称作局部变量；<h3 id="类作用域："><a href="#类作用域：" class="headerlink" title="类作用域："></a>类作用域：</h3></li>
 <li>类可以看作一组有名成员的集合，类X的成员m具有类作用域，对m的访问方式有：</li>
 <li>1.如果在X的成员函数中没有声明同名的局部作用域标识符，那么在该函数内可以直接访问成员m；</li>
-<li><p>2.通过表达式<figure class="highlight plain"><figcaption><span>```或者``` X::m ```；（访问对象成员的最基本方法）；</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">+ 3.通过``` ptr-&gt;m ```这样的表达式，其中ptr为指向X类的一个对象的指针；</span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line">### 命名空间作用域：</span><br><span class="line">+ 命名空间的语法形式：</span><br><span class="line"></span><br><span class="line">```cpp</span><br><span class="line">	namespace 命名空间名</span><br><span class="line">	&#123;</span><br><span class="line">	命名空间内的各种声明 (函数声明、类声明、······)</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li><p>一个命名空间确定了一个命名空间作用域，凡是在该命名空间之内声明的、不属于前面所述的各个作用域的标识符，都属于该命名空间作用域；</p>
-</li>
-<li>在命名空间内部可以直接引用当前命名空间中生命的标识符，如果需要引用其他命名空间的标识符，需要使用下列语法：</li>
+<li>2.通过表达式<code>x.m</code>或者<code>X::m</code>；（访问对象成员的最基本方法）；</li>
+<li>3.通过<code>ptr-&gt;m</code>这样的表达式，其中ptr为指向X类的一个对象的指针；</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```cpp</span><br><span class="line">	eg:</span><br><span class="line">	namespace SomeNs</span><br><span class="line">	&#123;</span><br><span class="line">		class SomeClass&#123;...&#125;</span><br><span class="line">	&#125;</span><br><span class="line">如果需要引用类名SomeClass或函数名someFunc，需要使用下面的方式：</span><br><span class="line">	SomeNs::SomeClass obj1;			//声明一个SomeNs::SomeClass型的对象obj1;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>using 语句</strong>：总使用这样的命名空间限定会显得过于冗长<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> 命名空间名::标识符名；</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> 命名空间名；</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>前一种形式将指定的标识符暴露在当前的作用域中，使得在当前作用域中可以直接引用该标识符；<br>后一种形式将指定命名空间内的所有标识符暴露在当前的作用域中，使得在当前作用域中可以直接引用该命名空间内的任何标识符；</p>
-<ul>
-<li>命名空间允许嵌套；</li>
-<li><strong>全局命名空间</strong>：是默认的命名空间，子啊显式声明的命名空间之外声明的标识符都在一个全局命名空间中；</li>
-<li><strong>匿名命名空间</strong>：是一个需要显式声明的没有文字的命名空间，声明方式：</li>
-<li><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> </span><br><span class="line">&#123;</span><br><span class="line">匿名命名空间内的各种声明 (函数声明、类声明、······)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在包含多个源文件的工程中，匿名命名空间常常被用来屏蔽不希望暴露给其他源文件的标识符，这是因为每个源文件的匿名命名空间是彼此不同的，在每一个源文件中没有办法访问其他源文件的匿名命名空间；</p>
-</li>
-<li>具有命名空间作用域的变量也称为全局变量；<h3 id="可见性："><a href="#可见性：" class="headerlink" title="可见性："></a>可见性：</h3></li>
-<li>程序运行到某一点，能够引用到的标识符，就是该处可见的标识符；</li>
-<li><strong>命名空间作用域</strong>最大，接下来依次是<strong>类作用域</strong>和<strong>局部作用域</strong>；</li>
-<li>可见性表示从内层作用域向外层作用域“看”时能看到什么；</li>
-<li><strong>作用域可见性的一般规则</strong>：</li>
-<li>标识符要声明在前，引用在后；</li>
-<li>在同一作用域中，不能声明同名的标识符；</li>
-<li>在没有互相包含关系的不同的作用域中声明的同名标识符，互不影响；</li>
-<li>如果在两个或多个具有包含关系的作用域中声明了同名标识符，则外层标识符在内层不可见；</li>
-<li>作用域和可见性的原则不只适用于变量名，也适用于其他各种标识符，包括常变量名、用户定义的类型名、函数名名、枚举类型的取值等；</li>
-</ul>
-<h2 id="对象的生存周期"><a href="#对象的生存周期" class="headerlink" title="对象的生存周期"></a>对象的生存周期</h2><h3 id="静态生存周期："><a href="#静态生存周期：" class="headerlink" title="静态生存周期："></a>静态生存周期：</h3><ul>
-<li>如果对象的生存期与程序的运行期相同，则称它具有静态生存期；</li>
-<li>在命名空间作用域中声明的对象都是具有静态生存期的；</li>
-<li>如果在函数内部的局部作用域中声明具有静态生存期的对象，则要使用关键字<code>static</code>;</li>
-<li>局部作用域中静态变量的特点：它不会随着每次函数调用而产成一个副本，也不会随着函数返回而失效；</li>
-<li>定义时未指定初值的基本静态生存期变量，会被赋予0值初始化，而对于动态生存期变量，不指定初值意味着初值不确定；<h3 id="动态生存期"><a href="#动态生存期" class="headerlink" title="动态生存期"></a>动态生存期</h3></li>
-<li>loading。。。</li>
-</ul>
-
         
       
+    
+      <p class="content-link">
+        <a href="/2018/03/29/数据的共享与保护/#more">
+          <span>继续阅读</span>
+        </a>
+      </p>
     
     </div>
     
