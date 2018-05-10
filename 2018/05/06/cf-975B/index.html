@@ -59,6 +59,8 @@
 
 
 
+  <meta name="keywords" content="codeforce, c++, acm, Nlvi" />
+
 <!--顶部进度加载条-->
 <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
 <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
@@ -75,10 +77,7 @@
         border-left-color: #1E92FB;    /*左边框颜色*/
     }
 </style>
-  <title>
-    31415926535x
-    
-  </title>
+  <title> codeforce-975B · 31415926535x </title>
 </head>
 <body>
   <div class="progress">
@@ -272,21 +271,91 @@
         <div class="main-wrapper">
           
     
-      <div class="about syuanpi riseIn-light">
-        <h2 class="title"> 关于 </h2>
-        <div class="content">
+  <article class="
+  post
+   is_post 
+  ">
+    <header class="post-header">
+      <div class="post-time syuanpi riseIn-light back-1">
+        <div class="post-time-wrapper">
+          <span>2018-05-06</span>
           
-            <blockquote>
-<p><a href="mailto:259437152wx@gmail.com?body=来自你的博客" target="_blank" rel="noopener"><strong>Gmail</strong></a></p>
-<p><a href="https://github.com/31415926535x" target="_blank" rel="noopener"><strong>Github</strong></a></p>
-<p><a href="https://t.me/x31415926535" target="_blank" rel="noopener"><strong>Telgram</strong></a></p>
-</blockquote>
-<p><strong>…</strong></p>
-
+          
+            
+              <aside class="post-tags syuanpi riseIn-light back-3">
+              
+                <a href="/tags/codeforce/">codeforce</a>
+              
+                <a href="/tags/c/">c++</a>
+              
+                <a href="/tags/acm/">acm</a>
+              
+              </aside>
+            
           
         </div>
       </div>
+      <h1 class="post-title syuanpi riseIn-light back-2">
+        
+          codeforce-975B
+        
+      </h1>
+    </header>
+    <div class="post-content syuanpi riseIn-light back-3">
       
+        <p>cf-第二道<br>题目链接：<a href="http://codeforces.com/problemset/problem/975/B?csrf_token=15be971a0d4ded50a8332d9e1318379a" target="_blank" rel="noopener">http://codeforces.com/problemset/problem/975/B?csrf_token=15be971a0d4ded50a8332d9e1318379a</a></p>
+<p>感想：很有趣的一道题，，，本以为很简单，，但是被虐的体无完肤，，，，QAQ<br>题目的意思是给定14个坑（emmmm对我来说还真的是坑。。。）然后某些坑里给一些石头（emmm我八成就是那石头），，石头数是零或者是奇数，然后挑一个，把全部的石头拿出来，，依次往后排，，每一个坑丢一个，，要是丢到了14号坑（噫，，）就从一号坑开始，，，一直丢完为止，，，最后将石头数是偶数的拿出来，，，求最大的总数，，，<br>一开始的思路是遍历每一个有石头的坑，，，找到之后把坑的位置传给下一个函数，，这个函数用来给每一个坑丢石头，，，但是有几个分界点没找出来，，，导致大的一些数据测试会造成数组的越界，，，<br>之后改为：对于坑内石头数不足以重来一轮的用一个循环搞定，，，对于那些超出的，先把从这个坑到14号坑丢是完，，然后因为是n个轮回，，所以直接每个坑加n，对于最后一此不是完整的轮回再丢一次，，，<br>最后每次遍历都判断与上一次的大小，，输出就行，，，<br>（感觉自己真的是太菜了，，，T_T,,,,自己做的时候吭哧吭哧半天AC不了，，还找不出那里的错，，，看完别人的思路，，豁然开朗，，，（虽然还是看不懂他们的代码），，，，</p>
+<p>我的渣代码：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line">ll a[<span class="number">15</span>];</span><br><span class="line"><span class="function">ll <span class="title">fun</span><span class="params">(<span class="keyword">int</span> flag)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll b[<span class="number">15</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">14</span>; i++)</span><br><span class="line">        b[i] = a[i];</span><br><span class="line">    b[flag] = <span class="number">0</span>;</span><br><span class="line">    ll l = <span class="number">14</span> - flag;</span><br><span class="line">			<span class="comment">//判断坑里的石头数是否能丢到14号坑</span></span><br><span class="line">    <span class="keyword">if</span> (l &gt;= a[flag])</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = flag + <span class="number">1</span>; i &lt;= a[flag] + flag; i++)</span><br><span class="line">            b[i]++;</span><br><span class="line">    <span class="keyword">else</span>	<span class="comment">//不能的话就分三步完成</span></span><br><span class="line">    &#123;</span><br><span class="line">			<span class="comment">//现在这个坑到14号坑</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = flag + <span class="number">1</span>; i &lt;= <span class="number">14</span>; i++)</span><br><span class="line">        b[i]++;</span><br><span class="line">			<span class="comment">//n个轮回，，</span></span><br><span class="line">    ll l = a[flag] - <span class="number">14</span> + flag;</span><br><span class="line">    l /= <span class="number">14</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;= <span class="number">14</span>; i++)</span><br><span class="line">        b[i] += l;</span><br><span class="line">			<span class="comment">//轮回完剩下的那几个，，，</span></span><br><span class="line">    l = a[flag] - <span class="number">14</span> + flag;</span><br><span class="line">    l %= <span class="number">14</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= l; i++)</span><br><span class="line">        b[i]++;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    ll sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">14</span>; i++)</span><br><span class="line">        <span class="keyword">if</span> (b[i] % <span class="number">2</span> == <span class="number">0</span> )</span><br><span class="line">            sum += b[i];</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">14</span>; i++)</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">    ll max1 , max2;</span><br><span class="line">    max1 = max2 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">14</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (a[i])</span><br><span class="line">        max1 = fun(i);</span><br><span class="line">        <span class="keyword">if</span> (max1 &gt; max2)</span><br><span class="line">            max2 = max1;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; max2 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>大佬的答案：，，，，<br><a href="https://lucien.ink/archives/203/" target="_blank" rel="noopener">https://lucien.ink/archives/203/</a><br>，，，</p>
+
+      
+    
+    </div>
+    
+      
+      
+  <hr class="copy-line">
+  <div class="post-copyright">
+    <div class="copy-author">
+      <span>作者 :</span>
+      <span>31415926535x</span>
+    </div>
+    <div class="copy-url">
+      <span>地址 :</span>
+      <a href="http://www.31415.cf/2018/05/06/cf-975B/">http://www.31415.cf/2018/05/06/cf-975B/</a>
+    </div>
+    <div class="copy-origin">
+      <span>来源 :</span>
+      <a href="http://www.31415.cf">http://www.31415.cf</a>
+    </div>
+    <div class="copy-license">
+      
+      著作权归作者所有，转载请联系作者获得授权。
+    </div>
+  </div>
+
+    
+  </article>
+  
+    
+  <nav class="article-page">
+    
+      <a href="/2018/05/10/栈/" id="art-left" class="art-left">
+        <span class="next-title">
+          <i class="iconfont icon-left"></i>栈
+        </span>
+      </a>
+    
+    
+      <a href="/2018/05/06/cf-954A/" id="art-right" class="art-right">
+        <span class="prev-title"> 
+          cf-954A<i class="iconfont icon-right"></i>  
+        </span>
+      </a>
+    
+  </nav>
+
+    
   <i id="com-switch" class="iconfont icon-more jumping-in long infinite" style="font-size:24px;display:block;text-align:center;transform:rotate(180deg);"></i>
   <div class="post-comments" id="post-comments" style="display: block;margin: auto 16px;">
     
@@ -311,8 +380,23 @@
 
   </div>
 
+
+  
+   
     
   
+  <aside class="post-toc">
+    <span class="title" id="toc-switch"><span>文章导航</span></span>
+    <div class="toc-inner syuanpi back-1 fallIn-light">
+      <li class="title-link"><a href="javascript:;" class="toTop">codeforce-975B</a></li>
+      
+    </div>
+  </aside>
+
+
+  
+
+
         </div>
       </main>
 

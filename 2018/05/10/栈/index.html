@@ -59,6 +59,8 @@
 
 
 
+  <meta name="keywords" content="acm, 算法, 数据结构, Nlvi" />
+
 <!--顶部进度加载条-->
 <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
 <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
@@ -75,10 +77,7 @@
         border-left-color: #1E92FB;    /*左边框颜色*/
     }
 </style>
-  <title>
-    31415926535x
-    
-  </title>
+  <title> 栈 · 31415926535x </title>
 </head>
 <body>
   <div class="progress">
@@ -272,21 +271,108 @@
         <div class="main-wrapper">
           
     
-      <div class="about syuanpi riseIn-light">
-        <h2 class="title"> 关于 </h2>
-        <div class="content">
+  <article class="
+  post
+   is_post 
+  ">
+    <header class="post-header">
+      <div class="post-time syuanpi riseIn-light back-1">
+        <div class="post-time-wrapper">
+          <span>2018-05-10</span>
           
-            <blockquote>
-<p><a href="mailto:259437152wx@gmail.com?body=来自你的博客" target="_blank" rel="noopener"><strong>Gmail</strong></a></p>
-<p><a href="https://github.com/31415926535x" target="_blank" rel="noopener"><strong>Github</strong></a></p>
-<p><a href="https://t.me/x31415926535" target="_blank" rel="noopener"><strong>Telgram</strong></a></p>
-</blockquote>
-<p><strong>…</strong></p>
-
+          
+            
+              <aside class="post-tags syuanpi riseIn-light back-3">
+              
+                <a href="/tags/acm/">acm</a>
+              
+                <a href="/tags/算法/">算法</a>
+              
+                <a href="/tags/数据结构/">数据结构</a>
+              
+              </aside>
+            
           
         </div>
       </div>
+      <h1 class="post-title syuanpi riseIn-light back-2">
+        
+          栈
+        
+      </h1>
+    </header>
+    <div class="post-content syuanpi riseIn-light back-3">
       
+        <p>#栈的定义：</p>
+<ul>
+<li>栈（stack)是一种元素满足后进先出（Last in first out,LIFO) 规则的线性表；</li>
+<li>对栈的操作是在 表尾 进行；</li>
+<li><strong> 栈底 （bottom)</strong>：栈的表头，<strong> 栈顶 (top)</strong>：栈的表尾；</li>
+<li><strong> 入栈 (push)</strong>：向栈内添加元素，<strong> 出栈 (pop)</strong>：删除元素；</li>
+<li><strong> 空栈 </strong>：没有任何元素的栈；</li>
+<li>栈的主要操作：入栈、出栈、判断栈空；</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li>c++栈的实现：<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> DataType&gt; <span class="class"><span class="keyword">class</span> <span class="title">Stack</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Stack(<span class="keyword">int</span> size)</span><br><span class="line">    &#123;</span><br><span class="line">        maxSize = size;                     <span class="comment">//设置最大容量</span></span><br><span class="line">        top = <span class="number">-1</span>;                           <span class="comment">//初始化为空栈</span></span><br><span class="line">        elements = <span class="keyword">new</span> DataType[size];      <span class="comment">//分配空间</span></span><br><span class="line">    &#125;</span><br><span class="line">    ~Stack()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">delete</span> [] elements;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//入栈操作</span></span><br><span class="line">    <span class="function">Bool <span class="title">push</span> <span class="params">(DataType data)</span></span>;</span><br><span class="line">    <span class="comment">//出栈操作</span></span><br><span class="line">    <span class="function">DataType <span class="title">pop</span><span class="params">()</span></span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    DataType *elements;                     <span class="comment">//数据域指针</span></span><br><span class="line">    <span class="keyword">int</span> top;                                <span class="comment">//栈顶</span></span><br><span class="line">    <span class="keyword">int</span> maxSize;                            <span class="comment">//栈的最大容量</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> DataType&gt; DataType Stack&lt;DataType&gt;::push(DataType data)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (top == maxSize)                     <span class="comment">//判断是否栈满</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    elements[++top] = data;                 <span class="comment">//从栈顶压入元素</span></span><br><span class="line">    <span class="keyword">return</span> ture;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> DataType&gt; DataTpye Stack&lt;DataType&gt;::pop()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (pop == <span class="number">-1</span>)                          <span class="comment">//判断是否栈空</span></span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> elements[top--];                 <span class="comment">//返回栈顶元素</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Stack&lt;<span class="keyword">int</span>&gt; s = Stack&lt;<span class="keyword">int</span>&gt;(<span class="number">6</span>);</span><br><span class="line">    <span class="keyword">int</span> temp;</span><br><span class="line">    temp = s.push(<span class="number">23</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; temp &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    temp = s.pop();</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; temp &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="c-stack的使用："><a href="#c-stack的使用：" class="headerlink" title="c++ stack的使用："></a>c++ stack的使用：</h1><ul>
+<li><p>头文件：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>声明一个栈：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="built_in">stack</span> &lt;DataType&gt; p;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>相关函数：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">p.empty();		<span class="comment">//如果是空栈，返回真值，否则返回假值</span></span><br><span class="line">p.size();		<span class="comment">//返回栈中元素的个数</span></span><br><span class="line">p.top();		<span class="comment">//返回栈顶元素的**值**，但不删除该元素</span></span><br><span class="line">p.pop();		<span class="comment">//删除栈顶元素，但不返回其值</span></span><br><span class="line">p.push(k);		<span class="comment">//压入新元素k</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>如果是解题，使用stack模板更快且不易出错，，，<br>但是也要了解其如何实现的。。。。</p>
+<p>End–</p>
+
+      
+    
+    </div>
+    
+      
+      
+  <hr class="copy-line">
+  <div class="post-copyright">
+    <div class="copy-author">
+      <span>作者 :</span>
+      <span>31415926535x</span>
+    </div>
+    <div class="copy-url">
+      <span>地址 :</span>
+      <a href="http://www.31415.cf/2018/05/10/栈/">http://www.31415.cf/2018/05/10/栈/</a>
+    </div>
+    <div class="copy-origin">
+      <span>来源 :</span>
+      <a href="http://www.31415.cf">http://www.31415.cf</a>
+    </div>
+    <div class="copy-license">
+      
+      著作权归作者所有，转载请联系作者获得授权。
+    </div>
+  </div>
+
+    
+  </article>
+  
+    
+  <nav class="article-page">
+    
+    
+      <a href="/2018/05/06/cf-975B/" id="art-right" class="art-right">
+        <span class="prev-title"> 
+          codeforce-975B<i class="iconfont icon-right"></i>  
+        </span>
+      </a>
+    
+  </nav>
+
+    
   <i id="com-switch" class="iconfont icon-more jumping-in long infinite" style="font-size:24px;display:block;text-align:center;transform:rotate(180deg);"></i>
   <div class="post-comments" id="post-comments" style="display: block;margin: auto 16px;">
     
@@ -311,8 +397,23 @@
 
   </div>
 
+
+  
+   
     
   
+  <aside class="post-toc">
+    <span class="title" id="toc-switch"><span>文章导航</span></span>
+    <div class="toc-inner syuanpi back-1 fallIn-light">
+      <li class="title-link"><a href="javascript:;" class="toTop">栈</a></li>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#c-stack的使用："><span class="toc-text">c++ stack的使用：</span></a></li></ol>
+    </div>
+  </aside>
+
+
+  
+
+
         </div>
       </main>
 

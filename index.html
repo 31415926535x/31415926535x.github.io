@@ -89,7 +89,7 @@
     <div class="tagcloud-mask"></div>  
 <div class="tagcloud" id="tagcloud">
   <div class="tagcloud-inner">
-    <a href="/tags/Diary/" style="font-size: 14px;">Diary</a> <a href="/tags/acm/" style="font-size: 14px;">acm</a> <a href="/tags/c/" style="font-size: 14px;">c++</a> <a href="/tags/codeforce/" style="font-size: 14px;">codeforce</a> <a href="/tags/水题/" style="font-size: 14px;">水题</a> <a href="/tags/类/" style="font-size: 14px;">类</a> <a href="/tags/面向对象/" style="font-size: 14px;">面向对象</a> <a href="/tags/面向对象程序设计/" style="font-size: 14px;">面向对象程序设计</a>
+    <a href="/tags/Diary/" style="font-size: 14px;">Diary</a> <a href="/tags/acm/" style="font-size: 14px;">acm</a> <a href="/tags/c/" style="font-size: 14px;">c++</a> <a href="/tags/codeforce/" style="font-size: 14px;">codeforce</a> <a href="/tags/数据结构/" style="font-size: 14px;">数据结构</a> <a href="/tags/水题/" style="font-size: 14px;">水题</a> <a href="/tags/算法/" style="font-size: 14px;">算法</a> <a href="/tags/类/" style="font-size: 14px;">类</a> <a href="/tags/面向对象/" style="font-size: 14px;">面向对象</a> <a href="/tags/面向对象程序设计/" style="font-size: 14px;">面向对象程序设计</a>
   </div>
 </div>  
   
@@ -225,7 +225,7 @@
             </div>
             <div class="mobile-nav-tagcloud">
               <div class="mobile-tagcloud-inner">
-                <a href="/tags/Diary/" style="font-size: 14px;">Diary</a> <a href="/tags/acm/" style="font-size: 14px;">acm</a> <a href="/tags/c/" style="font-size: 14px;">c++</a> <a href="/tags/codeforce/" style="font-size: 14px;">codeforce</a> <a href="/tags/水题/" style="font-size: 14px;">水题</a> <a href="/tags/类/" style="font-size: 14px;">类</a> <a href="/tags/面向对象/" style="font-size: 14px;">面向对象</a> <a href="/tags/面向对象程序设计/" style="font-size: 14px;">面向对象程序设计</a>
+                <a href="/tags/Diary/" style="font-size: 14px;">Diary</a> <a href="/tags/acm/" style="font-size: 14px;">acm</a> <a href="/tags/c/" style="font-size: 14px;">c++</a> <a href="/tags/codeforce/" style="font-size: 14px;">codeforce</a> <a href="/tags/数据结构/" style="font-size: 14px;">数据结构</a> <a href="/tags/水题/" style="font-size: 14px;">水题</a> <a href="/tags/算法/" style="font-size: 14px;">算法</a> <a href="/tags/类/" style="font-size: 14px;">类</a> <a href="/tags/面向对象/" style="font-size: 14px;">面向对象</a> <a href="/tags/面向对象程序设计/" style="font-size: 14px;">面向对象程序设计</a>
               </div>
             </div>
           </div>
@@ -283,35 +283,37 @@
     <header class="post-header">
       <div class="post-time syuanpi riseIn-light back-1">
         <div class="post-time-wrapper">
-          <span>2018-05-06</span>
+          <span>2018-05-10</span>
           
           
         </div>
       </div>
       <h1 class="post-title syuanpi riseIn-light back-2">
         
-          <a href="/2018/05/06/cf-954A/">cf-954A</a>
+          <a href="/2018/05/10/栈/">栈</a>
         
       </h1>
     </header>
     <div class="post-content syuanpi riseIn-light back-3">
       
         
-          <p>cf-第一道<br><a href="http://codeforces.com/problemset/problem/954/A" target="_blank" rel="noopener">http://codeforces.com/problemset/problem/954/A</a></p>
-<p>题干：<br>A. Diagonal Walking<br>time limit per test1 second<br>memory limit per test256 megabytes<br>inputstandard input<br>outputstandard output<br>Mikhail walks on a 2D plane. He can go either up or right. You are given a sequence of Mikhail’s moves. He thinks that this sequence is too long and he wants to make it as short as possible.</p>
-<p>In the given sequence moving up is described by character U and moving right is described by character R. Mikhail can replace any pair of consecutive moves RU or UR with a diagonal move (described as character D). After that, he can go on and do some other replacements, until there is no pair of consecutive moves RU or UR left.</p>
-<p>Your problem is to print the minimum possible length of the sequence of moves after the replacements.</p>
-<p>Input<br>The first line of the input contains one integer n (1 ≤ n ≤ 100) — the length of the sequence. The second line contains the sequence consisting of n characters U and R.</p>
-<p>Output<br>Print the minimum possible length of the sequence of moves after all replacements are done.</p>
-<p>Examples<br>inputCopy<br>5<br>RUURU<br>outputCopy<br>3<br>inputCopy<br>17<br>UUURRRRRUUURURUUU<br>outputCopy<br>13<br>Note<br>In the first test the shortened sequence of moves may be DUD (its length is 3).</p>
-<p>In the second test the shortened sequence of moves can be UUDRRRDUDDUUU (its length is 13).</p>
-<p>这道题主要是为了练习英文读题的能力，，，</p>
-<p>题干意思是一个小人只能走“上”“右”，，现在想通过走对角线的方法缩短移动距离，，也就是”D”,,,</p>
-<p>我的一开始思路，，输入字符串从s[0]到s[s.lengh()-1]检查每一个字符，，是否有”RU”或”UR”的排列，，有的话i增一，，跳开这个排列，，并且在每次检查num++，，，但是WA了，，，原因是可能出现”RURU”的情况，，，改成s[i] != s[i+1]就可以了，，，，</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> s;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="built_in">cin</span>.ignore();</span><br><span class="line">    getline(<span class="built_in">cin</span> , s);</span><br><span class="line">    <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n - <span class="number">1</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        //这让写没考虑"RURU"的情况，，，会出现多算一个的情况，，，，QAQ</span></span><br><span class="line"><span class="comment">        if(s[i] == 'R' &amp;&amp; s[i+1] == 'U')</span></span><br><span class="line"><span class="comment">            i++;</span></span><br><span class="line"><span class="comment">        if (s[i] == 'U' &amp;&amp; s[i+1] == 'R')</span></span><br><span class="line"><span class="comment">            i++;</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        <span class="keyword">if</span>(s[i] != s[i+<span class="number">1</span>])</span><br><span class="line">            i++;</span><br><span class="line">        num++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; num &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+          <p>#栈的定义：</p>
+<ul>
+<li>栈（stack)是一种元素满足后进先出（Last in first out,LIFO) 规则的线性表；</li>
+<li>对栈的操作是在 表尾 进行；</li>
+<li><strong> 栈底 （bottom)</strong>：栈的表头，<strong> 栈顶 (top)</strong>：栈的表尾；</li>
+<li><strong> 入栈 (push)</strong>：向栈内添加元素，<strong> 出栈 (pop)</strong>：删除元素；</li>
+<li><strong> 空栈 </strong>：没有任何元素的栈；</li>
+<li>栈的主要操作：入栈、出栈、判断栈空；</li>
+</ul>
         
       
+    
+      <p class="content-link">
+        <a href="/2018/05/10/栈/#more">
+          <span>继续阅读</span>
+        </a>
+      </p>
     
     </div>
     
@@ -325,7 +327,7 @@
 </section>
   
   <nav class="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">下一页 ></a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">下一页 ></a>
   </nav>
 
 
