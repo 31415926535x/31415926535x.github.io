@@ -106,7 +106,7 @@
 <meta property="og:site_name" content="31415926535x">
 <meta property="og:description" content="类的继承与派生:简介: 类的继承机制允许程序员在保持原有类特性的基础上，进行更具体、更详细的类的定义; 派生新类的过程一般包括: 1)吸收已有类的成员 、 2)调整已有类成员 、 3)添加新的成员; 原有的类 成为 基类 或 父类，产生的新类 称为 派生类 或 子类;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-22T13:33:51.373Z">
+<meta property="og:updated_time" content="2018-05-24T12:16:14.070Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="继承与派生">
 <meta name="twitter:description" content="类的继承与派生:简介: 类的继承机制允许程序员在保持原有类特性的基础上，进行更具体、更详细的类的定义; 派生新类的过程一般包括: 1)吸收已有类的成员 、 2)调整已有类成员 、 3)添加新的成员; 原有的类 成为 基类 或 父类，产生的新类 称为 派生类 或 子类;">
@@ -533,7 +533,70 @@
 </tr>
 </tbody>
 </table>
-<h2 id="复制构造函数"><a href="#复制构造函数" class="headerlink" title="复制构造函数:"></a>复制构造函数:</h2><p>+ </p>
+<h2 id="复制构造函数"><a href="#复制构造函数" class="headerlink" title="复制构造函数:"></a>复制构造函数:</h2><ul>
+<li><p>派生类的复制构造函数的形式:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//假设Derived类是Base类的派生类，</span></span><br><span class="line">Derived::Derived(<span class="keyword">const</span> Derived &amp;v) : Base(v)&#123;···&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这里使用了类的兼容规则，即用 <strong>派生类的对象</strong> 去 <strong>初始化基类的引用</strong>，因此当函数的形参是基类的引用时，实参可以是派生类的对象;</p>
+</li>
+</ul>
+<h2 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数:"></a>析构函数:</h2><ul>
+<li>派生类的析构函数的声明方法与没有继承关系的类中析构函数的声明方法相同， <strong>只需在函数体中负责把派生类新增的非对象成员的清理工作做好就行</strong> ，系统会自己调用基类及对象成员的析构函数来对基类及对象成员进行清理;</li>
+<li>析构函数的执行次序与构造函数完全相反，1.首先 执行析构函数的函数体，2.然后 对派生类新增的类类型的成员的对象进行清理，3.最后 对所有基类继承来的成员进行清理;</li>
+<li>这些清理工作分别调用 派生类析构函数体 、 调用类类型的派生类对象成员所在类的析构函数 和 调用基类析构函数;</li>
+</ul>
+<h1 id="派生类成员的标识和访问"><a href="#派生类成员的标识和访问" class="headerlink" title="派生类成员的标识和访问:"></a>派生类成员的标识和访问:</h1><ul>
+<li>在派生类中，成员可以按 <strong>访问属性</strong> 划为以下四种:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">不可访问成员</td>
+<td style="text-align:center">从基类私有成员继承，派生类或建立派生列对象的模块都无法访问他们 如果继续派生新类，仍无法访问</td>
+</tr>
+<tr>
+<td style="text-align:center">私有成员</td>
+<td style="text-align:center">包括从基类继承来的成员以及新增加的成员，派生类内部可访问，但在建立派生类对象的模块中无法访问，继续派生，就变成类新的派生类中的不可访问成员</td>
+</tr>
+<tr>
+<td style="text-align:center">保护成员</td>
+<td style="text-align:center">可能是新增亦或从基类继承过来的，派生类内部成员可以访问，建立派生类对象的模板无法访问，进一步派生后，在新的派生类中可能成为 私有成员 或者是 保护性成员</td>
+</tr>
+<tr>
+<td style="text-align:center">公有成员</td>
+<td style="text-align:center">派生类、建立派生类的模块都可以访问，继续派生，可以是新派生类中的私有、保护或者公有成员</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>在对派生类的访问中。有两个问题需要解决: <em>唯一标识问题</em> 和 <em>成员本身的属性问题(可见性问题)</em>;</li>
+<li>二义性: 通过某一个表达式能引用的成员不只一个;</li>
+</ul>
+<h2 id="作用域分辨符"><a href="#作用域分辨符" class="headerlink" title="作用域分辨符:"></a>作用域分辨符:</h2><ul>
+<li>作用域分辨符是指: ‘ :: ‘ , 可以用来限定要访问的成员所在的类的名称;</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">类名::成员名            <span class="comment">//数据成员</span></span><br><span class="line">类名::成员名(参数表)    <span class="comment">//函数成员</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>可见性原则: 如果存在两个或多个具有包含关系的作用域，外层声明了一个标识符，而内层没有再次声明同名标识符，那么外层标识符在内层仍然可见;</li>
+<li>隐藏规则: 如果在内层声明了同名标识符，则外层标识符在内层不可见，这时称内层标识符隐藏类外层同名标识符;</li>
+<li>在类的派生层次结构中，基类和派生类新增的成员都具有类作用域，二者的作用范围不同，是互相包含的两个层， <strong>派生类在内层</strong> ；这时如果派生类声明类一个和某个基类成员同名的新成员， <strong>派生类的新成员就隐藏了外层同名成员</strong> ， <strong>直接使用成员名只能访问到派生类的成员</strong>;</li>
+<li>如果派生类中声明类与基类成员同名的新函数，即使函数的参数表不同，从基类继承的同名函数的所有重载形式也都会被隐藏，如果要访问被隐藏的成员，就需要使用 <strong>作用域分辨符</strong> 和 <strong>基类</strong> 命来限定;</li>
+<li>对于多继承情况，，当所有基类都没有上级基类时，，如果多个基类拥有同名成员，派生类也新增这样的同名成员，派生类成员将隐藏所有基类的同名成员，，这时可以使用 “对象名.成员名” 或 “对象指针-&gt;成员名”  的方式来访问新增成员，，基类的而同名成员可以使用 <strong>基类名</strong> 和 <strong>作用域分辨符</strong> 访问;但如果派生类中没有同名成成员，上述方法就无法唯一标识成员，必须通过基类名和作用域分辨符来标识成员;</li>
+<li>如果子类中定义的函数与父类的函数同名但具有不同的 <strong>参数数量或参数类型(形参表不同)</strong> ， 不属于 <strong>函数重载</strong>。这时子类中的函数将使父类中的函数隐藏，调用父类中的函数必须使用父类名称来限定， <strong>只用在相同的作用域中定义的函数才可以重载</strong> ;</li>
+<li><strong>using 关键字</strong>: using的一般功能是将一个作用域中的名字引入到另一个作用域中，它还有一个非常有用的用法: 将using用域基类中的函数名，这样派生类中如果定义同名但参数不同的函数，基类的函数就不会被隐藏，两个重载的函数将会并存在派生类的作用域中;例如:</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived2</span>:</span> <span class="keyword">public</span> Base1</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">using</span> Base1::fun;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;,,,&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>这时，使用Derived2的对象，既可以直接调用无参数的fun函数，又可以直接调用带int型参数的fun参数;</p>
+<ul>
+<li>如果某个派生类的部分或全部直接基类时从另一个共同的基类派生而来，在这些直接基类中，从上一级基类继承来的成员就拥有相同的名称，因此派生类中也就会产生同名的现象，对这种类型的同名成员也要使用作用域分辨符来唯一标识，而且必须用直接基类来进行限定;</li>
+<li></li>
+</ul>
 
       
     </div>
@@ -759,7 +822,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#类的继承与派生"><span class="nav-number">1.</span> <span class="nav-text">类的继承与派生:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#派生类的定义"><span class="nav-number">1.2.</span> <span class="nav-text">派生类的定义:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#派生类生成过程"><span class="nav-number">1.3.</span> <span class="nav-text">派生类生成过程:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#访问控制"><span class="nav-number">2.</span> <span class="nav-text">访问控制:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类型兼容规则"><span class="nav-number">3.</span> <span class="nav-text">类型兼容规则:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#派生类的构造和析构函数"><span class="nav-number">4.</span> <span class="nav-text">派生类的构造和析构函数:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#构造函数"><span class="nav-number">4.1.</span> <span class="nav-text">构造函数:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复制构造函数"><span class="nav-number">4.2.</span> <span class="nav-text">复制构造函数:</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#类的继承与派生"><span class="nav-number">1.</span> <span class="nav-text">类的继承与派生:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#派生类的定义"><span class="nav-number">1.2.</span> <span class="nav-text">派生类的定义:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#派生类生成过程"><span class="nav-number">1.3.</span> <span class="nav-text">派生类生成过程:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#访问控制"><span class="nav-number">2.</span> <span class="nav-text">访问控制:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类型兼容规则"><span class="nav-number">3.</span> <span class="nav-text">类型兼容规则:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#派生类的构造和析构函数"><span class="nav-number">4.</span> <span class="nav-text">派生类的构造和析构函数:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#构造函数"><span class="nav-number">4.1.</span> <span class="nav-text">构造函数:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复制构造函数"><span class="nav-number">4.2.</span> <span class="nav-text">复制构造函数:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#析构函数"><span class="nav-number">4.3.</span> <span class="nav-text">析构函数:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#派生类成员的标识和访问"><span class="nav-number">5.</span> <span class="nav-text">派生类成员的标识和访问:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域分辨符"><span class="nav-number">5.1.</span> <span class="nav-text">作用域分辨符:</span></a></li></ol></li></ol></div>
             
 
           </div>
