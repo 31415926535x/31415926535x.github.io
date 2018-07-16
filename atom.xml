@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.31415.cf/"/>
-  <updated>2018-05-24T12:16:14.070Z</updated>
+  <updated>2018-07-16T15:39:38.371Z</updated>
   <id>http://www.31415.cf/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数论_快速幂</title>
+    <link href="http://www.31415.cf/2018/07/16/%E6%95%B0%E8%AE%BA_%E5%BF%AB%E9%80%9F%E5%B9%82/"/>
+    <id>http://www.31415.cf/2018/07/16/数论_快速幂/</id>
+    <published>2018-07-16T10:39:39.000Z</published>
+    <updated>2018-07-16T15:39:38.371Z</updated>
+    
+    <content type="html"><![CDATA[<p>2018.7.16</p><p>这篇主要是关于数论里的快速幂和矩阵的快速乘法，，，</p><h2 id="快速幂和快速乘"><a href="#快速幂和快速乘" class="headerlink" title="快速幂和快速乘"></a>快速幂和快速乘</h2><p>对于a^n这样的计算，，最简单的方法就是一个for循环连乘下去，，</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="function">ll <span class="title">pow</span> <span class="params">(ll a , ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= b; i++)</span><br><span class="line">        ans *= a;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>但是如果a,n都很大，，尤其是某些题，，，超时，，妥妥的，，(^_っ^)</p><ul><li>所以，对于这种情况可以使用快速幂的方法来计算，，，</li><li>首先，快速幂的主要思想是将多个a合并，，比如：</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">2^11 </span><br><span class="line">== 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 </span><br><span class="line">== (2 * 2) * (2 * 2) * (2 * 2) * (2 * 2) * (2 * 2) * 2 </span><br><span class="line">== 4 * 4 * 4 * 4 * 4 * 2 </span><br><span class="line">== (4 * 4) * (4 * 4) * 4 * 2 </span><br><span class="line">== 16 * 16 * 4 * 2 ...</span><br></pre></td></tr></table></figure><p>这样就就把10次的乘法操作减少到了5次，，，这样就减少的运算的时间，，，就 <strong>有可能</strong>不会TLE，， (因为有的题的数据可能快速幂也会超时，，，<em>(:3 」∠ )</em>)</p><h2 id="快速幂的模板："><a href="#快速幂的模板：" class="headerlink" title="快速幂的模板："></a><strong>快速幂的模板：</strong></h2><h3 id="递推的写法（用循环解决）"><a href="#递推的写法（用循环解决）" class="headerlink" title="递推的写法（用循环解决）"></a><strong>递推的写法（用循环解决）</strong></h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD = <span class="number">1e9</span>;</span><br><span class="line"><span class="function">ll <span class="title">pow</span> <span class="params">(ll a , ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll ans = <span class="number">1</span>;     <span class="comment">//注意是1，，，下面的快乘是0，，</span></span><br><span class="line">    <span class="keyword">while</span> (b)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (b &amp; <span class="number">1</span>)  ans = ans * a % MOD;    <span class="comment">//如果b,也就是当前指数是奇数时，要给ans补一个a，，因为下面b会减半</span></span><br><span class="line">        a = a * a % MOD;                    <span class="comment">//合并两个a，变成a^2</span></span><br><span class="line">        b /= <span class="number">2</span>;                             <span class="comment">//b减半</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="递归的写法（用函数递归解决）"><a href="#递归的写法（用函数递归解决）" class="headerlink" title="递归的写法（用函数递归解决）"></a><strong>递归的写法（用函数递归解决）</strong></h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD = <span class="number">1e9</span>;</span><br><span class="line"><span class="function">ll <span class="title">pow</span> <span class="params">(ll a , ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (b == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    ll ans = <span class="built_in">pow</span> (a , b / <span class="number">2</span>);</span><br><span class="line">    ans = ans * ans % MOD;</span><br><span class="line">    <span class="keyword">if</span> (b &amp; <span class="number">1</span>)  ans = ans * a % MOD;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="用位操作的写法"><a href="#用位操作的写法" class="headerlink" title="用位操作的写法"></a><strong>用位操作的写法</strong></h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD = <span class="number">1e9</span>;</span><br><span class="line"><span class="function">ll <span class="title">pow</span> <span class="params">(ll a , ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (b)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (b &amp; <span class="number">1</span>)  ans = ans * a % MOD;</span><br><span class="line">         a = a * a % MOD;</span><br><span class="line">         b &gt;&gt;= <span class="number">1</span>;                           <span class="comment">//b右移相当于除以二</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>在某些模板里a用的res,,b用的n</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD = <span class="number">1e9</span>;</span><br><span class="line"><span class="function">ll <span class="title">pow</span> <span class="params">(ll x , ll n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll res = x;</span><br><span class="line">    ll ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (n &amp; <span class="number">1</span>)  ans = ans * res % MOD;</span><br><span class="line">         res = res * res % MOD;</span><br><span class="line">         n &gt;&gt;= <span class="number">1</span>;                           <span class="comment">//b右移相当于除以二</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p> 有了快速幂就有了 <strong>快速乘</strong>，只要把乘该成加就OK啦，，，(ゝ∀･)<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD = <span class="number">1e9</span>;</span><br><span class="line"><span class="function">ll <span class="title">mul</span> <span class="params">(ll x , ll n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll res = x;</span><br><span class="line">    ll ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (n &amp; <span class="number">1</span>)  ans = (ans + res) % MOD;</span><br><span class="line">         res = (res + res) % MOD;</span><br><span class="line">         n &gt;&gt;= <span class="number">1</span>;                           <span class="comment">//b右移相当于除以二</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>对了，，，快速幂里的乘法运算也可以换成快速乘，，，</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line">ll MOD;</span><br><span class="line"><span class="function">ll <span class="title">mul</span> <span class="params">(ll a , ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (b)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (b &amp; <span class="number">1</span>)  ans = (ans + a) % MOD;</span><br><span class="line">        a = (a + a) % MOD;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">pow</span> <span class="params">(ll a , ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (b)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (b &amp; <span class="number">1</span>)  ans = mul(ans , a);</span><br><span class="line">        a = mul(a , a);</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="矩阵快速幂："><a href="#矩阵快速幂：" class="headerlink" title="矩阵快速幂："></a>矩阵快速幂：</h2><p>好了，，，(」・ω・)」うー！(／・ω・)／にゃー！快速幂和快速乘都清楚了，，这时来看另一个东西，，<strong>矩阵快速幂</strong>(σ′▽‵)′▽‵)σ<br>首先，，，我们先实现一个矩阵结构体，，，<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Matrix</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    ll m[N][N];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p><p>然后，，emmmm先鸽了，，，碎觉ｷﾀ━━━━(ﾟ∀ﾟ)━━━━!!</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;2018.7.16&lt;/p&gt;
+&lt;p&gt;这篇主要是关于数论里的快速幂和矩阵的快速乘法，，，&lt;/p&gt;
+&lt;h2 id=&quot;快速幂和快速乘&quot;&gt;&lt;a href=&quot;#快速幂和快速乘&quot; class=&quot;headerlink&quot; title=&quot;快速幂和快速乘&quot;&gt;&lt;/a&gt;快速幂和快速乘&lt;/h2&gt;&lt;p&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="acm" scheme="http://www.31415.cf/tags/acm/"/>
+    
+      <category term="算法" scheme="http://www.31415.cf/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>继承与派生</title>
@@ -75,17 +102,16 @@
     <link href="http://www.31415.cf/2018/05/19/ACM-%E7%AC%94%E8%AE%B0/"/>
     <id>http://www.31415.cf/2018/05/19/ACM-笔记/</id>
     <published>2018-05-19T01:06:37.000Z</published>
-    <updated>2018-05-19T01:17:25.038Z</updated>
+    <updated>2018-05-26T01:05:39.132Z</updated>
     
-    <content type="html"><![CDATA[<p>//这一篇主要是记录一些做acm题时常用到的一些技巧、方法，比如说时大佬们常用的一些 <strong>头文件</strong>、<strong>模板</strong>、<strong>函数</strong>什么的;</p><ul><li><strong>万能头文件</strong>：#include <bits stdc++.h="">;</bits></li><li>scanf()输入要比cin输入快一些;</li></ul>]]></content>
+    <content type="html"><![CDATA[<p>//这一篇主要是记录一些做acm题时常用到的一些技巧、方法，比如说时大佬们常用的一些 <strong>头文件</strong>、<strong>模板</strong>、<strong>函数</strong>什么的;</p><h1 id="头文件之类的"><a href="#头文件之类的" class="headerlink" title="头文件之类的:"></a>头文件之类的:</h1><ul><li><strong>万能头文件</strong>：#include <bits stdc++.h="">;</bits></li></ul><h1 id="函数方面"><a href="#函数方面" class="headerlink" title="函数方面:"></a>函数方面:</h1><h2 id="字符串的处理"><a href="#字符串的处理" class="headerlink" title="字符串的处理:"></a>字符串的处理:</h2><ul><li>截取从 pos 开始 len 长度的字串，，std::string::substr(size_t pos = 0, size_t len = npos);</li></ul><h1 id="效率方面"><a href="#效率方面" class="headerlink" title="效率方面:"></a>效率方面:</h1><ul><li>scanf()输入要比cin输入快一些;</li></ul>]]></content>
     
     <summary type="html">
     
       
       
         &lt;p&gt;//这一篇主要是记录一些做acm题时常用到的一些技巧、方法，比如说时大佬们常用的一些 &lt;strong&gt;头文件&lt;/strong&gt;、&lt;strong&gt;模板&lt;/strong&gt;、&lt;strong&gt;函数&lt;/strong&gt;什么的;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;万能头文件&lt;/s
+&lt;h1 id=&quot;头文件之类的&quot;&gt;&lt;a href=&quot;
       
     
     </summary>
@@ -143,11 +169,11 @@
     </summary>
     
     
+      <category term="acm" scheme="http://www.31415.cf/tags/acm/"/>
+    
       <category term="codeforce" scheme="http://www.31415.cf/tags/codeforce/"/>
     
       <category term="c++" scheme="http://www.31415.cf/tags/c/"/>
-    
-      <category term="acm" scheme="http://www.31415.cf/tags/acm/"/>
     
   </entry>
   
@@ -170,13 +196,13 @@
     </summary>
     
     
+      <category term="acm" scheme="http://www.31415.cf/tags/acm/"/>
+    
       <category term="codeforce" scheme="http://www.31415.cf/tags/codeforce/"/>
     
       <category term="c++" scheme="http://www.31415.cf/tags/c/"/>
     
       <category term="水题" scheme="http://www.31415.cf/tags/%E6%B0%B4%E9%A2%98/"/>
-    
-      <category term="acm" scheme="http://www.31415.cf/tags/acm/"/>
     
   </entry>
   

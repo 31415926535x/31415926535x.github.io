@@ -85,7 +85,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="acm,算法," />
 
 
 
@@ -98,13 +98,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="31415926535x">
-<meta property="og:url" content="http://www.31415.cf/index.html">
+<meta name="description" content="2018.7.16 这篇主要是关于数论里的快速幂和矩阵的快速乘法，，， 快速幂和快速乘对于a^n这样的计算，，最简单的方法就是一个for循环连乘下去，， 12345678typedef long long ll;ll pow (ll a , ll b)&amp;#123;    ll ans = 1;    for (int i = 1; i &amp;lt;= b; i++)        ans *= a;">
+<meta name="keywords" content="acm,算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数论_快速幂">
+<meta property="og:url" content="http://www.31415.cf/2018/07/16/数论_快速幂/index.html">
 <meta property="og:site_name" content="31415926535x">
+<meta property="og:description" content="2018.7.16 这篇主要是关于数论里的快速幂和矩阵的快速乘法，，， 快速幂和快速乘对于a^n这样的计算，，最简单的方法就是一个for循环连乘下去，， 12345678typedef long long ll;ll pow (ll a , ll b)&amp;#123;    ll ans = 1;    for (int i = 1; i &amp;lt;= b; i++)        ans *= a;">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-16T15:39:38.371Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="31415926535x">
+<meta name="twitter:title" content="数论_快速幂">
+<meta name="twitter:description" content="2018.7.16 这篇主要是关于数论里的快速幂和矩阵的快速乘法，，， 快速幂和快速乘对于a^n这样的计算，，最简单的方法就是一个for循环连乘下去，， 12345678typedef long long ll;ll pow (ll a , ll b)&amp;#123;    ll ans = 1;    for (int i = 1; i &amp;lt;= b; i++)        ans *= a;">
 
 
 
@@ -134,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="http://www.31415.cf/"/>
+  <link rel="canonical" href="http://www.31415.cf/2018/07/16/数论_快速幂/"/>
 
 
 
 
 
-  <title>31415926535x</title>
+  <title>数论_快速幂 | 31415926535x</title>
   
 
 
@@ -168,8 +173,7 @@
     
   
 
-  <div class="container sidebar-position-right 
-  page-home">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -262,9 +266,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -294,9 +298,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/16/数论_快速幂/" itemprop="url">数论_快速幂</a></h1>
+          <h1 class="post-title" itemprop="name headline">数论_快速幂</h1>
         
 
         <div class="post-meta">
@@ -357,9 +359,7 @@
       
 
       
-        
-          
-            <p>2018.7.16</p>
+        <p>2018.7.16</p>
 <p>这篇主要是关于数论里的快速幂和矩阵的快速乘法，，，</p>
 <h2 id="快速幂和快速乘"><a href="#快速幂和快速乘" class="headerlink" title="快速幂和快速乘"></a>快速幂和快速乘</h2><p>对于a^n这样的计算，，最简单的方法就是一个for循环连乘下去，，</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="function">ll <span class="title">pow</span> <span class="params">(ll a , ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= b; i++)</span><br><span class="line">        ans *= a;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -381,8 +381,6 @@
 <h2 id="矩阵快速幂："><a href="#矩阵快速幂：" class="headerlink" title="矩阵快速幂："></a>矩阵快速幂：</h2><p>好了，，，(」・ω・)」うー！(／・ω・)／にゃー！快速幂和快速乘都清楚了，，这时来看另一个东西，，<strong>矩阵快速幂</strong>(σ′▽‵)′▽‵)σ<br>首先，，，我们先实现一个矩阵结构体，，，<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Matrix</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    ll m[N][N];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <p>然后，，emmmm先鸽了，，，碎觉ｷﾀ━━━━(ﾟ∀ﾟ)━━━━!!</p>
 
-          
-        
       
     </div>
     
@@ -397,290 +395,38 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.31415.cf/2018/05/21/继承与派生/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="31415926535x">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/misaka.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="31415926535x">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/21/继承与派生/" itemprop="url">继承与派生</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-21T22:16:21+08:00">
-                2018-05-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/acm/" rel="tag">:-> acm</a>
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/05/21/继承与派生/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/05/21/继承与派生/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
+            <a href="/tags/算法/" rel="tag">:-> 算法</a>
           
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <h1 id="类的继承与派生"><a href="#类的继承与派生" class="headerlink" title="类的继承与派生:"></a>类的继承与派生:</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介:"></a>简介:</h2><ul>
-<li>类的继承机制允许程序员在保持原有类特性的基础上，进行更具体、更详细的类的定义;</li>
-<li>派生新类的过程一般包括: 1)<strong>吸收已有类的成员</strong> 、 2)<strong>调整已有类成员</strong> 、 3)<strong>添加新的成员</strong>;</li>
-<li><strong>原有的类</strong> 成为 <strong>基类</strong> 或 <strong>父类</strong>，<strong>产生的新类</strong> 称为 <strong>派生类</strong> 或 <strong>子类</strong>;</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/21/继承与派生/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/21/继承与派生/" rel="next" title="继承与派生">
+                <i class="fa fa-chevron-left"></i> 继承与派生
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.31415.cf/2018/05/19/深搜和广搜1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="31415926535x">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/misaka.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="31415926535x">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/19/深搜和广搜1/" itemprop="url">深搜和广搜1</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-19T11:50:16+08:00">
-                2018-05-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/05/19/深搜和广搜1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/05/19/深搜和广搜1/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>2018.5.19</p>
-<p>这一篇主要是关于深搜和广搜实现的一些总结，因为一些模板和数据结构还未学习，，所以这一篇深搜广搜都是使用基本的方法，，虽然便于理解，，但是如要解决问题acm之类还是使用带有模板的更高效的方法。。。。</p>
-<p>搜索是一种求解的方法，通常来说就是将所有情况探索一遍，找出其中符合要求的情况作为最后的解。按照 <strong>生成解的顺序</strong> 有两种基本的求解顺序：<strong>深度优先搜索（Depth-first Search）</strong> 和 <strong>广度优先搜索（Breadth-first search）</strong>。^–&gt;<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/19/深搜和广搜1/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -690,14 +436,11 @@
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -705,6 +448,20 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -725,8 +482,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -825,6 +591,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#快速幂和快速乘"><span class="nav-number">1.</span> <span class="nav-text">快速幂和快速乘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速幂的模板："><span class="nav-number">2.</span> <span class="nav-text">快速幂的模板：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#递推的写法（用循环解决）"><span class="nav-number">2.1.</span> <span class="nav-text">递推的写法（用循环解决）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归的写法（用函数递归解决）"><span class="nav-number">2.2.</span> <span class="nav-text">递归的写法（用函数递归解决）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用位操作的写法"><span class="nav-number">2.3.</span> <span class="nav-text">用位操作的写法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵快速幂："><span class="nav-number">3.</span> <span class="nav-text">矩阵快速幂：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -964,6 +746,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -981,6 +767,18 @@
       <script id="dsq-count-scr" src="https://www-31415-cf.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://www.31415.cf/2018/07/16/数论_快速幂/';
+          this.page.identifier = '2018/07/16/数论_快速幂/';
+          this.page.title = '数论_快速幂';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://www-31415-cf.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
