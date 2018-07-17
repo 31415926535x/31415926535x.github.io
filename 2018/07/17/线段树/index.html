@@ -85,7 +85,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="acm,算法," />
 
 
 
@@ -98,13 +98,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="31415926535x">
-<meta property="og:url" content="http://www.31415.cf/index.html">
+<meta name="description" content="2018-7-17 这篇主要是关于树里的 线段树 的一些东西，，， 概述 首先，，线段树的使用场景主要是对于一个线性的点(可能代表数，也可能是其他))，，多次求区间[l , r]之间的和，最值，奇偶和什么的，，，同时要能够修改某个点的同时更新上述所求，，， 如果用普通数组实现时，，当面对较大的数据量时往往会tle，，，此时可以使用线段树来维护这段数据，，， 原理就是将区间为[1 , n]二分为若干">
+<meta name="keywords" content="acm,算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线段树">
+<meta property="og:url" content="http://www.31415.cf/2018/07/17/线段树/index.html">
 <meta property="og:site_name" content="31415926535x">
+<meta property="og:description" content="2018-7-17 这篇主要是关于树里的 线段树 的一些东西，，， 概述 首先，，线段树的使用场景主要是对于一个线性的点(可能代表数，也可能是其他))，，多次求区间[l , r]之间的和，最值，奇偶和什么的，，，同时要能够修改某个点的同时更新上述所求，，， 如果用普通数组实现时，，当面对较大的数据量时往往会tle，，，此时可以使用线段树来维护这段数据，，， 原理就是将区间为[1 , n]二分为若干">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-17T14:54:21.358Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="31415926535x">
+<meta name="twitter:title" content="线段树">
+<meta name="twitter:description" content="2018-7-17 这篇主要是关于树里的 线段树 的一些东西，，， 概述 首先，，线段树的使用场景主要是对于一个线性的点(可能代表数，也可能是其他))，，多次求区间[l , r]之间的和，最值，奇偶和什么的，，，同时要能够修改某个点的同时更新上述所求，，， 如果用普通数组实现时，，当面对较大的数据量时往往会tle，，，此时可以使用线段树来维护这段数据，，， 原理就是将区间为[1 , n]二分为若干">
 
 
 
@@ -134,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="http://www.31415.cf/"/>
+  <link rel="canonical" href="http://www.31415.cf/2018/07/17/线段树/"/>
 
 
 
 
 
-  <title>31415926535x</title>
+  <title>线段树 | 31415926535x</title>
   
 
 
@@ -168,8 +173,7 @@
     
   
 
-  <div class="container sidebar-position-right 
-  page-home">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -262,9 +266,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -294,9 +298,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/17/线段树/" itemprop="url">线段树</a></h1>
+          <h1 class="post-title" itemprop="name headline">线段树</h1>
         
 
         <div class="post-meta">
@@ -357,8 +359,7 @@
       
 
       
-        
-          <p>2018-7-17</p>
+        <p>2018-7-17</p>
 <p>这篇主要是关于树里的 <strong>线段树</strong> 的一些东西，，，</p>
 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ul>
 <li>首先，，线段树的使用场景主要是对于一个线性的点(可能代表数，也可能是其他))，，多次求区间[l , r]之间的和，最值，奇偶和什么的，，，同时要能够修改某个点的同时更新上述所求，，，</li>
@@ -366,292 +367,38 @@
 <li>原理就是将区间为[1 , n]二分为若干个子区间，，，（数量不超过4 <em> n），将区间[l , r]都分成特定子区间，，然后对这些子区间进行 <strong>修改</strong> 和 <em>*统计</em></em> 以实现对[l , r]区间的修改和统计，，，</li>
 <li>线段树对编号连续的点进行修改或者统计操作的时间复杂度都是O($log_2$n)，，，</li>
 </ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/17/线段树/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.31415.cf/2018/07/16/数论_快速幂/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="31415926535x">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/misaka.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="31415926535x">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/16/数论_快速幂/" itemprop="url">数论_快速幂</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-16T18:39:39+08:00">
-                2018-07-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/07/16/数论_快速幂/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/07/16/数论_快速幂/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>2018.7.16</p>
-<p>这篇主要是关于数论里的快速幂和矩阵的快速乘法，，，</p>
-<h2 id="快速幂和快速乘"><a href="#快速幂和快速乘" class="headerlink" title="快速幂和快速乘"></a>快速幂和快速乘</h2><p>对于a^n这样的计算，，最简单的方法就是一个for循环连乘下去，，</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="function">ll <span class="title">pow</span> <span class="params">(ll a , ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= b; i++)</span><br><span class="line">        ans *= a;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>但是如果a,n都很大，，尤其是某些题，，，超时，，妥妥的，，(^_っ^)</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/16/数论_快速幂/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.31415.cf/2018/05/21/继承与派生/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="31415926535x">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/misaka.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="31415926535x">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/21/继承与派生/" itemprop="url">继承与派生</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-21T22:16:21+08:00">
-                2018-05-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/05/21/继承与派生/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/05/21/继承与派生/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="类的继承与派生"><a href="#类的继承与派生" class="headerlink" title="类的继承与派生:"></a>类的继承与派生:</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介:"></a>简介:</h2><ul>
-<li>类的继承机制允许程序员在保持原有类特性的基础上，进行更具体、更详细的类的定义;</li>
-<li>派生新类的过程一般包括: 1)<strong>吸收已有类的成员</strong> 、 2)<strong>调整已有类成员</strong> 、 3)<strong>添加新的成员</strong>;</li>
-<li><strong>原有的类</strong> 成为 <strong>基类</strong> 或 <strong>父类</strong>，<strong>产生的新类</strong> 称为 <strong>派生类</strong> 或 <strong>子类</strong>;</li>
+<a id="more"></a>
+<ul>
+<li>线段树的统计的东西必须满足 <strong>区间可加性</strong> ，否则不能通过分成的子区间来得到[l , r]的统计的结果，，</li>
 </ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/21/继承与派生/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+<blockquote>
+<ul>
+<li>符合 <strong>区间加法</strong> 的例子：</li>
+<li>数字之和——总数字之和 = 左区间数字之和 + 右区间数字之和</li>
+<li>最大公因数(GCD)——总GCD = gcd( 左区间GCD , 右区间GCD );</li>
+<li>最大值——总最大值=max(左区间最大值，右区间最大值)</li>
+<li><strong>不符合区间加法</strong> 的例子：</li>
+<li>众数——只知道左右区间的众数，没法求总区间的众数</li>
+<li>01序列的最长连续零——只知道左右区间的最长连续零，没法知道总的最长连续零</li>
+</ul>
+<p><a href="https://blog.csdn.net/yitongjun/article/details/53193724" target="_blank" rel="noopener">参考博文</a></p>
+</blockquote>
+<h2 id="建树"><a href="#建树" class="headerlink" title="建树"></a>建树</h2><p>建树之前先得构建一个节点数组，，根据我们的需求，，节点要有两个值l , r来保存该节点的区间，，同时，，，根据题目的不同节点里也要有sum–用来保存该区间的和或差，，，max,min来保存该区间内的最值，odd,even保存该区间的奇偶和等等，，，总之节点里的东西要灵活的根据题意来变通，，，<br>基于以上，，我们大多数情况下的节点构建如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> a[MAXN];                                 <span class="comment">//a[MAXN]是待处理的数据</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">tree</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> l;</span><br><span class="line">    <span class="keyword">int</span> r;</span><br><span class="line">    <span class="keyword">int</span> sum;</span><br><span class="line">&#125;Node[MAXN &lt;&lt; <span class="number">2</span>];                            <span class="comment">//其中MAXN &lt;&lt; 2的意思是开4倍的MAXN的数组，，，</span></span><br></pre></td></tr></table></figure>
+<p>节点有了，，之后便是建树哩，，，</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//build(1 , 1 , n)                          //调用方式</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span> <span class="params">(<span class="keyword">int</span> rt , <span class="keyword">int</span> l , <span class="keyword">int</span> r)</span>         <span class="comment">//rt指的是根节点即当前节点，l , r即左右区间值</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Node[rt].l = l;                         <span class="comment">//记录当前的左区间</span></span><br><span class="line">    Node[rt].r = r;                         <span class="comment">//记录当前的右区间</span></span><br><span class="line">    Node[rt].sum = <span class="number">0</span>;                       <span class="comment">//将该区间的区间和初始化为0</span></span><br><span class="line">    <span class="keyword">if</span> (l == r)                             <span class="comment">//当左右区间值相等时，说明现在访问到了叶子节点，即该节点保存数据的值</span></span><br><span class="line">    &#123;</span><br><span class="line">        Node[rt].sum = a[l];</span><br><span class="line">        <span class="keyword">return</span>;                             <span class="comment">//记得return到上一层，，跳出这一条线</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid = l + r;                        <span class="comment">//计算区间中点值</span></span><br><span class="line">    mid /= <span class="number">2</span>;</span><br><span class="line">    build (rt &lt;&lt; <span class="number">1</span> , l , mid);              <span class="comment">//向左半支递归建树</span></span><br><span class="line">    build ((rt &lt;&lt; <span class="number">1</span>) | <span class="number">1</span> , mid + <span class="number">1</span> , r);    <span class="comment">//向右半支建树</span></span><br><span class="line">    pushUp (rt);                            <span class="comment">//更新节点rt的sum值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>pushUp()函数的实现:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pushUp</span><span class="params">(<span class="keyword">int</span> rt)</span>                         <span class="comment">//更新节点的sum的值</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Node[rt].sum = Node[rt &lt;&lt; <span class="number">1</span>].sum + Node[(rt &lt;&lt; <span class="number">1</span>) | <span class="number">1</span>].sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意：建树的模板终究是模板，，不要死套，，要根据具体的问题具体分析，，更改中间的代码，，，一般来说有关sum的地方改动比较大，，，</li>
+<li>rt &lt;&lt; 1指的是rt * 2，也就是左儿子，对应的rt &lt;&lt; 1 | 1指的是右儿子，，，</li>
+<li>建树的主要思想是递归实现，，，对左右分支分别递归，，，当区间值相等时便储存数据值，，，当然也可以用循环从下向上实现实现，，</li>
+<li>对于所建立的树，，每一个根节点Node[rt]的左儿子为Node[rt &lt;&lt; 1]，右儿子为Node[rt &lt;&lt; 1 | 1]，，同时，，，我们的树的实现是建立在一个一维数组基础上的，，，</li>
+</ul>
+<h2 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h2><ul>
+<li>太晚了，，，先鸽了，，，(<em>´ω<code>)人(´ω</code></em>)，，，，2018-7-17-22-50，，，，，，，</li>
+</ul>
+
       
     </div>
     
@@ -666,14 +413,38 @@
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/acm/" rel="tag">:-> acm</a>
+          
+            <a href="/tags/算法/" rel="tag">:-> 算法</a>
+          
+        </div>
       
 
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/16/数论_快速幂/" rel="next" title="数论_快速幂">
+                <i class="fa fa-chevron-left"></i> 数论_快速幂
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </div>
@@ -683,14 +454,11 @@
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -698,6 +466,20 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -718,8 +500,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -818,6 +609,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建树"><span class="nav-number">2.</span> <span class="nav-text">建树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入"><span class="nav-number">3.</span> <span class="nav-text">插入</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -957,6 +764,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -974,6 +785,18 @@
       <script id="dsq-count-scr" src="https://www-31415-cf.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://www.31415.cf/2018/07/17/线段树/';
+          this.page.identifier = '2018/07/17/线段树/';
+          this.page.title = '线段树';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://www-31415-cf.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
