@@ -85,7 +85,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="acm,算法," />
 
 
 
@@ -98,13 +98,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="31415926535x">
-<meta property="og:url" content="http://www.31415.cf/index.html">
+<meta name="description" content="2018-7-19 这篇主要是关于数论中素数的筛法的知识点总结，，，其中我感受最深的就是线筛以及对某一个整数n求其所有的质因数及其个数的模板了，，，一定要理解好，，并且是适合自己的模板，，，清楚每一个变量，，不然在做题时套模板可能出现各种各样的错误，，， 概述一般来说，求素数的方法有很多，，，有 直接遍历 ， 埃筛 ， 线筛，，其中线筛我认为最为重要，，， 直接遍历的方法根据素数的定义，，，我们很">
+<meta name="keywords" content="acm,算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线性筛素数">
+<meta property="og:url" content="http://www.31415.cf/2018/07/19/线性筛素数/index.html">
 <meta property="og:site_name" content="31415926535x">
+<meta property="og:description" content="2018-7-19 这篇主要是关于数论中素数的筛法的知识点总结，，，其中我感受最深的就是线筛以及对某一个整数n求其所有的质因数及其个数的模板了，，，一定要理解好，，并且是适合自己的模板，，，清楚每一个变量，，不然在做题时套模板可能出现各种各样的错误，，， 概述一般来说，求素数的方法有很多，，，有 直接遍历 ， 埃筛 ， 线筛，，其中线筛我认为最为重要，，， 直接遍历的方法根据素数的定义，，，我们很">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-19T14:43:55.428Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="31415926535x">
+<meta name="twitter:title" content="线性筛素数">
+<meta name="twitter:description" content="2018-7-19 这篇主要是关于数论中素数的筛法的知识点总结，，，其中我感受最深的就是线筛以及对某一个整数n求其所有的质因数及其个数的模板了，，，一定要理解好，，并且是适合自己的模板，，，清楚每一个变量，，不然在做题时套模板可能出现各种各样的错误，，， 概述一般来说，求素数的方法有很多，，，有 直接遍历 ， 埃筛 ， 线筛，，其中线筛我认为最为重要，，， 直接遍历的方法根据素数的定义，，，我们很">
 
 
 
@@ -134,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="http://www.31415.cf/"/>
+  <link rel="canonical" href="http://www.31415.cf/2018/07/19/线性筛素数/"/>
 
 
 
 
 
-  <title>31415926535x</title>
+  <title>线性筛素数 | 31415926535x</title>
   
 
 
@@ -168,8 +173,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right 
-  page-home">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -262,9 +266,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -294,9 +298,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/19/线性筛素数/" itemprop="url">线性筛素数</a></h1>
+          <h1 class="post-title" itemprop="name headline">线性筛素数</h1>
         
 
         <div class="post-meta">
@@ -357,9 +359,7 @@
       
 
       
-        
-          
-            <p>2018-7-19</p>
+        <p>2018-7-19</p>
 <p>这篇主要是关于数论中素数的筛法的知识点总结，，，其中我感受最深的就是线筛以及对某一个整数n求其所有的质因数及其个数的模板了，，，一定要理解好，，并且是适合自己的模板，，，清楚每一个变量，，不然在做题时套模板可能出现各种各样的错误，，，</p>
 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>一般来说，求素数的方法有很多，，，有 <strong>直接遍历</strong> ， <strong>埃筛</strong> ， <strong>线筛</strong>，，其中线筛我认为最为重要，，，</p>
 <h2 id="直接遍历的方法"><a href="#直接遍历的方法" class="headerlink" title="直接遍历的方法"></a>直接遍历的方法</h2><p>根据素数的定义，，，我们很容易就想到一种方法。。从1到n遍历一遍，，，假若n能整除其中的某一个数，，，那么n就是合数 ，，，反之，，假若遍历到n-1都没有数被整除，，，那么就说明n即为素数，，代码如下：</p>
@@ -372,8 +372,6 @@
 <p>埃筛的时间复杂度是O(nloglogn)，，，接近O(n)，，，，</p>
 <h2 id="线筛"><a href="#线筛" class="headerlink" title="线筛"></a>线筛</h2><p>鸽，，，</p>
 
-          
-        
       
     </div>
     
@@ -388,295 +386,38 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.31415.cf/2018/07/17/线段树/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="31415926535x">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/misaka.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="31415926535x">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/17/线段树/" itemprop="url">线段树</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-17T20:39:23+08:00">
-                2018-07-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/acm/" rel="tag">:-> acm</a>
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/07/17/线段树/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/07/17/线段树/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
+            <a href="/tags/算法/" rel="tag">:-> 算法</a>
           
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <p>2018-7-17</p>
-<p>这篇主要是关于树里的 <strong>线段树</strong> 的一些东西，，，</p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ul>
-<li>首先，，线段树的使用场景主要是对于一个线性的点(可能代表数，也可能是其他))，，多次求区间[l , r]之间的和，最值，奇偶和什么的，，，同时要能够修改某个点的同时更新上述所求，，，</li>
-<li>如果用普通数组实现时，，当面对较大的数据量时往往会tle，，，此时可以使用线段树来维护这段数据，，，</li>
-<li>原理就是将区间为[1 , n]二分为若干个子区间，，，（数量不超过4 <em> n），将区间[l , r]都分成特定子区间，，然后对这些子区间进行 <strong>修改</strong> 和 <em>*统计</em></em> 以实现对[l , r]区间的修改和统计，，，</li>
-<li>线段树对编号连续的点进行修改或者统计操作的时间复杂度都是O($log_2$n)，，，</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/17/线段树/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/17/线段树/" rel="next" title="线段树">
+                <i class="fa fa-chevron-left"></i> 线段树
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.31415.cf/2018/07/16/数论_快速幂/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="31415926535x">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/misaka.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="31415926535x">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/16/数论_快速幂/" itemprop="url">数论_快速幂</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-16T18:39:39+08:00">
-                2018-07-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/07/16/数论_快速幂/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/07/16/数论_快速幂/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>2018.7.16</p>
-<p>这篇主要是关于数论里的快速幂和矩阵的快速乘法，，，</p>
-<h2 id="快速幂和快速乘"><a href="#快速幂和快速乘" class="headerlink" title="快速幂和快速乘"></a>快速幂和快速乘</h2><p>对于a^n这样的计算，，最简单的方法就是一个for循环连乘下去，，</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="function">ll <span class="title">pow</span> <span class="params">(ll a , ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= b; i++)</span><br><span class="line">        ans *= a;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>但是如果a,n都很大，，尤其是某些题，，，超时，，妥妥的，，(^_っ^)</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/16/数论_快速幂/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -686,14 +427,11 @@
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -701,6 +439,20 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -721,8 +473,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -821,6 +582,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#直接遍历的方法"><span class="nav-number">2.</span> <span class="nav-text">直接遍历的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#埃筛"><span class="nav-number">3.</span> <span class="nav-text">埃筛</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线筛"><span class="nav-number">4.</span> <span class="nav-text">线筛</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -960,6 +737,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -974,9 +755,21 @@
   
 
     
-      <script id="dsq-count-scr" src="https://www-31415-cf.disqus.com/count.js" async></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+      <script id="dsq-count-scr" src="https://www-31415-cf.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://www.31415.cf/2018/07/19/线性筛素数/';
+          this.page.identifier = '2018/07/19/线性筛素数/';
+          this.page.title = '线性筛素数';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://www-31415-cf.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
   
