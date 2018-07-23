@@ -106,7 +106,7 @@
 <meta property="og:site_name" content="31415926535x">
 <meta property="og:description" content="2018-7-19 这篇主要是关于数论中素数的筛法的知识点总结，，，其中我感受最深的就是线筛以及对某一个整数n求其所有的质因数及其个数的模板了，，，一定要理解好，，并且是适合自己的模板，，，清楚每一个变量，，不然在做题时套模板可能出现各种各样的错误，，， 概述一般来说，求素数的方法有很多，，，有 直接遍历 ， 埃筛 ， 线筛，，其中线筛我认为最为重要，，，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-22T15:02:00.221Z">
+<meta property="og:updated_time" content="2018-07-23T03:58:17.957Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线性筛素数">
 <meta name="twitter:description" content="2018-7-19 这篇主要是关于数论中素数的筛法的知识点总结，，，其中我感受最深的就是线筛以及对某一个整数n求其所有的质因数及其个数的模板了，，，一定要理解好，，并且是适合自己的模板，，，清楚每一个变量，，不然在做题时套模板可能出现各种各样的错误，，， 概述一般来说，求素数的方法有很多，，，有 直接遍历 ， 埃筛 ， 线筛，，其中线筛我认为最为重要，，，">
@@ -379,6 +379,14 @@
 <h3 id="预处理每个数的质因数分解"><a href="#预处理每个数的质因数分解" class="headerlink" title="预处理每个数的质因数分解"></a>预处理每个数的质因数分解</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100000</span> + <span class="number">5</span>;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span> &gt; prime_factor[N];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; N; i ++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(prime_factor[i].size() == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i; j &lt; N; j += i)&#123;</span><br><span class="line">                temp = j;</span><br><span class="line">                <span class="keyword">while</span>(temp % i == <span class="number">0</span>)&#123;</span><br><span class="line">                    prime_factor[j].push_back(i);</span><br><span class="line">                    temp /= i;</span><br><span class="line">                &#125;  </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    init();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>嗯，，，就这了吧 ，，，博客也不是好水的，，，，还有一堆的坑没补QAQ</p>
 <p><a href="https://www.cnblogs.com/linyujun/p/5198832.html" target="_blank" rel="noopener">参考的dalao博客</a></p>
+<h2 id="有关素数的几个定理"><a href="#有关素数的几个定理" class="headerlink" title="有关素数的几个定理"></a>有关素数的几个定理</h2><ul>
+<li><p>每一个大于$1$的正整数$n$都可以表示成素数之积的形式:<br>$n = p_1^{a1}p_2^{a2}p_3^{a3}p_4^{a4}$…..</p>
+</li>
+<li><p>设$d(n)$是$n$的正因子的个数，$sum(n)$是$n$的所有因子之和:</p>
+<p>  $d(n) = (a_1 + 1)<em>(a_2 + 1)</em>(a_3 + 1)…$</p>
+<p>  $Sum(n) = (1 + p_1 + p_1^2 + … + p_1 ^ {a_1}) * (1 + p_2 + p_2^2 + … + p_2^{a_2})…$</p>
+</li>
+</ul>
 
       
     </div>
@@ -420,6 +428,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/23/同余问题/" rel="prev" title="同余问题">
+                同余问题 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -510,7 +522,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -532,7 +544,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -600,7 +612,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#直接遍历的方法"><span class="nav-number">2.</span> <span class="nav-text">直接遍历的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#埃筛"><span class="nav-number">3.</span> <span class="nav-text">埃筛</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线筛"><span class="nav-number">4.</span> <span class="nav-text">线筛</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他应用"><span class="nav-number">5.</span> <span class="nav-text">其他应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#处理某个数的质因数及其个数"><span class="nav-number">5.1.</span> <span class="nav-text">处理某个数的质因数及其个数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预处理每个数的所有质因数"><span class="nav-number">5.2.</span> <span class="nav-text">预处理每个数的所有质因数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预处理每个数的所有因数"><span class="nav-number">5.3.</span> <span class="nav-text">预处理每个数的所有因数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预处理每个数的质因数分解"><span class="nav-number">5.4.</span> <span class="nav-text">预处理每个数的质因数分解</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#直接遍历的方法"><span class="nav-number">2.</span> <span class="nav-text">直接遍历的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#埃筛"><span class="nav-number">3.</span> <span class="nav-text">埃筛</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线筛"><span class="nav-number">4.</span> <span class="nav-text">线筛</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他应用"><span class="nav-number">5.</span> <span class="nav-text">其他应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#处理某个数的质因数及其个数"><span class="nav-number">5.1.</span> <span class="nav-text">处理某个数的质因数及其个数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预处理每个数的所有质因数"><span class="nav-number">5.2.</span> <span class="nav-text">预处理每个数的所有质因数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预处理每个数的所有因数"><span class="nav-number">5.3.</span> <span class="nav-text">预处理每个数的所有因数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预处理每个数的质因数分解"><span class="nav-number">5.4.</span> <span class="nav-text">预处理每个数的质因数分解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有关素数的几个定理"><span class="nav-number">6.</span> <span class="nav-text">有关素数的几个定理</span></a></li></ol></div>
             
 
           </div>
