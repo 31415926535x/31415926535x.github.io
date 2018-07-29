@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<!--顶部进度加载条*********************-->
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #A593E0; /*进度条颜色*/
+        height: 5px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #A593E0;    /*上边框颜色*/
+        border-left-color: #A593E0;    /*左边框颜色*/
+    }
+</style>
+<!--**********************-->
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="acm,算法," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="31415926535x" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="2018.5.19 这一篇主要是关于深搜和广搜实现的一些总结，因为一些模板和数据结构还未学习，，所以这一篇深搜广搜都是使用基本的方法，，虽然便于理解，，但是如要解决问题acm之类还是使用带有模板的更高效的方法。。。。 搜索是一种求解的方法，通常来说就是将所有情况探索一遍，找出其中符合要求的情况作为最后的解。按照 生成解的顺序 有两种基本的求解顺序：深度优先搜索（Depth-first Search">
+<meta name="keywords" content="acm,算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深搜和广搜1">
+<meta property="og:url" content="http://www.31415.cf/2018/05/19/深搜和广搜1/index.html">
+<meta property="og:site_name" content="31415926535x">
+<meta property="og:description" content="2018.5.19 这一篇主要是关于深搜和广搜实现的一些总结，因为一些模板和数据结构还未学习，，所以这一篇深搜广搜都是使用基本的方法，，虽然便于理解，，但是如要解决问题acm之类还是使用带有模板的更高效的方法。。。。 搜索是一种求解的方法，通常来说就是将所有情况探索一遍，找出其中符合要求的情况作为最后的解。按照 生成解的顺序 有两种基本的求解顺序：深度优先搜索（Depth-first Search">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-19T08:42:56.070Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="深搜和广搜1">
+<meta name="twitter:description" content="2018.5.19 这一篇主要是关于深搜和广搜实现的一些总结，因为一些模板和数据结构还未学习，，所以这一篇深搜广搜都是使用基本的方法，，虽然便于理解，，但是如要解决问题acm之类还是使用带有模板的更高效的方法。。。。 搜索是一种求解的方法，通常来说就是将所有情况探索一遍，找出其中符合要求的情况作为最后的解。按照 生成解的顺序 有两种基本的求解顺序：深度优先搜索（Depth-first Search">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.31415.cf/2018/05/19/深搜和广搜1/"/>
+
+
+
+
+
+  <title>深搜和广搜1 | 31415926535x</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-114656515-1', 'auto');
+  ga('send', 'pageview');
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">31415926535x</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.31415.cf/2018/05/19/深搜和广搜1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="31415926535x">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/misaka.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="31415926535x">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">深搜和广搜1</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-19T11:50:16+08:00">
+                2018-05-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/19/深搜和广搜1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/05/19/深搜和广搜1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>2018.5.19</p>
+<p>这一篇主要是关于深搜和广搜实现的一些总结，因为一些模板和数据结构还未学习，，所以这一篇深搜广搜都是使用基本的方法，，虽然便于理解，，但是如要解决问题acm之类还是使用带有模板的更高效的方法。。。。</p>
+<p>搜索是一种求解的方法，通常来说就是将所有情况探索一遍，找出其中符合要求的情况作为最后的解。按照 <strong>生成解的顺序</strong> 有两种基本的求解顺序：<strong>深度优先搜索（Depth-first Search）</strong> 和 <strong>广度优先搜索（Breadth-first search）</strong>。^–&gt;<br><a id="more"></a></p>
+<h1 id="深搜"><a href="#深搜" class="headerlink" title="深搜:"></a>深搜:</h1><h2 id="思想"><a href="#思想" class="headerlink" title="思想:"></a>思想:</h2><ul>
+<li>深搜主要依靠递归实现，通常的方法就是把每一种可能都尝试一遍,比如类似迷宫里的多个方向按某一顺序进行尝试，可以使用for循环遍历，bfs()函数是为了解决当前这一步，，而下一步怎么做就交给bfs(step+1)就可以了，下一步的解决方法和当前这一步的解决方法是完全一样的;</li>
+<li>bfs()适用于需要求解出所有可能解的问题，在到达问题界限之前会一直递归下去,所以要在bfs()里增加条件判断;^–&gt;</li>
+<li>一般使用搜索的问题都需要两个数组，一个是问题所给的地图map[][]，一个则是标记用的flag[][];</li>
+</ul>
+<h2 id="基本实现模板"><a href="#基本实现模板" class="headerlink" title="基本实现模板:"></a>基本实现模板:</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">dfs(每一次尝试的参数表 , step)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//判断当前尝试是否超出问题的界限</span></span><br><span class="line">    <span class="keyword">if</span> (...)    <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//尝试当前状态下的每一种可能性，，，使用递归方法</span></span><br><span class="line">    <span class="keyword">for</span> (i i&lt;n i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//判断当前尝试是否已经被搜索过，，，(此判断不一定在for循环里)</span></span><br><span class="line">        <span class="keyword">if</span>(i还未被搜索过) </span><br><span class="line">        &#123;</span><br><span class="line">            标记一下...flag[][]</span><br><span class="line">            <span class="comment">//没有搜索过就尝试下一步</span></span><br><span class="line">            dfs(step+<span class="number">1</span>);</span><br><span class="line">            <span class="comment">//还原标记(将flag[][]置为尝试前的值，，，(与广搜的不同处，，，，))</span></span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h2><ul>
+<li>依靠于递归的深搜大体结构是不会变化的。需要注意的点有：</li>
+<li>参数记录的状态(递归时要更新参数表，，也就是要更新尝试的参数)、</li>
+<li>过滤掉不可能的状态(例如问题的界限、已经被搜索过的地方)、</li>
+<li>状态的保存和还原(在一次尝试前要标记flag，代表这一步走过了，，在尝试后要还原flag保存的值，代表这次的尝试全部完成)。^–&gt;</li>
+</ul>
+<h1 id="广搜"><a href="#广搜" class="headerlink" title="广搜:"></a>广搜:</h1><h2 id="思想-1"><a href="#思想-1" class="headerlink" title="思想:"></a>思想:</h2><ul>
+<li>广搜与深搜不同的地方在于，后者主要运用了递归的思想来遍历每一种可能性，，而前者则是层层递进的思想即层级遍历每一种可能性;</li>
+<li>广搜使用到了<a href="http://www.31415.cf/2018/03/29/%E9%98%9F%E5%88%97%E3%80%81%E9%93%BE%E8%A1%A8/">队列</a>,用队列将每一种可能性保存下来,优先选择看似最优的状态进行拓展，以达到最先扩展到目标位置的目的;</li>
+<li>与深搜一样，广搜也可能需要两个数组，一个保存地图信息，一个保存标记信息(迷宫问题);此外大多数情况下需要一个结构体数组作为队列来保存状态(就目前我所学的方法来说，，，Σ( ° △ °|||)︴)，，，(当然应该使用#include &lt; queue &gt;来的更快一些，，，哪天再学习一下，，，ʅ（´◔౪◔）ʃ)</li>
+</ul>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现:"></a>实现:</h2><h3 id="基本实现模板-1"><a href="#基本实现模板-1" class="headerlink" title="基本实现模板:"></a>基本实现模板:</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">bfs()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//队列初始化，，，</span></span><br><span class="line">    <span class="comment">//比如head,tail,起始点等等</span></span><br><span class="line">    <span class="comment">/************************/</span></span><br><span class="line">    <span class="keyword">while</span> (head &lt; tail)     <span class="comment">//队列非空时;</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//枚举当前位置下的所有可能性</span></span><br><span class="line">        <span class="keyword">for</span> (...)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//判断当前尝试是否超出问题的界限,超出继续下一个尝试</span></span><br><span class="line">            <span class="keyword">if</span> (...)    <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//当该位置合法且未被搜索过时入队(记得更新步数和tail,并将f指向head即f=head)</span></span><br><span class="line">            <span class="comment">//如果该点被搜索过，则说明从此路径来该位置不是最短的方法，，</span></span><br><span class="line">            <span class="comment">//这是因为广搜对每个位置的处理时，对应的距离是严格递增的&lt;(ˉ^ˉ)&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//判断是否此次尝试找到了所找的</span></span><br><span class="line">            <span class="comment">//若找到flag = 1,并且跳出for循环</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//判断flag真假</span></span><br><span class="line">        <span class="comment">//若真说明找到了题解,退出while循环</span></span><br><span class="line">        **若假说明这一层还未找到题解，队列头增head++;继续对后面的点扩展**  Σ(｀д′*ノ)ノ</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="结构体实现队列"><a href="#结构体实现队列" class="headerlink" title="结构体实现队列:"></a>结构体实现队列:</h3><ul>
+<li>如要使用结构体实现队列，，可以这样:(针对迷宫问题)<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">note</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">int</span> y;</span><br><span class="line">    <span class="keyword">int</span> f;      <span class="comment">//父亲在队列中的编号,由此可以输出题解路径</span></span><br><span class="line">    <span class="keyword">int</span> step;   <span class="comment">//该支路中该点的步数,</span></span><br><span class="line">                <span class="comment">//对于题解来说queue[tail-1].step即为题解的最短长度</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="结构体-路径的输出"><a href="#结构体-路径的输出" class="headerlink" title="结构体-路径的输出:"></a>结构体-路径的输出:</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//遍历一遍队列</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span> , j = <span class="number">0</span>; i &lt; tail; i++)</span><br><span class="line">        <span class="comment">//当遍历所对应位置的f等于该路径中上一个点的f也就是j时输出</span></span><br><span class="line">        <span class="keyword">if</span>(que[i].f == j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">"("</span> &lt;&lt; que[i].x &lt;&lt; <span class="string">", "</span> &lt;&lt; que[i].y &lt;&lt; <span class="string">")"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            j = i;      <span class="comment">//更新j为当前节点，，为下次查找做准备</span></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>自我感觉这种输出有些笨，，应该有更好的方法，，但是目前想不出来啊啊啊，，，→)╥﹏╥)</li>
+</ul>
+<h2 id="总结-1"><a href="#总结-1" class="headerlink" title="总结:"></a>总结:</h2><ul>
+<li>bfs主要思路是对下一个状态的选取和状态的遍历，在遍历树的时候，节点会按照层次以此添加到队列中，在处理完一层之后，下一层也自然而然的添加到了队列中;^–&gt;</li>
+<li>广搜大致思路:                             ^–&gt;&gt;</li>
+</ul>
+<p>1.从起点开始，先将其加入队列，设置距离为0;</p>
+<p>2.从队列首端取出位置，将从这个位置能够到达的位置加入队列，并且让这些位置的距离为上一个位置的距离加上1;</p>
+<p>3.循环2直到将终点添加到队列中，这说明我们已经找到了路径;</p>
+<p>注意到在这个过程中，<strong>每次处理的位置所对应的距离是严格递增的，因此一旦找到终点，当时的距离就是最短距离</strong>;</p>
+<p>同样基于这个原因，搜索可移动到的位置所使用的判断条件中不仅仅是不碰墙壁、不超过边界，还有一个就是没有到达过，因为<strong>如果已经到达了这个位置，这说明已经有更短的路径到达这个位置，这次到达这个位置的路径是更差的，不可能得到更好的最终解</strong>;</p>
+<ul>
+<li>广搜不需要像深搜一样在每次尝试后将标记复原;</li>
+<li>适用于找最短路径，最少操作数;</li>
+</ul>
+<h1 id="相关题目"><a href="#相关题目" class="headerlink" title="相关题目:"></a>相关题目:</h1><p><a href="http://poj.org/problem?id=2386" target="_blank" rel="noopener">___1</a><br><a href="http://poj.org/problem?id=3984" target="_blank" rel="noopener">___2</a></p>
+<h1 id="总结-2"><a href="#总结-2" class="headerlink" title="总结:"></a>总结:</h1><ul>
+<li>深搜广搜属于图的搜索,目前见到的题大多都是迷宫问题:给一个m*n的图中有障碍和路径什么的，寻找最短的路径或者时最短的步数，，再者是对图中的某些点搜索，，寻找集合等等;</li>
+<li>个人感觉深搜广搜主要是理解算法，，记住大概的模板就行，，实现什么的还是在基础的知识大致掌握后以及根据题目具体分析吧，，，(我可没说实现不重要，，，不然怎么做出题…..((/- -)/)</li>
+<li>大概就这样，，，以后有啥想法再补充，，，不然为啥题目有个1，，，，(‾◡◝)</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考:"></a>参考:</h1><p>^–&gt;<a href="http://sumygg.com/2017/09/11/breadth-first-search-and-depth-first-search-one-two-three/#%E6%80%BB%E7%BB%93" target="_blank" rel="noopener">参考dalao的博文_1</a></p>
+<p>^–&gt;&gt;<a href="https://blog.csdn.net/baidu_35643793/article/details/55099472" target="_blank" rel="noopener">参考dalao的博文_2</a></p>
+<ul>
+<li>算法好难啊，，，acm好费精力呐，，，写博客也是T_T，，，一天就写了这一个，，，，(逃，，，，</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/acm/" rel="tag">:-> acm</a>
+          
+            <a href="/tags/算法/" rel="tag">:-> 算法</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/19/ACM-笔记/" rel="next" title="ACM--笔记">
+                <i class="fa fa-chevron-left"></i> ACM--笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/21/继承与派生/" rel="prev" title="继承与派生">
+                继承与派生 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/misaka.jpg"
+                alt="31415926535x" />
+            
+              <p class="site-author-name" itemprop="name">31415926535x</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/31415926535x" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:2509437152wx@gmail.com" target="_blank" title="Gmail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>Gmail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://plus.google.com/106114719135977350421" target="_blank" title="Google">
+                      
+                        <i class="fa fa-fw fa-google"></i>Google</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://instagram.com/314159265358x" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#深搜"><span class="nav-number">1.</span> <span class="nav-text">深搜:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#思想"><span class="nav-number">1.1.</span> <span class="nav-text">思想:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本实现模板"><span class="nav-number">1.2.</span> <span class="nav-text">基本实现模板:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.3.</span> <span class="nav-text">总结:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#广搜"><span class="nav-number">2.</span> <span class="nav-text">广搜:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#思想-1"><span class="nav-number">2.1.</span> <span class="nav-text">思想:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">2.2.</span> <span class="nav-text">实现:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本实现模板-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">基本实现模板:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结构体实现队列"><span class="nav-number">2.2.2.</span> <span class="nav-text">结构体实现队列:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结构体-路径的输出"><span class="nav-number">2.2.3.</span> <span class="nav-text">结构体-路径的输出:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结-1"><span class="nav-number">2.3.</span> <span class="nav-text">总结:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关题目"><span class="nav-number">3.</span> <span class="nav-text">相关题目:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结-2"><span class="nav-number">4.</span> <span class="nav-text">总结:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考:</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">31415926535x</span>
+
+  
+</div>
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+-->
+
+  <span class="post-meta-divider">|</span>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+    <!-- 页面点击小红心 -->
+      <script type="text/javascript" src="/js/src/love.js"></script>
+    <!-- 动态背景 -->
+      <script type="text/javascript" src="/js/src/canvas-nest.js"></script>
+      <!-- 背景动画 -->
+      <script type="text/javascript" src="/js/src/particle.js"></script>
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://www-31415-cf.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://www.31415.cf/2018/05/19/深搜和广搜1/';
+          this.page.identifier = '2018/05/19/深搜和广搜1/';
+          this.page.title = '深搜和广搜1';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://www-31415-cf.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>

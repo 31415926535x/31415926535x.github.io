@@ -110,9 +110,9 @@
     <url>%2F2018%2F05%2F06%2Fcf-975B%2F</url>
     <content type="text"><![CDATA[cf-第二道:题目链接：http://codeforces.com/problemset/problem/975/B?csrf_token=15be971a0d4ded50a8332d9e1318379a 感想：很有趣的一道题，，，本以为很简单，，但是被虐的体无完肤，，，，QAQ题目的意思是给定14个坑（emmmm对我来说还真的是坑。。。）然后某些坑里给一些石头（emmm我八成就是那石头），，石头数是零或者是奇数，然后挑一个，把全部的石头拿出来，，依次往后排，，每一个坑丢一个，，要是丢到了14号坑（噫，，）就从一号坑开始，，，一直丢完为止，，，最后将石头数是偶数的拿出来，，，求最大的总数，，，一开始的思路是遍历每一个有石头的坑，，，找到之后把坑的位置传给下一个函数，，这个函数用来给每一个坑丢石头，，，但是有几个分界点没找出来，，，导致大的一些数据测试会造成数组的越界，，，之后改为：对于坑内石头数不足以重来一轮的用一个循环搞定，，，对于那些超出的，先把从这个坑到14号坑丢是完，，然后因为是n个轮回，，所以直接每个坑加n，对于最后一此不是完整的轮回再丢一次，，，最后每次遍历都判断与上一次的大小，，输出就行，，，（感觉自己真的是太菜了，，，T_T,,,,自己做的时候吭哧吭哧半天AC不了，，还找不出那里的错，，，看完别人的思路，，豁然开朗，，，（虽然还是看不懂他们的代码），，，， 我的渣代码：12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455#include &lt;iostream&gt;using namespace std;typedef long long ll;ll a[15];ll fun(int flag)&#123; ll b[15]; for (int i = 1; i &lt;= 14; i++) b[i] = a[i]; b[flag] = 0; ll l = 14 - flag; //判断坑里的石头数是否能丢到14号坑 if (l &gt;= a[flag]) for (int i = flag + 1; i &lt;= a[flag] + flag; i++) b[i]++; else //不能的话就分三步完成 &#123; //现在这个坑到14号坑 for (int i = flag + 1; i &lt;= 14; i++) b[i]++; //n个轮回，， ll l = a[flag] - 14 + flag; l /= 14; for (int i = 1; i&lt;= 14; i++) b[i] += l; //轮回完剩下的那几个，，， l = a[flag] - 14 + flag; l %= 14; for (int i = 1; i &lt;= l; i++) b[i]++; &#125; ll sum = 0; for (int i = 1; i &lt;= 14; i++) if (b[i] % 2 == 0 ) sum += b[i]; return sum;&#125;int main()&#123; for (int i = 1; i &lt;= 14; i++) cin &gt;&gt; a[i]; ll max1 , max2; max1 = max2 = 0; for (int i = 1; i &lt;= 14; i++) &#123; if (a[i]) max1 = fun(i); if (max1 &gt; max2) max2 = max1; &#125; cout &lt;&lt; max2 &lt;&lt; endl; return 0;&#125; 大佬的答案：，，，，https://lucien.ink/archives/203/，，，]]></content>
       <tags>
+        <tag>acm</tag>
         <tag>codeforce</tag>
         <tag>c++</tag>
-        <tag>acm</tag>
       </tags>
   </entry>
   <entry>
@@ -120,10 +120,10 @@
     <url>%2F2018%2F05%2F06%2Fcf-954A%2F</url>
     <content type="text"><![CDATA[cf-第一道http://codeforces.com/problemset/problem/954/A 这道题主要是为了练习英文读题的能力，，， 题干意思是一个小人只能走“上”“右”，，现在想通过走对角线的方法缩短移动距离，，也就是”D”,,, 我的一开始思路，，输入字符串从s[0]到s[s.lengh()-1]检查每一个字符，，是否有”RU”或”UR”的排列，，有的话i增一，，跳开这个排列，，并且在每次检查num++，，，但是WA了，，，原因是可能出现”RURU”的情况，，，改成s[i] != s[i+1]就可以了，，，， 12345678910111213141516171819202122232425262728#include &lt;iostream&gt;#include &lt;string&gt;using namespace std;int main()&#123; string s; int n; cin &gt;&gt; n; cin.ignore(); getline(cin , s); int num = 0; for (int i = 0; i &lt;= n - 1; i++) &#123; /* //这让写没考虑"RURU"的情况，，，会出现多算一个的情况，，，，QAQ if(s[i] == 'R' &amp;&amp; s[i+1] == 'U') i++; if (s[i] == 'U' &amp;&amp; s[i+1] == 'R') i++; */ if(s[i] != s[i+1]) i++; num++; &#125; cout &lt;&lt; num &lt;&lt; endl; return 0;&#125;]]></content>
       <tags>
+        <tag>acm</tag>
         <tag>codeforce</tag>
         <tag>c++</tag>
         <tag>水题</tag>
-        <tag>acm</tag>
       </tags>
   </entry>
   <entry>
