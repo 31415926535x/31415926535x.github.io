@@ -106,7 +106,7 @@
 <meta property="og:site_name" content="31415926535x">
 <meta property="og:description" content="概述这篇主要是关于字符串里的 字符串hash 和 字符串字典树，，两个都是简单的套模板的东西，，，理解基本思想就行了，，，对了，，还有一个字典树的的变形–01字典树；">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-01T15:13:29.853Z">
+<meta property="og:updated_time" content="2018-08-01T15:19:12.810Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="字符串hash与字典树">
 <meta name="twitter:description" content="概述这篇主要是关于字符串里的 字符串hash 和 字符串字典树，，两个都是简单的套模板的东西，，，理解基本思想就行了，，，对了，，还有一个字典树的的变形–01字典树；">
@@ -374,7 +374,8 @@
 <p>上面的那个公式中hash[i]求得时字符串第i个前缀的hash值，，，，相当于是一个hash的前缀和，，，，</p>
 <p>要求的子串 $hash[l..r] == (hash[r] - hash[l - 1] * p^{r - l + 1}) \% MOD$</p>
 <p>**对了，，，这样直接求可能有负数，，，要判断+=mod一下。。。。。。</p>
-<h3 id="几个常用的求字符串hash算法"><a href="#几个常用的求字符串hash算法" class="headerlink" title="几个常用的求字符串hash算法"></a>几个常用的求字符串hash算法</h3><ul>
+<h3 id="几个常用的求字符串hash算法"><a href="#几个常用的求字符串hash算法" class="headerlink" title="几个常用的求字符串hash算法"></a>几个常用的求字符串hash算法</h3><p><a href="http://www.cnblogs.com/jiu0821/p/4554352.html" target="_blank" rel="noopener">有些借鉴，，，</a></p>
+<ul>
 <li><p>$hash[i] = (hash[i - 1] * p + idx(s[i])) \% MOD$<br>常用，，，</p>
 </li>
 <li><p>unsigned long long hash[N];hash[i] = hash[i - 1] * p;这个自动取模，，，当数超过 $2^{64}-1$时就会溢出，，，相当于取模 $2^{64}$的过程，，，</p>
@@ -504,6 +505,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/09/06/chrome-PC-自定义字体作死改变之后的恢复方法/" rel="prev" title="chrome PC 自定义字体作死改变之后的恢复方法">
+                chrome PC 自定义字体作死改变之后的恢复方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -593,7 +598,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -604,7 +609,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -615,7 +620,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
