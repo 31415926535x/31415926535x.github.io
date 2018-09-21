@@ -106,12 +106,10 @@
 <meta property="og:site_name" content="31415926535x">
 <meta property="og:description" content="概述RMQ (Range Minimum/Maximum Query) 从英文便可以看出这个算法的主要是询问一个区间内的最值问题，，， 暑假集训的时候学习了 线段树 ，，， 也可以对给定数组查询任意区间的最值问题，，，， 这两个主要的区别就是 线段树 可以进行单点的修改操作，，，而 Sparse Table 算法不能进行点修改，， 或者说这样修改一次重预处理一次不划算，，， 所以说，，要是题目只是">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://poj.org/problem?id=3264">
-<meta property="og:updated_time" content="2018-09-21T15:18:49.915Z">
+<meta property="og:updated_time" content="2018-09-21T15:22:57.937Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RMQ_第一弹_Sparse Table">
 <meta name="twitter:description" content="概述RMQ (Range Minimum/Maximum Query) 从英文便可以看出这个算法的主要是询问一个区间内的最值问题，，， 暑假集训的时候学习了 线段树 ，，， 也可以对给定数组查询任意区间的最值问题，，，， 这两个主要的区别就是 线段树 可以进行单点的修改操作，，，而 Sparse Table 算法不能进行点修改，， 或者说这样修改一次重预处理一次不划算，，， 所以说，，要是题目只是">
-<meta name="twitter:image" content="http://poj.org/problem?id=3264">
 
 
 
@@ -406,7 +404,7 @@
 <p>因为这个区间的长度为 $j - i + 1$ ,所以我们可以取 $k=log2( j - i + 1)$ ，则有：$RMQ(A, i, j)=max(F[i , k], F[ j - 2 ^ k + 1, k])$。</p>
 <p>举例说明，要求区间[2，8]的最大值，$k = log_2（8 - 2 + 1）= 2$，即求 $max(F[2, 2]，F[8 - 2 ^ 2 + 1, 2]) = max(F[2, 2]，F[5, 2])$；</p>
 <h2 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">ans</span><span class="params">(<span class="keyword">int</span> l , <span class="keyword">int</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> len = r - l + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> ((<span class="number">1</span> &lt;&lt; (k + <span class="number">1</span>)) &lt;= len)</span><br><span class="line">		++k;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> max (mx[l][k] , mx[r - (<span class="number">1</span> &lt;&lt; k) + <span class="number">1</span>][k]) - min (mi[l][k] , mi[r - (<span class="number">1</span> &lt;&lt; k) + <span class="number">1</span>][k]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1><p><img src="http://poj.org/problem?id=3264" alt="题目链接"></p>
+<h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1><p><a href="http://poj.org/problem?id=3264" target="_blank" rel="noopener">题目链接</a></p>
 <p>题目大意: 给定的数列a[1 - n] , 求出[l , r]这个区间内的极差 ， 即最大值与最小值的差</p>
 <p>直接套板子，，，，</p>
 <p>ac代码:</p>
