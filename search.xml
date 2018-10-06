@@ -9,11 +9,11 @@
       </categories>
       <tags>
         <tag>acm</tag>
-        <tag>算法</tag>
-        <tag>数据结构</tag>
         <tag>RMQ</tag>
         <tag>ST</tag>
         <tag>dp</tag>
+        <tag>数据结构</tag>
+        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
@@ -194,8 +194,8 @@
     <content type="text"><![CDATA[栈栈的定义： 栈（stack)是一种元素满足后进先出（Last in first out,LIFO) 规则的线性表； 对栈的操作是在 表尾 进行； 栈底 （bottom)：栈的表头， 栈顶 (top)：栈的表尾； 入栈 (push)：向栈内添加元素， 出栈 (pop)：删除元素； 空栈 ：没有任何元素的栈； 栈的主要操作：入栈、出栈、判断栈空； c++栈的实现：12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849#include &lt;iostream&gt;using namespace std;template&lt;typename DataType&gt; class Stack&#123;public: Stack(int size) &#123; maxSize = size; //设置最大容量 top = -1; //初始化为空栈 elements = new DataType[size]; //分配空间 &#125; ~Stack() &#123; delete [] elements; &#125; //入栈操作 Bool push (DataType data); //出栈操作 DataType pop();private: DataType *elements; //数据域指针 int top; //栈顶 int maxSize; //栈的最大容量&#125;;template&lt;typename DataType&gt; DataType Stack&lt;DataType&gt;::push(DataType data)&#123; if (top == maxSize) //判断是否栈满 return false; elements[++top] = data; //从栈顶压入元素 return ture;&#125;template&lt;typename DataType&gt; DataTpye Stack&lt;DataType&gt;::pop()&#123; if (pop == -1) //判断是否栈空 exit(1); return elements[top--]; //返回栈顶元素&#125;int main()&#123; Stack&lt;int&gt; s = Stack&lt;int&gt;(6); int temp; temp = s.push(23); cout &lt;&lt; temp &lt;&lt; endl; temp = s.pop(); cout &lt;&lt; temp &lt;&lt; endl; return 0;&#125; c++ stack的使用： 头文件： 1#include &lt;stack&gt; 声明一个栈： 1std::stack &lt;DataType&gt; p; 相关函数： 12345p.empty(); //如果是空栈，返回真值，否则返回假值p.size(); //返回栈中元素的个数p.top(); //返回栈顶元素的**值**，但不删除该元素p.pop(); //删除栈顶元素，但不返回其值p.push(k); //压入新元素k 如果是解题，使用stack模板更快且不易出错，，，但是也要了解其如何实现的。。。。(๑•̀ㅂ•́)و✧ End–]]></content>
       <tags>
         <tag>acm</tag>
-        <tag>算法</tag>
         <tag>数据结构</tag>
+        <tag>算法</tag>
       </tags>
   </entry>
   <entry>

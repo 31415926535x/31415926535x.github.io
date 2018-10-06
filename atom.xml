@@ -42,15 +42,15 @@
     
       <category term="acm" scheme="http://www.31415.cf/tags/acm/"/>
     
-      <category term="算法" scheme="http://www.31415.cf/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="数据结构" scheme="http://www.31415.cf/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
       <category term="RMQ" scheme="http://www.31415.cf/tags/RMQ/"/>
     
       <category term="ST" scheme="http://www.31415.cf/tags/ST/"/>
     
       <category term="dp" scheme="http://www.31415.cf/tags/dp/"/>
+    
+      <category term="数据结构" scheme="http://www.31415.cf/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="算法" scheme="http://www.31415.cf/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -514,9 +514,9 @@
     
       <category term="acm" scheme="http://www.31415.cf/tags/acm/"/>
     
-      <category term="算法" scheme="http://www.31415.cf/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="数据结构" scheme="http://www.31415.cf/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="算法" scheme="http://www.31415.cf/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
