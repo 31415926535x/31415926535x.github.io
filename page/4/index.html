@@ -280,7 +280,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.31415.cf/2018/07/29/动态规划-1/">
+    <link itemprop="mainEntityOfPage" href="http://www.31415.cf/2018/07/19/线性筛素数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="31415926535x">
@@ -299,7 +299,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/29/动态规划-1/" itemprop="url">动态规划_1</a></h1>
+                <a class="post-title-link" href="/2018/07/19/线性筛素数/" itemprop="url">线性筛素数</a></h1>
         
 
         <div class="post-meta">
@@ -311,8 +311,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-29T22:29:49+08:00">
-                2018-07-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-19T22:12:01+08:00">
+                2018-07-19
               </time>
             
 
@@ -330,9 +330,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/07/29/动态规划-1/#comments" itemprop="discussionUrl">
+                <a href="/2018/07/19/线性筛素数/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/07/29/动态规划-1/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/07/19/线性筛素数/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -361,10 +361,13 @@
 
       
         
-          <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>今天集训学的是动态规划，，，也就是dp，，，这玩意早就听说过了，，，一直感觉很难，，，听名字就有些高大上，，，今天了解了其大致的思想，，，四道题也就做了两道，，，还是学长上午讲过的，，自己根据模板直接套的，，，中间那两题完全不知道从哪下手，，，或者说不知道如何实现脑子里的想法，，，，其中B题是cpcc的一道原题，，，用了动态规划，树状数组，离散化三个主要的算法，，，综合性很强，，，难啊啊啊啊，，，</p>
+          <p>2018-7-19</p>
+<p>这篇主要是关于数论中素数的筛法的知识点总结，，，其中我感受最深的就是线筛以及对某一个整数n求其所有的质因数及其个数的模板了，，，一定要理解好，，并且是适合自己的模板，，，清楚每一个变量，，不然在做题时套模板可能出现各种各样的错误，，，</p>
+<h2 id="概述">概述</h2>
+<p>一般来说，求素数的方法有很多，，，有 <strong>直接遍历</strong> ， <strong>埃筛</strong> ， <strong>线筛</strong>，，其中线筛我认为最为重要，，，</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/07/29/动态规划-1/#more" rel="contents">
+            <a class="btn" href="/2018/07/19/线性筛素数/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -415,7 +418,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.31415.cf/2018/07/27/最短路/">
+    <link itemprop="mainEntityOfPage" href="http://www.31415.cf/2018/07/17/线段树/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="31415926535x">
@@ -434,7 +437,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/27/最短路/" itemprop="url">最短路</a></h1>
+                <a class="post-title-link" href="/2018/07/17/线段树/" itemprop="url">线段树</a></h1>
         
 
         <div class="post-meta">
@@ -446,8 +449,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-27T22:36:50+08:00">
-                2018-07-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-17T20:39:23+08:00">
+                2018-07-17
               </time>
             
 
@@ -465,9 +468,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/07/27/最短路/#comments" itemprop="discussionUrl">
+                <a href="/2018/07/17/线段树/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/07/27/最短路/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/07/17/线段树/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -496,11 +499,18 @@
 
       
         
-          <h2 id="概论"><a href="#概论" class="headerlink" title="概论"></a>概论</h2><p>最短路主要是寻找某个有图问题从起始点到终点的最短的路，，，这是最基本的一种情况，，，由此可以变形出各种各样的其他题型，，，，</p>
-<p>本篇主要有 <strong>图的储存</strong> , <strong>Dijstra算法</strong> ， <strong>SPFA算法</strong> , <strong>Floyd算法</strong> , 以及几道练习题和题解。。。</p>
+          <p>2018-7-17</p>
+<p>这篇主要是关于树里的 <strong>线段树</strong> 的一些东西，，，</p>
+<h2 id="概述">概述</h2>
+<ul>
+<li>首先，，线段树的使用场景主要是对于一个线性的点(可能代表数，也可能是其他))，，多次求区间[l , r]之间的和，最值，奇偶和什么的，，，同时要能够修改某个点的同时更新上述所求，，，</li>
+<li>如果用普通数组实现时，，当面对较大的数据量时往往会tle，，，此时可以使用线段树来维护这段数据，，，</li>
+<li>原理就是将区间为[1 , n]二分为若干个子区间，，，（数量不超过4 * n），将区间[l , r]都分成特定子区间，，然后对这些子区间进行 <strong>修改</strong> 和 <strong>统计</strong> 以实现对[l , r]区间的修改和统计，，，</li>
+<li>线段树对编号连续的点进行修改或者统计操作的时间复杂度都是O(<span class="math inline">\(log_2\)</span>n)，，，</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/07/27/最短路/#more" rel="contents">
+            <a class="btn" href="/2018/07/17/线段树/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -551,7 +561,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.31415.cf/2018/07/25/组合数学与数论/">
+    <link itemprop="mainEntityOfPage" href="http://www.31415.cf/2018/07/16/数论_快速幂/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="31415926535x">
@@ -570,7 +580,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/25/组合数学与数论/" itemprop="url">组合数学与数论</a></h1>
+                <a class="post-title-link" href="/2018/07/16/数论_快速幂/" itemprop="url">数论_快速幂</a></h1>
         
 
         <div class="post-meta">
@@ -582,8 +592,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-25T20:42:12+08:00">
-                2018-07-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-16T18:39:39+08:00">
+                2018-07-16
               </time>
             
 
@@ -601,9 +611,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/07/25/组合数学与数论/#comments" itemprop="discussionUrl">
+                <a href="/2018/07/16/数论_快速幂/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/07/25/组合数学与数论/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/07/16/数论_快速幂/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -632,11 +642,292 @@
 
       
         
-          <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>这篇博客主要是一些数论里有关组合数学的一些东西，，，有 <strong>错排问题</strong> ，<strong>抽屉原理（鸽巢原理）</strong> , <strong>中国剩余定理（孙子定理）</strong> ， <strong>欧拉函数</strong></p>
-<p>数论好难啊，，，</p>
+          <p>2018.7.16</p>
+<p>这篇主要是关于数论里的快速幂和矩阵的快速乘法，，， ## 快速幂和快速乘</p>
+<p>对于a^n这样的计算，，最简单的方法就是一个for循环连乘下去，，</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="function">ll <span class="title">pow</span> <span class="params">(ll a , ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= b; i++)</span><br><span class="line">        ans *= a;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是如果a,n都很大，，尤其是某些题，，，超时，，妥妥的，，(^_っ^)</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/07/25/组合数学与数论/#more" rel="contents">
+            <a class="btn" href="/2018/07/16/数论_快速幂/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.31415.cf/2018/05/21/继承与派生/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="31415926535x">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/misaka.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="31415926535x">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/21/继承与派生/" itemprop="url">继承与派生</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-21T22:16:21+08:00">
+                2018-05-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/21/继承与派生/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/05/21/继承与派生/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="类的继承与派生">类的继承与派生:</h1>
+<h2 id="简介">简介:</h2>
+<ul>
+<li>类的继承机制允许程序员在保持原有类特性的基础上，进行更具体、更详细的类的定义;</li>
+<li>派生新类的过程一般包括: 1)<strong>吸收已有类的成员</strong> 、 2)<strong>调整已有类成员</strong> 、 3)<strong>添加新的成员</strong>;</li>
+<li><strong>原有的类</strong> 成为 <strong>基类</strong> 或 <strong>父类</strong>，<strong>产生的新类</strong> 称为 <strong>派生类</strong> 或 <strong>子类</strong>;</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/21/继承与派生/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.31415.cf/2018/05/19/深搜和广搜1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="31415926535x">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/misaka.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="31415926535x">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/19/深搜和广搜1/" itemprop="url">深搜和广搜1</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-19T11:50:16+08:00">
+                2018-05-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/19/深搜和广搜1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/05/19/深搜和广搜1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>2018.5.19</p>
+<p>这一篇主要是关于深搜和广搜实现的一些总结，因为一些模板和数据结构还未学习，，所以这一篇深搜广搜都是使用基本的方法，，虽然便于理解，，但是如要解决问题acm之类还是使用带有模板的更高效的方法。。。。</p>
+<p>搜索是一种求解的方法，通常来说就是将所有情况探索一遍，找出其中符合要求的情况作为最后的解。按照 <strong>生成解的顺序</strong> 有两种基本的求解顺序：<strong>深度优先搜索（Depth-first Search）</strong> 和 <strong>广度优先搜索（Breadth-first search）</strong>。^--&gt;
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/19/深搜和广搜1/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -678,7 +969,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -728,7 +1019,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
