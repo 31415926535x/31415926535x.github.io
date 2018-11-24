@@ -85,7 +85,7 @@
 
 
 
-  <meta name="keywords" content="acm,算法,数论," />
+  <meta name="keywords" content="acm,刷题," />
 
 
 
@@ -98,18 +98,18 @@
 
 
 
-<meta name="description" content="概述 最近学了好多有关最大公约数的知识点，，acm里的同余问题主要是关于一元线性方程的解法等等，，，在此罗列 最大公约数gcd ， 最小公倍数lcm ， 欧几里得算法 ， 扩展欧几里得算法 ， 以及他们的一些应用，，，">
-<meta name="keywords" content="acm,算法,数论">
+<meta name="description" content="题意 题目链接 给你一个数组，如果存在一个数等于剩余的数的和的话，，，就称这样array是good array，， 然后题目问你对于给定的数组去掉一个数之后时候是一个good array，，，输出所有的去掉的数的位置pos 分析 一开始我想这直接暴力去求，，，外循环遍历整个数组枚举可能是去掉的数，，，内循环遍历去掉那个数之后的数列寻找时候存在一个使得剩余数的和等于内循环遍历的那个数，，，">
+<meta name="keywords" content="acm,刷题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="同余问题">
-<meta property="og:url" content="http://www.31415.cf/2018/07/23/同余问题/index.html">
+<meta property="og:title" content="Codeforces-1077C">
+<meta property="og:url" content="http://www.31415.cf/2018/11/24/Codeforces-1077C/index.html">
 <meta property="og:site_name" content="31415926535x">
-<meta property="og:description" content="概述 最近学了好多有关最大公约数的知识点，，acm里的同余问题主要是关于一元线性方程的解法等等，，，在此罗列 最大公约数gcd ， 最小公倍数lcm ， 欧几里得算法 ， 扩展欧几里得算法 ， 以及他们的一些应用，，，">
+<meta property="og:description" content="题意 题目链接 给你一个数组，如果存在一个数等于剩余的数的和的话，，，就称这样array是good array，， 然后题目问你对于给定的数组去掉一个数之后时候是一个good array，，，输出所有的去掉的数的位置pos 分析 一开始我想这直接暴力去求，，，外循环遍历整个数组枚举可能是去掉的数，，，内循环遍历去掉那个数之后的数列寻找时候存在一个使得剩余数的和等于内循环遍历的那个数，，，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-23T06:27:06.629Z">
+<meta property="og:updated_time" content="2018-11-24T07:34:20.772Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="同余问题">
-<meta name="twitter:description" content="概述 最近学了好多有关最大公约数的知识点，，acm里的同余问题主要是关于一元线性方程的解法等等，，，在此罗列 最大公约数gcd ， 最小公倍数lcm ， 欧几里得算法 ， 扩展欧几里得算法 ， 以及他们的一些应用，，，">
+<meta name="twitter:title" content="Codeforces-1077C">
+<meta name="twitter:description" content="题意 题目链接 给你一个数组，如果存在一个数等于剩余的数的和的话，，，就称这样array是good array，， 然后题目问你对于给定的数组去掉一个数之后时候是一个good array，，，输出所有的去掉的数的位置pos 分析 一开始我想这直接暴力去求，，，外循环遍历整个数组枚举可能是去掉的数，，，内循环遍历去掉那个数之后的数列寻找时候存在一个使得剩余数的和等于内循环遍历的那个数，，，">
 
 
 
@@ -139,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="http://www.31415.cf/2018/07/23/同余问题/"/>
+  <link rel="canonical" href="http://www.31415.cf/2018/11/24/Codeforces-1077C/"/>
 
 
 
 
 
-  <title>同余问题 | 31415926535x</title>
+  <title>Codeforces-1077C | 31415926535x</title>
   
 
 
@@ -281,7 +281,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.31415.cf/2018/07/23/同余问题/">
+    <link itemprop="mainEntityOfPage" href="http://www.31415.cf/2018/11/24/Codeforces-1077C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="31415926535x">
@@ -298,7 +298,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">同余问题</h1>
+          <h1 class="post-title" itemprop="name headline">Codeforces-1077C</h1>
         
 
         <div class="post-meta">
@@ -310,8 +310,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-23T13:50:14+08:00">
-                2018-07-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-24T15:22:31+08:00">
+                2018-11-24
               </time>
             
 
@@ -321,6 +321,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Codeforces/" itemprop="url" rel="index">
+                    <span itemprop="name">Codeforces</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -329,9 +351,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/07/23/同余问题/#comments" itemprop="discussionUrl">
+                <a href="/2018/11/24/Codeforces-1077C/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/07/23/同余问题/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/11/24/Codeforces-1077C/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -359,47 +381,21 @@
       
 
       
-        <h2 id="概述">概述</h2>
-<p>最近学了好多有关最大公约数的知识点，，acm里的同余问题主要是关于一元线性方程的解法等等，，，在此罗列 <strong>最大公约数gcd</strong> ， <strong>最小公倍数lcm</strong> ， <strong>欧几里得算法</strong> ， <strong>扩展欧几里得算法</strong> ， 以及他们的一些应用，，，</p>
-<a id="more"></a>
-<h2 id="最大公约数gcd和最小公倍数lcm">最大公约数gcd和最小公倍数lcm</h2>
-<p><a href="https://www.cnblogs.com/linyujun/p/5167914.html" target="_blank" rel="noopener">参考文章</a></p>
-<p>gcd(a , b)就是a与b的最大公约数 lcm(a , b)就是a与b的最小公倍数</p>
-<ul>
-<li>公式 <span class="math inline">\(a*b=gcd*lcm\)</span>，，证明见大佬的博客</li>
-</ul>
-<h3 id="辗转相除法求gcd欧几里得算法">辗转相除法求gcd(欧几里得算法)</h3>
-<p>代码如下：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//非递归写法</span></span><br><span class="line"><span class="function">LL <span class="title">gcd</span><span class="params">(LL a, LL b)</span></span>&#123;</span><br><span class="line">    LL t;</span><br><span class="line">    <span class="keyword">while</span>(b)&#123;</span><br><span class="line">        t = b;</span><br><span class="line">        b = a % b;</span><br><span class="line">        a = t;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//递归写法</span></span><br><span class="line"><span class="function">LL <span class="title">gcd</span><span class="params">(LL a, LL b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(b == <span class="number">0</span>) <span class="keyword">return</span> a;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> gcd(b, a%b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">LL <span class="title">gcd</span><span class="params">(LL a, LL b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> b ? gcd(b, a%b) : a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>注意，对于大整数来说，取模运算非常耗时。。。虽然这句话我还不理解，，，但是先记在这，，，以后说不定会知道来补个票，，，<a href="https://blog.csdn.net/suool/article/details/14094255#" target="_blank" rel="noopener">这篇博客有说到这个问题，，他是用Stein算法解决的</a> 代码如下： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//算法分析</span></span><br><span class="line"><span class="comment">//渐近时间,空间复杂度均与欧几里德算法相同</span></span><br><span class="line"><span class="comment">//原理:gcd(ka,kb)=k*gcd(a,b)</span></span><br><span class="line"><span class="comment">//最大特点:只有移位和加减法计算,避免了大整数的取模运算</span></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="title">MaxDivisor</span><span class="params">(<span class="keyword">unsigned</span> a, <span class="keyword">unsigned</span> b)</span> </span></span><br><span class="line"><span class="function"></span>&#123; </span><br><span class="line">    <span class="keyword">unsigned</span> c = <span class="number">0</span>; </span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">    &#123; </span><br><span class="line">    <span class="comment">// 退出条件 </span></span><br><span class="line">        <span class="keyword">if</span>(a==<span class="number">0</span>) </span><br><span class="line">            <span class="keyword">return</span> b &lt;&lt; c;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(b == <span class="number">0</span>) </span><br><span class="line">            <span class="keyword">return</span> a &lt;&lt; c;</span><br><span class="line">    <span class="comment">// 为提高速度，采用位的与运算，避免用取模判断奇偶 </span></span><br><span class="line">        <span class="keyword">if</span>(!(a &amp; <span class="number">1</span>) &amp;&amp; !(b &amp; <span class="number">1</span>)) <span class="comment">//a,b 都是偶数 </span></span><br><span class="line">        &#123; </span><br><span class="line">            a &gt;&gt;= <span class="number">1</span>; b &gt;&gt;= <span class="number">1</span>; ++c; </span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(!(a &amp; <span class="number">1</span>) &amp;&amp; (b &amp; <span class="number">1</span>)) <span class="comment">//a偶 b奇 </span></span><br><span class="line">        &#123; </span><br><span class="line">            a &gt;&gt;= <span class="number">1</span>; </span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>((a &amp; <span class="number">1</span>) &amp;&amp; !(b &amp; <span class="number">1</span>)) <span class="comment">//a奇 b偶 </span></span><br><span class="line">        &#123;</span><br><span class="line">             b &gt;&gt;= <span class="number">1</span>; </span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>((a &amp; <span class="number">1</span>) &amp;&amp; (b &amp; <span class="number">1</span>)) <span class="comment">//a,b都是奇数 </span></span><br><span class="line">        &#123; </span><br><span class="line">            <span class="keyword">unsigned</span> tmp = a&gt;b?b:a; <span class="comment">//取较小的一个 </span></span><br><span class="line">            a = a&gt;b?a-b:(b-a); <span class="comment">//绝对差值</span></span><br><span class="line">            b = tmp; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="求lcm">求lcm</h3>
-<p>求出gcd，，就可以用之前的公式来求lcm啦 <span class="math inline">\(lcm=a*b/gcd\)</span> 因为<span class="math inline">\(a*b\)</span>可能太大爆int,ll所以可以写成<span class="math inline">\(lcm=a/gcd*b\)</span></p>
-<h3 id="其他几个公式">其他几个公式</h3>
-<p><span class="math inline">\(gcd(ka , kb)=k*gcd(a , b)\)</span></p>
-<p><span class="math inline">\(lcm(ka , kb)=k*lcm(a , b)\)</span></p>
-<p>还有这个：</p>
-<p><span class="math inline">\(lcm(s/a , s/b)=s/gcd(a , b)\)</span></p>
-<h2 id="扩展欧几里得算法">扩展欧几里得算法</h2>
-<p><a href="https://blog.csdn.net/suool/article/details/14094255#" target="_blank" rel="noopener">参考博客</a></p>
-<p>扩展欧几里得算法主要是求方程 <span class="math inline">\(ax+by=gcd(a , b)\)</span>的解</p>
-<p>基本算法： &gt;对于不完全为 0 的非负整数 a，b，gcd（a，b）表示 a，b 的最大公约数，必然存在整数对 x，y ，使得 gcd（a，b）=ax+by。</p>
-<p>证明:</p>
-<blockquote>
-<p>设 a&gt;b 1，显然当 b=0，gcd（a，b）=a。此时 x=1，y=0； 2，ab!=0 时</p>
-</blockquote>
-<blockquote>
-<p>设 :ax1+by1=gcd(a,b); 显然也有：bx2+(a mod b)y2=gcd(b,a mod b);</p>
-</blockquote>
-<blockquote>
-<p>根据朴素的欧几里德原理有 gcd(a,b)=gcd(b,a mod b); 则:ax1+by1=bx2+(a mod b)y2; 即:ax1+by1=bx2+(a-(a/b)<em>b)y2=ay2+bx2-(a/b)</em>by2; 根据恒等定理得：x1=y2; y1=x2-(a/b)*y2;</p>
-</blockquote>
-<blockquote>
-<p>这样我们就得到了求解 x1,y1 的方法：x1，y1 的值基于 x2，y2.</p>
-</blockquote>
-<blockquote>
-<p>上面的思想是以递归定义的，因为 gcd 不断的递归求解一定会有个时候 b=0，所以递归可以结束。</p>
-</blockquote>
-<p>我的代码: <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x , y;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a , <span class="keyword">int</span> b , <span class="keyword">int</span> &amp;x , <span class="keyword">int</span> &amp;y , <span class="keyword">int</span> &amp;d)</span>      <span class="comment">//x , y , d为引用方便更改值，d为gcd(a , b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!b) &#123;d = a; x = <span class="number">1</span>; y = <span class="number">0</span>;&#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        gcd(b , a % b , y , x , d);</span><br><span class="line">        y -= x * (a / b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <h1 id="题意">题意</h1>
+<p><a href="https://codeforces.com/problemset/problem/1077/C" target="_blank" rel="noopener"><strong>题目链接</strong></a></p>
+<p>给你一个数组，如果存在一个数等于剩余的数的和的话，，，就称这样array是good array，，</p>
+<p>然后题目问你对于给定的数组去掉一个数之后时候是一个good array，，，输出所有的去掉的数的位置pos</p>
+<h1 id="分析">分析</h1>
+<p>一开始我想这直接暴力去求，，，外循环遍历整个数组枚举可能是去掉的数，，，内循环遍历去掉那个数之后的数列寻找时候存在一个使得剩余数的和等于内循环遍历的那个数，，，</p>
+<p>复杂度应该是<span class="math inline">\(O(n^2)\)</span>，，，果不其然的tle了，，，，</p>
+<p>然后去看标程题解，，，看不懂QAQ，，，</p>
+<p>看了别人的思路后才弄出来，，，</p>
+<p>对于这样一个good array，，，数<span class="math inline">\(a_i = sum - a_i\)</span>，，那么<span class="math inline">\(a_i\)</span>一定是这个数组的最大值，，，</p>
+<p>所以先可以对整个数组排序一下，，，然后看最大<span class="math inline">\(max\)</span>值是否等于<span class="math inline">\(sum - max\)</span>，，，</p>
+<p>注意如果要是去掉第一个数，，最大值就为第二大的数了，，，，</p>
+<h1 id="代码">代码</h1>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">2e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    ll num;</span><br><span class="line">    <span class="keyword">int</span> pos;</span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> node &amp;r) <span class="keyword">const</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> r.num &lt; num;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;node[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios_base::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);<span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> n;<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    ll sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; node[i].num;</span><br><span class="line">        node[i].pos = i;</span><br><span class="line">        sum += node[i].num;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    sort(node , node + n);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> max = (i == <span class="number">0</span>) ? node[<span class="number">1</span>].num : node[<span class="number">0</span>].num;</span><br><span class="line">        <span class="keyword">if</span>(sum - node[i].num - max == max)</span><br><span class="line">            ans.push_back(node[i].pos);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans.size() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator it = ans.begin(); it != ans.end(); ++it)</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; *it + <span class="number">1</span> &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>(end)</p>
 
       
     </div>
@@ -419,9 +415,7 @@
           
             <a href="/tags/acm/" rel="tag">:-> acm</a>
           
-            <a href="/tags/算法/" rel="tag">:-> 算法</a>
-          
-            <a href="/tags/数论/" rel="tag">:-> 数论</a>
+            <a href="/tags/刷题/" rel="tag">:-> 刷题</a>
           
         </div>
       
@@ -434,8 +428,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/19/线性筛素数/" rel="next" title="线性筛素数">
-                <i class="fa fa-chevron-left"></i> 线性筛素数
+              <a href="/2018/11/22/poj-1459-最大流dinic-链式前向星/" rel="next" title="poj-1459-最大流dinic+链式前向星-isap+bfs+stack">
+                <i class="fa fa-chevron-left"></i> poj-1459-最大流dinic+链式前向星-isap+bfs+stack
               </a>
             
           </div>
@@ -443,10 +437,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/23/深搜和广搜2/" rel="prev" title="深搜和广搜2">
-                深搜和广搜2 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -627,7 +617,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最大公约数gcd和最小公倍数lcm"><span class="nav-number">2.</span> <span class="nav-text">最大公约数gcd和最小公倍数lcm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#辗转相除法求gcd欧几里得算法"><span class="nav-number">2.1.</span> <span class="nav-text">辗转相除法求gcd(欧几里得算法)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#求lcm"><span class="nav-number">2.2.</span> <span class="nav-text">求lcm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他几个公式"><span class="nav-number">2.3.</span> <span class="nav-text">其他几个公式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展欧几里得算法"><span class="nav-number">3.</span> <span class="nav-text">扩展欧几里得算法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题意"><span class="nav-number">1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分析"><span class="nav-number">2.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
             
 
           </div>
@@ -793,9 +783,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://www.31415.cf/2018/07/23/同余问题/';
-          this.page.identifier = '2018/07/23/同余问题/';
-          this.page.title = '同余问题';
+          this.page.url = 'http://www.31415.cf/2018/11/24/Codeforces-1077C/';
+          this.page.identifier = '2018/11/24/Codeforces-1077C/';
+          this.page.title = 'Codeforces-1077C';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://www-31415-cf.disqus.com/embed.js';
