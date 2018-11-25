@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<!--顶部进度加载条*********************-->
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #A593E0; /*进度条颜色*/
+        height: 5px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #A593E0;    /*上边框颜色*/
+        border-left-color: #A593E0;    /*左边框颜色*/
+    }
+</style>
+<!--**********************-->
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="acm,刷题," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="31415926535x" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="概述 昨天正好有时间，做了自己第一场的cf 做完AB之后被C卡到最后，，，从来没做过坐标平面上两个矩形的面积和，，，因为存在相交的可能，，，所以要单独的处理矩形面积交，，然后自己就写懵了，，，当时写了几十行的if判断，，，，到最后都没弄完，，QAQ">
+<meta name="keywords" content="acm,刷题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="codeforces-1080C">
+<meta property="og:url" content="http://www.31415.cf/2018/11/25/codeforces-1080C/index.html">
+<meta property="og:site_name" content="31415926535x">
+<meta property="og:description" content="概述 昨天正好有时间，做了自己第一场的cf 做完AB之后被C卡到最后，，，从来没做过坐标平面上两个矩形的面积和，，，因为存在相交的可能，，，所以要单独的处理矩形面积交，，然后自己就写懵了，，，当时写了几十行的if判断，，，，到最后都没弄完，，QAQ">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://codeforces.com/predownloaded/d8/6e/d86e87a66d47ec694dd7dfe9b27c72c68ce27d9d.png">
+<meta property="og:image" content="https://codeforces.com/predownloaded/5e/f8/5ef88f2dba40d4f7f22774404f8c502bd950a68e.png">
+<meta property="og:updated_time" content="2018-11-25T08:31:16.028Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="codeforces-1080C">
+<meta name="twitter:description" content="概述 昨天正好有时间，做了自己第一场的cf 做完AB之后被C卡到最后，，，从来没做过坐标平面上两个矩形的面积和，，，因为存在相交的可能，，，所以要单独的处理矩形面积交，，然后自己就写懵了，，，当时写了几十行的if判断，，，，到最后都没弄完，，QAQ">
+<meta name="twitter:image" content="https://codeforces.com/predownloaded/d8/6e/d86e87a66d47ec694dd7dfe9b27c72c68ce27d9d.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.31415.cf/2018/11/25/codeforces-1080C/"/>
+
+
+
+
+
+  <title>codeforces-1080C | 31415926535x</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-114656515-1', 'auto');
+  ga('send', 'pageview');
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">31415926535x</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.31415.cf/2018/11/25/codeforces-1080C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="31415926535x">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/misaka.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="31415926535x">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">codeforces-1080C</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-25T14:23:53+08:00">
+                2018-11-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Codeforces/" itemprop="url" rel="index">
+                    <span itemprop="name">Codeforces</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/25/codeforces-1080C/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/11/25/codeforces-1080C/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="概述">概述</h1>
+<p><a href="https://codeforces.com/problemset/problem/1080/C" target="_blank" rel="noopener">昨天正好有时间，做了自己第一场的cf</a></p>
+<p>做完AB之后被C卡到最后，，，从来没做过坐标平面上两个矩形的面积和，，，因为存在相交的可能，，，所以要单独的处理矩形面积交，，然后自己就写懵了，，，当时写了几十行的if判断，，，，到最后都没弄完，，QAQ</p>
+<a id="more"></a>
+<h1 id="题意与分析">题意与分析</h1>
+<h2 id="题意">题意</h2>
+<p>这道题的题意就是给你一个n * m大的方格板子，，类似国际象棋那样，，黑白相间，，然后再给你两个矩形，，第一个矩形内的所有格子涂为白色，，第二个涂为黑色，，，问你最后白格子和黑格子的数量，，棋盘的大小可能是1e9 * 1e9的，，，</p>
+<h2 id="思路">思路</h2>
+<h3 id="我的思路">我的思路</h3>
+<ul>
+<li>一开始我的思路是算出所有的白格子，黑格子的数量(wsum ,bsum)，，，然后wsum加上第一个矩形里的所有黑格子数量，，之后wsum减去第二个矩形里白格子的数量，，，最后再考虑是有面积的相交，，，有的话再计算相交矩形内的，，但是中间的一些细节，，，比如说如何计算不同左下角坐标的矩形内格子数，，如何判是否有相交的矩形，，如何计算相交的矩形内的格子数量以及怎么调整等等，，，以前从来没写过没考虑过，，，只能硬头皮的去一路if下去，，，到最后自己的写懵了，，，</li>
+<li>中途想着直接模拟算了，，，维护一个大矩阵，，1表示白色0表示黑色，，然后对相应的矩形全部置一置零，，，最后求01的数量，，，然后发现根本开不了那么大的数组，，，，QAQ</li>
+</ul>
+<h3 id="最后今天看了出题人的题解">最后今天看了出题人的题解，，，</h3>
+<h4 id="矩形1-1-x-y内白格子的数量的计算"><strong>矩形(1 , 1 , x , y)内白格子的数量的计算</strong></h4>
+<p><span class="math inline">\(设函数w(x , y)返回值为左下角(1 , 1)与(x , y)的矩形内的白格子的数量\)</span></p>
+<h4 id="矩形内白格子数量的计算"><strong>矩形内白格子数量的计算</strong>：</h4>
+<p><span class="math inline">\(任意一个矩形(x_1 , y_1 , x_2 , y_2)内的白格子数量=矩形(1 , 1 , x_2 , y_2)内白格子的数量-矩形(1 , 1 , x_1 , y_2)内白格子的数量-矩形(1 , 1 , x_2 , y_1)内白格子的数量+矩形(1 , 1 , x_1 - 1 , y_1 - 1)内白格子的数量，所以：\)</span></p>
+<p><span class="math display">\[W(x_1 , y_1 , x_2 , y_2) = w(x_1 , y_1) - w(x_1 - 1 , y_2) - w(x_2 , y_1 - 1) + w(x_1 - 1 , y_1 - 1)\]</span></p>
+<h4 id="矩形内黑格子数量的计算"><strong>矩形内黑格子数量的计算</strong></h4>
+<p><span class="math display">\[B(x_1 , y_1 , x_2 , y_2) = (x_2 - x_1 + 1) * (y_2 - y_1 + 1) - W(x_1 , y_1 , x_2 , y_2)\]</span></p>
+<h4 id="相交部分的判断和处理"><strong>相交部分的判断和处理</strong></h4>
+<p>出题人说<strong>显然</strong>（我(／‵Д′)／~ ╧╧）如果不存在相交矩形，，那么一定满足</p>
+<p><span class="math display">\[max(x_1 , x_3)&gt;min(x_2 , x_4) \ \ or\ \  max(y_1,y_3)&gt;min(y_2,y_4)\]</span></p>
+<p>所以反命题就是如果存在相交举证即使上面那个判断取反，，同时相交矩形的坐标是 <span class="math display">\[(max(x_1 , x_3) \ , \ max(y_1 , y_3)\ ,\ min(x_2,x_4)\ ,\ min(y2 , y_4))\]</span></p>
+<p>有了这些，，我们就可以算出相交矩形内原来的白色、黑色的格子了（就是不考虑第一个第二个矩形影响时的数量），，</p>
+<p>因为在第一个矩形里将相交矩形内的黑格子变成了白色，，现在又要变成黑色，，所以wsum（白色格子的数量）要减去黑色的数量（白色的数量已经在计算第二个矩形时减去了，，所以对于wsum是减去了相交矩形的所有格子数量），，同时黑色格子的数量bsum要加上黑色的数量，，而计算第二个矩形时相交矩形里的白色已经加上了，，，相当于加上了整个相交矩形的格子数量，，（拿笔画一下这个步骤就更清楚了）</p>
+<h4 id="wx-y的实现"><strong>w(x , y)的实现</strong></h4>
+<p>首先我们定义这样排列的黑白格子为<strong>类型1</strong></p>
+<p><img src="https://codeforces.com/predownloaded/d8/6e/d86e87a66d47ec694dd7dfe9b27c72c68ce27d9d.png"> 而这样的是<strong>类型2</strong> <img src="https://codeforces.com/predownloaded/5e/f8/5ef88f2dba40d4f7f22774404f8c502bd950a68e.png"> + 行数n为<strong>偶数</strong>时，类型1类型2的数量是对半的，即<span class="math inline">\(\frac n2\)</span>,</p>
+<ul>
+<li>行数n为<strong>奇数</strong>时，<strong>类型1</strong>的数量是<span class="math inline">\(\lfloor{\frac n2}\rfloor\)</span> （向下取整，直接除就行），，<strong>类型2</strong>的数量是<span class="math inline">\(\lceil{\frac n2}\rceil\)</span>（向上取整，有余数时加一个）</li>
+</ul>
+<p>因为行数n为偶数时类型1的数量和类型2数量相等，也就是说<span class="math inline">\(\lfloor{\frac n2}\rfloor\)</span>=<span class="math inline">\(\lceil{\frac n2}\rceil\)</span>，，所以，，我们就不管行数是不是偶数奇数了，，，直接<strong>类型1</strong>数量=<span class="math inline">\(\lfloor{\frac n2}\rfloor\)</span>，<strong>类型2</strong>数量=<span class="math inline">\(\lceil{\frac n2}\rceil\)</span>，，，（数学真好玩.jpg，，，想想我当时为了判断行数的奇偶分情况讨论，，写吐ed，，(#`Д´)ﾉ）</p>
+<p>按照这个思路，，，同样列数m也就可以这样计算了，，， 即<strong>类型1</strong>的数量=<span class="math inline">\(\lfloor{\frac m2}\rfloor\)</span>，，<strong>类型2</strong>的数量=<span class="math inline">\(\lceil{\frac m2}\rceil\)</span>..</p>
+<p>有了这两个，，我们就可以计算矩形(x , y)内了白色格子的数量了，，， <span class="math display">\[w(x , y) = \lceil{\frac n2}\rceil \cdot \lceil{\frac m2}\rceil + \lfloor{\frac n2}\rfloor \cdot \lfloor{\frac m2}\rfloor\]</span></p>
+<h4 id="向上取整的实现"><strong>向上取整的实现</strong></h4>
+<p>这道题除了让我知道矩形交的处理，，，还有一个从好几个大佬的代码中我看到了几个好的求向上取整的代码，，，不像我那样傻傻的if判断(╬☉д⊙) <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ll <span class="title">cdiv</span><span class="params">(ll a , llb)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a / b + (a % b &gt; <span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//or</span></span><br><span class="line"><span class="function">ll <span class="title">cdiv</span><span class="params">(ll a , ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (a + b - <span class="number">1</span>) / b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="代码">代码</h1>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="comment">//ceiling div</span></span><br><span class="line"><span class="function">ll <span class="title">cdiv</span><span class="params">(ll a , ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a / b + (a % b &gt; <span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">ccdiv</span><span class="params">(ll a , ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (a + b - <span class="number">1</span>) / b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">w</span><span class="params">(ll x , ll y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> cdiv(x , <span class="number">2</span>) * cdiv(y , <span class="number">2</span>) + (x / <span class="number">2</span>) * (y / <span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">wsum</span><span class="params">(ll x1 , ll y1 , ll x2 , ll y2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> w(x2 , y2) - w(x1 - <span class="number">1</span> , y2) - w(x2 , y1 - <span class="number">1</span>) + w(x1 - <span class="number">1</span> , y1 - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">bsum</span><span class="params">(ll x1 , ll y1 , ll x2 , ll y2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (x2 - x1 + <span class="number">1</span>) * (y2 - y1 + <span class="number">1</span>) - wsum(x1 , y1 , x2 , y2);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    freopen(<span class="string">"233.txt"</span> , <span class="string">"r"</span> , <span class="built_in">stdin</span>);</span><br><span class="line">    ios_base::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);<span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> t;<span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        ll n , m;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">        ll x1 , x2 , x3 , x4 , y1 , y2 , y3 , y4;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; x1 &gt;&gt; y1 &gt;&gt; x2 &gt;&gt; y2;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; x3 &gt;&gt; y3 &gt;&gt; x4 &gt;&gt; y4;</span><br><span class="line">        ll w = wsum(<span class="number">1</span> , <span class="number">1</span> , m , n);</span><br><span class="line">        ll b = bsum(<span class="number">1</span> , <span class="number">1</span> , m , n);</span><br><span class="line">        <span class="comment">//first rec</span></span><br><span class="line">        w = w + bsum(x1 , y1 , x2 , y2);</span><br><span class="line">        b = b - bsum(x1 , y1 , x2 , y2);</span><br><span class="line">        <span class="comment">//second rec(dont consider the itersection</span></span><br><span class="line">        w = w - wsum(x3 , y3 , x4 , y4);</span><br><span class="line">        b = b + wsum(x3 , y3 , x4 , y4);</span><br><span class="line">        <span class="comment">//consider the itersection</span></span><br><span class="line">        <span class="keyword">if</span>(max(x1 , x3) &lt;= min(x2 , x4) &amp;&amp; max(y1 , y3) &lt;= min(y2 , y4))</span><br><span class="line">        &#123;</span><br><span class="line">            w = w - bsum(max(x1 , x3) , max(y1 , y3) , min(x2 , x4) , min(y2 , y4));</span><br><span class="line">            b = b + bsum(max(x1 , x3) , max(y1 , y3) , min(x2 , x4) , min(y2 , y4));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; w &lt;&lt; <span class="string">" "</span> &lt;&lt; b &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="小结">小结</h1>
+<ul>
+<li>一直不怎么会的向上取整、矩形面积交等等问题算是了解了，，，至少不会在出现的时候啥都不知道，，只能从头分析，，，一个劲的堆if了(-`ェ´-╬)</li>
+<li>cf真好玩.jpg，，，以为会第一发只能灰名，，没想到青了，，，就是深夜场太多，，，不然能天天打，，，，</li>
+<li>这种代码不多的题锻炼锻炼思维很不错啊，，，毕竟现在纯套板子的题在各种比赛中是越来越少了，，，，</li>
+</ul>
+<p>(end)</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/acm/" rel="tag">:-> acm</a>
+          
+            <a href="/tags/刷题/" rel="tag">:-> 刷题</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/24/Codeforces-1077C/" rel="next" title="Codeforces-1077C">
+                <i class="fa fa-chevron-left"></i> Codeforces-1077C
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/misaka.jpg"
+                alt="31415926535x" />
+            
+              <p class="site-author-name" itemprop="name">31415926535x</p>
+              <p class="site-description motion-element" itemprop="description">很感谢你能来，不遗憾你离开</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/31415926535x" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:2509437152wx@gmail.com" target="_blank" title="Gmail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>Gmail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://plus.google.com/106114719135977350421" target="_blank" title="Google">
+                      
+                        <i class="fa fa-fw fa-google"></i>Google</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://instagram.com/314159265358x" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题意与分析"><span class="nav-number">2.</span> <span class="nav-text">题意与分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题意"><span class="nav-number">2.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">2.2.</span> <span class="nav-text">思路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#我的思路"><span class="nav-number">2.2.1.</span> <span class="nav-text">我的思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后今天看了出题人的题解"><span class="nav-number">2.2.2.</span> <span class="nav-text">最后今天看了出题人的题解，，，</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#矩形1-1-x-y内白格子的数量的计算"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">矩形(1 , 1 , x , y)内白格子的数量的计算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#矩形内白格子数量的计算"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">矩形内白格子数量的计算：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#矩形内黑格子数量的计算"><span class="nav-number">2.2.2.3.</span> <span class="nav-text">矩形内黑格子数量的计算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#相交部分的判断和处理"><span class="nav-number">2.2.2.4.</span> <span class="nav-text">相交部分的判断和处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wx-y的实现"><span class="nav-number">2.2.2.5.</span> <span class="nav-text">w(x , y)的实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#向上取整的实现"><span class="nav-number">2.2.2.6.</span> <span class="nav-text">向上取整的实现</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小结"><span class="nav-number">4.</span> <span class="nav-text">小结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">31415926535x</span>
+
+  
+</div>
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+-->
+
+  <span class="post-meta-divider">|</span>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+    <!-- 页面点击小红心 -->
+      <script type="text/javascript" src="/js/src/love.js"></script>
+    <!-- 动态背景 -->
+      <script type="text/javascript" src="/js/src/canvas-nest.js"></script>
+      <!-- 背景动画 -->
+      <script type="text/javascript" src="/js/src/particle.js"></script>
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://www-31415-cf.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://www.31415.cf/2018/11/25/codeforces-1080C/';
+          this.page.identifier = '2018/11/25/codeforces-1080C/';
+          this.page.title = 'codeforces-1080C';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://www-31415-cf.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>
