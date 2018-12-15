@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<!--顶部进度加载条*********************-->
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #A593E0; /*进度条颜色*/
+        height: 5px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #A593E0;    /*上边框颜色*/
+        border-left-color: #A593E0;    /*左边框颜色*/
+    }
+</style>
+<!--**********************-->
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="acm,刷题," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="31415926535x" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="概述 入的坑久了，，接触到的算法就多了起来，，做的题也多了，，但是记性却一点一不好 渐渐发现好多题当时弄懂了，，代码也写好了，，博客上做了笔记，，可是最后随着时间的推移，，再熟悉的算法，模型，套路也忘记了，，再去翻之前的文章有太费事，， 所以这篇文章主要是记录一下见到的每种算法以及解法思路，，为了以后忘记了能够快速想起来，，同时也是其一个记录的功能吧(っ・Д・)っ 大致的格式就是“算法-&amp;">
+<meta name="keywords" content="acm,刷题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="acm总结">
+<meta property="og:url" content="http://www.31415.cf/2018/12/15/acm总结/index.html">
+<meta property="og:site_name" content="31415926535x">
+<meta property="og:description" content="概述 入的坑久了，，接触到的算法就多了起来，，做的题也多了，，但是记性却一点一不好 渐渐发现好多题当时弄懂了，，代码也写好了，，博客上做了笔记，，可是最后随着时间的推移，，再熟悉的算法，模型，套路也忘记了，，再去翻之前的文章有太费事，， 所以这篇文章主要是记录一下见到的每种算法以及解法思路，，为了以后忘记了能够快速想起来，，同时也是其一个记录的功能吧(っ・Д・)っ 大致的格式就是“算法-&amp;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://vjudge.net/contest/261463#status/31415926535x/I/0/">
+<meta property="og:image" content="https://blog.csdn.net/zwj1452267376/article/details/50518209">
+<meta property="og:image" content="https://www.luogu.org/problemnew/solution/P4313">
+<meta property="og:image" content="https://codeforces.com/contest/1082/submission/47022828">
+<meta property="og:updated_time" content="2018-12-15T13:30:57.101Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="acm总结">
+<meta name="twitter:description" content="概述 入的坑久了，，接触到的算法就多了起来，，做的题也多了，，但是记性却一点一不好 渐渐发现好多题当时弄懂了，，代码也写好了，，博客上做了笔记，，可是最后随着时间的推移，，再熟悉的算法，模型，套路也忘记了，，再去翻之前的文章有太费事，， 所以这篇文章主要是记录一下见到的每种算法以及解法思路，，为了以后忘记了能够快速想起来，，同时也是其一个记录的功能吧(っ・Д・)っ 大致的格式就是“算法-&amp;">
+<meta name="twitter:image" content="https://vjudge.net/contest/261463#status/31415926535x/I/0/">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.31415.cf/2018/12/15/acm总结/"/>
+
+
+
+
+
+  <title>acm总结 | 31415926535x</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-114656515-1', 'auto');
+  ga('send', 'pageview');
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">31415926535x</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-diary">
+          <a href="/categories/diary/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user-secret"></i> <br />
+            
+            日记
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-acm">
+          <a href="/acm" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-flag"></i> <br />
+            
+            acm
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.31415.cf/2018/12/15/acm总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="31415926535x">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/misaka.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="31415926535x">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">acm总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-15T20:23:58+08:00">
+                2018-12-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/15/acm总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/12/15/acm总结/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="概述">概述</h1>
+<p>入的坑久了，，接触到的算法就多了起来，，做的题也多了，，但是记性却一点一不好</p>
+<p>渐渐发现好多题当时弄懂了，，代码也写好了，，博客上做了笔记，，可是最后随着时间的推移，，再熟悉的算法，模型，套路也忘记了，，再去翻之前的文章有太费事，，</p>
+<p>所以这篇文章主要是记录一下见到的每种算法以及解法思路，，为了以后忘记了能够快速想起来，，同时也是其一个记录的功能吧(っ・Д・)っ</p>
+<p>大致的格式就是“算法-&gt;题目-&gt;思路&quot;,,,,</p>
+<p>貌似是一个大坑Σ(*ﾟдﾟﾉ)ﾉ</p>
+<!-- moer -->
+<h1 id="正文">正文</h1>
+<h2 id="各种树">各种树</h2>
+<h3 id="线段树">线段树</h3>
+<h4 id="一般的线段树">一般的线段树</h4>
+<h4 id="带区间延迟更新的线段树">带区间延迟更新的线段树</h4>
+<h4 id="非递归的线段树">非递归的线段树</h4>
+<h4 id="可持久化线段树这个还没看qaq">可持久化线段树（这个还没看QAQ)</h4>
+<h4 id="树状数组">树状数组</h4>
+<ul>
+<li>貌似树状数组的常数比线段树的常数小，，有些卡常数的题可能换树状数组好一些（区间更新没看）QAQ</li>
+</ul>
+<h2 id="图论">图论</h2>
+<h3 id="最短路">最短路</h3>
+<ul>
+<li>主要算法有dijkstra , bellmon , spfa , floyd</li>
+<li>spfa据说会退化到<span class="math inline">\(O(n^2)\)</span>(有待求证)</li>
+<li>floyd可以求矩阵、图的传递闭包<img src="https://vjudge.net/contest/261463#status/31415926535x/I/0/" alt="here"></li>
+<li>前面那三个算法都是求得单源最短路，，也就是一个点到一堆点的最短路,，，而要求一堆点到一个点的最短路可以将路径反向后跑一边单源最短路，，也就是求逆图的最短路，，，存图的方法选择邻接矩阵好一些，，，<img src="https://blog.csdn.net/zwj1452267376/article/details/50518209" alt="here"></li>
+</ul>
+<h3 id="网络流">网络流</h3>
+<h4 id="最大流最小割">最大流最小割</h4>
+<ul>
+<li>解决最大流的常用算法：dinic , sap , isap,,,记得敲板子认真，，，异或取边，，遍历边等等</li>
+<li>最大流最小割定理：一个网络的最大流也等于其最小割；</li>
+</ul>
+<h4 id="最大权闭合子图">最大权闭合子图</h4>
+<ul>
+<li>一般是求n选一可以得到一些利益而在一些特殊情况下可以得到更多的利益的问题就可能使用网络流求解，，对于冲突情况的处理是添加一条inf的边，，如果正向不好求那么反向求，，总收益渐去最小代价，，也就是最大权闭合子图的问题，，<img src="https://www.luogu.org/problemnew/solution/P4313" alt="1">,,<img src="https://codeforces.com/contest/1082/submission/47022828" alt="2">,,,</li>
+</ul>
+<h2 id="数论">数论</h2>
+<h2 id="特殊的算法">特殊的算法</h2>
+<h2 id="codeforces上的">codeforces上的</h2>
+<h2 id="奇技淫巧">奇技淫巧</h2>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/acm/" rel="tag">:-> acm</a>
+          
+            <a href="/tags/刷题/" rel="tag">:-> 刷题</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/15/最大权闭合子图/" rel="next" title="最大权闭合子图">
+                <i class="fa fa-chevron-left"></i> 最大权闭合子图
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/15/ACM-网络流-最大权闭合子图/" rel="prev" title="ACM-网络流-最大权闭合子图">
+                ACM-网络流-最大权闭合子图 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/misaka.jpg"
+                alt="31415926535x" />
+            
+              <p class="site-author-name" itemprop="name">31415926535x</p>
+              <p class="site-description motion-element" itemprop="description">很感谢你能来，不遗憾你离开</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/31415926535x" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:2509437152wx@gmail.com" target="_blank" title="Gmail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>Gmail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://plus.google.com/106114719135977350421" target="_blank" title="Google">
+                      
+                        <i class="fa fa-fw fa-google"></i>Google</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://instagram.com/314159265358x" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://cnblogs.com/31415926535x" target="_blank" title="cnblogs">
+                      
+                        <i class="fa fa-fw fa-globe"></i>cnblogs</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://codeforces.com/profile/31415926535x" target="_blank" title="codeforces">
+                      
+                        <i class="fa fa-fw fa-globe"></i>codeforces</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#各种树"><span class="nav-number">2.1.</span> <span class="nav-text">各种树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#线段树"><span class="nav-number">2.1.1.</span> <span class="nav-text">线段树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一般的线段树"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">一般的线段树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#带区间延迟更新的线段树"><span class="nav-number">2.1.1.2.</span> <span class="nav-text">带区间延迟更新的线段树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非递归的线段树"><span class="nav-number">2.1.1.3.</span> <span class="nav-text">非递归的线段树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可持久化线段树这个还没看qaq"><span class="nav-number">2.1.1.4.</span> <span class="nav-text">可持久化线段树（这个还没看QAQ)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#树状数组"><span class="nav-number">2.1.1.5.</span> <span class="nav-text">树状数组</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图论"><span class="nav-number">2.2.</span> <span class="nav-text">图论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最短路"><span class="nav-number">2.2.1.</span> <span class="nav-text">最短路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络流"><span class="nav-number">2.2.2.</span> <span class="nav-text">网络流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#最大流最小割"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">最大流最小割</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最大权闭合子图"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">最大权闭合子图</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数论"><span class="nav-number">2.3.</span> <span class="nav-text">数论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特殊的算法"><span class="nav-number">2.4.</span> <span class="nav-text">特殊的算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#codeforces上的"><span class="nav-number">2.5.</span> <span class="nav-text">codeforces上的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#奇技淫巧"><span class="nav-number">2.6.</span> <span class="nav-text">奇技淫巧</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">31415926535x</span>
+
+  
+</div>
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+-->
+
+  <span class="post-meta-divider">|</span>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+    <!-- 页面点击小红心 -->
+      <script type="text/javascript" src="/js/src/love.js"></script>
+    <!-- 动态背景 -->
+      <script type="text/javascript" src="/js/src/canvas-nest.js"></script>
+      <!-- 背景动画 -->
+      <script type="text/javascript" src="/js/src/particle.js"></script>
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://www-31415-cf.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://www.31415.cf/2018/12/15/acm总结/';
+          this.page.identifier = '2018/12/15/acm总结/';
+          this.page.title = 'acm总结';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://www-31415-cf.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>
