@@ -106,15 +106,10 @@
 <meta property="og:site_name" content="31415926535x">
 <meta property="og:description" content="概述 入的坑久了，，接触到的算法就多了起来，，做的题也多了，，但是记性却一点一不好 渐渐发现好多题当时弄懂了，，代码也写好了，，博客上做了笔记，，可是最后随着时间的推移，，再熟悉的算法，模型，套路也忘记了，，再去翻之前的文章有太费事，， 所以这篇文章主要是记录一下见到的每种算法以及解法思路，，为了以后忘记了能够快速想起来，，同时也是其一个记录的功能吧(っ・Д・)っ 大致的格式就是“算法-&amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://vjudge.net/contest/261463#status/31415926535x/I/0/">
-<meta property="og:image" content="https://blog.csdn.net/zwj1452267376/article/details/50518209">
-<meta property="og:image" content="https://www.luogu.org/problemnew/solution/P4313">
-<meta property="og:image" content="https://codeforces.com/contest/1082/submission/47022828">
-<meta property="og:updated_time" content="2018-12-15T13:30:57.101Z">
+<meta property="og:updated_time" content="2018-12-15T13:39:30.921Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="acm总结">
 <meta name="twitter:description" content="概述 入的坑久了，，接触到的算法就多了起来，，做的题也多了，，但是记性却一点一不好 渐渐发现好多题当时弄懂了，，代码也写好了，，博客上做了笔记，，可是最后随着时间的推移，，再熟悉的算法，模型，套路也忘记了，，再去翻之前的文章有太费事，， 所以这篇文章主要是记录一下见到的每种算法以及解法思路，，为了以后忘记了能够快速想起来，，同时也是其一个记录的功能吧(っ・Д・)っ 大致的格式就是“算法-&amp;">
-<meta name="twitter:image" content="https://vjudge.net/contest/261463#status/31415926535x/I/0/">
 
 
 
@@ -412,7 +407,7 @@
 <p>所以这篇文章主要是记录一下见到的每种算法以及解法思路，，为了以后忘记了能够快速想起来，，同时也是其一个记录的功能吧(っ・Д・)っ</p>
 <p>大致的格式就是“算法-&gt;题目-&gt;思路&quot;,,,,</p>
 <p>貌似是一个大坑Σ(*ﾟдﾟﾉ)ﾉ</p>
-<!-- moer -->
+<a id="more"></a>
 <h1 id="正文">正文</h1>
 <h2 id="各种树">各种树</h2>
 <h3 id="线段树">线段树</h3>
@@ -429,8 +424,8 @@
 <ul>
 <li>主要算法有dijkstra , bellmon , spfa , floyd</li>
 <li>spfa据说会退化到<span class="math inline">\(O(n^2)\)</span>(有待求证)</li>
-<li>floyd可以求矩阵、图的传递闭包<img src="https://vjudge.net/contest/261463#status/31415926535x/I/0/" alt="here"></li>
-<li>前面那三个算法都是求得单源最短路，，也就是一个点到一堆点的最短路,，，而要求一堆点到一个点的最短路可以将路径反向后跑一边单源最短路，，也就是求逆图的最短路，，，存图的方法选择邻接矩阵好一些，，，<img src="https://blog.csdn.net/zwj1452267376/article/details/50518209" alt="here"></li>
+<li>floyd可以求矩阵、图的传递闭包<a href="https://vjudge.net/contest/261463#status/31415926535x/I/0/" target="_blank" rel="noopener">here</a></li>
+<li>前面那三个算法都是求得单源最短路，，也就是一个点到一堆点的最短路,，，而要求一堆点到一个点的最短路可以将路径反向后跑一边单源最短路，，也就是求逆图的最短路，，，存图的方法选择邻接矩阵好一些，，，<a href="https://blog.csdn.net/zwj1452267376/article/details/50518209" target="_blank" rel="noopener">here</a></li>
 </ul>
 <h3 id="网络流">网络流</h3>
 <h4 id="最大流最小割">最大流最小割</h4>
@@ -440,7 +435,7 @@
 </ul>
 <h4 id="最大权闭合子图">最大权闭合子图</h4>
 <ul>
-<li>一般是求n选一可以得到一些利益而在一些特殊情况下可以得到更多的利益的问题就可能使用网络流求解，，对于冲突情况的处理是添加一条inf的边，，如果正向不好求那么反向求，，总收益渐去最小代价，，也就是最大权闭合子图的问题，，<img src="https://www.luogu.org/problemnew/solution/P4313" alt="1">,,<img src="https://codeforces.com/contest/1082/submission/47022828" alt="2">,,,</li>
+<li>一般是求n选一可以得到一些利益而在一些特殊情况下可以得到更多的利益的问题就可能使用网络流求解，，对于冲突情况的处理是添加一条inf的边，，如果正向不好求那么反向求，，总收益渐去最小代价，，也就是最大权闭合子图的问题，，<a href="https://www.luogu.org/problemnew/solution/P4313" target="_blank" rel="noopener">1</a>,,<a href="https://codeforces.com/contest/1082/submission/47022828" target="_blank" rel="noopener">2</a>,,,</li>
 </ul>
 <h2 id="数论">数论</h2>
 <h2 id="特殊的算法">特殊的算法</h2>
@@ -487,10 +482,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/15/ACM-网络流-最大权闭合子图/" rel="prev" title="ACM-网络流-最大权闭合子图">
-                ACM-网络流-最大权闭合子图 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -581,7 +572,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

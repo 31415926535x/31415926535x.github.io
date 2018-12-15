@@ -300,137 +300,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.31415.cf/2018/12/15/ACM-网络流-最大权闭合子图/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="31415926535x">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/misaka.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="31415926535x">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/15/ACM-网络流-最大权闭合子图/" itemprop="url">ACM-网络流-最大权闭合子图</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-15T20:41:23+08:00">
-                2018-12-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/12/15/ACM-网络流-最大权闭合子图/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/12/15/ACM-网络流-最大权闭合子图/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.31415.cf/2018/12/15/acm总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -534,49 +403,19 @@
 
       
         
-          
-            <h1 id="概述">概述</h1>
+          <h1 id="概述">概述</h1>
 <p>入的坑久了，，接触到的算法就多了起来，，做的题也多了，，但是记性却一点一不好</p>
 <p>渐渐发现好多题当时弄懂了，，代码也写好了，，博客上做了笔记，，可是最后随着时间的推移，，再熟悉的算法，模型，套路也忘记了，，再去翻之前的文章有太费事，，</p>
 <p>所以这篇文章主要是记录一下见到的每种算法以及解法思路，，为了以后忘记了能够快速想起来，，同时也是其一个记录的功能吧(っ・Д・)っ</p>
 <p>大致的格式就是“算法-&gt;题目-&gt;思路&quot;,,,,</p>
 <p>貌似是一个大坑Σ(*ﾟдﾟﾉ)ﾉ</p>
-<!-- moer -->
-<h1 id="正文">正文</h1>
-<h2 id="各种树">各种树</h2>
-<h3 id="线段树">线段树</h3>
-<h4 id="一般的线段树">一般的线段树</h4>
-<h4 id="带区间延迟更新的线段树">带区间延迟更新的线段树</h4>
-<h4 id="非递归的线段树">非递归的线段树</h4>
-<h4 id="可持久化线段树这个还没看qaq">可持久化线段树（这个还没看QAQ)</h4>
-<h4 id="树状数组">树状数组</h4>
-<ul>
-<li>貌似树状数组的常数比线段树的常数小，，有些卡常数的题可能换树状数组好一些（区间更新没看）QAQ</li>
-</ul>
-<h2 id="图论">图论</h2>
-<h3 id="最短路">最短路</h3>
-<ul>
-<li>主要算法有dijkstra , bellmon , spfa , floyd</li>
-<li>spfa据说会退化到<span class="math inline">\(O(n^2)\)</span>(有待求证)</li>
-<li>floyd可以求矩阵、图的传递闭包<img src="https://vjudge.net/contest/261463#status/31415926535x/I/0/" alt="here"></li>
-<li>前面那三个算法都是求得单源最短路，，也就是一个点到一堆点的最短路,，，而要求一堆点到一个点的最短路可以将路径反向后跑一边单源最短路，，也就是求逆图的最短路，，，存图的方法选择邻接矩阵好一些，，，<img src="https://blog.csdn.net/zwj1452267376/article/details/50518209" alt="here"></li>
-</ul>
-<h3 id="网络流">网络流</h3>
-<h4 id="最大流最小割">最大流最小割</h4>
-<ul>
-<li>解决最大流的常用算法：dinic , sap , isap,,,记得敲板子认真，，，异或取边，，遍历边等等</li>
-<li>最大流最小割定理：一个网络的最大流也等于其最小割；</li>
-</ul>
-<h4 id="最大权闭合子图">最大权闭合子图</h4>
-<ul>
-<li>一般是求n选一可以得到一些利益而在一些特殊情况下可以得到更多的利益的问题就可能使用网络流求解，，对于冲突情况的处理是添加一条inf的边，，如果正向不好求那么反向求，，总收益渐去最小代价，，也就是最大权闭合子图的问题，，<img src="https://www.luogu.org/problemnew/solution/P4313" alt="1">,,<img src="https://codeforces.com/contest/1082/submission/47022828" alt="2">,,,</li>
-</ul>
-<h2 id="数论">数论</h2>
-<h2 id="特殊的算法">特殊的算法</h2>
-<h2 id="codeforces上的">codeforces上的</h2>
-<h2 id="奇技淫巧">奇技淫巧</h2>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/15/acm总结/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1857,6 +1696,166 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.31415.cf/2018/11/17/poj-2253-最短路练习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="31415926535x">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/misaka.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="31415926535x">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/17/poj-2253-最短路练习/" itemprop="url">poj-2253-poj-1797_最短路练习</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-17T11:48:51+08:00">
+                2018-11-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM-最短路/" itemprop="url" rel="index">
+                    <span itemprop="name">ACM-最短路</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/17/poj-2253-最短路练习/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/11/17/poj-2253-最短路练习/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="概述">概述</h1>
+<p><a href="http://poj.org/problem?id=2253" target="_blank" rel="noopener">一道最短路的变形题</a>，，虽然说解法不止这一种，，</p>
+<p>这道题看了好久都没看懂题意，，不知到在求什么，，，最后迫不得已去看了别人的思路，，理清思路之后，，代码就好写了，，，只需在原来的dijkstra板子上改一改就行了，，</p>
+<p>补：第二道题和第一道题类似，，再改一改就行了，，</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/11/17/poj-2253-最短路练习/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -1911,7 +1910,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
