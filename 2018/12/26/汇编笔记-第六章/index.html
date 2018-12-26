@@ -85,7 +85,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="笔记," />
 
 
 
@@ -98,17 +98,18 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quic">
+<meta name="description" content="包含多个段的程序 在代码段中使用数据 先看程序： 123456789101112131415assume cs:codesgcodesg segmentdw 0123h,0456h,0789h,0abch,0fedh,0cbah,0987hstart:mov bx,0mov ax,0mov cx,8s:add ax,cx:[bx]add bx,2loop smov ax,4c00hint 2">
+<meta name="keywords" content="笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://www.31415.cf/2018/02/09/hello-world/index.html">
+<meta property="og:title" content="汇编笔记_第六章">
+<meta property="og:url" content="http://www.31415.cf/2018/12/26/汇编笔记-第六章/index.html">
 <meta property="og:site_name" content="31415926535x">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quic">
+<meta property="og:description" content="包含多个段的程序 在代码段中使用数据 先看程序： 123456789101112131415assume cs:codesgcodesg segmentdw 0123h,0456h,0789h,0abch,0fedh,0cbah,0987hstart:mov bx,0mov ax,0mov cx,8s:add ax,cx:[bx]add bx,2loop smov ax,4c00hint 2">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-13T14:25:02.987Z">
+<meta property="og:updated_time" content="2018-12-26T13:23:30.779Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quic">
+<meta name="twitter:title" content="汇编笔记_第六章">
+<meta name="twitter:description" content="包含多个段的程序 在代码段中使用数据 先看程序： 123456789101112131415assume cs:codesgcodesg segmentdw 0123h,0456h,0789h,0abch,0fedh,0cbah,0987hstart:mov bx,0mov ax,0mov cx,8s:add ax,cx:[bx]add bx,2loop smov ax,4c00hint 2">
 
 
 
@@ -138,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="http://www.31415.cf/2018/02/09/hello-world/"/>
+  <link rel="canonical" href="http://www.31415.cf/2018/12/26/汇编笔记-第六章/"/>
 
 
 
 
 
-  <title>Hello World | 31415926535x</title>
+  <title>汇编笔记_第六章 | 31415926535x</title>
   
 
 
@@ -300,7 +301,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.31415.cf/2018/02/09/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://www.31415.cf/2018/12/26/汇编笔记-第六章/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="31415926535x">
@@ -317,7 +318,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">汇编笔记_第六章</h1>
         
 
         <div class="post-meta">
@@ -329,8 +330,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-09T11:24:50+08:00">
-                2018-02-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-26T17:44:59+08:00">
+                2018-12-26
               </time>
             
 
@@ -340,6 +341,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/汇编语言/" itemprop="url" rel="index">
+                    <span itemprop="name">汇编语言</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -348,9 +371,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/02/09/hello-world/#comments" itemprop="discussionUrl">
+                <a href="/2018/12/26/汇编笔记-第六章/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/02/09/hello-world/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/12/26/汇编笔记-第六章/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -378,21 +401,24 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h1 id="包含多个段的程序">包含多个段的程序</h1>
+<h2 id="在代码段中使用数据">在代码段中使用数据</h2>
+<p>先看程序：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">assume</span> cs:codesg</span><br><span class="line"><span class="symbol">codesg</span> segment</span><br><span class="line"><span class="symbol">dw</span> <span class="number">0123</span>h,<span class="number">0456</span>h,<span class="number">0789</span>h,<span class="number">0</span>abch,<span class="number">0</span>fedh,<span class="number">0</span>cbah,<span class="number">0987</span>h</span><br><span class="line"><span class="symbol">start</span>:</span><br><span class="line"><span class="keyword">mov </span><span class="keyword">bx,0</span></span><br><span class="line"><span class="keyword">mov </span>ax,<span class="number">0</span></span><br><span class="line"><span class="keyword">mov </span>cx,<span class="number">8</span></span><br><span class="line">s:</span><br><span class="line"><span class="keyword">add </span>ax,cx:[<span class="keyword">bx]</span></span><br><span class="line"><span class="keyword">add </span><span class="keyword">bx,2</span></span><br><span class="line"><span class="keyword">loop </span>s</span><br><span class="line"><span class="keyword">mov </span>ax,<span class="number">4</span>c00h</span><br><span class="line"><span class="symbol">int</span> <span class="number">21</span>h</span><br><span class="line"><span class="symbol">codesg</span> ends</span><br><span class="line"><span class="symbol">end</span> start</span><br></pre></td></tr></table></figure>
+<ul>
+<li>dw 的含义是定义字型数据；</li>
+<li>程序的第一条指令前加了标号start，这个标号又在end后出现，这样end除了可以同值编译器结束程序外，还可以通知编译器的入口在哪里，即，若要CPU从何处卡是执行程序，只要在源程序中用<code>end 标号</code>指明就行；</li>
+</ul>
+<p>所以程序的框架可以为：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">assume</span> cs:<span class="meta">code</span></span><br><span class="line"></span><br><span class="line"><span class="symbol">cdoe</span> segment</span><br><span class="line"><span class="symbol">...</span></span><br><span class="line">数据</span><br><span class="line"><span class="symbol">...</span></span><br><span class="line"><span class="symbol">start</span>:</span><br><span class="line"><span class="symbol">...</span></span><br><span class="line">代码</span><br><span class="line"><span class="symbol">...</span></span><br><span class="line"><span class="symbol">code</span> ends</span><br><span class="line"></span><br><span class="line"><span class="symbol">end</span> start</span><br></pre></td></tr></table></figure>
+<h2 id="将数据代码栈放入不同的段">将数据、代码、栈放入不同的段</h2>
+<ul>
+<li>放到一个段中使得程序很混乱</li>
+<li>当处理的数据、栈、代码需要的空间超过64KB时，就不能放在一个段中；</li>
+</ul>
+<p>伪指令；</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">assume</span></span><br><span class="line"><span class="symbol">cs</span>:<span class="meta">code</span>,ds:<span class="meta">data</span>,ss:stack</span><br><span class="line"></span><br><span class="line"><span class="symbol">...</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">mov </span>ax,stack</span><br><span class="line"><span class="keyword">mov </span>ss,ax</span><br><span class="line"></span><br><span class="line"><span class="keyword">mov </span>ax,<span class="meta">data</span></span><br><span class="line"><span class="keyword">mov </span>ds,ax</span><br></pre></td></tr></table></figure>
+<p>ss:sp就指向stack:16，CPU把stack段当栈空间用；</p>
 
       
     </div>
@@ -408,6 +434,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/笔记/" rel="tag">:-> 笔记</a>
+          
+        </div>
+      
 
       
       
@@ -417,15 +449,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/12/26/汇编笔记-第四、五章/" rel="next" title="汇编笔记_第四、五章">
+                <i class="fa fa-chevron-left"></i> 汇编笔记_第四、五章
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/02/23/1-The-blog/" rel="prev" title="1_The_blog">
-                1_The_blog <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -618,7 +650,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#quick-start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#包含多个段的程序"><span class="nav-number">1.</span> <span class="nav-text">包含多个段的程序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#在代码段中使用数据"><span class="nav-number">1.1.</span> <span class="nav-text">在代码段中使用数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将数据代码栈放入不同的段"><span class="nav-number">1.2.</span> <span class="nav-text">将数据、代码、栈放入不同的段</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -784,9 +816,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://www.31415.cf/2018/02/09/hello-world/';
-          this.page.identifier = '2018/02/09/hello-world/';
-          this.page.title = 'Hello World';
+          this.page.url = 'http://www.31415.cf/2018/12/26/汇编笔记-第六章/';
+          this.page.identifier = '2018/12/26/汇编笔记-第六章/';
+          this.page.title = '汇编笔记_第六章';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://www-31415-cf.disqus.com/embed.js';

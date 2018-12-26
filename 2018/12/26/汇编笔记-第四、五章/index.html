@@ -106,7 +106,7 @@
 <meta property="og:site_name" content="31415926535x">
 <meta property="og:description" content="第四章 第一个程序 程序执行的基本过程 编写-&amp;gt;编译-&amp;gt;连接-&amp;gt;执行 编程-&amp;gt;1.asm-&amp;gt;编译-&amp;gt;1.obj-&amp;gt;连接-&amp;gt;1.exe-&amp;gt;加载-&amp;gt;内存中的程序 程序的基本结构 伪指令 汇编语言源程序中，包含两种指令， 汇编指令 和 伪指令；  汇编指令是对应的机器码的指令，可以被编译为机器指令； 伪指令没有对应的机器指令，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-26T09:41:28.879Z">
+<meta property="og:updated_time" content="2018-12-26T10:14:31.675Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="汇编笔记_第四、五章">
 <meta name="twitter:description" content="第四章 第一个程序 程序执行的基本过程 编写-&amp;gt;编译-&amp;gt;连接-&amp;gt;执行 编程-&amp;gt;1.asm-&amp;gt;编译-&amp;gt;1.obj-&amp;gt;连接-&amp;gt;1.exe-&amp;gt;加载-&amp;gt;内存中的程序 程序的基本结构 伪指令 汇编语言源程序中，包含两种指令， 汇编指令 和 伪指令；  汇编指令是对应的机器码的指令，可以被编译为机器指令； 伪指令没有对应的机器指令，">
@@ -414,9 +414,9 @@
 </ul>
 <a id="more"></a>
 <p>伪指令有：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">段名 <span class="selector-tag">segment</span></span><br><span class="line">...//定义一个段</span><br><span class="line">段名 <span class="selector-tag">ends</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">end//汇编程序的结束标记</span><br></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">assume //编译程序将段寄存器和某一具体的段相联系</span><br><span class="line"><span class="selector-tag">assume</span> <span class="selector-tag">cs</span><span class="selector-pseudo">:codesg</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">段名 segment</span><br><span class="line"><span class="symbol">...</span>//定义一个段</span><br><span class="line">段名 ends</span><br></pre></td></tr></table></figure>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">end</span>//汇编程序的结束标记</span><br></pre></td></tr></table></figure>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">assume</span> //编译程序将段寄存器和某一具体的段相联系</span><br><span class="line"><span class="symbol">assume</span> cs:codesg</span><br></pre></td></tr></table></figure>
 <h3 id="标号">标号</h3>
 <ul>
 <li>一个标号指代了一个地址</li>
@@ -430,10 +430,10 @@
 <li><strong>段与寄存器关联</strong></li>
 </ul>
 <p>eg:</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">assume</span> <span class="selector-tag">cs</span><span class="selector-pseudo">:abc</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">abc</span> <span class="selector-tag">segment</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">mov</span> <span class="selector-tag">ax</span>,2</span><br><span class="line"><span class="selector-tag">add</span> <span class="selector-tag">ax</span>,<span class="selector-tag">ax</span></span><br><span class="line"><span class="selector-tag">add</span> <span class="selector-tag">ax</span>,<span class="selector-tag">ax</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">abc</span> <span class="selector-tag">ends</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">end</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">assume</span> cs:abc</span><br><span class="line"></span><br><span class="line"><span class="symbol">abc</span> segment</span><br><span class="line"></span><br><span class="line"><span class="keyword">mov </span>ax,<span class="number">2</span></span><br><span class="line"><span class="keyword">add </span>ax,ax</span><br><span class="line"><span class="keyword">add </span>ax,ax</span><br><span class="line"></span><br><span class="line"><span class="symbol">abc</span> ends</span><br><span class="line"></span><br><span class="line"><span class="symbol">end</span></span><br></pre></td></tr></table></figure>
 <h3 id="程序返回">程序返回</h3>
 <p>在程序的末尾添加 <strong>返回的程序段</strong></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">mov</span> <span class="selector-tag">ax</span>,4<span class="selector-tag">c00H</span></span><br><span class="line"><span class="selector-tag">int</span> 21<span class="selector-tag">H</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">mov </span>ax,<span class="number">4</span>c00H</span><br><span class="line"><span class="symbol">int</span> <span class="number">21</span>H</span><br></pre></td></tr></table></figure>
 <h3 id="与结束相关的概念">与结束相关的概念</h3>
 <table>
 <thead>
@@ -546,6 +546,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/12/26/汇编笔记-第六章/" rel="prev" title="汇编笔记_第六章">
+                汇编笔记_第六章 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -635,7 +639,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-count">51</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
