@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[汇编笔记_第八章]]></title>
+    <url>%2F2018%2F12%2F27%2F%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AB%E7%AB%A0%2F</url>
+    <content type="text"><![CDATA[数据处理的两个基本问题 两个描述性符号 寄存器reg:包括ax,bx,cx,dx,sp,bp,si,di 段寄存器sreg:包括ds,ss,cs,es bx,si,di,bp 8086CPU中只有这四个寄存器可以用[...]来寻址，像mov ax,[cx]就是错误的； 在[...]中，这四个寄存器可以的那个出现，或 只能以四种组合出现：bx和si、bx和di、bp和si 以及 bp和di，mov ax,[bx+bp]是错误的； 只要在[...]中使用寄存器 bp,而指令中没有显示的给出段地址，段地址就默认在 ss中，比如：mov ax,[bp+si+idata]的含义是：(ax)=((ss)*16+(bp)+(si)+idata)； 机器指令处理的数据所在的位置 数据的处理可分为三类：读取、写入、运算 机器指令并不关心数据的值，而关心数据所在的位置：cpu内部、内存、端口； 汇编语言中数据位置的表达 汇编语言中用三种概念来表达数据的位置：立即数(idata)、寄存器、段地址(SA)和偏移地址(EA)； 寻址方式 寻址方式 含义 名称 常用格式举例 [idata] SA=(ds);EA=idata 直接寻址 [idata] [bx] [si] [di] [bp] SA=(ds);EA=(bx) SA=(ds);EA=(si) SA=(ds);EA=(di) SA=(ss);EA=(bp) 寄存器间接寻址 [bx] [bx+idata] [si+idata] [di+idata] [bp+idata] SA=(ds);EA=(bx)+idata SA=(ds);EA=(si)+idata SA=(ds);EA=(di)+idata SA=(ss);EA=(bp)+idata 寄存器相对寻址 用于结构体：[bx].idata; 用于数组：idata[si],idata[di]; 用于二维数组：[bx][idata] [bx+si] [bx+di] [bp+si] [bp+di] SA=(ds);EA=(bx)+(si) SA=(ds);EA=(bx)+(di) SA=(ss);EA=(bp)+(si) SA=(ss);EA=(bp)+(di) 基址变址寻址 用于二维数组：[bx][si] [bx+si+idata] [bx+di+idata] [bp+si+idata] [bp+di+idata] SA=(ds);EA=(bx)+(si)+idata SA=(ds);EA=(bx)+(di)+idata SA=(ss);EA=(bp)+(si)+idata SA=(ss);EA=(bp)+(di)+idata 相对基址变址寻址 用于表格（结构）中的数据项：[bx].idata[si] 用于二位数组：idata[bx][si] 指令处理的数据的长度 8086CPU的指令，可以处理两种长度的数据：byte、word； 指明方式 寄存器指明 12mov al,ds:[0] //按字节操作mov ax,ds:[0] //按字操作 用操作符 X ptr 指明（X=word/byte） 12add word ptr [bx],2 //按字操作mov byte ptr ds:[0],1 //按字节操作 其他方式 有些指令默认是访问字单元还是字节单元，例如：push 指令只进行字操作； 寻址方式的综合应用 一般来说，可以用 [bx+idata+si]的方式来访问结构体中的数据； 用bx定位整个结构体，用idata定位结构体中的某一个数据项，用si定位数组项中的每一个元素； 汇编的写法：[bx].idata , [bx].idata[si]； 例如c中: dec.cp[i]，dec指明了结构体变量的的地址；cp指明了数据项cp的地址；i用来定位cp中的每一个字符；汇编语言：bx.10h[si]； div指令 div 是出除法指令； 除数：在寄存器或内存单元中； 被除数：（默认）放在AX或DX和AX中； 结果：8位的商在AL中，余数在AH中；16位的商在AX中，余数在DX中 div指令格式：div reg或div 内存单元； div byte ptr ds:[0] 含义： (al)=(ax)/((ds)*16+0)的商 (al)=(ax)/((ds)*16+0)的余数 div word ptr es:[0] 含义： (ax)=[(dx)*10000H+(ax)]/((es)*16+0)的商 (dx)=[(dx)*10000H+(ax)]/((es)*16+0)的余数 伪指令dd dd是用来定义 dword(double word双字) 型数据的； dup dup是一个操作符，同db,dw,dd一样由编译器识别处理； 和db,dw,dd等伪指令配合使用，用来 数据的重复； 123456789dup的使用格式：db 重复的次数 dup (重复的字节型数据)dw 重复的次数 dup (重复的字型数据)dd 重复的次数 dup (重复的双字数据)eg:db 3 dup (0,1,2)相当于：db 0,1,2,0,1,2,0,1,2 (end)]]></content>
+      <categories>
+        <category>汇编语言</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[汇编笔记_第七章]]></title>
     <url>%2F2018%2F12%2F26%2F%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%83%E7%AB%A0%2F</url>
     <content type="text"><![CDATA[更灵活的定位内存地址的方法 and和or指令 and指令：逻辑与指令，按位进行与运算； 通过该指令可以将操作对象的相应为设为0，其他位不变，例如将al的第6为设为0的指令是：and al,10111111B or指令，逻辑或指令，按位进行或运算； 同样，或运算可以将操作对象的相应设为1，其他位不变：or al,01000000B； 字符大小写转换 汇编程序中，用'...'来指明数据是以字符的形式给出的，编译器将把他们转化成对应的ASCII码； 对比大写字母和小写字母的二进制，小写字母的ascii码值比大学字母的大 20H，而且除第5位以外其他位都一样，大写字母的第五位为0，小写字母的为1； 大写 二进制 小写 二进制 A 01000001 a 01100001 B 01000010 b 01100010 C 01000011 c 01100011 D 01000100 d 01100100 所以可以通过与或操作来实现： 12345...add al,11011111B;变大写字母...or al,00100000B;变小写字母... [bx + idata] 123456789mov al,[bx + 5]mov al,[5 + bx]mov al,5[bx]mov al,[bx + 0]mov al,[0 + bx]mov al,0[bx]都是等价的 SI和DI SI和DI是8086CPU中和bx功能相近的寄存器； 他们不能分成两个8位寄存器使用； 可以使用[bx + si]、[bx + di]指明内存单元，指令mov ax,[bx + si]可以写成mov ax,[bx][si]； 1234567mov ax[bx+si+idata]可以写成：mov ax,[bx+200+si]mov ax,[200+bx+si]mov ax,200[bx][si]mov ax,[bx].200[si]mov ax,[bx][si].200 不同的寻址方式的灵活运用 一般来说，在需要暂存数据的时候，需要栈来保存； 例如： 123456789101112131415161718192021222324252627282930313233343536373839404142434445//将每一行的字母都变为大写assume cs:codesg,ds:datasg,ss:stacksgdatasg segmentdb 'ibm 'db 'dec 'db 'dos 'db 'vax 'datasg endsstacksg segmentdw 0,0,0,0,0,0,0,0stacksg endscosesg segmentstart:mov ax,stacksgmov ss,axmov ds,axmov bx,0mov cx,4s0:push cx //保存外层循环的cxmov si,0mob cx,3 //设置内层循环的cxs:mov al,[bx+si]and al,11011111bmov [bx+si],alinc siloop sadd bx,16pop cx //恢复外层循环cx的值loop s0mov 4c00hint 21hcodesg endsend start (end)]]></content>
@@ -290,8 +301,8 @@
       </categories>
       <tags>
         <tag>acm</tag>
-        <tag>刷题</tag>
         <tag>算法</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -315,8 +326,8 @@
       </categories>
       <tags>
         <tag>acm</tag>
-        <tag>刷题</tag>
         <tag>算法</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -494,8 +505,8 @@
       <tags>
         <tag>c++</tag>
         <tag>类</tag>
-        <tag>笔记</tag>
         <tag>面向对象</tag>
+        <tag>笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -532,8 +543,8 @@
       <tags>
         <tag>c++</tag>
         <tag>类</tag>
-        <tag>笔记</tag>
         <tag>面向对象</tag>
+        <tag>笔记</tag>
       </tags>
   </entry>
   <entry>
