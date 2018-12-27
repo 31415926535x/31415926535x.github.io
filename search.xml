@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[汇编笔记_第七章]]></title>
+    <url>%2F2018%2F12%2F26%2F%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%83%E7%AB%A0%2F</url>
+    <content type="text"><![CDATA[更灵活的定位内存地址的方法 and和or指令 and指令：逻辑与指令，按位进行与运算； 通过该指令可以将操作对象的相应为设为0，其他位不变，例如将al的第6为设为0的指令是：and al,10111111B or指令，逻辑或指令，按位进行或运算； 同样，或运算可以将操作对象的相应设为1，其他位不变：or al,01000000B； 字符大小写转换 汇编程序中，用'...'来指明数据是以字符的形式给出的，编译器将把他们转化成对应的ASCII码； 对比大写字母和小写字母的二进制，小写字母的ascii码值比大学字母的大 20H，而且除第5位以外其他位都一样，大写字母的第五位为0，小写字母的为1； 大写 二进制 小写 二进制 A 01000001 a 01100001 B 01000010 b 01100010 C 01000011 c 01100011 D 01000100 d 01100100 所以可以通过与或操作来实现： 12345...add al,11011111B;变大写字母...or al,00100000B;变小写字母... [bx + idata] 123456789mov al,[bx + 5]mov al,[5 + bx]mov al,5[bx]mov al,[bx + 0]mov al,[0 + bx]mov al,0[bx]都是等价的 SI和DI SI和DI是8086CPU中和bx功能相近的寄存器； 他们不能分成两个8位寄存器使用； 可以使用[bx + si]、[bx + di]指明内存单元，指令mov ax,[bx + si]可以写成mov ax,[bx][si]； 1234567mov ax[bx+si+idata]可以写成：mov ax,[bx+200+si]mov ax,[200+bx+si]mov ax,200[bx][si]mov ax,[bx].200[si]mov ax,[bx][si].200 不同的寻址方式的灵活运用 一般来说，在需要暂存数据的时候，需要栈来保存； 例如： 123456789101112131415161718192021222324252627282930313233343536373839404142434445//将每一行的字母都变为大写assume cs:codesg,ds:datasg,ss:stacksgdatasg segmentdb 'ibm 'db 'dec 'db 'dos 'db 'vax 'datasg endsstacksg segmentdw 0,0,0,0,0,0,0,0stacksg endscosesg segmentstart:mov ax,stacksgmov ss,axmov ds,axmov bx,0mov cx,4s0:push cx //保存外层循环的cxmov si,0mob cx,3 //设置内层循环的cxs:mov al,[bx+si]and al,11011111bmov [bx+si],alinc siloop sadd bx,16pop cx //恢复外层循环cx的值loop s0mov 4c00hint 21hcodesg endsend start (end)]]></content>
+      <categories>
+        <category>汇编语言</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[汇编笔记_第六章]]></title>
     <url>%2F2018%2F12%2F26%2F%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0%2F</url>
-    <content type="text"><![CDATA[包含多个段的程序 在代码段中使用数据 先看程序： 123456789101112131415assume cs:codesgcodesg segmentdw 0123h,0456h,0789h,0abch,0fedh,0cbah,0987hstart:mov bx,0mov ax,0mov cx,8s:add ax,cx:[bx]add bx,2loop smov ax,4c00hint 21hcodesg endsend start dw 的含义是定义字型数据； 程序的第一条指令前加了标号start，这个标号又在end后出现，这样end除了可以同值编译器结束程序外，还可以通知编译器的入口在哪里，即，若要CPU从何处卡是执行程序，只要在源程序中用end 标号指明就行； 所以程序的框架可以为： 12345678910111213assume cs:codecdoe segment...数据...start:...代码...code endsend start 将数据、代码、栈放入不同的段 放到一个段中使得程序很混乱 当处理的数据、栈、代码需要的空间超过64KB时，就不能放在一个段中； 伪指令； 12345678910assumecs:code,ds:data,ss:stack...mov ax,stackmov ss,axmov ax,datamov ds,ax ss:sp就指向stack:16，CPU把stack段当栈空间用；]]></content>
+    <content type="text"><![CDATA[包含多个段的程序 在代码段中使用数据 先看程序： 123456789101112131415assume cs:codesgcodesg segmentdw 0123h,0456h,0789h,0abch,0fedh,0cbah,0987hstart:mov bx,0mov ax,0mov cx,8s:add ax,cx:[bx]add bx,2loop smov ax,4c00hint 21hcodesg endsend start dw 的含义是定义字型数据； 程序的第一条指令前加了标号start，这个标号又在end后出现，这样end除了可以同值编译器结束程序外，还可以通知编译器的入口在哪里，即，若要CPU从何处卡是执行程序，只要在源程序中用end 标号指明就行； 所以程序的框架可以为： 12345678910111213assume cs:codecdoe segment...数据...start:...代码...code endsend start 将数据、代码、栈放入不同的段 放到一个段中使得程序很混乱 当处理的数据、栈、代码需要的空间超过64KB时，就不能放在一个段中； 伪指令； 12345678910assumecs:code,ds:data,ss:stack...mov ax,stackmov ss,axmov ax,datamov ds,ax ss:sp就指向stack:16，CPU把stack段当栈空间用； 把数据段、堆栈段放在代码段前，其对应的段地址是x-1、x-2 放在后面紧跟代码段后面（貌似） (end)]]></content>
       <categories>
         <category>汇编语言</category>
       </categories>
@@ -483,8 +494,8 @@
       <tags>
         <tag>c++</tag>
         <tag>类</tag>
-        <tag>面向对象</tag>
         <tag>笔记</tag>
+        <tag>面向对象</tag>
       </tags>
   </entry>
   <entry>
@@ -521,8 +532,8 @@
       <tags>
         <tag>c++</tag>
         <tag>类</tag>
-        <tag>面向对象</tag>
         <tag>笔记</tag>
+        <tag>面向对象</tag>
       </tags>
   </entry>
   <entry>
