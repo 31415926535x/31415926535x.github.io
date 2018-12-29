@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<!--顶部进度加载条*********************-->
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #A593E0; /*进度条颜色*/
+        height: 5px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #A593E0;    /*上边框颜色*/
+        border-left-color: #A593E0;    /*左边框颜色*/
+    }
+</style>
+<!--**********************-->
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="笔记," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="31415926535x" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="call和ret指令 ret和retf  ret指令用栈中的数据，修改IP的内容，从而是实现 近转移， (IP)=((ss)*16+(sp))  (sp)=(sp)+2； retf指令用栈中的数据，修改 CS和IP 的内容，从而实现 远转移，  (IP)=((ss)16+(sp))  (sp)=(sp)+2  (cs)=((ss)16+(sp))  (sp)=(sp)+2； 前者相当于：">
+<meta name="keywords" content="笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="汇编笔记_第十章">
+<meta property="og:url" content="http://www.31415.cf/2018/12/28/汇编笔记-第十章/index.html">
+<meta property="og:site_name" content="31415926535x">
+<meta property="og:description" content="call和ret指令 ret和retf  ret指令用栈中的数据，修改IP的内容，从而是实现 近转移， (IP)=((ss)*16+(sp))  (sp)=(sp)+2； retf指令用栈中的数据，修改 CS和IP 的内容，从而实现 远转移，  (IP)=((ss)16+(sp))  (sp)=(sp)+2  (cs)=((ss)16+(sp))  (sp)=(sp)+2； 前者相当于：">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-29T11:35:12.124Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="汇编笔记_第十章">
+<meta name="twitter:description" content="call和ret指令 ret和retf  ret指令用栈中的数据，修改IP的内容，从而是实现 近转移， (IP)=((ss)*16+(sp))  (sp)=(sp)+2； retf指令用栈中的数据，修改 CS和IP 的内容，从而实现 远转移，  (IP)=((ss)16+(sp))  (sp)=(sp)+2  (cs)=((ss)16+(sp))  (sp)=(sp)+2； 前者相当于：">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.31415.cf/2018/12/28/汇编笔记-第十章/"/>
+
+
+
+
+
+  <title>汇编笔记_第十章 | 31415926535x</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-114656515-1', 'auto');
+  ga('send', 'pageview');
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">31415926535x</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-diary">
+          <a href="/categories/diary/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user-secret"></i> <br />
+            
+            日记
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-acm">
+          <a href="/acm" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-flag"></i> <br />
+            
+            acm
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.31415.cf/2018/12/28/汇编笔记-第十章/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="31415926535x">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/misaka.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="31415926535x">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">汇编笔记_第十章</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-28T18:18:50+08:00">
+                2018-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/汇编语言/" itemprop="url" rel="index">
+                    <span itemprop="name">汇编语言</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/28/汇编笔记-第十章/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/12/28/汇编笔记-第十章/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="call和ret指令">call和ret指令</h1>
+<h2 id="ret和retf">ret和retf</h2>
+<ul>
+<li>ret指令用栈中的数据，修改IP的内容，从而是实现 <strong>近转移</strong>，<br> (IP)=((ss)*16+(sp)) <br> (sp)=(sp)+2；</li>
+<li>retf指令用栈中的数据，修改 <strong>CS和IP</strong> 的内容，从而实现 <strong>远转移</strong>， <br> (IP)=((ss)<em>16+(sp)) <br> (sp)=(sp)+2 <br> (cs)=((ss)</em>16+(sp)) <br> (sp)=(sp)+2；</li>
+<li>前者相当于：<br> <code>pop IP</code>，<br> 后者相当于 <br> <code>pop IP</code> <br> <code>pop CS</code></li>
+</ul>
+<a id="more"></a>
+<h2 id="call指令">call指令</h2>
+<p>CPU执行call指令，进行两步操作：</p>
+<ul>
+<li>将当前的IP或CS和IP压入栈中；</li>
+<li>转移</li>
+</ul>
+<p>call指令 <strong>不能实现短转移</strong>，除此之外与jmp的原理相同；</p>
+<h2 id="依据位移进行转移">依据位移进行转移</h2>
+<p>指令格式： <code>call 标号</code> 将当前的IP压栈后，转到标号处执行；（入栈的是call指令后的第一个字节偏移地址入栈），段内转移；</p>
+<ul>
+<li>(sp)=(sp)-2;((ss)*16+(sp))(ip)</li>
+<li>(ip)=(ip)+16位位移</li>
+</ul>
+<p>相当于：</p>
+<p><code>push IP</code></p>
+<p><code>jmp near ptr 标号</code></p>
+<p>eg:</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">内存地址    机器码    汇编指令</span><br><span class="line"><span class="number">1000</span>:<span class="number">0</span>     <span class="keyword">b8 </span><span class="number">00</span> <span class="number">00</span>  <span class="keyword">mov </span>ax,<span class="number">0</span></span><br><span class="line"><span class="number">1000</span>:<span class="number">3</span>     e8 <span class="number">01</span> <span class="number">00</span>  call s</span><br><span class="line"><span class="number">1000</span>:<span class="number">6</span>     <span class="number">40</span>        inc ax</span><br><span class="line"><span class="number">1000</span>:<span class="number">7</span>     <span class="number">58</span>        s:<span class="keyword">pop </span>ax</span><br><span class="line"></span><br><span class="line">最后ax的值为：<span class="number">6</span>h，因为执行call s时，<span class="keyword">push </span><span class="built_in">ip</span> (<span class="built_in">ip</span>)<span class="number">=6</span>h，之后<span class="keyword">pop </span>ax，(ax)<span class="number">=6</span>h</span><br></pre></td></tr></table></figure>
+<h2 id="转移的目的地址在指令中">转移的目的地址在指令中</h2>
+<ul>
+<li><code>call far ptr 标号</code>实现的是段间转移；</li>
+<li>(sp)=(sp)-2</li>
+<li>((ss)*16+(sp))=(cs)</li>
+<li>(sp)=(sp)-2</li>
+<li><p>((ss)*16+(sp))=(ip)</p></li>
+<li>(cs)=标号所在的段地址；</li>
+<li><p>(ip)=标号所在的偏移地址；</p></li>
+</ul>
+<p>eg: <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">内存地址    机器码          汇编指令</span><br><span class="line"><span class="number">1000</span>:<span class="number">0</span>     <span class="keyword">b8 </span><span class="number">00</span> <span class="number">00</span>        <span class="keyword">mov </span>ax,<span class="number">0</span></span><br><span class="line"><span class="number">1000</span>:<span class="number">3</span>     <span class="number">9</span>A <span class="number">09</span> <span class="number">00</span> <span class="number">00</span> <span class="number">10</span>  call far ptr s</span><br><span class="line"><span class="number">1000</span>:<span class="number">8</span>     <span class="number">40</span>              inc ax</span><br><span class="line"><span class="number">1000</span>:<span class="number">9</span>     <span class="number">58</span>              s:<span class="keyword">pop </span>ax</span><br><span class="line">                           <span class="keyword">add </span>ax,ax</span><br><span class="line">                           <span class="keyword">pop </span><span class="keyword">bx</span></span><br><span class="line"><span class="keyword"> </span>                          <span class="keyword">add </span>ax,<span class="keyword">bx</span></span><br></pre></td></tr></table></figure></p>
+<p>指令执行后，(ax)=1010h</p>
+<p>执行call时，push cs , push ip，(cs)=1000h,(ip)=8h；</p>
+<p>pop ax后，(ax)=8h,add ax,ax后(ax)=10h,pop bx后(bx)=1000h,最后add ax,bx,(ax)=1010h;</p>
+<h2 id="转移地址在寄存器中">转移地址在寄存器中</h2>
+<p>格式： <code>call 16位寄存器</code></p>
+<p>功能： + (sp)=(sp)-2 + ((ss)*16+(sp))=(ip) + (ip)=(16位寄存器)</p>
+<p>相当于进行：</p>
+<p><code>push ip</code> <br> <code>jmp 16位reg</code></p>
+<p>eg:</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">内存地址    机器码    汇编指令</span><br><span class="line"><span class="number">1000</span>:<span class="number">0</span>     <span class="keyword">b8 </span><span class="number">06</span> <span class="number">00</span>  <span class="keyword">mov </span>ax,<span class="number">6</span></span><br><span class="line"><span class="number">1000</span>:<span class="number">3</span>     ff <span class="built_in">d0</span>     call ax</span><br><span class="line"><span class="number">1000</span>:<span class="number">5</span>     <span class="number">40</span>        inc ax</span><br><span class="line"><span class="number">1000</span>:<span class="number">6</span>               <span class="keyword">mov </span><span class="keyword">bp,sp</span></span><br><span class="line"><span class="keyword"> </span>                    <span class="keyword">add </span>ax,[<span class="keyword">bp]</span></span><br></pre></td></tr></table></figure>
+<p>程序执行完后，(ax)=0bh；</p>
+<h2 id="转移地址在内存中">转移地址在内存中</h2>
+<p>两种格式：</p>
+<ul>
+<li><code>call word ptr 内存单元地址</code></li>
+</ul>
+<p>相当于：<br> <code>push ip</code><br><code>jmp word ptr 内存单元地址</code></p>
+<ul>
+<li><code>call dword ptr 内存单元地址</code></li>
+</ul>
+<p>相当于： <br> <code>push cs</code><br> <code>push ip</code><br> <code>jmp dword ptr 内存单元地址</code></p>
+<p>eg:</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">assume</span> cs:<span class="meta">code</span></span><br><span class="line"><span class="symbol">stack</span> segment</span><br><span class="line"><span class="symbol">dw</span> <span class="number">8</span> dup (<span class="number">0</span>)</span><br><span class="line"><span class="symbol">stack</span> ends</span><br><span class="line"><span class="symbol">code</span> segment</span><br><span class="line"><span class="symbol">start</span>:</span><br><span class="line"><span class="keyword">mov </span>ax,atack</span><br><span class="line"><span class="keyword">mov </span>ss,ax</span><br><span class="line"><span class="keyword">mov </span><span class="built_in">sp</span>,<span class="number">16</span></span><br><span class="line"><span class="keyword">mov </span>ds,ax</span><br><span class="line"><span class="keyword">mov </span>ax,<span class="number">0</span></span><br><span class="line"><span class="symbol">call</span> word ptr ds:[<span class="number">0</span>EH]</span><br><span class="line"><span class="symbol">inc</span> cx      <span class="comment">;设这个地方的地址为0000:xx</span></span><br><span class="line"><span class="symbol">inc</span> cx</span><br><span class="line"><span class="symbol">inc</span> cx</span><br><span class="line"></span><br><span class="line"><span class="keyword">mov </span>ax,<span class="number">4</span>c00h</span><br><span class="line"><span class="symbol">int</span> <span class="number">21</span>h</span><br><span class="line"></span><br><span class="line"><span class="symbol">code</span> ends</span><br><span class="line"><span class="symbol">end</span> start</span><br></pre></td></tr></table></figure>
+<p>程序执行到call前，堆栈段和数据段合并，执行call时(ip)=x，入栈，也是数据段ds:[0EH]处的数据为x，这是跳到x处的指令也就是<code>inc ax</code>，，三次inc后(ax)=3h；</p>
+<h2 id="call和ret的配合使用">call和ret的配合使用</h2>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">assume</span> cs:<span class="meta">code</span></span><br><span class="line"><span class="symbol">code</span> segment</span><br><span class="line"><span class="symbol">start</span>:</span><br><span class="line"><span class="keyword">mov </span>ax,<span class="number">1</span></span><br><span class="line"><span class="keyword">mov </span>cx,<span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="symbol">call</span> s</span><br><span class="line"><span class="keyword">mov </span><span class="keyword">bx,ax</span></span><br><span class="line"><span class="keyword">mov </span>ax,<span class="number">4</span>c00h</span><br><span class="line"><span class="symbol">int</span> <span class="number">21</span>h</span><br><span class="line"></span><br><span class="line">s:</span><br><span class="line"><span class="keyword">add </span>ax,ax</span><br><span class="line"><span class="symbol">loop</span> s</span><br><span class="line"><span class="symbol">ret</span></span><br><span class="line"></span><br><span class="line"><span class="symbol">code</span> ends</span><br><span class="line"><span class="symbol">end</span> start</span><br></pre></td></tr></table></figure>
+<p>cpu执行的主要过程： + CPU执行到<code>call s</code>指令时，ip指向后一句<code>mov bx,ax</code>处，并将其压栈，之后修改ip到s处，实现程序的跳转； + 在s中，s实现的时求 <span class="math inline">\(2^{cx}\)</span>，cx的值由最开始的指令给出； + 执行完后，ret指令将栈中的值弹出赋给ip，程序跳转到call后的<code>mov bx,ax</code>处，最后结束；</p>
+<p><strong>子程序的框架</strong>；</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">标号:</span><br><span class="line">    指令</span><br><span class="line">    ret</span><br></pre></td></tr></table></figure>
+<h2 id="模块化程序的设计">模块化程序的设计</h2>
+<h3 id="伪指令proc">伪指令proc</h3>
+<p>格式：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">子程序名 <span class="meta">PROC</span> 属性</span><br><span class="line"><span class="symbol">......</span></span><br><span class="line">子程序名 <span class="meta">ENDP</span></span><br></pre></td></tr></table></figure>
+<h2 id="过程属性">过程属性</h2>
+<ul>
+<li>属性分为NEAR属性和FAR属性，默认为NEAR，主程序和子程序在 <strong>同一个代码短</strong> 使用 <strong>NEAR</strong> 属性，否则使用 <strong>FAR</strong> 属性；</li>
+<li>call执行时，系统根据子程序名的属性决定保存断点的段地址和偏移地址；</li>
+</ul>
+<h4 id="近程调用near">近程调用NEAR</h4>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">code</span> segment</span><br><span class="line">    main <span class="meta">proc</span> far</span><br><span class="line">        ...</span><br><span class="line">        call <span class="keyword">subr1</span></span><br><span class="line"><span class="keyword"> </span>       ...</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">subr1 </span><span class="meta">proc</span> near</span><br><span class="line">        ...</span><br><span class="line">        ret</span><br><span class="line">    <span class="keyword">subr1 </span><span class="meta">endp</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    main <span class="meta">endp</span></span><br><span class="line"></span><br><span class="line"><span class="symbol">code</span> ends</span><br></pre></td></tr></table></figure>
+<p>或 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">code</span> segment</span><br><span class="line">    main prco far</span><br><span class="line">        ...</span><br><span class="line">        call sunr1</span><br><span class="line">        ...</span><br><span class="line">    main <span class="meta">endp</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">subr1 </span><span class="meta">proc</span> near</span><br><span class="line">        ...</span><br><span class="line">        ret</span><br><span class="line">    <span class="keyword">subr1 </span>endr</span><br><span class="line"></span><br><span class="line"><span class="symbol">code</span> ends</span><br></pre></td></tr></table></figure></p>
+<h4 id="远程调用near">远程调用NEAR</h4>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">code1</span> segment</span><br><span class="line">    main <span class="meta">proc</span> far</span><br><span class="line">        ...</span><br><span class="line">        call <span class="keyword">subrx</span></span><br><span class="line"><span class="keyword"> </span>       ...</span><br><span class="line">        <span class="keyword">mov </span>ah,<span class="number">4</span>ch</span><br><span class="line">        int <span class="number">21</span>h</span><br><span class="line">    main <span class="meta">endp</span></span><br><span class="line"><span class="symbol">code1</span> ends</span><br><span class="line"></span><br><span class="line"><span class="symbol">code2</span> segment</span><br><span class="line">    ...</span><br><span class="line">    call <span class="keyword">subrx</span></span><br><span class="line"><span class="keyword"> </span>   ...</span><br><span class="line"></span><br><span class="line">    <span class="keyword">subrx </span><span class="meta">proc</span> far</span><br><span class="line">        ...</span><br><span class="line">        ret</span><br><span class="line">    <span class="keyword">subrx </span><span class="meta">endp</span></span><br><span class="line"></span><br><span class="line"><span class="symbol">code2</span> ends</span><br></pre></td></tr></table></figure>
+<h3 id="现场保护">现场保护</h3>
+<p>主程序调用子程序时可能寄存器的值会被改变，需要保存此时的值后再进入子程序，一般的实现是利用栈来保存可能改变的寄存器的值，退出子程序时pop恢复现场；</p>
+<h2 id="mul指令">mul指令</h2>
+<ul>
+<li>mul是无符号数乘法指令；</li>
+<li>格式: <br> <code>mul reg</code> <br> <code>mul 内存单元</code></li>
+</ul>
+<p>不同位的相乘：</p>
+<ul>
+<li>8位：al和9位寄存器或内存单元相乘，结果在al中；</li>
+<li>16位：ax和16位寄存器或内存单元相乘，结果高位在dx中，低位在ax中； <br><br></li>
+<li>相乘的两个数要么是8位要么是16位；</li>
+</ul>
+<p>内存单元可用不同的寻址方式给出：</p>
+<ul>
+<li><code>mul byte ptr ds:[0]</code><br>含义:<code>(ax)=(al)*((ds)*16+0)</code></li>
+<li><p><code>mul word ptr [bx+si+8]</code><br>含义:<br><code>(ax)=(al)*((ds)*16+(bx)+(si)+8)</code><br><code>(dx)=(al)*((ds)*16+(bx)+(si)+8)</code></p></li>
+<li><p>结果大于255就用16位的</p></li>
+</ul>
+<h2 id="xchg指令">xchg指令</h2>
+<ul>
+<li>指令格式：<code>xchg oprd1,oprd2</code></li>
+<li>功能：将一个字节或一个字的源操纵数和目的操作数相交换；</li>
+<li>交换的指令可以在寄存器之间，寄存器与储存器之间：</li>
+</ul>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">xchg</span> reg,reg</span><br><span class="line"><span class="symbol">xchg</span> reg,mem</span><br><span class="line"><span class="symbol">xchg</span> mem,reg</span><br></pre></td></tr></table></figure>
+<p>xchg 指令不允许的情况：</p>
+<ul>
+<li>不能同时都为内存操作数</li>
+<li>任何一个操作数都不能为段寄存器</li>
+<li>任何一个操作数不能为立即数</li>
+<li>两个操作数的长度必须相等</li>
+</ul>
+<p>(end)</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/笔记/" rel="tag">:-> 笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/27/汇编笔记-第九章/" rel="next" title="汇编笔记_第九章">
+                <i class="fa fa-chevron-left"></i> 汇编笔记_第九章
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/misaka.jpg"
+                alt="31415926535x" />
+            
+              <p class="site-author-name" itemprop="name">31415926535x</p>
+              <p class="site-description motion-element" itemprop="description">很感谢你能来，不遗憾你离开</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/31415926535x" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:2509437152wx@gmail.com" target="_blank" title="Gmail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>Gmail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://plus.google.com/106114719135977350421" target="_blank" title="Google">
+                      
+                        <i class="fa fa-fw fa-google"></i>Google</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://instagram.com/314159265358x" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://cnblogs.com/31415926535x" target="_blank" title="cnblogs">
+                      
+                        <i class="fa fa-fw fa-globe"></i>cnblogs</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://codeforces.com/profile/31415926535x" target="_blank" title="codeforces">
+                      
+                        <i class="fa fa-fw fa-globe"></i>codeforces</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#call和ret指令"><span class="nav-number">1.</span> <span class="nav-text">call和ret指令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ret和retf"><span class="nav-number">1.1.</span> <span class="nav-text">ret和retf</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#call指令"><span class="nav-number">1.2.</span> <span class="nav-text">call指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#依据位移进行转移"><span class="nav-number">1.3.</span> <span class="nav-text">依据位移进行转移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#转移的目的地址在指令中"><span class="nav-number">1.4.</span> <span class="nav-text">转移的目的地址在指令中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#转移地址在寄存器中"><span class="nav-number">1.5.</span> <span class="nav-text">转移地址在寄存器中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#转移地址在内存中"><span class="nav-number">1.6.</span> <span class="nav-text">转移地址在内存中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#call和ret的配合使用"><span class="nav-number">1.7.</span> <span class="nav-text">call和ret的配合使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块化程序的设计"><span class="nav-number">1.8.</span> <span class="nav-text">模块化程序的设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#伪指令proc"><span class="nav-number">1.8.1.</span> <span class="nav-text">伪指令proc</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过程属性"><span class="nav-number">1.9.</span> <span class="nav-text">过程属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#近程调用near"><span class="nav-number">1.9.0.1.</span> <span class="nav-text">近程调用NEAR</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#远程调用near"><span class="nav-number">1.9.0.2.</span> <span class="nav-text">远程调用NEAR</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#现场保护"><span class="nav-number">1.9.1.</span> <span class="nav-text">现场保护</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mul指令"><span class="nav-number">1.10.</span> <span class="nav-text">mul指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xchg指令"><span class="nav-number">1.11.</span> <span class="nav-text">xchg指令</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">31415926535x</span>
+
+  
+</div>
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+-->
+
+  <span class="post-meta-divider">|</span>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+    <!-- 页面点击小红心 -->
+      <script type="text/javascript" src="/js/src/love.js"></script>
+    <!-- 动态背景 -->
+      <script type="text/javascript" src="/js/src/canvas-nest.js"></script>
+      <!-- 背景动画 -->
+      <script type="text/javascript" src="/js/src/particle.js"></script>
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://www-31415-cf.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://www.31415.cf/2018/12/28/汇编笔记-第十章/';
+          this.page.identifier = '2018/12/28/汇编笔记-第十章/';
+          this.page.title = '汇编笔记_第十章';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://www-31415-cf.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>
