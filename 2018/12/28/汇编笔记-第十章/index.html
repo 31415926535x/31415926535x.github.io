@@ -106,7 +106,7 @@
 <meta property="og:site_name" content="31415926535x">
 <meta property="og:description" content="call和ret指令 ret和retf  ret指令用栈中的数据，修改IP的内容，从而是实现 近转移， (IP)=((ss)*16+(sp))  (sp)=(sp)+2； retf指令用栈中的数据，修改 CS和IP 的内容，从而实现 远转移，  (IP)=((ss)16+(sp))  (sp)=(sp)+2  (cs)=((ss)16+(sp))  (sp)=(sp)+2； 前者相当于：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-29T11:35:12.124Z">
+<meta property="og:updated_time" content="2018-12-30T09:42:23.715Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="汇编笔记_第十章">
 <meta name="twitter:description" content="call和ret指令 ret和retf  ret指令用栈中的数据，修改IP的内容，从而是实现 近转移， (IP)=((ss)*16+(sp))  (sp)=(sp)+2； retf指令用栈中的数据，修改 CS和IP 的内容，从而实现 远转移，  (IP)=((ss)16+(sp))  (sp)=(sp)+2  (cs)=((ss)16+(sp))  (sp)=(sp)+2； 前者相当于：">
@@ -464,7 +464,12 @@
 <p>程序执行到call前，堆栈段和数据段合并，执行call时(ip)=x，入栈，也是数据段ds:[0EH]处的数据为x，这是跳到x处的指令也就是<code>inc ax</code>，，三次inc后(ax)=3h；</p>
 <h2 id="call和ret的配合使用">call和ret的配合使用</h2>
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">assume</span> cs:<span class="meta">code</span></span><br><span class="line"><span class="symbol">code</span> segment</span><br><span class="line"><span class="symbol">start</span>:</span><br><span class="line"><span class="keyword">mov </span>ax,<span class="number">1</span></span><br><span class="line"><span class="keyword">mov </span>cx,<span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="symbol">call</span> s</span><br><span class="line"><span class="keyword">mov </span><span class="keyword">bx,ax</span></span><br><span class="line"><span class="keyword">mov </span>ax,<span class="number">4</span>c00h</span><br><span class="line"><span class="symbol">int</span> <span class="number">21</span>h</span><br><span class="line"></span><br><span class="line">s:</span><br><span class="line"><span class="keyword">add </span>ax,ax</span><br><span class="line"><span class="symbol">loop</span> s</span><br><span class="line"><span class="symbol">ret</span></span><br><span class="line"></span><br><span class="line"><span class="symbol">code</span> ends</span><br><span class="line"><span class="symbol">end</span> start</span><br></pre></td></tr></table></figure>
-<p>cpu执行的主要过程： + CPU执行到<code>call s</code>指令时，ip指向后一句<code>mov bx,ax</code>处，并将其压栈，之后修改ip到s处，实现程序的跳转； + 在s中，s实现的时求 <span class="math inline">\(2^{cx}\)</span>，cx的值由最开始的指令给出； + 执行完后，ret指令将栈中的值弹出赋给ip，程序跳转到call后的<code>mov bx,ax</code>处，最后结束；</p>
+<p>cpu执行的主要过程：</p>
+<ul>
+<li>CPU执行到<code>call s</code>指令时，ip指向后一句<code>mov bx,ax</code>处，并将其压栈，之后修改ip到s处，实现程序的跳转；</li>
+<li>在s中，s实现的时求 <span class="math inline">\(2^{cx}\)</span>，cx的值由最开始的指令给出；</li>
+<li>执行完后，ret指令将栈中的值弹出赋给ip，程序跳转到call后的<code>mov bx,ax</code>处，最后结束；</li>
+</ul>
 <p><strong>子程序的框架</strong>；</p>
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">标号:</span><br><span class="line">    指令</span><br><span class="line">    ret</span><br></pre></td></tr></table></figure>
 <h2 id="模块化程序的设计">模块化程序的设计</h2>
@@ -555,6 +560,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/12/30/汇编笔记-第十一章/" rel="prev" title="汇编笔记_第十一章">
+                汇编笔记_第十一章 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -644,7 +653,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

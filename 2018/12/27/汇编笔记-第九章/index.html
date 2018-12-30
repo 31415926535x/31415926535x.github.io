@@ -98,18 +98,18 @@
 
 
 
-<meta name="description" content="转移指令的原理 8086CPU的转移指令分为以下几类：  无条件转移指令（如：jmp） 条件转移指令 循环指令（如：loop） 过程 中断  操作符offset offset的功能是 取得标号的偏移地址，是伪操作符； 12345678assume cs:codesgcodesg segmentstart:mov ax,offset start ;相当于mov ax,0s:mo">
+<meta name="description" content="转移指令的原理 8086CPU的转移指令分为以下几类：  无条件转移指令（如：jmp） 条件转移指令 循环指令（如：loop） 过程 中断">
 <meta name="keywords" content="笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="汇编笔记_第九章">
 <meta property="og:url" content="http://www.31415.cf/2018/12/27/汇编笔记-第九章/index.html">
 <meta property="og:site_name" content="31415926535x">
-<meta property="og:description" content="转移指令的原理 8086CPU的转移指令分为以下几类：  无条件转移指令（如：jmp） 条件转移指令 循环指令（如：loop） 过程 中断  操作符offset offset的功能是 取得标号的偏移地址，是伪操作符； 12345678assume cs:codesgcodesg segmentstart:mov ax,offset start ;相当于mov ax,0s:mo">
+<meta property="og:description" content="转移指令的原理 8086CPU的转移指令分为以下几类：  无条件转移指令（如：jmp） 条件转移指令 循环指令（如：loop） 过程 中断">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-29T11:35:20.946Z">
+<meta property="og:updated_time" content="2018-12-29T11:37:11.631Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="汇编笔记_第九章">
-<meta name="twitter:description" content="转移指令的原理 8086CPU的转移指令分为以下几类：  无条件转移指令（如：jmp） 条件转移指令 循环指令（如：loop） 过程 中断  操作符offset offset的功能是 取得标号的偏移地址，是伪操作符； 12345678assume cs:codesgcodesg segmentstart:mov ax,offset start ;相当于mov ax,0s:mo">
+<meta name="twitter:description" content="转移指令的原理 8086CPU的转移指令分为以下几类：  无条件转移指令（如：jmp） 条件转移指令 循环指令（如：loop） 过程 中断">
 
 
 
@@ -410,6 +410,7 @@
 <li>过程</li>
 <li>中断</li>
 </ul>
+<a id="more"></a>
 <h2 id="操作符offset">操作符offset</h2>
 <p>offset的功能是 <strong>取得标号的偏移地址</strong>，是伪操作符；</p>
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">assume</span> cs:codesg</span><br><span class="line"><span class="symbol">codesg</span> segment</span><br><span class="line"><span class="symbol">start</span>:</span><br><span class="line"><span class="keyword">mov </span>ax,offset start <span class="comment">;相当于mov ax,0</span></span><br><span class="line">s:</span><br><span class="line"><span class="keyword">mov </span>ax,offset s     <span class="comment">;相当于mov ax,3</span></span><br><span class="line"><span class="symbol">codesg</span> ends</span><br><span class="line"><span class="symbol">end</span> start</span><br></pre></td></tr></table></figure>
@@ -622,7 +623,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
