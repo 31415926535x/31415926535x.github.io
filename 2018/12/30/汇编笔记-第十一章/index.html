@@ -106,7 +106,7 @@
 <meta property="og:site_name" content="31415926535x">
 <meta property="og:description" content="标志寄存器 标志寄存器的作用：  用来存储相关指令的某些执行结果 用来为CPU执行相关指令提供行为依据 用来控制CPU的相关工作方式 标志寄存器由16位，按位起作用，0,2,4,6,7,8,9,10,11有特殊的含义，其他的没有任何含义；     15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-30T10:36:42.993Z">
+<meta property="og:updated_time" content="2019-01-01T10:14:01.238Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="汇编笔记_第十一章">
 <meta name="twitter:description" content="标志寄存器 标志寄存器的作用：  用来存储相关指令的某些执行结果 用来为CPU执行相关指令提供行为依据 用来控制CPU的相关工作方式 标志寄存器由16位，按位起作用，0,2,4,6,7,8,9,10,11有特殊的含义，其他的没有任何含义；     15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0">
@@ -674,6 +674,36 @@
 </tr>
 </tbody>
 </table>
+<h2 id="df标志和串传送指令">DF标志和串传送指令</h2>
+<p>flag的第10位</p>
+<p>功能：在串处理指令中，控制每次操作后si,di的增减；</p>
+<ul>
+<li>DF=0：每次操作后si,di递增；</li>
+<li>DF=1：每次操作后si,di递减；</li>
+</ul>
+<p>格式1：<code>movsb</code></p>
+<p>功能：以字节为单位传送；</p>
+<ul>
+<li>((es)<em>16+(di))=((ds)</em>16+(si))</li>
+<li>if(df==0): (si)=(si)=1,(di)=(di)+1;</li>
+<li>if(df=0): (si)=(si)-1,(di)=(di)-1;</li>
+</ul>
+<p>格式2： <code>movsw</code></p>
+<p>功能：以字为单位传送</p>
+<p><code>rep mobsb</code> or <code>rep movsw</code></p>
+<p>一般，<code>movsb</code> 和 <code>movsw</code> 和 <code>rep</code> 配合使用，rep的作用是根据cx的值，重复执行后面的串传送指令；</p>
+<p>对DF位的设置：</p>
+<ul>
+<li><code>cld</code>指令：将标志寄存器的DF位置0</li>
+<li><code>std</code>指令：将标志寄存器的DF位置1</li>
+</ul>
+<p>例如：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">data</span> segment </span><br><span class="line">    db <span class="string">'Welcome to masn!'</span></span><br><span class="line">    db <span class="number">16</span> dup(<span class="number">0</span>)</span><br><span class="line"><span class="symbol">data</span> ends</span><br><span class="line"><span class="comment">;将data段中的第一个串送到后面的空间</span></span><br><span class="line"></span><br><span class="line"><span class="comment">;传送的设置：</span></span><br><span class="line"><span class="comment">;传送的原始位置：ds:si</span></span><br><span class="line"><span class="comment">;传送的目的地址：es:di</span></span><br><span class="line"><span class="comment">;传送的长度：cx</span></span><br><span class="line"><span class="comment">;传送的方向：DF</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">mov </span>ax,<span class="meta">data</span></span><br><span class="line"><span class="keyword">mov </span>ds,ax</span><br><span class="line"><span class="keyword">mov </span>si,<span class="number">0</span></span><br><span class="line"><span class="keyword">mov </span>es,ax</span><br><span class="line"><span class="keyword">mov </span>di,<span class="number">16</span></span><br><span class="line"><span class="keyword">mov </span>cx,<span class="number">16</span></span><br><span class="line"><span class="symbol">cld</span></span><br><span class="line"><span class="symbol">rep</span> <span class="keyword">movsb</span></span><br></pre></td></tr></table></figure>
+<h2 id="pushf和popf">pushf和popf</h2>
+<ul>
+<li><code>pushf</code>: 将标志寄存器的值压栈</li>
+<li><code>popf</code>: 从栈中弹出数据，送入到标志寄存器中</li>
+</ul>
 <p>(end)</p>
 
       
@@ -714,6 +744,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/01/2018年总结/" rel="prev" title="2018年总结">
+                2018年总结 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -804,7 +838,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">56</span>
+                  <span class="site-state-item-count">58</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -906,7 +940,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#标志寄存器"><span class="nav-number">1.</span> <span class="nav-text">标志寄存器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#零标志zf"><span class="nav-number">1.1.</span> <span class="nav-text">零标志ZF</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#奇偶标志pf"><span class="nav-number">1.2.</span> <span class="nav-text">奇偶标志PF</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#符号标志sf"><span class="nav-number">1.3.</span> <span class="nav-text">符号标志SF</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进位标志cf"><span class="nav-number">1.4.</span> <span class="nav-text">进位标志CF</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#溢出标志of"><span class="nav-number">1.5.</span> <span class="nav-text">溢出标志OF</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#adc指令"><span class="nav-number">1.6.</span> <span class="nav-text">adc指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sbb指令"><span class="nav-number">1.7.</span> <span class="nav-text">sbb指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cmp指令"><span class="nav-number">1.8.</span> <span class="nav-text">cmp指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#条件转移指令"><span class="nav-number">1.9.</span> <span class="nav-text">条件转移指令</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#标志寄存器"><span class="nav-number">1.</span> <span class="nav-text">标志寄存器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#零标志zf"><span class="nav-number">1.1.</span> <span class="nav-text">零标志ZF</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#奇偶标志pf"><span class="nav-number">1.2.</span> <span class="nav-text">奇偶标志PF</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#符号标志sf"><span class="nav-number">1.3.</span> <span class="nav-text">符号标志SF</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进位标志cf"><span class="nav-number">1.4.</span> <span class="nav-text">进位标志CF</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#溢出标志of"><span class="nav-number">1.5.</span> <span class="nav-text">溢出标志OF</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#adc指令"><span class="nav-number">1.6.</span> <span class="nav-text">adc指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sbb指令"><span class="nav-number">1.7.</span> <span class="nav-text">sbb指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cmp指令"><span class="nav-number">1.8.</span> <span class="nav-text">cmp指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#条件转移指令"><span class="nav-number">1.9.</span> <span class="nav-text">条件转移指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#df标志和串传送指令"><span class="nav-number">1.10.</span> <span class="nav-text">DF标志和串传送指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pushf和popf"><span class="nav-number">1.11.</span> <span class="nav-text">pushf和popf</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -926,7 +960,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
