@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<!--顶部进度加载条*********************-->
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #A593E0; /*进度条颜色*/
+        height: 5px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #A593E0;    /*上边框颜色*/
+        border-left-color: #A593E0;    /*左边框颜色*/
+    }
+</style>
+<!--**********************-->
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="笔记," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="31415926535x" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="中断程序设计 int 指令 int n：n为中断类型码，功能是引发中断过程">
+<meta name="keywords" content="笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="汇编笔记_第十三章">
+<meta property="og:url" content="http://www.31415.cf/2019/01/02/汇编笔记-第十三章/index.html">
+<meta property="og:site_name" content="31415926535x">
+<meta property="og:description" content="中断程序设计 int 指令 int n：n为中断类型码，功能是引发中断过程">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-02T09:37:49.967Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="汇编笔记_第十三章">
+<meta name="twitter:description" content="中断程序设计 int 指令 int n：n为中断类型码，功能是引发中断过程">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.31415.cf/2019/01/02/汇编笔记-第十三章/"/>
+
+
+
+
+
+  <title>汇编笔记_第十三章 | 31415926535x</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-114656515-1', 'auto');
+  ga('send', 'pageview');
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">31415926535x</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-diary">
+          <a href="/categories/diary/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user-secret"></i> <br />
+            
+            日记
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-acm">
+          <a href="/acm" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-flag"></i> <br />
+            
+            acm
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.31415.cf/2019/01/02/汇编笔记-第十三章/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="31415926535x">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/misaka.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="31415926535x">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">汇编笔记_第十三章</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-02T15:45:55+08:00">
+                2019-01-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/汇编语言/" itemprop="url" rel="index">
+                    <span itemprop="name">汇编语言</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/02/汇编笔记-第十三章/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/01/02/汇编笔记-第十三章/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="中断程序设计">中断程序设计</h1>
+<h2 id="int-指令">int 指令</h2>
+<p><code>int n</code>：n为中断类型码，功能是引发中断过程</p>
+<a id="more"></a>
+<h2 id="定制自己的中断">定制自己的中断</h2>
+<p>eg：将data段中的字符转化为大写 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">assume</span> cs:<span class="meta">code</span></span><br><span class="line"><span class="symbol">data</span> segment </span><br><span class="line">    db <span class="string">'coversation'</span>,<span class="number">0</span></span><br><span class="line"><span class="symbol">data</span> ends</span><br><span class="line"></span><br><span class="line"><span class="symbol">code</span> segment</span><br><span class="line"><span class="symbol">start</span>:</span><br><span class="line">    <span class="keyword">mov </span>ax,<span class="meta">data</span></span><br><span class="line">    <span class="keyword">mov </span>ds,ax</span><br><span class="line">    <span class="keyword">mov </span>si,<span class="number">0</span></span><br><span class="line"></span><br><span class="line">    int <span class="number">7</span>ch</span><br><span class="line"></span><br><span class="line">    <span class="keyword">mov </span>ax,<span class="number">4</span>c00h</span><br><span class="line">    int <span class="number">21</span>h</span><br><span class="line"></span><br><span class="line"><span class="symbol">code</span> ends</span><br><span class="line"><span class="symbol">end</span> start</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="symbol">capital</span>:</span><br><span class="line">    <span class="keyword">push </span>cx</span><br><span class="line">    <span class="keyword">push </span>si</span><br><span class="line"><span class="symbol">change</span>:</span><br><span class="line">    <span class="keyword">mov </span>cl,[si]</span><br><span class="line">    <span class="keyword">mov </span>ch,<span class="number">0</span></span><br><span class="line">    jcxz ok</span><br><span class="line">    <span class="keyword">and </span><span class="keyword">byte </span>ptr [si],<span class="number">0</span>DFH</span><br><span class="line">    inc si</span><br><span class="line">    jmp short change</span><br><span class="line"></span><br><span class="line"><span class="symbol">ok</span>:</span><br><span class="line">    <span class="keyword">pop </span>si</span><br><span class="line">    <span class="keyword">pop </span>cx</span><br><span class="line">    iret</span><br><span class="line"></span><br><span class="line"><span class="symbol">capitalend</span>:<span class="keyword">nop</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="软件中断子程序的编写">软件中断子程序的编写</h2>
+<ul>
+<li>保存现场</li>
+<li>STI开中断指令；如允许中断嵌套，则开中断</li>
+<li>处理中断</li>
+<li>CLI关中断指令</li>
+<li>恢复现场</li>
+<li>IRET指令，返回被中断的程序</li>
+</ul>
+<h2 id="对intiret和栈的深入理解">对int,iret和栈的深入理解</h2>
+<p>用7ch中断完成loop指令的功能</p>
+<p>bx：保存位移（负的） cx: 保存循环次数</p>
+<p>所以7ch的功能有：</p>
+<ul>
+<li>dec cx</li>
+<li>判断(cx)，不为零循环，为零向下执行</li>
+</ul>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">assume</span> cs:<span class="meta">code</span></span><br><span class="line"><span class="symbol">code</span> segment</span><br><span class="line"><span class="symbol">start</span>:</span><br><span class="line">    <span class="keyword">mov </span>ax,<span class="number">0</span>b800h</span><br><span class="line">    <span class="keyword">mov </span>es,ax</span><br><span class="line">    <span class="keyword">mov </span>di,<span class="number">160</span>*<span class="number">12</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">mov </span><span class="keyword">bx,offset </span>s-offset se</span><br><span class="line">    <span class="keyword">mov </span>cx,<span class="number">80</span></span><br><span class="line"></span><br><span class="line">  s:</span><br><span class="line">    <span class="keyword">mov </span><span class="keyword">byte </span>ptr es:[di],<span class="string">'!'</span></span><br><span class="line">    <span class="keyword">add </span>di,<span class="number">2</span></span><br><span class="line">    int <span class="number">7</span>ch</span><br><span class="line"><span class="symbol">  se:</span><span class="keyword">nop</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword"> </span> <span class="keyword">mov </span>ax,<span class="number">4</span>c00h</span><br><span class="line">  int <span class="number">21</span>h</span><br><span class="line"></span><br><span class="line"><span class="symbol">code</span> ends</span><br><span class="line"><span class="symbol">end</span> start</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">;int 7ch:</span></span><br><span class="line"><span class="comment">;直接修改IP的值到s处实现循环</span></span><br><span class="line"><span class="comment">;访问栈需要使用bp</span></span><br><span class="line"></span><br><span class="line"><span class="symbol">lp</span>:</span><br><span class="line">    <span class="keyword">push </span><span class="keyword">bp</span></span><br><span class="line"><span class="keyword"> </span>   <span class="keyword">mov </span><span class="keyword">bp,sp</span></span><br><span class="line"><span class="keyword"> </span>   dec cx</span><br><span class="line">    jcxz lpret</span><br><span class="line">    <span class="keyword">add </span>[<span class="keyword">bp+2],bx </span>  <span class="comment">;[bp+2]即为IP</span></span><br><span class="line"><span class="symbol">lpret</span>:</span><br><span class="line">    <span class="keyword">pop </span><span class="keyword">bp</span></span><br><span class="line"><span class="keyword"> </span>   iret</span><br></pre></td></tr></table></figure>
+<h2 id="bios和dos中断例程">BIOS和DOS中断例程</h2>
+<p>rom中存放着BIOS（基本输入输出系统）：</p>
+<ul>
+<li>硬件系统的检测和初始化程序</li>
+<li>外部中断和内部中断例程</li>
+<li>用于对硬件设备进行IO操作的中断例程</li>
+<li>其他和硬件系统相关的中断例程</li>
+</ul>
+<h2 id="bios和dos中断例程的安装过程">BIOS和DOS中断例程的安装过程</h2>
+<ul>
+<li>CPU开机加电后，初始化(CS)=0FFFFH,(IP)=0，自动从FFFF:0单元开始执行程序（该单元处为一条跳转指令，CPU会转去执行BIOS中的硬件系统检测和初始化程序）</li>
+<li>初始化程序将建立BIOS所支持的中断向量，将BIOS提供的中断例程的入口地址登记在中断向量表中</li>
+<li>硬件系统检测和初始化完成后，调用 <code>int 19h</code> 进行操作系统的应道，从而将计算机交由操作系统控制</li>
+<li>DOS启动后，除完成其他工作外，还将它提供的中断例程装入内存，并建立相应的中断向量</li>
+</ul>
+<h2 id="bios中断">BIOS中断</h2>
+<p>BIOS主要分为：</p>
+<ul>
+<li>系统硬件检测和初始化程序</li>
+<li>内中断的中断处理程序</li>
+<li>硬件中断的中断处理程序</li>
+<li>IO设备及接口控制等功能模块</li>
+</ul>
+<h2 id="屏幕及光标控制-int-10h">屏幕及光标控制 int 10h</h2>
+<h3 id="光标控制">光标控制</h3>
+<ul>
+<li><p>光标大小控制 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">ah</span><span class="number">=01</span>h</span><br><span class="line"><span class="symbol">ch</span>=光标开始行</span><br><span class="line"><span class="symbol">cl</span>=光标结束行</span><br><span class="line"><span class="symbol">int</span> <span class="number">10</span>h</span><br></pre></td></tr></table></figure></p></li>
+<li><p>设置光标位置</p></li>
+</ul>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">ah</span><span class="number">=01</span>h</span><br><span class="line"><span class="symbol">dh</span>=行号</span><br><span class="line"><span class="symbol">dl</span>=列号</span><br><span class="line"><span class="keyword">bh=页号</span></span><br><span class="line"><span class="keyword">int </span><span class="number">10</span>h</span><br></pre></td></tr></table></figure>
+<ul>
+<li>读光标位置</li>
+</ul>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">ah</span><span class="number">=03</span>h</span><br><span class="line"><span class="keyword">bh=页号</span></span><br><span class="line"><span class="keyword">int </span><span class="number">10</span>h</span><br><span class="line"></span><br><span class="line">返回值：</span><br><span class="line"><span class="symbol">dh</span>=行号</span><br><span class="line"><span class="symbol">dl</span>=列号</span><br><span class="line"><span class="symbol">cx</span>=光标大小</span><br></pre></td></tr></table></figure>
+<h3 id="卷屏清屏开窗口">卷屏、清屏、开窗口</h3>
+<ul>
+<li>选择显示页</li>
+</ul>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">ah</span><span class="number">=05</span>h</span><br><span class="line"><span class="symbol">al</span>=页号</span><br><span class="line"><span class="symbol">int</span> <span class="number">10</span>h</span><br></pre></td></tr></table></figure>
+<ul>
+<li>屏幕开窗口</li>
+</ul>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">ah</span><span class="number">=06</span>h</span><br><span class="line"><span class="symbol">al</span><span class="number">=0</span></span><br><span class="line"><span class="keyword">bh=窗口颜色属性</span></span><br><span class="line"><span class="keyword">ch=左上角行号</span></span><br><span class="line"><span class="keyword">cl=左上角列号</span></span><br><span class="line"><span class="keyword">dh=右下角行号</span></span><br><span class="line"><span class="keyword">dl=右下角列号</span></span><br><span class="line"><span class="keyword">int </span><span class="number">10</span>h</span><br></pre></td></tr></table></figure>
+<ul>
+<li>屏幕上卷</li>
+</ul>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">ah</span><span class="number">=06</span>h</span><br><span class="line"><span class="symbol">al</span>=上卷行数</span><br><span class="line"><span class="keyword">bh=卷入行属性</span></span><br><span class="line"><span class="keyword">ch=左上角行号</span></span><br><span class="line"><span class="keyword">cl=左上角列号</span></span><br><span class="line"><span class="keyword">dh=右下角行号</span></span><br><span class="line"><span class="keyword">dl=右下角列号</span></span><br><span class="line"><span class="keyword">int </span><span class="number">10</span>h</span><br></pre></td></tr></table></figure>
+<ul>
+<li>屏幕下卷</li>
+</ul>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">ah</span><span class="number">=07</span>h</span><br></pre></td></tr></table></figure>
+<h3 id="字符读与显示">字符读与显示</h3>
+<ul>
+<li>读当前光标处字符和属性</li>
+</ul>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">ah</span><span class="number">=08</span>h</span><br><span class="line"><span class="keyword">bh=页号</span></span><br><span class="line"><span class="keyword">int </span><span class="number">10</span>h</span><br><span class="line"></span><br><span class="line">返回值：</span><br><span class="line"><span class="symbol">ah</span>=属性</span><br><span class="line"><span class="symbol">al</span>=字符</span><br></pre></td></tr></table></figure>
+<ul>
+<li>显示多个带属性的相同字符</li>
+</ul>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">ah</span><span class="number">=09</span>h</span><br><span class="line"><span class="keyword">bh=页号</span></span><br><span class="line"><span class="keyword">cx=字符重复个数</span></span><br><span class="line"><span class="keyword">al=字符</span></span><br><span class="line"><span class="keyword">bl=属性</span></span><br><span class="line"><span class="keyword">int </span><span class="number">10</span>h</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">7</span>   <span class="number">6</span> <span class="number">5</span> <span class="number">4</span>  <span class="number">3</span>  <span class="number">2</span> <span class="number">1</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">bl </span> r g <span class="keyword">b </span> i  r g <span class="keyword">b</span></span><br><span class="line"><span class="keyword">闪烁 </span>背景 高亮 前景</span><br></pre></td></tr></table></figure>
+<h2 id="dos中断">DOS中断</h2>
+<p>显示功能调用</p>
+<ul>
+<li>显示一个字符</li>
+</ul>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">ah</span><span class="number">=02</span>h</span><br><span class="line"><span class="symbol">dl</span>=字符</span><br><span class="line"><span class="symbol">int</span> <span class="number">21</span>h</span><br><span class="line">功能：屏幕上显示一个字符，光标跟随字符移动。检验DL是否为Ctrl_Break。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>显示一个字符</li>
+</ul>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">ah</span><span class="number">=06</span>h</span><br><span class="line"><span class="symbol">dl</span>=字符</span><br><span class="line"><span class="symbol">int</span> <span class="number">21</span>h</span><br><span class="line">功能：屏幕上显示一个字符，光标跟随字符移动。不检验Ctrl_Break。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>显示一串字符</li>
+</ul>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">ah</span><span class="number">=09</span>h</span><br><span class="line"><span class="symbol">ds</span>:dx=字符串地址</span><br><span class="line"><span class="symbol">int</span> <span class="number">21</span>h</span><br><span class="line">功能：屏幕上显示一串字符，光标跟随字符移动。要求字符串必须以$结尾。</span><br></pre></td></tr></table></figure>
+<p>输入</p>
+<ul>
+<li>键入一个字符并回显</li>
+</ul>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">ah</span><span class="number">=01</span>h</span><br><span class="line"><span class="symbol">int</span> <span class="number">21</span>h</span><br><span class="line">返回值：AL=字符的ASCII码。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>键入一个字符不回显</li>
+</ul>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">ah</span><span class="number">=07</span>h</span><br><span class="line"><span class="symbol">int</span> <span class="number">21</span>h</span><br><span class="line">返回值：AL=字符的ASCII码。不检验键入的字符是否为Ctrl_Break。</span><br></pre></td></tr></table></figure>
+<p>(end)</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/笔记/" rel="tag">:-> 笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/01/汇编笔记-第十二章/" rel="next" title="汇编笔记_第十二章">
+                <i class="fa fa-chevron-left"></i> 汇编笔记_第十二章
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/misaka.png"
+                alt="31415926535x" />
+            
+              <p class="site-author-name" itemprop="name">31415926535x</p>
+              <p class="site-description motion-element" itemprop="description">很感谢你能来，不遗憾你离开</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/31415926535x" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:2509437152wx@gmail.com" target="_blank" title="Gmail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>Gmail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://plus.google.com/106114719135977350421" target="_blank" title="Google">
+                      
+                        <i class="fa fa-fw fa-google"></i>Google</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://instagram.com/314159265358x" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://cnblogs.com/31415926535x" target="_blank" title="cnblogs">
+                      
+                        <i class="fa fa-fw fa-globe"></i>cnblogs</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://codeforces.com/profile/31415926535x" target="_blank" title="codeforces">
+                      
+                        <i class="fa fa-fw fa-globe"></i>codeforces</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#中断程序设计"><span class="nav-number">1.</span> <span class="nav-text">中断程序设计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#int-指令"><span class="nav-number">1.1.</span> <span class="nav-text">int 指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定制自己的中断"><span class="nav-number">1.2.</span> <span class="nav-text">定制自己的中断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件中断子程序的编写"><span class="nav-number">1.3.</span> <span class="nav-text">软件中断子程序的编写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对intiret和栈的深入理解"><span class="nav-number">1.4.</span> <span class="nav-text">对int,iret和栈的深入理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bios和dos中断例程"><span class="nav-number">1.5.</span> <span class="nav-text">BIOS和DOS中断例程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bios和dos中断例程的安装过程"><span class="nav-number">1.6.</span> <span class="nav-text">BIOS和DOS中断例程的安装过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bios中断"><span class="nav-number">1.7.</span> <span class="nav-text">BIOS中断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#屏幕及光标控制-int-10h"><span class="nav-number">1.8.</span> <span class="nav-text">屏幕及光标控制 int 10h</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#光标控制"><span class="nav-number">1.8.1.</span> <span class="nav-text">光标控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卷屏清屏开窗口"><span class="nav-number">1.8.2.</span> <span class="nav-text">卷屏、清屏、开窗口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符读与显示"><span class="nav-number">1.8.3.</span> <span class="nav-text">字符读与显示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dos中断"><span class="nav-number">1.9.</span> <span class="nav-text">DOS中断</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">31415926535x</span>
+
+  
+</div>
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+-->
+
+  <span class="post-meta-divider">|</span>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+    <!-- 页面点击小红心 -->
+      <script type="text/javascript" src="/js/src/love.js"></script>
+    <!-- 动态背景 -->
+      <script type="text/javascript" src="/js/src/canvas-nest.js"></script>
+      <!-- 背景动画 -->
+      <script type="text/javascript" src="/js/src/particle.js"></script>
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://www-31415-cf.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://www.31415.cf/2019/01/02/汇编笔记-第十三章/';
+          this.page.identifier = '2019/01/02/汇编笔记-第十三章/';
+          this.page.title = '汇编笔记_第十三章';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://www-31415-cf.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>
