@@ -85,7 +85,7 @@
 
 
 
-  <meta name="keywords" content="笔记," />
+  <meta name="keywords" content="acm,笔记," />
 
 
 
@@ -98,18 +98,18 @@
 
 
 
-<meta name="description" content="寄存器内存访问 内存器中字的存储  大端方式：高位字节排放在内存的低地址端，低位字节存放在高地址端；（现在见到的都是大端方式） 小端方式：低位字节存放在内存的低地址端，高位字节存放在高地址端；">
-<meta name="keywords" content="笔记">
+<meta name="description" content="有时会碰到一些大数的题，，python不怎么会，，用c++模板的话有太长了，，所以蹭着选修的Java，正好记录一下java在做题中的基本的使用，，">
+<meta name="keywords" content="acm,笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="汇编笔记_第三章">
-<meta property="og:url" content="http://www.31415x.cf/2018/12/26/汇编笔记-第三章/index.html">
+<meta property="og:title" content="acm_java">
+<meta property="og:url" content="http://www.31415x.cf/2019/02/27/acm-java/index.html">
 <meta property="og:site_name" content="31415926535x">
-<meta property="og:description" content="寄存器内存访问 内存器中字的存储  大端方式：高位字节排放在内存的低地址端，低位字节存放在高地址端；（现在见到的都是大端方式） 小端方式：低位字节存放在内存的低地址端，高位字节存放在高地址端；">
+<meta property="og:description" content="有时会碰到一些大数的题，，python不怎么会，，用c++模板的话有太长了，，所以蹭着选修的Java，正好记录一下java在做题中的基本的使用，，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-26T06:20:45.259Z">
+<meta property="og:updated_time" content="2019-02-27T10:59:23.034Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="汇编笔记_第三章">
-<meta name="twitter:description" content="寄存器内存访问 内存器中字的存储  大端方式：高位字节排放在内存的低地址端，低位字节存放在高地址端；（现在见到的都是大端方式） 小端方式：低位字节存放在内存的低地址端，高位字节存放在高地址端；">
+<meta name="twitter:title" content="acm_java">
+<meta name="twitter:description" content="有时会碰到一些大数的题，，python不怎么会，，用c++模板的话有太长了，，所以蹭着选修的Java，正好记录一下java在做题中的基本的使用，，">
 
 
 
@@ -139,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="http://www.31415x.cf/2018/12/26/汇编笔记-第三章/"/>
+  <link rel="canonical" href="http://www.31415x.cf/2019/02/27/acm-java/"/>
 
 
 
 
 
-  <title>汇编笔记_第三章 | 31415926535x</title>
+  <title>acm_java | 31415926535x</title>
   
 
 
@@ -301,7 +301,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2018/12/26/汇编笔记-第三章/">
+    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2019/02/27/acm-java/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="31415926535x">
@@ -318,7 +318,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">汇编笔记_第三章</h1>
+          <h1 class="post-title" itemprop="name headline">acm_java</h1>
         
 
         <div class="post-meta">
@@ -330,8 +330,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-26T12:29:17+08:00">
-                2018-12-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-27T18:41:27+08:00">
+                2019-02-27
               </time>
             
 
@@ -341,28 +341,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/汇编语言/" itemprop="url" rel="index">
-                    <span itemprop="name">汇编语言</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -371,9 +349,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/12/26/汇编笔记-第三章/#comments" itemprop="discussionUrl">
+                <a href="/2019/02/27/acm-java/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/12/26/汇编笔记-第三章/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2019/02/27/acm-java/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -401,65 +379,17 @@
       
 
       
-        <h1 id="寄存器内存访问">寄存器内存访问</h1>
-<h2 id="内存器中字的存储">内存器中字的存储</h2>
-<ul>
-<li>大端方式：高位字节排放在内存的低地址端，低位字节存放在高地址端；（现在见到的都是大端方式）</li>
-<li>小端方式：低位字节存放在内存的低地址端，高位字节存放在高地址端；</li>
-</ul>
+        <p>有时会碰到一些大数的题，，python不怎么会，，用c++模板的话有太长了，，所以蹭着选修的Java，正好记录一下java在做题中的基本的使用，，</p>
 <a id="more"></a>
-<h2 id="ds和address">DS和[address]</h2>
-<ul>
-<li>执行指令时，8086CPU自动取DS中的数据作为内存单元的段地址；</li>
-<li>不能直接将数据送到DS中，必须 <em>数据-&gt;一般的寄存器-&gt;段寄存器</em>；</li>
-</ul>
-<p>例如：</p>
-<p><code>mov bx,1000H</code></p>
-<p><code>mov ds,bx</code></p>
-<p><code>mov [0],al</code></p>
-<h2 id="字的传送">字的传送</h2>
-<ul>
-<li>8086CPU是16位结构，有16根数据线，一次可以传送16位的数据，也就是一次可以传送一个字；(P50的问题3.3、3.4)</li>
-</ul>
-<h2 id="movaddsub指令">mov、add、sub指令</h2>
-<p>mov指令的几种形式：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">mov</span> 寄存器,数据</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">mov</span> 寄存器,寄存器</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">mov</span> 寄存器,内存单元</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">mov</span> 内存单元,寄存器</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">mov</span> 段寄存器,寄存器</span><br></pre></td></tr></table></figure>
-<h2 id="栈">栈</h2>
-<ul>
-<li>8086CPU中的入栈和出栈操作都是以 <strong>字</strong> 为单位的；</li>
-<li>任意时刻，SS:SP指向栈顶元素；</li>
-</ul>
-<h3 id="push指令的执行过程">push指令的执行过程</h3>
-<p><code>push ax</code></p>
-<ul>
-<li>SP = SP - 2;</li>
-<li>将ax中的内容送入到SS:SP指向的内存单元处，SS:SP此时指向新栈顶；</li>
-<li>栈空时，SS:SP指向栈空间最高地址单元的下一个单元；</li>
-</ul>
-<h3 id="pop指令的执行过程">pop指令的执行过程</h3>
-<p><code>pop ax</code></p>
-<ul>
-<li>将SS:SP指向的内存单元出的数据送入ax中；</li>
-<li>SP = SP + 2；</li>
-</ul>
-<h2 id="栈顶超界的问题">栈顶超界的问题</h2>
-<ul>
-<li>当 <strong>栈满的时候再使用push指令入栈</strong> 、 <strong>栈空的时候再使用pop指令出栈</strong> 都会发生栈顶超界问题；</li>
-<li>8086CPU不保证对栈的操作不会超界；</li>
-</ul>
-<h3 id="pushpop指令">push、pop指令</h3>
-<ul>
-<li><p><code>push/pop 寄存器、段寄存器、内存单元</code></p></li>
-<li>栈可以保存寄存器的数据，恢复时出栈的顺序要和入栈的顺序相反；</li>
-<li>栈可以向一个地址处的内存单元写入数据，先设置ss,sp的值然后push；</li>
-<li><p>栈顶sp的变化范围为0~FFFFH；</p></li>
-</ul>
-<h2 id="段地综述">段地综述</h2>
-<ul>
-<li>对于数据段，段地址存放在DS中</li>
-<li>对于代码段，段地址存放在CS，段中的第一条指令的偏移地址在IP中；</li>
-<li>对于栈段，段地址存放在SS中，栈顶的偏移地址存放在SP中；</li>
-</ul>
+<h1 id="基本的输入输出">基本的输入输出</h1>
+<h2 id="多组数据读到文件末">多组数据读到文件末</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> a, b;</span><br><span class="line">        <span class="keyword">while</span>(input.hasNextInt()) &#123;</span><br><span class="line">            a = input.nextInt();</span><br><span class="line">            b = input.nextInt();</span><br><span class="line">            System.out.println(a+b);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="t组数据">t组数据</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.math.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		<span class="keyword">int</span> t, a, b;</span><br><span class="line">		t = input.nextInt();</span><br><span class="line">		<span class="keyword">while</span>(t &gt; <span class="number">0</span>) &#123;</span><br><span class="line">			--t;</span><br><span class="line">			a = input.nextInt();</span><br><span class="line">			b = input.nextInt();</span><br><span class="line">			System.out.println(a + b);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="读到输入的数字都为零时">读到输入的数字都为零时</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.math.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		<span class="keyword">int</span> a, b;</span><br><span class="line">		<span class="keyword">while</span>(input.hasNextInt()) &#123;</span><br><span class="line">			a = input.nextInt();</span><br><span class="line">			b = input.nextInt();</span><br><span class="line">			<span class="keyword">if</span>(a == <span class="number">0</span> &amp;&amp; b == <span class="number">0</span>)<span class="keyword">break</span>;</span><br><span class="line">			System.out.println(a + b);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="输入n个数n为零结束">输入n个数，n为零结束</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.math.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		<span class="keyword">while</span>(input.hasNextInt()) &#123;</span><br><span class="line">			<span class="keyword">int</span> n = input.nextInt();</span><br><span class="line">			<span class="keyword">if</span>(n == <span class="number">0</span>)<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">				<span class="keyword">int</span> t = input.nextInt();</span><br><span class="line">				sum += t;</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println(sum);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -477,6 +407,8 @@
       
         <div class="post-tags">
           
+            <a href="/tags/acm/" rel="tag">:-> acm</a>
+          
             <a href="/tags/笔记/" rel="tag">:-> 笔记</a>
           
         </div>
@@ -490,8 +422,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/25/汇编笔记-第二章/" rel="next" title="汇编笔记_第二章">
-                <i class="fa fa-chevron-left"></i> 汇编笔记_第二章
+              <a href="/2019/02/26/codeforces-1102e/" rel="next" title="codeforces-1102e">
+                <i class="fa fa-chevron-left"></i> codeforces-1102e
               </a>
             
           </div>
@@ -499,10 +431,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/26/汇编笔记-第四、五章/" rel="prev" title="汇编笔记_第四、五章">
-                汇编笔记_第四、五章 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -695,7 +623,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#寄存器内存访问"><span class="nav-number">1.</span> <span class="nav-text">寄存器内存访问</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#内存器中字的存储"><span class="nav-number">1.1.</span> <span class="nav-text">内存器中字的存储</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ds和address"><span class="nav-number">1.2.</span> <span class="nav-text">DS和[address]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字的传送"><span class="nav-number">1.3.</span> <span class="nav-text">字的传送</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#movaddsub指令"><span class="nav-number">1.4.</span> <span class="nav-text">mov、add、sub指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#栈"><span class="nav-number">1.5.</span> <span class="nav-text">栈</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#push指令的执行过程"><span class="nav-number">1.5.1.</span> <span class="nav-text">push指令的执行过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pop指令的执行过程"><span class="nav-number">1.5.2.</span> <span class="nav-text">pop指令的执行过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#栈顶超界的问题"><span class="nav-number">1.6.</span> <span class="nav-text">栈顶超界的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pushpop指令"><span class="nav-number">1.6.1.</span> <span class="nav-text">push、pop指令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#段地综述"><span class="nav-number">1.7.</span> <span class="nav-text">段地综述</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本的输入输出"><span class="nav-number">1.</span> <span class="nav-text">基本的输入输出</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#多组数据读到文件末"><span class="nav-number">1.1.</span> <span class="nav-text">多组数据读到文件末</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#t组数据"><span class="nav-number">1.2.</span> <span class="nav-text">t组数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读到输入的数字都为零时"><span class="nav-number">1.3.</span> <span class="nav-text">读到输入的数字都为零时</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入n个数n为零结束"><span class="nav-number">1.4.</span> <span class="nav-text">输入n个数，n为零结束</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -861,9 +789,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://www.31415x.cf/2018/12/26/汇编笔记-第三章/';
-          this.page.identifier = '2018/12/26/汇编笔记-第三章/';
-          this.page.title = '汇编笔记_第三章';
+          this.page.url = 'http://www.31415x.cf/2019/02/27/acm-java/';
+          this.page.identifier = '2019/02/27/acm-java/';
+          this.page.title = 'acm_java';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://www-31415-cf.disqus.com/embed.js';
