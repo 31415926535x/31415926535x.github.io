@@ -106,7 +106,7 @@
 <meta property="og:site_name" content="31415926535x">
 <meta property="og:description" content="自己虽然没有好好看过数论的知识，，但是实际的做题中有一些处理总是需要数论的板子，，总是再做题的时候翻别人的博客抄很耽误事，，而且对自己也不好，，所以总结一下平常用道的数论的板子，，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-18T12:05:26.084Z">
+<meta property="og:updated_time" content="2019-03-10T07:59:50.473Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数论模板">
 <meta name="twitter:description" content="自己虽然没有好好看过数论的知识，，但是实际的做题中有一些处理总是需要数论的板子，，总是再做题的时候翻别人的博客抄很耽误事，，而且对自己也不好，，所以总结一下平常用道的数论的板子，，">
@@ -249,16 +249,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-diary">
-          <a href="/categories/diary/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user-secret"></i> <br />
-            
-            日记
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-acm">
           <a href="/acm" rel="section">
             
@@ -380,8 +370,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-18T20:05:26+08:00">
-                2019-02-18
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-10T15:59:50+08:00">
+                2019-03-10
               </time>
             
           </span>
@@ -453,7 +443,7 @@
 <h2 id="埃筛">埃筛</h2>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//判断一个数是否为质数</span></span><br><span class="line"><span class="keyword">bool</span> prime[maxn];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; maxn; ++i)prime[i] = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i * i &lt; maxn; ++i)</span><br><span class="line">        <span class="keyword">if</span>(prime[i])</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i * i; j &lt; maxn; j += i)</span><br><span class="line">                prime[j] = <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="线筛">线筛</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bool</span> prime[maxn];</span><br><span class="line"><span class="keyword">int</span> p[maxn], tot;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; maxn; ++i)prime[i] = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; maxn; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(prime[i])p[tot++] = i;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; tot &amp;&amp; i * p[j] &lt; maxn; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            prime[i * p[j]] = <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">if</span>(i % p[j] == <span class="number">0</span>)<span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bool</span> prime[maxn];</span><br><span class="line"><span class="keyword">int</span> p[maxn], tot;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; maxn; ++i)prime[i] = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; maxn; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(prime[i])p[tot++] = i;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; tot &amp;&amp; i * p[j] &lt; maxn; ++j)</span><br><span class="line">        &#123;</span><br><span class="line">            prime[i * p[j]] = <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">if</span>(i % p[j] == <span class="number">0</span>)<span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="筛质数的同时求质数的逆元欧拉函数可能用">筛质数的同时求质数的逆元，，（欧拉函数可能用）</h2>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//find all prime from 1 to maxn</span></span><br><span class="line"><span class="keyword">bool</span> isprime[maxn];</span><br><span class="line"><span class="keyword">int</span> prime[maxn], tot = <span class="number">-1</span>;</span><br><span class="line"><span class="keyword">int</span> inv_prime[maxn];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span>     <span class="comment">//寻找maxn以内的质数及其质数的逆元</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= maxn; ++i)isprime[i] = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= maxn; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(!isprime[i])prime[++tot] = i, inv_prime[tot] = pow_(i, mod - <span class="number">2</span>, mod);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= tot &amp;&amp; i * prime[j] &lt;= maxn; ++j)</span><br><span class="line">        &#123;</span><br><span class="line">            isprime[i * prime[j]] = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">if</span>(i % prime[j] == <span class="number">0</span>)<span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="预处理每个数的质因数">预处理每个数的质因数</h2>
@@ -618,7 +608,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">75</span>
+                  <span class="site-state-item-count">77</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -629,7 +619,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
