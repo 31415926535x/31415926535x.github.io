@@ -98,18 +98,18 @@
 
 
 
-<meta name="description" content="寄存器 8086寄存器组 一共14个寄存器  数据寄存器：AX , BX , CX , DX; 段寄存器：CS , DS , ES , SS; 地址寄存器：SI , DI , SP , BP; 控制寄存器： IP , PSW(FLAGS)">
+<meta name="description" content="寄存器8086寄存器组 一共14个寄存器  数据寄存器：AX , BX , CX , DX; 段寄存器：CS , DS , ES , SS; 地址寄存器：SI , DI , SP , BP; 控制寄存器： IP , PSW(FLAGS)">
 <meta name="keywords" content="笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="汇编笔记_第二章">
 <meta property="og:url" content="http://www.31415x.cf/2018/12/25/汇编笔记-第二章/index.html">
 <meta property="og:site_name" content="31415926535x">
-<meta property="og:description" content="寄存器 8086寄存器组 一共14个寄存器  数据寄存器：AX , BX , CX , DX; 段寄存器：CS , DS , ES , SS; 地址寄存器：SI , DI , SP , BP; 控制寄存器： IP , PSW(FLAGS)">
+<meta property="og:description" content="寄存器8086寄存器组 一共14个寄存器  数据寄存器：AX , BX , CX , DX; 段寄存器：CS , DS , ES , SS; 地址寄存器：SI , DI , SP , BP; 控制寄存器： IP , PSW(FLAGS)">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-12-26T06:23:57.276Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="汇编笔记_第二章">
-<meta name="twitter:description" content="寄存器 8086寄存器组 一共14个寄存器  数据寄存器：AX , BX , CX , DX; 段寄存器：CS , DS , ES , SS; 地址寄存器：SI , DI , SP , BP; 控制寄存器： IP , PSW(FLAGS)">
+<meta name="twitter:description" content="寄存器8086寄存器组 一共14个寄存器  数据寄存器：AX , BX , CX , DX; 段寄存器：CS , DS , ES , SS; 地址寄存器：SI , DI , SP , BP; 控制寄存器： IP , PSW(FLAGS)">
 
 
 
@@ -436,8 +436,7 @@
       
 
       
-        <h1 id="寄存器">寄存器</h1>
-<p>8086寄存器组</p>
+        <h1 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h1><p>8086寄存器组</p>
 <p>一共14个寄存器</p>
 <ul>
 <li>数据寄存器：AX , BX , CX , DX;</li>
@@ -446,20 +445,16 @@
 <li>控制寄存器： IP , PSW(FLAGS)</li>
 </ul>
 <a id="more"></a>
-<h2 id="通用寄存器">通用寄存器</h2>
-<ul>
+<h2 id="通用寄存器"><a href="#通用寄存器" class="headerlink" title="通用寄存器"></a>通用寄存器</h2><ul>
 <li>所有的寄存器都是16位的，可以存放两个字节；</li>
 <li>AX , BX , CX , DX通常用来存放一般数据，被称为通用寄存器；</li>
-<li>一个16位寄存器所能存储的数据最大值为： <span class="math inline">\(2^{16} - 1\)</span>;</li>
+<li>一个16位寄存器所能存储的数据最大值为： $2^{16} - 1$;</li>
 </ul>
-<h2 id="段寄存器">段寄存器</h2>
-<ul>
+<h2 id="段寄存器"><a href="#段寄存器" class="headerlink" title="段寄存器"></a>段寄存器</h2><ul>
 <li>段寄存器就是提供段地址的，访问内存时，有着4个段寄存器提供内存单元的段地址；</li>
 <li>4个段寄存器：CS , DS , SS , ES;</li>
 </ul>
-<h1 id="内存地址的分配">内存地址的分配</h1>
-<h2 id="物理地址的形成">物理地址的形成</h2>
-<ul>
+<h1 id="内存地址的分配"><a href="#内存地址的分配" class="headerlink" title="内存地址的分配"></a>内存地址的分配</h1><h2 id="物理地址的形成"><a href="#物理地址的形成" class="headerlink" title="物理地址的形成"></a>物理地址的形成</h2><ul>
 <li>8086有 <strong>20位</strong> 地址总线，可以传送20位地址，<strong>寻址能力为1M</strong>；</li>
 <li>8086内部为16位结构，地址16位；</li>
 <li>存储器采用 <strong>分段管理</strong>，将存储器划分位若干 <strong>逻辑段</strong>，每段最大64K字节单元，最小16B；</li>
@@ -467,145 +462,132 @@
 <li>内存单元地址的描述： <strong>段基址:偏移量</strong>；</li>
 <li>地址加法器合成物理地址的方法： <strong>物理地址=段地址*16 + 偏移地址</strong>；</li>
 <li>在存储器中，每16个字节单元为一小段；</li>
-<li>例如：某内存单元的地址为1234:5678H，则物理地址为 <span class="math inline">\(12340H + 5678H = 179B8H\)</span>;</li>
+<li>例如：某内存单元的地址为1234:5678H，则物理地址为 $12340H + 5678H = 179B8H$;</li>
 <li>CPU可以用不同的段地址和偏移地址形成同一个物理地址；</li>
 </ul>
-<h2 id="段的类型">段的类型</h2>
-<ul>
+<h2 id="段的类型"><a href="#段的类型" class="headerlink" title="段的类型"></a>段的类型</h2><ul>
 <li>逻辑段有四种类型： <strong>代码段</strong> 、 <strong>数据段</strong> 、 <strong>附加段</strong> 、 <strong>堆栈段</strong>；</li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
-<tr class="header">
-<th style="text-align: center;">段名</th>
-<th style="text-align: center;">段寄存器</th>
+<tr>
+<th style="text-align:center">段名</th>
+<th style="text-align:center">段寄存器</th>
 <th>偏移地址</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: center;">代码段</td>
-<td style="text-align: center;">CS</td>
+<tr>
+<td style="text-align:center">代码段</td>
+<td style="text-align:center">CS</td>
 <td>IP</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">数据段</td>
-<td style="text-align: center;">DS</td>
+<tr>
+<td style="text-align:center">数据段</td>
+<td style="text-align:center">DS</td>
 <td>BX,SI,DI等地址寄存器</td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;">附加段</td>
-<td style="text-align: center;">ES</td>
+<tr>
+<td style="text-align:center">附加段</td>
+<td style="text-align:center">ES</td>
 <td>BX,SI,DI等地址寄存器</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">堆栈段</td>
-<td style="text-align: center;">SS</td>
+<tr>
+<td style="text-align:center">堆栈段</td>
+<td style="text-align:center">SS</td>
 <td>SP或BP</td>
 </tr>
 </tbody>
 </table>
+</div>
 <ul>
 <li>例题：给定段地址为0001H，仅通过变化偏移地址寻址，CPU的寻址范围为 <em>00010H</em> 到 <em>1000FH</em>;</li>
 </ul>
 <p>解：物理地址=SA*16+EA</p>
 <p>EA变化范围为0H~FFFFH</p>
-<p>所以物理地址的变化范围为：<span class="math inline">\((0001H*16 + 0H)~(0001H*16 + FFFFH)\)</span>;</p>
+<p>所以物理地址的变化范围为：$(0001H<em>16 + 0H)~(0001H</em>16 + FFFFH)$;</p>
 <p>就是00010H~1000FH;</p>
 <ul>
 <li>例题：有一数据存放在内存20000H单元中，现给定段地址SA，若想用偏移地址寻找到此单元，SA满足的条件是：最小是<em>1001H</em>，最大为<em>2000H</em>;</li>
 </ul>
-<p>解； <span class="math display">\[\mathrm{
+<p>解； </p>
+<script type="math/tex; mode=display">\mathrm{
 20000H=SA*16+EA
-}\]</span> <span class="math display">\[\mathrm{
+}</script><script type="math/tex; mode=display">\mathrm{
 SA = (20000H - EA)/16
-}\]</span> <span class="math display">\[\mathrm{
+}</script><script type="math/tex; mode=display">\mathrm{
 SA = 2000H - EA/16
-}\]</span> <span class="math display">\[\mathrm{
+}</script><script type="math/tex; mode=display">\mathrm{
 EA\in[0000H , FFFFH]
-}\]</span> <span class="math display">\[\mathrm{
+}</script><script type="math/tex; mode=display">\mathrm{
 SA\in[1001H , 2000H]
-}\]</span></p>
-<h1 id="特殊寄存器cs和ip">特殊寄存器CS和IP</h1>
-<ul>
+}</script><h1 id="特殊寄存器CS和IP"><a href="#特殊寄存器CS和IP" class="headerlink" title="特殊寄存器CS和IP"></a>特殊寄存器CS和IP</h1><ul>
 <li>CS为 <strong>代码段寄存器</strong></li>
 <li>IP为 <strong>指令指针寄存器</strong></li>
 <li>CPU将CS:IP指向的内存单元中的内容看作指令</li>
 <li>8086pc工作过程：1、从CS:IP指向的内存的单元读取指令，读取的指令进入指令缓冲器；2、IP=IP+所读取的指令的长度，从而指向下一条指令；3、执行指令，转到步骤1；</li>
 <li>加电启动或复位后CS=FFFFH , IP=0000H</li>
 <li>修改CS,IP的值：</li>
-<li><code>jmp 段地址:偏移地址//同时修改CS、IP</code>, <code>jmp 寄存器//用寄存器中的值修改IP</code></li>
+<li><code>jmp 段地址:偏移地址//同时修改CS、IP</code>,<br> <code>jmp 寄存器//用寄存器中的值修改IP</code></li>
 </ul>
-<h1 id="外部设备及io地址空间">外部设备及IO地址空间</h1>
-<ul>
+<h1 id="外部设备及IO地址空间"><a href="#外部设备及IO地址空间" class="headerlink" title="外部设备及IO地址空间"></a>外部设备及IO地址空间</h1><ul>
 <li>每个外部设备的接口都有一组寄存器，每个寄存器都有一个端口地址；</li>
 <li>8086提供的IO地址总线宽度总是16位的，所以允许的最大的IO寻址空间位64KB，寻址范围为0000H~FFFFH；</li>
 <li>pc机中，由于IO地址空间是独立编址的，所以系统需要提供独立的 访问外设指令(IO指令)：IN,OUT</li>
 </ul>
-<h1 id="指令的寻址方式">指令的寻址方式</h1>
-<p>操作数的物理地址=段地址*10H + EA</p>
-<h2 id="立即寻址方式">立即寻址方式</h2>
-<p><code>mov al,5</code></p>
+<h1 id="指令的寻址方式"><a href="#指令的寻址方式" class="headerlink" title="指令的寻址方式"></a>指令的寻址方式</h1><p>操作数的物理地址=段地址*10H + EA</p>
+<h2 id="立即寻址方式"><a href="#立即寻址方式" class="headerlink" title="立即寻址方式"></a>立即寻址方式</h2><p><code>mov al,5</code></p>
 <p><code>mov ax,3060H</code></p>
-<h2 id="寄存器寻址方式">寄存器寻址方式</h2>
-<p><code>mov ax,bx</code></p>
-<h2 id="直接寻址方式">直接寻址方式</h2>
-<h3 id="存储器读操作">存储器读操作</h3>
-<p><code>mov ax,ds:[2000H]</code></p>
-<h3 id="存储器写操作">存储器写操作</h3>
-<p><code>mov ds:[4000H],ax</code></p>
-<h3 id="符号地址">符号地址</h3>
-<p><code>mov ax,[value]</code></p>
-<h3 id="段超越">段超越</h3>
-<p><code>mov ax,es:[value]</code></p>
-<h2 id="间接寻址方式">间接寻址方式</h2>
-<p><code>mov ax,[bx]</code></p>
-<p><span class="math inline">\(操作数的物理地址=(ds)*10H + \{(bx) , (si) , (di)\};\)</span></p>
-<p><span class="math inline">\(操作数的物理地址=(ss)*10H + (bp);\)</span></p>
+<h2 id="寄存器寻址方式"><a href="#寄存器寻址方式" class="headerlink" title="寄存器寻址方式"></a>寄存器寻址方式</h2><p><code>mov ax,bx</code></p>
+<h2 id="直接寻址方式"><a href="#直接寻址方式" class="headerlink" title="直接寻址方式"></a>直接寻址方式</h2><h3 id="存储器读操作"><a href="#存储器读操作" class="headerlink" title="存储器读操作"></a>存储器读操作</h3><p><code>mov ax,ds:[2000H]</code></p>
+<h3 id="存储器写操作"><a href="#存储器写操作" class="headerlink" title="存储器写操作"></a>存储器写操作</h3><p><code>mov ds:[4000H],ax</code></p>
+<h3 id="符号地址"><a href="#符号地址" class="headerlink" title="符号地址"></a>符号地址</h3><p><code>mov ax,[value]</code></p>
+<h3 id="段超越"><a href="#段超越" class="headerlink" title="段超越"></a>段超越</h3><p><code>mov ax,es:[value]</code></p>
+<h2 id="间接寻址方式"><a href="#间接寻址方式" class="headerlink" title="间接寻址方式"></a>间接寻址方式</h2><p><code>mov ax,[bx]</code></p>
+<p>$操作数的物理地址=(ds)*10H + {(bx) , (si) , (di)};$</p>
+<p>$操作数的物理地址=(ss)*10H + (bp);$</p>
 <p>四个间接寻址寄存器：<strong>BX , BP , SI , DI</strong>;</p>
 <p><code>mov ax,[bx]</code></p>
 <p>指令执行前：</p>
-<p><span class="math inline">\(DS = 1500H\)</span></p>
-<p><span class="math inline">\(BX = 4580H\)</span></p>
-<p><span class="math inline">\(AX = 1010H\)</span></p>
-<p><span class="math inline">\(19580H = 64H\)</span></p>
-<p><span class="math inline">\(19581H = 23H\)</span></p>
-<p><span class="math inline">\(EA = BX = 4580H\)</span></p>
+<p>$DS = 1500H$</p>
+<p>$BX = 4580H$</p>
+<p>$AX = 1010H$</p>
+<p>$19580H = 64H$</p>
+<p>$19581H = 23H$</p>
+<p>$EA = BX = 4580H$</p>
 <p>指令执行后：</p>
-<p><span class="math inline">\(AX = 2364H\)</span></p>
-<h2 id="寄存器相对寻址方式">寄存器相对寻址方式</h2>
-<p><code>mov AX,TOP[SI]</code></p>
+<p>$AX = 2364H$</p>
+<h2 id="寄存器相对寻址方式"><a href="#寄存器相对寻址方式" class="headerlink" title="寄存器相对寻址方式"></a>寄存器相对寻址方式</h2><p><code>mov AX,TOP[SI]</code></p>
 <p>指令执行前；</p>
-<p><span class="math inline">\(DS =1500H\)</span></p>
-<p><span class="math inline">\(SI = 7310H\)</span></p>
-<p><span class="math inline">\(AX = 1010H\)</span></p>
-<p><span class="math inline">\(TOP = 25H\)</span></p>
-<p><span class="math inline">\(1C335H = 28H\)</span></p>
-<p><span class="math inline">\(1C336H = 24H\)</span></p>
-<p><span class="math inline">\(EA = TOP + SI = 7335H\)</span></p>
+<p>$DS =1500H$</p>
+<p>$SI = 7310H$</p>
+<p>$AX = 1010H$</p>
+<p>$TOP = 25H$</p>
+<p>$1C335H = 28H$</p>
+<p>$1C336H = 24H$</p>
+<p>$EA = TOP + SI = 7335H$</p>
 <p>指令执行后；</p>
-<p><span class="math inline">\(AX = 2428H\)</span></p>
-<h2 id="基址变址寻址方式">基址变址寻址方式</h2>
-<p><code>mov AX,[BX + DI]</code></p>
+<p>$AX = 2428H$</p>
+<h2 id="基址变址寻址方式"><a href="#基址变址寻址方式" class="headerlink" title="基址变址寻址方式"></a>基址变址寻址方式</h2><p><code>mov AX,[BX + DI]</code></p>
 <p>执行前：</p>
-<p><span class="math inline">\(DS = 2100H\)</span></p>
-<p><span class="math inline">\(BX = 0158H\)</span></p>
-<p><span class="math inline">\(DI = 10A5H\)</span></p>
-<p><span class="math inline">\(AX = 0FFFFH\)</span></p>
-<p><span class="math inline">\(221FDH = 34H\)</span></p>
-<p><span class="math inline">\(221FE - 12H\)</span></p>
+<p>$DS = 2100H$</p>
+<p>$BX = 0158H$</p>
+<p>$DI = 10A5H$</p>
+<p>$AX = 0FFFFH$</p>
+<p>$221FDH = 34H$</p>
+<p>$221FE - 12H$</p>
 <p>有效地址:</p>
-<p><span class="math inline">\(EA=BX+DI=0158+10A5=11FDH\)</span></p>
-<p><span class="math inline">\(物理地址=21000 + 11FD = 221FDH\)</span></p>
+<p>$EA=BX+DI=0158+10A5=11FDH$</p>
+<p>$物理地址=21000 + 11FD = 221FDH$</p>
 <p>执行后：</p>
-<p><span class="math inline">\(AX=1234H\)</span></p>
-<h2 id="相对基址变址寻址方式">相对基址变址寻址方式</h2>
-<p><code>mov AX,MASJ[BX[SI]</code></p>
+<p>$AX=1234H$</p>
+<h2 id="相对基址变址寻址方式"><a href="#相对基址变址寻址方式" class="headerlink" title="相对基址变址寻址方式"></a>相对基址变址寻址方式</h2><p><code>mov AX,MASJ[BX[SI]</code></p>
 <p><code>mov AX,[MASK + BX + SI]</code></p>
 <p><code>mov AX,[BX + SI].MASK</code></p>
 <p>有效地址：</p>
-<p><span class="math inline">\(EA = MASK + BX + SI\)</span></p>
-<p><span class="math inline">\(物理地址=DS + EA\)</span></p>
+<p>$EA = MASK + BX + SI$</p>
+<p>$物理地址=DS + EA$</p>
 <p>看不懂233，，，，，</p>
 <p>(end)</p>
 
@@ -759,7 +741,7 @@ SA\in[1001H , 2000H]
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">77</span>
+                  <span class="site-state-item-count">79</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -770,7 +752,7 @@ SA\in[1001H , 2000H]
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -781,7 +763,7 @@ SA\in[1001H , 2000H]
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -861,7 +843,7 @@ SA\in[1001H , 2000H]
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#寄存器"><span class="nav-number">1.</span> <span class="nav-text">寄存器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#通用寄存器"><span class="nav-number">1.1.</span> <span class="nav-text">通用寄存器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#段寄存器"><span class="nav-number">1.2.</span> <span class="nav-text">段寄存器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内存地址的分配"><span class="nav-number">2.</span> <span class="nav-text">内存地址的分配</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#物理地址的形成"><span class="nav-number">2.1.</span> <span class="nav-text">物理地址的形成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#段的类型"><span class="nav-number">2.2.</span> <span class="nav-text">段的类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#特殊寄存器cs和ip"><span class="nav-number">3.</span> <span class="nav-text">特殊寄存器CS和IP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#外部设备及io地址空间"><span class="nav-number">4.</span> <span class="nav-text">外部设备及IO地址空间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#指令的寻址方式"><span class="nav-number">5.</span> <span class="nav-text">指令的寻址方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#立即寻址方式"><span class="nav-number">5.1.</span> <span class="nav-text">立即寻址方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#寄存器寻址方式"><span class="nav-number">5.2.</span> <span class="nav-text">寄存器寻址方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#直接寻址方式"><span class="nav-number">5.3.</span> <span class="nav-text">直接寻址方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#存储器读操作"><span class="nav-number">5.3.1.</span> <span class="nav-text">存储器读操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储器写操作"><span class="nav-number">5.3.2.</span> <span class="nav-text">存储器写操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#符号地址"><span class="nav-number">5.3.3.</span> <span class="nav-text">符号地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#段超越"><span class="nav-number">5.3.4.</span> <span class="nav-text">段超越</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#间接寻址方式"><span class="nav-number">5.4.</span> <span class="nav-text">间接寻址方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#寄存器相对寻址方式"><span class="nav-number">5.5.</span> <span class="nav-text">寄存器相对寻址方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基址变址寻址方式"><span class="nav-number">5.6.</span> <span class="nav-text">基址变址寻址方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相对基址变址寻址方式"><span class="nav-number">5.7.</span> <span class="nav-text">相对基址变址寻址方式</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#寄存器"><span class="nav-number">1.</span> <span class="nav-text">寄存器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#通用寄存器"><span class="nav-number">1.1.</span> <span class="nav-text">通用寄存器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#段寄存器"><span class="nav-number">1.2.</span> <span class="nav-text">段寄存器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内存地址的分配"><span class="nav-number">2.</span> <span class="nav-text">内存地址的分配</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#物理地址的形成"><span class="nav-number">2.1.</span> <span class="nav-text">物理地址的形成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#段的类型"><span class="nav-number">2.2.</span> <span class="nav-text">段的类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#特殊寄存器CS和IP"><span class="nav-number">3.</span> <span class="nav-text">特殊寄存器CS和IP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#外部设备及IO地址空间"><span class="nav-number">4.</span> <span class="nav-text">外部设备及IO地址空间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#指令的寻址方式"><span class="nav-number">5.</span> <span class="nav-text">指令的寻址方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#立即寻址方式"><span class="nav-number">5.1.</span> <span class="nav-text">立即寻址方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#寄存器寻址方式"><span class="nav-number">5.2.</span> <span class="nav-text">寄存器寻址方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#直接寻址方式"><span class="nav-number">5.3.</span> <span class="nav-text">直接寻址方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#存储器读操作"><span class="nav-number">5.3.1.</span> <span class="nav-text">存储器读操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储器写操作"><span class="nav-number">5.3.2.</span> <span class="nav-text">存储器写操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#符号地址"><span class="nav-number">5.3.3.</span> <span class="nav-text">符号地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#段超越"><span class="nav-number">5.3.4.</span> <span class="nav-text">段超越</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#间接寻址方式"><span class="nav-number">5.4.</span> <span class="nav-text">间接寻址方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#寄存器相对寻址方式"><span class="nav-number">5.5.</span> <span class="nav-text">寄存器相对寻址方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基址变址寻址方式"><span class="nav-number">5.6.</span> <span class="nav-text">基址变址寻址方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相对基址变址寻址方式"><span class="nav-number">5.7.</span> <span class="nav-text">相对基址变址寻址方式</span></a></li></ol></li></ol></div>
             
 
           </div>

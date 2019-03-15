@@ -98,18 +98,18 @@
 
 
 
-<meta name="description" content="概述 最近学了好多有关最大公约数的知识点，，acm里的同余问题主要是关于一元线性方程的解法等等，，，在此罗列 最大公约数gcd ， 最小公倍数lcm ， 欧几里得算法 ， 扩展欧几里得算法 ， 以及他们的一些应用，，，">
+<meta name="description" content="概述最近学了好多有关最大公约数的知识点，，acm里的同余问题主要是关于一元线性方程的解法等等，，，在此罗列 最大公约数gcd ， 最小公倍数lcm ， 欧几里得算法 ， 扩展欧几里得算法 ， 以及他们的一些应用，，，">
 <meta name="keywords" content="acm,算法,数论">
 <meta property="og:type" content="article">
 <meta property="og:title" content="同余问题">
 <meta property="og:url" content="http://www.31415x.cf/2018/07/23/同余问题/index.html">
 <meta property="og:site_name" content="31415926535x">
-<meta property="og:description" content="概述 最近学了好多有关最大公约数的知识点，，acm里的同余问题主要是关于一元线性方程的解法等等，，，在此罗列 最大公约数gcd ， 最小公倍数lcm ， 欧几里得算法 ， 扩展欧几里得算法 ， 以及他们的一些应用，，，">
+<meta property="og:description" content="概述最近学了好多有关最大公约数的知识点，，acm里的同余问题主要是关于一元线性方程的解法等等，，，在此罗列 最大公约数gcd ， 最小公倍数lcm ， 欧几里得算法 ， 扩展欧几里得算法 ， 以及他们的一些应用，，，">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-07-23T06:27:06.629Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="同余问题">
-<meta name="twitter:description" content="概述 最近学了好多有关最大公约数的知识点，，acm里的同余问题主要是关于一元线性方程的解法等等，，，在此罗列 最大公约数gcd ， 最小公倍数lcm ， 欧几里得算法 ， 扩展欧几里得算法 ， 以及他们的一些应用，，，">
+<meta name="twitter:description" content="概述最近学了好多有关最大公约数的知识点，，acm里的同余问题主要是关于一元线性方程的解法等等，，，在此罗列 最大公约数gcd ， 最小公倍数lcm ， 欧几里得算法 ， 扩展欧几里得算法 ， 以及他们的一些应用，，，">
 
 
 
@@ -414,47 +414,36 @@
       
 
       
-        <h2 id="概述">概述</h2>
-<p>最近学了好多有关最大公约数的知识点，，acm里的同余问题主要是关于一元线性方程的解法等等，，，在此罗列 <strong>最大公约数gcd</strong> ， <strong>最小公倍数lcm</strong> ， <strong>欧几里得算法</strong> ， <strong>扩展欧几里得算法</strong> ， 以及他们的一些应用，，，</p>
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>最近学了好多有关最大公约数的知识点，，acm里的同余问题主要是关于一元线性方程的解法等等，，，在此罗列 <strong>最大公约数gcd</strong> ， <strong>最小公倍数lcm</strong> ， <strong>欧几里得算法</strong> ， <strong>扩展欧几里得算法</strong> ， 以及他们的一些应用，，，</p>
 <a id="more"></a>
-<h2 id="最大公约数gcd和最小公倍数lcm">最大公约数gcd和最小公倍数lcm</h2>
-<p><a href="https://www.cnblogs.com/linyujun/p/5167914.html" target="_blank" rel="noopener">参考文章</a></p>
-<p>gcd(a , b)就是a与b的最大公约数 lcm(a , b)就是a与b的最小公倍数</p>
+<h2 id="最大公约数gcd和最小公倍数lcm"><a href="#最大公约数gcd和最小公倍数lcm" class="headerlink" title="最大公约数gcd和最小公倍数lcm"></a>最大公约数gcd和最小公倍数lcm</h2><p><a href="https://www.cnblogs.com/linyujun/p/5167914.html" target="_blank" rel="noopener">参考文章</a></p>
+<p>gcd(a , b)就是a与b的最大公约数<br>lcm(a , b)就是a与b的最小公倍数</p>
 <ul>
-<li>公式 <span class="math inline">\(a*b=gcd*lcm\)</span>，，证明见大佬的博客</li>
+<li>公式 $a<em>b=gcd</em>lcm$，，证明见大佬的博客</li>
 </ul>
-<h3 id="辗转相除法求gcd欧几里得算法">辗转相除法求gcd(欧几里得算法)</h3>
-<p>代码如下：</p>
+<h3 id="辗转相除法求gcd-欧几里得算法"><a href="#辗转相除法求gcd-欧几里得算法" class="headerlink" title="辗转相除法求gcd(欧几里得算法)"></a>辗转相除法求gcd(欧几里得算法)</h3><p>代码如下：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//非递归写法</span></span><br><span class="line"><span class="function">LL <span class="title">gcd</span><span class="params">(LL a, LL b)</span></span>&#123;</span><br><span class="line">    LL t;</span><br><span class="line">    <span class="keyword">while</span>(b)&#123;</span><br><span class="line">        t = b;</span><br><span class="line">        b = a % b;</span><br><span class="line">        a = t;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//递归写法</span></span><br><span class="line"><span class="function">LL <span class="title">gcd</span><span class="params">(LL a, LL b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(b == <span class="number">0</span>) <span class="keyword">return</span> a;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> gcd(b, a%b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">LL <span class="title">gcd</span><span class="params">(LL a, LL b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> b ? gcd(b, a%b) : a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>注意，对于大整数来说，取模运算非常耗时。。。虽然这句话我还不理解，，，但是先记在这，，，以后说不定会知道来补个票，，，<a href="https://blog.csdn.net/suool/article/details/14094255#" target="_blank" rel="noopener">这篇博客有说到这个问题，，他是用Stein算法解决的</a> 代码如下： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//算法分析</span></span><br><span class="line"><span class="comment">//渐近时间,空间复杂度均与欧几里德算法相同</span></span><br><span class="line"><span class="comment">//原理:gcd(ka,kb)=k*gcd(a,b)</span></span><br><span class="line"><span class="comment">//最大特点:只有移位和加减法计算,避免了大整数的取模运算</span></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="title">MaxDivisor</span><span class="params">(<span class="keyword">unsigned</span> a, <span class="keyword">unsigned</span> b)</span> </span></span><br><span class="line"><span class="function"></span>&#123; </span><br><span class="line">    <span class="keyword">unsigned</span> c = <span class="number">0</span>; </span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">    &#123; </span><br><span class="line">    <span class="comment">// 退出条件 </span></span><br><span class="line">        <span class="keyword">if</span>(a==<span class="number">0</span>) </span><br><span class="line">            <span class="keyword">return</span> b &lt;&lt; c;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(b == <span class="number">0</span>) </span><br><span class="line">            <span class="keyword">return</span> a &lt;&lt; c;</span><br><span class="line">    <span class="comment">// 为提高速度，采用位的与运算，避免用取模判断奇偶 </span></span><br><span class="line">        <span class="keyword">if</span>(!(a &amp; <span class="number">1</span>) &amp;&amp; !(b &amp; <span class="number">1</span>)) <span class="comment">//a,b 都是偶数 </span></span><br><span class="line">        &#123; </span><br><span class="line">            a &gt;&gt;= <span class="number">1</span>; b &gt;&gt;= <span class="number">1</span>; ++c; </span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(!(a &amp; <span class="number">1</span>) &amp;&amp; (b &amp; <span class="number">1</span>)) <span class="comment">//a偶 b奇 </span></span><br><span class="line">        &#123; </span><br><span class="line">            a &gt;&gt;= <span class="number">1</span>; </span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>((a &amp; <span class="number">1</span>) &amp;&amp; !(b &amp; <span class="number">1</span>)) <span class="comment">//a奇 b偶 </span></span><br><span class="line">        &#123;</span><br><span class="line">             b &gt;&gt;= <span class="number">1</span>; </span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>((a &amp; <span class="number">1</span>) &amp;&amp; (b &amp; <span class="number">1</span>)) <span class="comment">//a,b都是奇数 </span></span><br><span class="line">        &#123; </span><br><span class="line">            <span class="keyword">unsigned</span> tmp = a&gt;b?b:a; <span class="comment">//取较小的一个 </span></span><br><span class="line">            a = a&gt;b?a-b:(b-a); <span class="comment">//绝对差值</span></span><br><span class="line">            b = tmp; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="求lcm">求lcm</h3>
-<p>求出gcd，，就可以用之前的公式来求lcm啦 <span class="math inline">\(lcm=a*b/gcd\)</span> 因为<span class="math inline">\(a*b\)</span>可能太大爆int,ll所以可以写成<span class="math inline">\(lcm=a/gcd*b\)</span></p>
-<h3 id="其他几个公式">其他几个公式</h3>
-<p><span class="math inline">\(gcd(ka , kb)=k*gcd(a , b)\)</span></p>
-<p><span class="math inline">\(lcm(ka , kb)=k*lcm(a , b)\)</span></p>
+<p>注意，对于大整数来说，取模运算非常耗时。。。虽然这句话我还不理解，，，但是先记在这，，，以后说不定会知道来补个票，，，<a href="https://blog.csdn.net/suool/article/details/14094255#" target="_blank" rel="noopener">这篇博客有说到这个问题，，他是用Stein算法解决的</a><br>代码如下：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//算法分析</span></span><br><span class="line"><span class="comment">//渐近时间,空间复杂度均与欧几里德算法相同</span></span><br><span class="line"><span class="comment">//原理:gcd(ka,kb)=k*gcd(a,b)</span></span><br><span class="line"><span class="comment">//最大特点:只有移位和加减法计算,避免了大整数的取模运算</span></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="title">MaxDivisor</span><span class="params">(<span class="keyword">unsigned</span> a, <span class="keyword">unsigned</span> b)</span> </span></span><br><span class="line"><span class="function"></span>&#123; </span><br><span class="line">    <span class="keyword">unsigned</span> c = <span class="number">0</span>; </span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">    &#123; </span><br><span class="line">    <span class="comment">// 退出条件 </span></span><br><span class="line">        <span class="keyword">if</span>(a==<span class="number">0</span>) </span><br><span class="line">            <span class="keyword">return</span> b &lt;&lt; c;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(b == <span class="number">0</span>) </span><br><span class="line">            <span class="keyword">return</span> a &lt;&lt; c;</span><br><span class="line">    <span class="comment">// 为提高速度，采用位的与运算，避免用取模判断奇偶 </span></span><br><span class="line">        <span class="keyword">if</span>(!(a &amp; <span class="number">1</span>) &amp;&amp; !(b &amp; <span class="number">1</span>)) <span class="comment">//a,b 都是偶数 </span></span><br><span class="line">        &#123; </span><br><span class="line">            a &gt;&gt;= <span class="number">1</span>; b &gt;&gt;= <span class="number">1</span>; ++c; </span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(!(a &amp; <span class="number">1</span>) &amp;&amp; (b &amp; <span class="number">1</span>)) <span class="comment">//a偶 b奇 </span></span><br><span class="line">        &#123; </span><br><span class="line">            a &gt;&gt;= <span class="number">1</span>; </span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>((a &amp; <span class="number">1</span>) &amp;&amp; !(b &amp; <span class="number">1</span>)) <span class="comment">//a奇 b偶 </span></span><br><span class="line">        &#123;</span><br><span class="line">             b &gt;&gt;= <span class="number">1</span>; </span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>((a &amp; <span class="number">1</span>) &amp;&amp; (b &amp; <span class="number">1</span>)) <span class="comment">//a,b都是奇数 </span></span><br><span class="line">        &#123; </span><br><span class="line">            <span class="keyword">unsigned</span> tmp = a&gt;b?b:a; <span class="comment">//取较小的一个 </span></span><br><span class="line">            a = a&gt;b?a-b:(b-a); <span class="comment">//绝对差值</span></span><br><span class="line">            b = tmp; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="求lcm"><a href="#求lcm" class="headerlink" title="求lcm"></a>求lcm</h3><p>求出gcd，，就可以用之前的公式来求lcm啦<br>$lcm=a<em>b/gcd$<br>因为$a</em>b$可能太大爆int,ll所以可以写成$lcm=a/gcd*b$</p>
+<h3 id="其他几个公式"><a href="#其他几个公式" class="headerlink" title="其他几个公式"></a>其他几个公式</h3><p>$gcd(ka , kb)=k*gcd(a , b)$</p>
+<p>$lcm(ka , kb)=k*lcm(a , b)$</p>
 <p>还有这个：</p>
-<p><span class="math inline">\(lcm(s/a , s/b)=s/gcd(a , b)\)</span></p>
-<h2 id="扩展欧几里得算法">扩展欧几里得算法</h2>
-<p><a href="https://blog.csdn.net/suool/article/details/14094255#" target="_blank" rel="noopener">参考博客</a></p>
-<p>扩展欧几里得算法主要是求方程 <span class="math inline">\(ax+by=gcd(a , b)\)</span>的解</p>
-<p>基本算法： &gt;对于不完全为 0 的非负整数 a，b，gcd（a，b）表示 a，b 的最大公约数，必然存在整数对 x，y ，使得 gcd（a，b）=ax+by。</p>
+<p>$lcm(s/a , s/b)=s/gcd(a , b)$</p>
+<h2 id="扩展欧几里得算法"><a href="#扩展欧几里得算法" class="headerlink" title="扩展欧几里得算法"></a>扩展欧几里得算法</h2><p><a href="https://blog.csdn.net/suool/article/details/14094255#" target="_blank" rel="noopener">参考博客</a></p>
+<p>扩展欧几里得算法主要是求方程 $ax+by=gcd(a , b)$的解</p>
+<p>基本算法：</p>
+<blockquote>
+<p>对于不完全为 0 的非负整数 a，b，gcd（a，b）表示 a，b 的最大公约数，必然存在整数对 x，y ，使得 gcd（a，b）=ax+by。</p>
+</blockquote>
 <p>证明:</p>
 <blockquote>
-<p>设 a&gt;b 1，显然当 b=0，gcd（a，b）=a。此时 x=1，y=0； 2，ab!=0 时</p>
-</blockquote>
-<blockquote>
-<p>设 :ax1+by1=gcd(a,b); 显然也有：bx2+(a mod b)y2=gcd(b,a mod b);</p>
-</blockquote>
-<blockquote>
-<p>根据朴素的欧几里德原理有 gcd(a,b)=gcd(b,a mod b); 则:ax1+by1=bx2+(a mod b)y2; 即:ax1+by1=bx2+(a-(a/b)<em>b)y2=ay2+bx2-(a/b)</em>by2; 根据恒等定理得：x1=y2; y1=x2-(a/b)*y2;</p>
-</blockquote>
-<blockquote>
+<p>设 a&gt;b<br>1，显然当 b=0，gcd（a，b）=a。此时 x=1，y=0；<br>2，ab!=0 时</p>
+<p>设 :ax1+by1=gcd(a,b);<br>显然也有：bx2+(a mod b)y2=gcd(b,a mod b);</p>
+<p>根据朴素的欧几里德原理有 gcd(a,b)=gcd(b,a mod b);<br>则:ax1+by1=bx2+(a mod b)y2;<br>即:ax1+by1=bx2+(a-(a/b)<em>b)y2=ay2+bx2-(a/b)</em>by2;<br>根据恒等定理得：x1=y2; y1=x2-(a/b)*y2;</p>
 <p>这样我们就得到了求解 x1,y1 的方法：x1，y1 的值基于 x2，y2.</p>
-</blockquote>
-<blockquote>
 <p>上面的思想是以递归定义的，因为 gcd 不断的递归求解一定会有个时候 b=0，所以递归可以结束。</p>
 </blockquote>
-<p>我的代码: <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x , y;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a , <span class="keyword">int</span> b , <span class="keyword">int</span> &amp;x , <span class="keyword">int</span> &amp;y , <span class="keyword">int</span> &amp;d)</span>      <span class="comment">//x , y , d为引用方便更改值，d为gcd(a , b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!b) &#123;d = a; x = <span class="number">1</span>; y = <span class="number">0</span>;&#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        gcd(b , a % b , y , x , d);</span><br><span class="line">        y -= x * (a / b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>我的代码:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x , y;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a , <span class="keyword">int</span> b , <span class="keyword">int</span> &amp;x , <span class="keyword">int</span> &amp;y , <span class="keyword">int</span> &amp;d)</span>      <span class="comment">//x , y , d为引用方便更改值，d为gcd(a , b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!b) &#123;d = a; x = <span class="number">1</span>; y = <span class="number">0</span>;&#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        gcd(b , a % b , y , x , d);</span><br><span class="line">        y -= x * (a / b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -610,7 +599,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">77</span>
+                  <span class="site-state-item-count">79</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -621,7 +610,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -632,7 +621,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -712,7 +701,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最大公约数gcd和最小公倍数lcm"><span class="nav-number">2.</span> <span class="nav-text">最大公约数gcd和最小公倍数lcm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#辗转相除法求gcd欧几里得算法"><span class="nav-number">2.1.</span> <span class="nav-text">辗转相除法求gcd(欧几里得算法)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#求lcm"><span class="nav-number">2.2.</span> <span class="nav-text">求lcm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他几个公式"><span class="nav-number">2.3.</span> <span class="nav-text">其他几个公式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展欧几里得算法"><span class="nav-number">3.</span> <span class="nav-text">扩展欧几里得算法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最大公约数gcd和最小公倍数lcm"><span class="nav-number">2.</span> <span class="nav-text">最大公约数gcd和最小公倍数lcm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#辗转相除法求gcd-欧几里得算法"><span class="nav-number">2.1.</span> <span class="nav-text">辗转相除法求gcd(欧几里得算法)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#求lcm"><span class="nav-number">2.2.</span> <span class="nav-text">求lcm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他几个公式"><span class="nav-number">2.3.</span> <span class="nav-text">其他几个公式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展欧几里得算法"><span class="nav-number">3.</span> <span class="nav-text">扩展欧几里得算法</span></a></li></ol></div>
             
 
           </div>

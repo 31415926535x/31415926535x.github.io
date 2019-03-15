@@ -85,7 +85,7 @@
 
 
 
-  <meta name="keywords" content="c++,笔记,类,面向对象," />
+  <meta name="keywords" content="笔记,c++,类,面向对象," />
 
 
 
@@ -98,18 +98,18 @@
 
 
 
-<meta name="description" content="标识符的作用域与可见性 作用域  作用域是一个标识符在程序正文中有效的区域； c++中标识符的作用域有 函数原型作用域 、 局部作用域（块作用域） 、 类作用域 、 命名空间作用域; ### 函数原型作用域： 函数原型作用域是c++程序中最小的作用域； 在函数原型声明时形参的作用范围就是函数原型作用域； 在函数原型的参数列表中起的作用的只是形参类型，标识符不起作用，因此可以省去，但为">
-<meta name="keywords" content="c++,笔记,类,面向对象">
+<meta name="description" content="标识符的作用域与可见性作用域 作用域是一个标识符在程序正文中有效的区域； c++中标识符的作用域有 函数原型作用域 、 局部作用域（块作用域） 、 类作用域 、 命名空间作用域;函数原型作用域： 函数原型作用域是c++程序中最小的作用域； 在函数原型声明时形参的作用范围就是函数原型作用域； 在函数原型的参数列表中起的作用的只是形参类型，标识符不起作用，因此可以省去，但为了程序的可读性，通常还是要在">
+<meta name="keywords" content="笔记,c++,类,面向对象">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据的共享与保护">
 <meta property="og:url" content="http://www.31415x.cf/2018/03/29/数据的共享与保护/index.html">
 <meta property="og:site_name" content="31415926535x">
-<meta property="og:description" content="标识符的作用域与可见性 作用域  作用域是一个标识符在程序正文中有效的区域； c++中标识符的作用域有 函数原型作用域 、 局部作用域（块作用域） 、 类作用域 、 命名空间作用域; ### 函数原型作用域： 函数原型作用域是c++程序中最小的作用域； 在函数原型声明时形参的作用范围就是函数原型作用域； 在函数原型的参数列表中起的作用的只是形参类型，标识符不起作用，因此可以省去，但为">
+<meta property="og:description" content="标识符的作用域与可见性作用域 作用域是一个标识符在程序正文中有效的区域； c++中标识符的作用域有 函数原型作用域 、 局部作用域（块作用域） 、 类作用域 、 命名空间作用域;函数原型作用域： 函数原型作用域是c++程序中最小的作用域； 在函数原型声明时形参的作用范围就是函数原型作用域； 在函数原型的参数列表中起的作用的只是形参类型，标识符不起作用，因此可以省去，但为了程序的可读性，通常还是要在">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-05-21T14:16:50.465Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据的共享与保护">
-<meta name="twitter:description" content="标识符的作用域与可见性 作用域  作用域是一个标识符在程序正文中有效的区域； c++中标识符的作用域有 函数原型作用域 、 局部作用域（块作用域） 、 类作用域 、 命名空间作用域; ### 函数原型作用域： 函数原型作用域是c++程序中最小的作用域； 在函数原型声明时形参的作用范围就是函数原型作用域； 在函数原型的参数列表中起的作用的只是形参类型，标识符不起作用，因此可以省去，但为">
+<meta name="twitter:description" content="标识符的作用域与可见性作用域 作用域是一个标识符在程序正文中有效的区域； c++中标识符的作用域有 函数原型作用域 、 局部作用域（块作用域） 、 类作用域 、 命名空间作用域;函数原型作用域： 函数原型作用域是c++程序中最小的作用域； 在函数原型声明时形参的作用范围就是函数原型作用域； 在函数原型的参数列表中起的作用的只是形参类型，标识符不起作用，因此可以省去，但为了程序的可读性，通常还是要在">
 
 
 
@@ -414,25 +414,22 @@
       
 
       
-        <h1 id="标识符的作用域与可见性">标识符的作用域与可见性</h1>
-<h2 id="作用域">作用域</h2>
-<ul>
+        <h1 id="标识符的作用域与可见性"><a href="#标识符的作用域与可见性" class="headerlink" title="标识符的作用域与可见性"></a>标识符的作用域与可见性</h1><h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><ul>
 <li>作用域是一个标识符在程序正文中有效的区域；</li>
-<li>c++中标识符的作用域有 <strong>函数原型作用域</strong> 、 <strong>局部作用域（块作用域）</strong> 、 <strong>类作用域</strong> 、 <strong>命名空间作用域</strong>; ### 函数原型作用域：</li>
+<li>c++中标识符的作用域有 <strong>函数原型作用域</strong> 、 <strong>局部作用域（块作用域）</strong> 、 <strong>类作用域</strong> 、 <strong>命名空间作用域</strong>;<h3 id="函数原型作用域："><a href="#函数原型作用域：" class="headerlink" title="函数原型作用域："></a>函数原型作用域：</h3></li>
 <li>函数原型作用域是c++程序中最小的作用域；</li>
 <li>在函数原型声明时形参的作用范围就是函数原型作用域；</li>
-<li>在函数原型的参数列表中起的作用的只是形参类型，标识符不起作用，因此可以省去，但为了程序的可读性，通常还是要在函数原型声明时给出形参标识符； ### 局部作用域：</li>
+<li>在函数原型的参数列表中起的作用的只是形参类型，标识符不起作用，因此可以省去，但为了程序的可读性，通常还是要在函数原型声明时给出形参标识符；<h3 id="局部作用域："><a href="#局部作用域：" class="headerlink" title="局部作用域："></a>局部作用域：</h3></li>
 <li>函数形参列表中形参的作用域，从形参列表中的声明处开始，到整个函数体结束之处为止；</li>
 <li>函数体内声明的变量，其作用域从声明处开始，一直到声明所在的块结束的大括号为止；</li>
-<li>具有局部作用域的变量也称作局部变量； ### 类作用域：</li>
+<li>具有局部作用域的变量也称作局部变量；<h3 id="类作用域："><a href="#类作用域：" class="headerlink" title="类作用域："></a>类作用域：</h3></li>
 <li>类可以看作一组有名成员的集合，类X的成员m具有类作用域，对m的访问方式有：</li>
 <li>1.如果在X的成员函数中没有声明同名的局部作用域标识符，那么在该函数内可以直接访问成员m；</li>
 <li>2.通过表达式<code>x.m</code>或者<code>X::m</code>；（访问对象成员的最基本方法）；</li>
 <li>3.通过<code>ptr-&gt;m</code>这样的表达式，其中ptr为指向X类的一个对象的指针；</li>
 </ul>
 <a id="more"></a>
-<h3 id="命名空间作用域">命名空间作用域：</h3>
-<ul>
+<h3 id="命名空间作用域："><a href="#命名空间作用域：" class="headerlink" title="命名空间作用域："></a>命名空间作用域：</h3><ul>
 <li>命名空间的语法形式：</li>
 </ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> 命名空间名</span><br><span class="line">&#123;</span><br><span class="line">命名空间内的各种声明 (函数声明、类声明、······)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -442,12 +439,19 @@
 </ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">eg:</span><br><span class="line"><span class="keyword">namespace</span> SomeNs</span><br><span class="line">&#123;</span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>&#123;</span>...&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//如果需要引用类名SomeClass或函数名someFunc，需要使用下面的方式：</span></span><br><span class="line">SomeNs::SomeClass obj1;			<span class="comment">//声明一个SomeNs::SomeClass型的对象obj1;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li><strong>using 语句</strong>：总使用这样的命名空间限定会显得过于冗长 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> 命名空间名::标识符名；</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> 命名空间名；</span><br></pre></td></tr></table></figure></li>
+<li><strong>using 语句</strong>：总使用这样的命名空间限定会显得过于冗长<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> 命名空间名::标识符名；</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> 命名空间名；</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<p>前一种形式将指定的标识符暴露在当前的作用域中，使得在当前作用域中可以直接引用该标识符； 后一种形式将指定命名空间内的所有标识符暴露在当前的作用域中，使得在当前作用域中可以直接引用该命名空间内的任何标识符； + 命名空间允许嵌套； + <strong>全局命名空间</strong>：是默认的命名空间，子啊显式声明的命名空间之外声明的标识符都在一个全局命名空间中； + <strong>匿名命名空间</strong>：是一个需要显式声明的没有文字的命名空间，声明方式： + <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> </span><br><span class="line">&#123;</span><br><span class="line">匿名命名空间内的各种声明 (函数声明、类声明、······)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>前一种形式将指定的标识符暴露在当前的作用域中，使得在当前作用域中可以直接引用该标识符；<br>后一种形式将指定命名空间内的所有标识符暴露在当前的作用域中，使得在当前作用域中可以直接引用该命名空间内的任何标识符；</p>
 <ul>
-<li>在包含多个源文件的工程中，匿名命名空间常常被用来屏蔽不希望暴露给其他源文件的标识符，这是因为每个源文件的匿名命名空间是彼此不同的，在每一个源文件中没有办法访问其他源文件的匿名命名空间；</li>
-<li>具有命名空间作用域的变量也称为全局变量； ### 可见性：</li>
+<li>命名空间允许嵌套；</li>
+<li><strong>全局命名空间</strong>：是默认的命名空间，子啊显式声明的命名空间之外声明的标识符都在一个全局命名空间中；</li>
+<li><strong>匿名命名空间</strong>：是一个需要显式声明的没有文字的命名空间，声明方式：</li>
+<li><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> </span><br><span class="line">&#123;</span><br><span class="line">匿名命名空间内的各种声明 (函数声明、类声明、······)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在包含多个源文件的工程中，匿名命名空间常常被用来屏蔽不希望暴露给其他源文件的标识符，这是因为每个源文件的匿名命名空间是彼此不同的，在每一个源文件中没有办法访问其他源文件的匿名命名空间；</p>
+</li>
+<li>具有命名空间作用域的变量也称为全局变量；<h3 id="可见性："><a href="#可见性：" class="headerlink" title="可见性："></a>可见性：</h3></li>
 <li>程序运行到某一点，能够引用到的标识符，就是该处可见的标识符；</li>
 <li><strong>命名空间作用域</strong>最大，接下来依次是<strong>类作用域</strong>和<strong>局部作用域</strong>；</li>
 <li>可见性表示从内层作用域向外层作用域“看”时能看到什么；</li>
@@ -458,75 +462,71 @@
 <li>如果在两个或多个具有包含关系的作用域中声明了同名标识符，则外层标识符在内层不可见；</li>
 <li>作用域和可见性的原则不只适用于变量名，也适用于其他各种标识符，包括常变量名、用户定义的类型名、函数名名、枚举类型的取值等；</li>
 </ul>
-<h2 id="对象的生存周期">对象的生存周期</h2>
-<h3 id="静态生存周期">静态生存周期：</h3>
-<ul>
+<h2 id="对象的生存周期"><a href="#对象的生存周期" class="headerlink" title="对象的生存周期"></a>对象的生存周期</h2><h3 id="静态生存周期："><a href="#静态生存周期：" class="headerlink" title="静态生存周期："></a>静态生存周期：</h3><ul>
 <li>如果对象的生存期与程序的运行期相同，则称它具有静态生存期；</li>
 <li>在命名空间作用域中声明的对象都是具有静态生存期的；</li>
 <li>如果在函数内部的局部作用域中声明具有静态生存期的对象，则要使用关键字<code>static</code>;</li>
 <li>局部作用域中静态变量的特点：它不会随着每次函数调用而产成一个副本，也不会随着函数返回而失效；</li>
-<li>定义时未指定初值的基本静态生存期变量，会被赋予0值初始化，而对于动态生存期变量，不指定初值意味着初值不确定； ### 动态生存期</li>
+<li>定义时未指定初值的基本静态生存期变量，会被赋予0值初始化，而对于动态生存期变量，不指定初值意味着初值不确定；<h3 id="动态生存期"><a href="#动态生存期" class="headerlink" title="动态生存期"></a>动态生存期</h3></li>
 <li>在局部作用域中声明的具有动态生存期的对象，习惯上也称为<strong>局部生存期对象</strong>；</li>
 <li>局部生存期对象诞生于声明点，结束于声明所在的块执行完毕之时；</li>
 <li>类的成员对象也有各自的生存期，不用<code>static</code>修饰的成员对象，其生存期都与它们所属对象的生存期保持一致；</li>
 </ul>
-<h2 id="类的静态成员">类的静态成员</h2>
-<h3 id="静态数据成员">静态数据成员：</h3>
-<ul>
+<h2 id="类的静态成员"><a href="#类的静态成员" class="headerlink" title="类的静态成员"></a>类的静态成员</h2><h3 id="静态数据成员："><a href="#静态数据成员：" class="headerlink" title="静态数据成员："></a>静态数据成员：</h3><ul>
 <li>如果某个属性为整个类所共有，不属于任何一个具体对象，则采用<code>static</code>关键字来声明为静态成员，静态成员在每个类只有一个副本，由该类的所有对象共同维护和使用，从而实现了同一个类的不同对象之间的数据共享；</li>
 <li><strong>类属性</strong>是描述类的所有对象共同特征的一个数据项，对于任何对象实例，它的属性值是相同的；类 == 工厂，对象 == 产品，静态成员 == 存放于工厂中、属于工厂的但不属于每个产品的东西；</li>
 <li>静态数据成员具有静态生存期，由于静态数据成员不属于任何一个对象，因此可以通过类名对它访问，一般用法是：<code>类名::标识符</code>；再类的定义中仅仅对静态数据成员进行<strong>引用性声明</strong>，必须在<strong>命名空间作用域</strong>的某个地方使用<strong>类名限定定义性声明</strong>，这是也可以进行<strong>初始化</strong>；</li>
 <li>之所以类的静态成员需要在类的定义之外在加定义是因为需要以这种方式专门为它们分配空间，非静态数据成员无需以此方式定义，因为它们的空间是与所属对象的空间同时分配的；</li>
 <li>在对类的静态私有数据成员初始化的同时，还可以引用类的其他私有成员，例如，如果一个类T存在类型为T的静态私有对象，那么可以引用该类的私有构造函数将其初始化；</li>
 </ul>
-<h3 id="静态函数成员">静态函数成员：</h3>
-<ul>
+<h3 id="静态函数成员："><a href="#静态函数成员：" class="headerlink" title="静态函数成员："></a>静态函数成员：</h3><ul>
 <li>静态成员函数：使用<code>static</code>关键字声明的函数成员；同静态数据成员一样，静态成员函数也属于整个类，由同一个类的所有对象共同拥有，为这些对象所共享；</li>
 <li>静态成员函数可以通过类名或对象来调用，而非静态成员函数只能通过对象名来调用；</li>
 <li>虽然静态成员函数可以通过类名和对象名两种方式调用，但一般习惯与通过类名调用。因为即使通过对象名调用，起作用的也只是对象的类型信息，与所使用的具体对象毫无关系；</li>
-<li><p>静态成员函数可以直接访问该类的静态数据和函数成员。而访问非静态成员，必须通过对象名； <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> A::f (A a)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; x ;		<span class="comment">//对x的引用是错误的</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; a.x :	<span class="comment">//正确</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
-<li>可以看到，通过静态函数成员访问非静态成员是相当麻烦的，一般情况下，它主要来访问一个类中的静态数据成员，维护对象之间共享数据；</li>
-<li><p>之所以在静态成员函数中访问类的非静态成员需要指明对象，是因为对静态成员函数的调用是没有目的对象的，因此不能像非静态成员函数那样，隐含的通过目的对象访问类的静态成员；</p></li>
+<li><p>静态成员函数可以直接访问该类的静态数据和函数成员。而访问非静态成员，必须通过对象名；</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> A::f (A a)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; x ;		<span class="comment">//对x的引用是错误的</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; a.x :	<span class="comment">//正确</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以看到，通过静态函数成员访问非静态成员是相当麻烦的，一般情况下，它主要来访问一个类中的静态数据成员，维护对象之间共享数据；</p>
+</li>
+<li>之所以在静态成员函数中访问类的非静态成员需要指明对象，是因为对静态成员函数的调用是没有目的对象的，因此不能像非静态成员函数那样，隐含的通过目的对象访问类的静态成员；</li>
 </ul>
-<h2 id="类的友元"><strong>类的友元</strong></h2>
-<ul>
+<h2 id="类的友元"><a href="#类的友元" class="headerlink" title="类的友元"></a><strong>类的友元</strong></h2><ul>
 <li>友元关系提供了不同类或对象的成员函数之间、类的成员函数与一般函数之间进行数据共享的机制；</li>
 <li>通俗的说，友元关系就是一个类<strong>主动</strong>声明哪些其他类或函数是它的朋友进而<strong>给它们提供对本类的访问特许</strong>，也就是说，通过友元关系每一个普通函数或者类的成员函数就可以访问封装与另一个类中的数据；</li>
 <li>在一个类中，可以利用关键字<code>friend</code>将其他函数或类声明为友元；</li>
 <li>如果友元是一般函数或类的成员函数，称为<strong>友元函数</strong>；</li>
 <li>如果友元是一个类，则称为<strong>友元类</strong>，友元类的所有成员函数都自动成为友元函数；</li>
 </ul>
-<h3 id="友元函数">友元函数：</h3>
-<ul>
+<h3 id="友元函数："><a href="#友元函数：" class="headerlink" title="友元函数："></a>友元函数：</h3><ul>
 <li>友元函数是在类中用关键字<code>friend</code>修饰的非成员函数；</li>
 <li>友元函数可以是一个普通的函数，也可以是其他类的成员函数；</li>
 <li>虽然友元函数不是本类的成员函数，但是<strong>在它的函数体中可以通过对象名访问类的私有和保护成员</strong>；</li>
 <li>在类的内部声明友元函数的原型，其定义在类外；</li>
 <li>友元成员函数的使用和一般友元函数的使用基本相同，只是要通过相应的类或对象来访问；</li>
 </ul>
-<h3 id="友元类">友元类：</h3>
-<ul>
+<h3 id="友元类："><a href="#友元类：" class="headerlink" title="友元类："></a>友元类：</h3><ul>
 <li>若A类为B类的友元类，则A类的所有成员函数都是B类的友元函数，都可以访问B类的私有和保护成员；</li>
-<li><p>声明友元类的语法形式： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	...					<span class="comment">//B类的成员声明</span></span><br><span class="line">	<span class="keyword">friend</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span>;</span>		<span class="comment">//声明A为B类的友元类</span></span><br><span class="line">	...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p></li>
-<li>声明友元类，是建立类与类之间的联系，实现类之间数据共享的一种途径；</li>
-<li><p><strong>Attention：</strong> 1.<strong>友元关系是不能传递的</strong>。B类是A类友元，C类是B类的友元，C类与A类之间，如果没有声明，就没有任何友元关系，不能进行数据共享； 2.<strong>友元关系是单向的</strong>。如果声明B类是A类的友元，B类成员函数就可以访问A类的私有和保护数据，但A类的成员函数却不能访问B类的私有、保护成员； 3.<strong>友元关系是不被继承的</strong>。如果类B是类A的友元明类B的派生类并不会自动成为类A的友元；打个比方说，就好像别人相信你，但不见得相信你的孩子；</p></li>
+<li><p>声明友元类的语法形式：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	...					<span class="comment">//B类的成员声明</span></span><br><span class="line">	<span class="keyword">friend</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span>;</span>		<span class="comment">//声明A为B类的友元类</span></span><br><span class="line">	...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>声明友元类，是建立类与类之间的联系，实现类之间数据共享的一种途径；</p>
+</li>
+<li><strong>Attention：</strong><br>1.<strong>友元关系是不能传递的</strong>。B类是A类友元，C类是B类的友元，C类与A类之间，如果没有声明，就没有任何友元关系，不能进行数据共享；<br>2.<strong>友元关系是单向的</strong>。如果声明B类是A类的友元，B类成员函数就可以访问A类的私有和保护数据，但A类的成员函数却不能访问B类的私有、保护成员；<br>3.<strong>友元关系是不被继承的</strong>。如果类B是类A的友元明类B的派生类并不会自动成为类A的友元；打个比方说，就好像别人相信你，但不见得相信你的孩子；</li>
 </ul>
-<h2 id="共享数据的保护">共享数据的保护</h2>
-<h3 id="常对象">常对象：</h3>
-<ul>
+<h2 id="共享数据的保护"><a href="#共享数据的保护" class="headerlink" title="共享数据的保护"></a>共享数据的保护</h2><h3 id="常对象："><a href="#常对象：" class="headerlink" title="常对象："></a>常对象：</h3><ul>
 <li>常对象是这样的对象：它的数据成员值在对象的整个生存期间内都不能被改变。也就是说，<strong>常对象必须进行初始化，而且不能被更新</strong>；</li>
-<li><p>声明常对象的语法形式：<code>const 类型说明符 对象名；</code>;(<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">### 用const修饰的类成员：</span><br><span class="line"></span><br><span class="line">#### 1.常成员函数：</span><br><span class="line">+ 使用```const```关键字修饰的函数为常成员函数，常成员函数声明的格式：```类型说明符 函数名 （参数表）const```;</span><br><span class="line">+ 1.const是函数类型的一个组成部分，因此在函数的定义部分也要带const关键字；</span><br><span class="line">+ 2.如果将一个对戏那个说明为常对象，则通过该常对象之能调用它的常成员函数，而不能调用其他成员函数（这就是c++从语法机制上对常对象的保护，也是常对象唯一的对外接口方式）；</span><br><span class="line">+ 3.无论是否通过常对象调用常成员函数，在常成员函数调用期间，目的对象都能被视同为常对象，因此常成员函数不能更新目的对象的数据成员，也不能针对目的对象调用该类中没有用const修饰的成员函数（这就保证了常成员函数中不会更改目的对象的数据成员的值）；</span><br><span class="line">+ 4.const关键字可以用于对重载函数的区分：</span><br><span class="line">```cpp</span><br><span class="line">	void print();</span><br><span class="line">	void print() const;</span><br></pre></td></tr></table></figure></p></li>
-<li><strong>如果仅以const关键字为区分对成员函数重载，那么通过非const的对象调用该函数，两个重载的函数都可以与之匹配，这时编译器将选择最近的重载函数--不带const关键字的函数；</strong> #### 2.常数据成员：</li>
-<li>如果在一个类中说明了常数据成员，那么任何函数中都不能对该成员赋值。构造函数对该数据成员进行初始化 ，就只能通过初始化列表； #### 3.常引用：</li>
+<li><p>声明常对象的语法形式：<code>const 类型说明符 对象名；</code>;(<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">### 用const修饰的类成员：</span><br><span class="line"></span><br><span class="line">#### 1.常成员函数：</span><br><span class="line">+ 使用```const```关键字修饰的函数为常成员函数，常成员函数声明的格式：```类型说明符 函数名 （参数表）const```;</span><br><span class="line">+ 1.const是函数类型的一个组成部分，因此在函数的定义部分也要带const关键字；</span><br><span class="line">+ 2.如果将一个对戏那个说明为常对象，则通过该常对象之能调用它的常成员函数，而不能调用其他成员函数（这就是c++从语法机制上对常对象的保护，也是常对象唯一的对外接口方式）；</span><br><span class="line">+ 3.无论是否通过常对象调用常成员函数，在常成员函数调用期间，目的对象都能被视同为常对象，因此常成员函数不能更新目的对象的数据成员，也不能针对目的对象调用该类中没有用const修饰的成员函数（这就保证了常成员函数中不会更改目的对象的数据成员的值）；</span><br><span class="line">+ 4.const关键字可以用于对重载函数的区分：</span><br><span class="line">```cpp</span><br><span class="line">	void print();</span><br><span class="line">	void print() const;</span><br></pre></td></tr></table></figure></p>
+</li>
+<li><p><strong>如果仅以const关键字为区分对成员函数重载，那么通过非const的对象调用该函数，两个重载的函数都可以与之匹配，这时编译器将选择最近的重载函数—不带const关键字的函数；</strong></p>
+<h4 id="2-常数据成员："><a href="#2-常数据成员：" class="headerlink" title="2.常数据成员："></a>2.常数据成员：</h4></li>
+<li>如果在一个类中说明了常数据成员，那么任何函数中都不能对该成员赋值。构造函数对该数据成员进行初始化 ，就只能通过初始化列表；<h4 id="3-常引用："><a href="#3-常引用：" class="headerlink" title="3.常引用："></a>3.常引用：</h4></li>
 <li>如果在声明引用时用const修饰，被声明的引用就是常引用；</li>
 <li>常引用所引用的对象不能被更新；</li>
 <li>非const的引用只能绑定到一个普通的对象，而不能绑定到常对象，但常引用可以绑定到常对象；</li>
-<li><p>一个常引用，无论是绑定到一个普通的对象，还是常对象，通过该引用访问该对象时，都只能把该对象当作常对象，对于基本数据类型的引用，则不能为数据赋值对于类类型的引用，则不能修改它的数据成员们也不能调用它的非const的成员函数；</p></li>
+<li>一个常引用，无论是绑定到一个普通的对象，还是常对象，通过该引用访问该对象时，都只能把该对象当作常对象，对于基本数据类型的引用，则不能为数据赋值对于类类型的引用，则不能修改它的数据成员们也不能调用它的非const的成员函数；</li>
 </ul>
-<h2 id="多文件结构和编译预处理命令">多文件结构和编译预处理命令</h2>
-<h3 id="c程序的一般组织结构">C++程序的一般组织结构</h3>
-<ul>
-<li>通常一个项目包含三个文件：<strong>类定义文件（<code>*.h文件</code>）</strong>、<strong>类实现文件（<code>*.cpp文件</code>）</strong>、<strong>类的使用文件（<code>*.cpp主函数文件</code>）</strong>； ### 外部变量与外部函数</li>
+<h2 id="多文件结构和编译预处理命令"><a href="#多文件结构和编译预处理命令" class="headerlink" title="多文件结构和编译预处理命令"></a>多文件结构和编译预处理命令</h2><h3 id="C-程序的一般组织结构"><a href="#C-程序的一般组织结构" class="headerlink" title="C++程序的一般组织结构"></a>C++程序的一般组织结构</h3><ul>
+<li>通常一个项目包含三个文件：<strong>类定义文件（<code>*.h文件</code>）</strong>、<strong>类实现文件（<code>*.cpp文件</code>）</strong>、<strong>类的使用文件（<code>*.cpp主函数文件</code>）</strong>；<h3 id="外部变量与外部函数"><a href="#外部变量与外部函数" class="headerlink" title="外部变量与外部函数"></a>外部变量与外部函数</h3></li>
 </ul>
 
       
@@ -563,9 +563,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/c/" rel="tag">:-> c++</a>
-          
             <a href="/tags/笔记/" rel="tag">:-> 笔记</a>
+          
+            <a href="/tags/c/" rel="tag">:-> c++</a>
           
             <a href="/tags/类/" rel="tag">:-> 类</a>
           
@@ -685,7 +685,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">77</span>
+                  <span class="site-state-item-count">79</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -696,7 +696,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -707,7 +707,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -787,7 +787,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#标识符的作用域与可见性"><span class="nav-number">1.</span> <span class="nav-text">标识符的作用域与可见性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域"><span class="nav-number">1.1.</span> <span class="nav-text">作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命名空间作用域"><span class="nav-number">1.1.1.</span> <span class="nav-text">命名空间作用域：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象的生存周期"><span class="nav-number">1.2.</span> <span class="nav-text">对象的生存周期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#静态生存周期"><span class="nav-number">1.2.1.</span> <span class="nav-text">静态生存周期：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类的静态成员"><span class="nav-number">1.3.</span> <span class="nav-text">类的静态成员</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#静态数据成员"><span class="nav-number">1.3.1.</span> <span class="nav-text">静态数据成员：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态函数成员"><span class="nav-number">1.3.2.</span> <span class="nav-text">静态函数成员：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类的友元"><span class="nav-number">1.4.</span> <span class="nav-text">类的友元</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#友元函数"><span class="nav-number">1.4.1.</span> <span class="nav-text">友元函数：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#友元类"><span class="nav-number">1.4.2.</span> <span class="nav-text">友元类：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#共享数据的保护"><span class="nav-number">1.5.</span> <span class="nav-text">共享数据的保护</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常对象"><span class="nav-number">1.5.1.</span> <span class="nav-text">常对象：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多文件结构和编译预处理命令"><span class="nav-number">1.6.</span> <span class="nav-text">多文件结构和编译预处理命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#c程序的一般组织结构"><span class="nav-number">1.6.1.</span> <span class="nav-text">C++程序的一般组织结构</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#标识符的作用域与可见性"><span class="nav-number">1.</span> <span class="nav-text">标识符的作用域与可见性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域"><span class="nav-number">1.1.</span> <span class="nav-text">作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数原型作用域："><span class="nav-number">1.1.1.</span> <span class="nav-text">函数原型作用域：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#局部作用域："><span class="nav-number">1.1.2.</span> <span class="nav-text">局部作用域：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类作用域："><span class="nav-number">1.1.3.</span> <span class="nav-text">类作用域：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命名空间作用域："><span class="nav-number">1.1.4.</span> <span class="nav-text">命名空间作用域：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可见性："><span class="nav-number">1.1.5.</span> <span class="nav-text">可见性：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象的生存周期"><span class="nav-number">1.2.</span> <span class="nav-text">对象的生存周期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#静态生存周期："><span class="nav-number">1.2.1.</span> <span class="nav-text">静态生存周期：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态生存期"><span class="nav-number">1.2.2.</span> <span class="nav-text">动态生存期</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类的静态成员"><span class="nav-number">1.3.</span> <span class="nav-text">类的静态成员</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#静态数据成员："><span class="nav-number">1.3.1.</span> <span class="nav-text">静态数据成员：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态函数成员："><span class="nav-number">1.3.2.</span> <span class="nav-text">静态函数成员：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类的友元"><span class="nav-number">1.4.</span> <span class="nav-text">类的友元</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#友元函数："><span class="nav-number">1.4.1.</span> <span class="nav-text">友元函数：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#友元类："><span class="nav-number">1.4.2.</span> <span class="nav-text">友元类：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#共享数据的保护"><span class="nav-number">1.5.</span> <span class="nav-text">共享数据的保护</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常对象："><span class="nav-number">1.5.1.</span> <span class="nav-text">常对象：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-常数据成员："><span class="nav-number">1.5.1.1.</span> <span class="nav-text">2.常数据成员：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-常引用："><span class="nav-number">1.5.1.2.</span> <span class="nav-text">3.常引用：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多文件结构和编译预处理命令"><span class="nav-number">1.6.</span> <span class="nav-text">多文件结构和编译预处理命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#C-程序的一般组织结构"><span class="nav-number">1.6.1.</span> <span class="nav-text">C++程序的一般组织结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#外部变量与外部函数"><span class="nav-number">1.6.2.</span> <span class="nav-text">外部变量与外部函数</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

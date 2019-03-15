@@ -98,18 +98,18 @@
 
 
 
-<meta name="description" content="概述 好久没写博客了，，，最近的事太多了，，几乎没有专门看一个知识点，，，一直在做各种的简单题QAQ。。。">
+<meta name="description" content="概述好久没写博客了，，，最近的事太多了，，几乎没有专门看一个知识点，，，一直在做各种的简单题QAQ。。。">
 <meta name="keywords" content="acm,刷题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Codeforces-1084C">
 <meta property="og:url" content="http://www.31415x.cf/2018/12/13/Codeforces-1084C/index.html">
 <meta property="og:site_name" content="31415926535x">
-<meta property="og:description" content="概述 好久没写博客了，，，最近的事太多了，，几乎没有专门看一个知识点，，，一直在做各种的简单题QAQ。。。">
+<meta property="og:description" content="概述好久没写博客了，，，最近的事太多了，，几乎没有专门看一个知识点，，，一直在做各种的简单题QAQ。。。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-12-13T10:25:20.234Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Codeforces-1084C">
-<meta name="twitter:description" content="概述 好久没写博客了，，，最近的事太多了，，几乎没有专门看一个知识点，，，一直在做各种的简单题QAQ。。。">
+<meta name="twitter:description" content="概述好久没写博客了，，，最近的事太多了，，几乎没有专门看一个知识点，，，一直在做各种的简单题QAQ。。。">
 
 
 
@@ -436,39 +436,26 @@
       
 
       
-        <h1 id="概述">概述</h1>
-<p>好久没写博客了，，，最近的事太多了，，几乎没有专门看一个知识点，，，一直在做各种的简单题QAQ。。。</p>
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>好久没写博客了，，，最近的事太多了，，几乎没有专门看一个知识点，，，一直在做各种的简单题QAQ。。。</p>
 <a id="more"></a>
-<h1 id="题意">题意</h1>
-<p><a href="https://codeforces.com/contest/1084/problem/C" target="_blank" rel="noopener">这道题大概的题意就是</a>给你一个串，，，然后找出所有开头结尾都是a的并且中间有b的子串的个数，，，单一的a也算，，，</p>
+<h1 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h1><p><a href="https://codeforces.com/contest/1084/problem/C" target="_blank" rel="noopener">这道题大概的题意就是</a>给你一个串，，，然后找出所有开头结尾都是a的并且中间有b的子串的个数，，，单一的a也算，，，</p>
 <p>一开始看了好几遍都没看懂题意，，，不知道在求啥，，，</p>
 <p><a href="https://www.cnblogs.com/wa007/p/10103272.html" target="_blank" rel="noopener">然后看了一个人的题解</a>，，然后没看懂QAQ,,,,,</p>
 <p>看了官方题解下的一个评论看懂了，，，，，emmmm</p>
 <blockquote>
-<p>It doesn't depend at all if there exists any letter other than a or b in the given string. You can for sure ignore those letters, so the editorial says to erase them. Now, what you have is a string consisting only of a and b's. Also two consecutive b's can be merged as one. So your final string will look something like (a...a)b(a...a)b(a...)...</p>
+<p>It doesn’t depend at all if there exists any letter other than a or b in the given string. You can for sure ignore those letters, so the editorial says to erase them. Now, what you have is a string consisting only of a and b’s. Also two consecutive b’s can be merged as one. So your final string will look something like (a…a)b(a…a)b(a…)…</p>
+<p>You can now consider this problem as sum of all possible product of subsets of a given set, where each element in the set is the number of a’s delimited by b.</p>
+<p>For example: In the string “aaabaabaaab”, set formed will be {3,2,3,0} (0 can be ignored). Now if you have a set {a1,a2,…,aN}, then sum of all possible products of this set is equal to (1+a1)<em>(1+a2)</em>…*(1+aN)-1.</p>
+<p>Proof:<br>Write the required answer as follows:<br>S = Sum of products of subset with (size=1)+(size=2)+…(size=N)<br>$S = (a<em>1+a_2+…a_N)+(a_1<em>a_2+a_1</em>a_3……+a</em>{N-1}<em>a_N)+…+(a_1</em>a_2…..a_N)$<br>After factorization,<br>S = (1+a1)(1+a2)…(1+aN)-1</p>
 </blockquote>
-<blockquote>
-<p>You can now consider this problem as sum of all possible product of subsets of a given set, where each element in the set is the number of a's delimited by b.</p>
-</blockquote>
-<blockquote>
-<p>For example: In the string &quot;aaabaabaaab&quot;, set formed will be {3,2,3,0} (0 can be ignored). Now if you have a set {a1,a2,...,aN}, then sum of all possible products of this set is equal to (1+a1)<em>(1+a2)</em>...*(1+aN)-1.</p>
-</blockquote>
-<blockquote>
-<p>Proof: Write the required answer as follows: S = Sum of products of subset with (size=1)+(size=2)+...(size=N) <span class="math inline">\(S = (a_1+a_2+...a_N)+(a_1*a_2+a_1*a_3......+a_{N-1}*a_N)+...+(a_1*a_2.....a_N)\)</span> After factorization, S = (1+a1)(1+a2)...(1+aN)-1</p>
-</blockquote>
-<p>大致意思就是处理所给的字符串，，，就变成了一堆a一个b一堆a一个b....这样的，，， 也就是一堆a的集合 题目所要的就是调两个个a的集合里调一个a作为子串的首尾，，，这样的就是所要的串，，， 于是总共的个数就是<span class="math inline">\(a_1*a_2*a_3.....a_{n-1}*a_{n}\)</span>,,,对了每个集合还要加一，，表示这个集合选一个或者都不选，，，最后的答案再减一就行了（全不选的情况不符合题意），，，</p>
-<p>他上面那段话的思路是在计算所有的子川的情况时，，长度为1+长度为2+。。。长度为m。。。 这样的话 <span class="math inline">\(sum = (a_1 + a_2+....+a_{n-1} + a_n) + (a_1 * a_2 + a_1 * a_3 + ...+ a_1 * a_m + a_2 * a_3 + ......+ a_{n-1} * a_n) + (a_1 * a_2 * a_3 + ....) + ...\)</span> 然后这个求和可以转化成<span class="math inline">\(sum = (1 + a_1) * (a_2 + 1) * (a_3 + 1) + (a_4 + 1) * .... * (a_n + 1) - 1\)</span></p>
+<p>大致意思就是处理所给的字符串，，，就变成了一堆a一个b一堆a一个b….这样的，，，<br>也就是一堆a的集合<br>题目所要的就是调两个个a的集合里调一个a作为子串的首尾，，，这样的就是所要的串，，，<br>于是总共的个数就是$a<em>1<em>a_2</em>a_3…..a</em>{n-1}*a_{n}$,,,对了每个集合还要加一，，表示这个集合选一个或者都不选，，，最后的答案再减一就行了（全不选的情况不符合题意），，，</p>
+<p>他上面那段话的思路是在计算所有的子川的情况时，，长度为1+长度为2+。。。长度为m。。。<br>这样的话 $sum = (a<em>1 + a_2+….+a</em>{n-1} + a<em>n) + (a_1 <em> a_2 + a_1 </em> a_3 + …+ a_1 <em> a_m + a_2 </em> a_3 + ……+ a</em>{n-1} <em> a_n) + (a_1 </em> a_2 <em> a_3 + ….) + …$<br>然后这个求和可以转化成$sum = (1 + a_1) </em> (a_2 + 1) <em> (a_3 + 1) + (a_4 + 1) </em> …. * (a_n + 1) - 1$</p>
 <blockquote>
 <p>因为：</p>
+<p>$a + b + ab = (a + 1) * (b + 1) - 1$</p>
+<p>$a + b + c + ab + ac + bc + abc = (a + 1) <em> (b + 1) </em> (c + 1) - 1$</p>
 </blockquote>
-<blockquote>
-<p><span class="math inline">\(a + b + ab = (a + 1) * (b + 1) - 1\)</span></p>
-</blockquote>
-<blockquote>
-<p><span class="math inline">\(a + b + c + ab + ac + bc + abc = (a + 1) * (b + 1) * (c + 1) - 1\)</span></p>
-</blockquote>
-<h1 id="代码">代码</h1>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line">ll a[maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//    freopen("233.txt" , "r" , stdin);</span></span><br><span class="line"><span class="comment">//    freopen("233.out" , "w" , stdout);</span></span><br><span class="line">    ios_base::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);<span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">string</span> s;<span class="built_in">cin</span> &gt;&gt; s;</span><br><span class="line">    <span class="keyword">int</span> a[maxn];</span><br><span class="line">    <span class="keyword">int</span> tot = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> len = s.length();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i] == <span class="string">'a'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i; j &lt; len; ++j)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(s[j] == <span class="string">'a'</span>)</span><br><span class="line">                    ++cnt;</span><br><span class="line">                <span class="keyword">if</span>(s[j] == <span class="string">'b'</span> || j == len - <span class="number">1</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    a[tot++] = cnt + <span class="number">1</span>;</span><br><span class="line">                    i = j;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; tot; ++i)</span><br><span class="line">        ans = (ans * a[i]) % mod;</span><br><span class="line">    --ans;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line">ll a[maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//    freopen("233.txt" , "r" , stdin);</span></span><br><span class="line"><span class="comment">//    freopen("233.out" , "w" , stdout);</span></span><br><span class="line">    ios_base::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);<span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">string</span> s;<span class="built_in">cin</span> &gt;&gt; s;</span><br><span class="line">    <span class="keyword">int</span> a[maxn];</span><br><span class="line">    <span class="keyword">int</span> tot = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> len = s.length();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i] == <span class="string">'a'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i; j &lt; len; ++j)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(s[j] == <span class="string">'a'</span>)</span><br><span class="line">                    ++cnt;</span><br><span class="line">                <span class="keyword">if</span>(s[j] == <span class="string">'b'</span> || j == len - <span class="number">1</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    a[tot++] = cnt + <span class="number">1</span>;</span><br><span class="line">                    i = j;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; tot; ++i)</span><br><span class="line">        ans = (ans * a[i]) % mod;</span><br><span class="line">    --ans;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>太水了，，，，QAQ</p>
 
       
@@ -623,7 +610,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">77</span>
+                  <span class="site-state-item-count">79</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -634,7 +621,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -645,7 +632,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

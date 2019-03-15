@@ -438,28 +438,27 @@
       
         <p><a href="https://codeforces.com/problemset/problem/1102/E" target="_blank" rel="noopener">这道题很锻炼思维</a>，，是到好题，，就是我不在状态，，没看出来线段间的关系，，学会了求一个区间里相同元素看作一个线段的总的线段的数量的方法，，用map保存最远的元素，遍历寻找判断就行了。。。</p>
 <a id="more"></a>
-<h1 id="分析">分析</h1>
-<p>题意是给你一个数组a，，让你构造一个数组b，，数组b满足的条件是：</p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>题意是给你一个数组a，，让你构造一个数组b，，数组b满足的条件是：</p>
 <ul>
-<li><span class="math inline">\(b_1=0\)</span>，</li>
+<li>$b_1=0$，</li>
 <li>数组b是一个不下降的序列，，</li>
-<li>对于 <span class="math inline">\(a[i]=a[j]\)</span> 的情况要使得 <span class="math inline">\(b[i]=b[j]\)</span>，，，</li>
+<li>对于 $a[i]=a[j]$ 的情况要使得 $b[i]=b[j]$，，，</li>
 </ul>
 <p>求b的可能的种类数</p>
 <p>一开始我把它当成纯数学题，，然后想要找出一个可能的公式，，最后情况太多，判断麻烦放弃了，，，</p>
 <p>官方的题解也没看进去，，，（主要是第一看到这个思路时没明白那个线段是干啥的，，）</p>
 <p>后来看了<a href="https://zhanghuimeng.github.io/post/codeforces-1102e-monotonic-renumeration/" target="_blank" rel="noopener">这个人的思路</a>，，</p>
 <p>大概思路如下：</p>
-<p>因为最后的b是一个不下降序列，，所以当 <span class="math inline">\(a[i]=a[j]\)</span> 时，，必然有 <span class="math inline">\(b[i]=b[i+1]=,,,,=b[j]\)</span>，，，</p>
+<p>因为最后的b是一个不下降序列，，所以当 $a[i]=a[j]$ 时，，必然有 $b[i]=b[i+1]=,,,,=b[j]$，，，</p>
 <p>也就是说对于a中相等的两个元素对应的b之间都是一段相等的元素，，，</p>
 <p>通过这个思路，我们可以求a中可以用两个相同的元素划分成多少个线段（有重叠的线段要合并为一个，，这一段的元素都相同）</p>
-<p>为啥要求线段的数量 <span class="math inline">\(ans\)</span> 呢，，因为b要满足的第三个条件中可以看出两个相邻的且 <span class="math inline">\(a[i] \ne a[j]\)</span> 的 <span class="math inline">\(b[i],b[j]\)</span> 只有两种取值，，又因为线段内的取值相同，，所以b的情况就是 <span class="math inline">\(2^{ans-1}\)</span>了，，，</p>
-<p>eg：<span class="math inline">\(a={1,2,1,2,3}\)</span> 中1对应的线段是{1,2,1}, 2对应的线段是 {2,1,2} 还有 {3}，，因为有重叠，，合并后的就是{1,2,1,2},{3}，，种类数就是 <span class="math inline">\(2^{2-1}\)</span>个</p>
+<p>为啥要求线段的数量 $ans$ 呢，，因为b要满足的第三个条件中可以看出两个相邻的且 $a[i] \ne a[j]$ 的 $b[i],b[j]$ 只有两种取值，，又因为线段内的取值相同，，所以b的情况就是 $2^{ans-1}$了，，，</p>
+<p>eg：$a={1,2,1,2,3}$ 中1对应的线段是{1,2,1}, 2对应的线段是 {2,1,2} 还有 {3}，，因为有重叠，，合并后的就是{1,2,1,2},{3}，，种类数就是 $2^{2-1}$个</p>
 <p>那么怎么求线段数呢，，</p>
-<p>我们可以先假设每个数都自成一个线段，那么就一共有ans=n个，，然后对于每一个大的线段的合并就是 <span class="math inline">\(ans-=(线段的左端点-线段的右端点)当a[i]=a[j]时，也就是ans-=(j-i)\)</span></p>
+<p>我们可以先假设每个数都自成一个线段，那么就一共有ans=n个，，然后对于每一个大的线段的合并就是 $ans-=(线段的左端点-线段的右端点)当a[i]=a[j]时，也就是ans-=(j-i)$</p>
 <p>左端点可以遍历整个数组，，右端点就用map保存每个数最右的位置，，从左向右遍历一下就可以保证每个数的最右边的位置，，，这样当我们与当前遍历的点相同的点可能有一个右端点的时候，，说明现在遍历的位置和那个点之间可以构成一个线段，，减去中间的线段的数量就行了，，，</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//cf</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="comment">//#include &lt;iostream&gt;</span></span><br><span class="line"><span class="comment">//#include &lt;cstdio&gt;</span></span><br><span class="line"><span class="comment">//#include &lt;cstdlib&gt;</span></span><br><span class="line"><span class="comment">//#include &lt;string.h&gt;</span></span><br><span class="line"><span class="comment">//#include &lt;algorithm&gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> aaa cout&lt;&lt;233&lt;&lt;endl;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> endl <span class="meta-string">'\n'</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pb push_back</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; pii;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;<span class="comment">//1061109567</span></span><br><span class="line"><span class="keyword">const</span> ll linf = <span class="number">0x3f3f3f3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> eps = <span class="number">1e-6</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> pi = <span class="number">3.14159265358979</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e6</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxm = <span class="number">2e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> ll mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"><span class="keyword">int</span> a[maxn];</span><br><span class="line"><span class="keyword">inline</span> ll _pow(ll a, ll b, ll p = <span class="number">998244353</span>)</span><br><span class="line">&#123;</span><br><span class="line">    ll ret = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(b)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(b &amp; <span class="number">1</span>)ret = (ret * a) % p;</span><br><span class="line">        a = (a * a) % p;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//    freopen("233.in" , "r" , stdin);</span></span><br><span class="line"><span class="comment">//    freopen("233.out" , "w" , stdout);</span></span><br><span class="line">    ios_base::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);<span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> n; <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; mp;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)<span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)mp[a[i]] = i;</span><br><span class="line">    <span class="keyword">int</span> index = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> ans = n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        index = max(index, i);</span><br><span class="line">        <span class="keyword">if</span>(mp[a[i]] &gt; index)</span><br><span class="line">        &#123;</span><br><span class="line">            ans -= (mp[a[i]] - index);</span><br><span class="line">            index = mp[a[i]];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; _pow(<span class="number">2</span>, ans - <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>溜了溜了，，贼困今天，，， (end)</p>
+<p>溜了溜了，，贼困今天，，，<br>(end)</p>
 
       
     </div>
@@ -613,7 +612,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">77</span>
+                  <span class="site-state-item-count">79</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -624,7 +623,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -635,7 +634,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

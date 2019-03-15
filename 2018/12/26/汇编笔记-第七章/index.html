@@ -98,18 +98,18 @@
 
 
 
-<meta name="description" content="更灵活的定位内存地址的方法 and和or指令  and指令：逻辑与指令，按位进行与运算； 通过该指令可以将操作对象的相应为设为0，其他位不变，例如将al的第6为设为0的指令是：and al,10111111B">
+<meta name="description" content="更灵活的定位内存地址的方法and和or指令 and指令：逻辑与指令，按位进行与运算； 通过该指令可以将操作对象的相应为设为0，其他位不变，例如将al的第6为设为0的指令是：and al,10111111B">
 <meta name="keywords" content="笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="汇编笔记_第七章">
 <meta property="og:url" content="http://www.31415x.cf/2018/12/26/汇编笔记-第七章/index.html">
 <meta property="og:site_name" content="31415926535x">
-<meta property="og:description" content="更灵活的定位内存地址的方法 and和or指令  and指令：逻辑与指令，按位进行与运算； 通过该指令可以将操作对象的相应为设为0，其他位不变，例如将al的第6为设为0的指令是：and al,10111111B">
+<meta property="og:description" content="更灵活的定位内存地址的方法and和or指令 and指令：逻辑与指令，按位进行与运算； 通过该指令可以将操作对象的相应为设为0，其他位不变，例如将al的第6为设为0的指令是：and al,10111111B">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-12-27T12:01:29.723Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="汇编笔记_第七章">
-<meta name="twitter:description" content="更灵活的定位内存地址的方法 and和or指令  and指令：逻辑与指令，按位进行与运算； 通过该指令可以将操作对象的相应为设为0，其他位不变，例如将al的第6为设为0的指令是：and al,10111111B">
+<meta name="twitter:description" content="更灵活的定位内存地址的方法and和or指令 and指令：逻辑与指令，按位进行与运算； 通过该指令可以将操作对象的相应为设为0，其他位不变，例如将al的第6为设为0的指令是：and al,10111111B">
 
 
 
@@ -436,9 +436,7 @@
       
 
       
-        <h1 id="更灵活的定位内存地址的方法">更灵活的定位内存地址的方法</h1>
-<h2 id="and和or指令">and和or指令</h2>
-<ul>
+        <h1 id="更灵活的定位内存地址的方法"><a href="#更灵活的定位内存地址的方法" class="headerlink" title="更灵活的定位内存地址的方法"></a>更灵活的定位内存地址的方法</h1><h2 id="and和or指令"><a href="#and和or指令" class="headerlink" title="and和or指令"></a>and和or指令</h2><ul>
 <li>and指令：逻辑与指令，按位进行与运算；</li>
 <li>通过该指令可以将操作对象的相应为设为0，其他位不变，例如将al的第6为设为0的指令是：<code>and al,10111111B</code></li>
 </ul>
@@ -447,14 +445,14 @@
 <li>or指令，逻辑或指令，按位进行或运算；</li>
 <li>同样，或运算可以将操作对象的相应设为1，其他位不变：<code>or al,01000000B</code>；</li>
 </ul>
-<h2 id="字符大小写转换">字符大小写转换</h2>
-<ul>
-<li>汇编程序中，用<code>'...'</code>来指明数据是以字符的形式给出的，编译器将把他们转化成对应的ASCII码；</li>
+<h2 id="字符大小写转换"><a href="#字符大小写转换" class="headerlink" title="字符大小写转换"></a>字符大小写转换</h2><ul>
+<li>汇编程序中，用<code>&#39;...&#39;</code>来指明数据是以字符的形式给出的，编译器将把他们转化成对应的ASCII码；</li>
 <li>对比大写字母和小写字母的二进制，小写字母的ascii码值比大学字母的大 <strong>20H</strong>，而且除第5位以外其他位都一样，大写字母的第五位为0，小写字母的为1；</li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>大写</th>
 <th>二进制</th>
 <th>小写</th>
@@ -462,25 +460,25 @@
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>A</td>
 <td>01000001</td>
 <td>a</td>
 <td>01100001</td>
 </tr>
-<tr class="even">
+<tr>
 <td>B</td>
 <td>01000010</td>
 <td>b</td>
 <td>01100010</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>C</td>
 <td>01000011</td>
 <td>c</td>
 <td>01100011</td>
 </tr>
-<tr class="even">
+<tr>
 <td>D</td>
 <td>01000100</td>
 <td>d</td>
@@ -488,20 +486,20 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>所以可以通过与或操作来实现：</p>
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">...</span></span><br><span class="line"><span class="keyword">add </span>al,<span class="number">11011111</span>B<span class="comment">;变大写字母</span></span><br><span class="line"><span class="symbol">...</span></span><br><span class="line"><span class="symbol">or</span> al,<span class="number">00100000</span>B<span class="comment">;变小写字母</span></span><br><span class="line"><span class="symbol">...</span></span><br></pre></td></tr></table></figure>
-<h2 id="bx-idata">[bx + idata]</h2>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">mov </span>al,[<span class="keyword">bx </span>+ <span class="number">5</span>]</span><br><span class="line"><span class="keyword">mov </span>al,[<span class="number">5</span> + <span class="keyword">bx]</span></span><br><span class="line"><span class="keyword">mov </span>al,<span class="number">5</span>[<span class="keyword">bx]</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword">mov </span>al,[<span class="keyword">bx </span>+ <span class="number">0</span>]</span><br><span class="line"><span class="keyword">mov </span>al,[<span class="number">0</span> + <span class="keyword">bx]</span></span><br><span class="line"><span class="keyword">mov </span>al,<span class="number">0</span>[<span class="keyword">bx]</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword">都是等价的</span></span><br></pre></td></tr></table></figure>
-<h2 id="si和di">SI和DI</h2>
-<ul>
+<h2 id="bx-idata"><a href="#bx-idata" class="headerlink" title="[bx + idata]"></a>[bx + idata]</h2><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">mov </span>al,[<span class="keyword">bx </span>+ <span class="number">5</span>]</span><br><span class="line"><span class="keyword">mov </span>al,[<span class="number">5</span> + <span class="keyword">bx]</span></span><br><span class="line"><span class="keyword">mov </span>al,<span class="number">5</span>[<span class="keyword">bx]</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword">mov </span>al,[<span class="keyword">bx </span>+ <span class="number">0</span>]</span><br><span class="line"><span class="keyword">mov </span>al,[<span class="number">0</span> + <span class="keyword">bx]</span></span><br><span class="line"><span class="keyword">mov </span>al,<span class="number">0</span>[<span class="keyword">bx]</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword">都是等价的</span></span><br></pre></td></tr></table></figure>
+<h2 id="SI和DI"><a href="#SI和DI" class="headerlink" title="SI和DI"></a>SI和DI</h2><ul>
 <li>SI和DI是8086CPU中和bx功能相近的寄存器；</li>
 <li>他们不能分成两个8位寄存器使用；</li>
-<li>可以使用[bx + si]、[bx + di]指明内存单元，指令<code>mov ax,[bx + si]</code>可以写成<code>mov ax,[bx][si]</code>； <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">mov </span>ax[<span class="keyword">bx+si+idata]</span></span><br><span class="line"><span class="keyword">可以写成：</span></span><br><span class="line"><span class="keyword">mov </span>ax,[<span class="keyword">bx+200+si]</span></span><br><span class="line"><span class="keyword">mov </span>ax,[<span class="number">200</span>+<span class="keyword">bx+si]</span></span><br><span class="line"><span class="keyword">mov </span>ax,<span class="number">200</span>[<span class="keyword">bx][si]</span></span><br><span class="line"><span class="keyword">mov </span>ax,[<span class="keyword">bx].200[si]</span></span><br><span class="line"><span class="keyword">mov </span>ax,[<span class="keyword">bx][si].200</span></span><br></pre></td></tr></table></figure></li>
+<li>可以使用[bx + si]、[bx + di]指明内存单元，指令<code>mov ax,[bx + si]</code>可以写成<code>mov ax,[bx][si]</code>；<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">mov </span>ax[<span class="keyword">bx+si+idata]</span></span><br><span class="line"><span class="keyword">可以写成：</span></span><br><span class="line"><span class="keyword">mov </span>ax,[<span class="keyword">bx+200+si]</span></span><br><span class="line"><span class="keyword">mov </span>ax,[<span class="number">200</span>+<span class="keyword">bx+si]</span></span><br><span class="line"><span class="keyword">mov </span>ax,<span class="number">200</span>[<span class="keyword">bx][si]</span></span><br><span class="line"><span class="keyword">mov </span>ax,[<span class="keyword">bx].200[si]</span></span><br><span class="line"><span class="keyword">mov </span>ax,[<span class="keyword">bx][si].200</span></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<h2 id="不同的寻址方式的灵活运用">不同的寻址方式的灵活运用</h2>
-<ul>
+<h2 id="不同的寻址方式的灵活运用"><a href="#不同的寻址方式的灵活运用" class="headerlink" title="不同的寻址方式的灵活运用"></a>不同的寻址方式的灵活运用</h2><ul>
 <li>一般来说，在需要暂存数据的时候，需要栈来保存；</li>
-<li>例如： <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">//将每一行的字母都变为大写</span><br><span class="line"></span><br><span class="line"><span class="symbol">assume</span> cs:codesg,ds:datasg,ss:stacksg</span><br><span class="line"><span class="symbol">datasg</span> segment</span><br><span class="line"><span class="symbol">db</span> <span class="string">'ibm           '</span></span><br><span class="line"><span class="symbol">db</span> <span class="string">'dec           '</span></span><br><span class="line"><span class="symbol">db</span> <span class="string">'dos           '</span></span><br><span class="line"><span class="symbol">db</span> <span class="string">'vax           '</span></span><br><span class="line"><span class="symbol">datasg</span> ends</span><br><span class="line"></span><br><span class="line"><span class="symbol">stacksg</span> segment</span><br><span class="line"><span class="symbol">dw</span> <span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span></span><br><span class="line"><span class="symbol">stacksg</span> ends</span><br><span class="line"></span><br><span class="line"><span class="symbol">cosesg</span> segment</span><br><span class="line"></span><br><span class="line"><span class="symbol">start</span>:</span><br><span class="line"><span class="keyword">mov </span>ax,stacksg</span><br><span class="line"><span class="keyword">mov </span>ss,ax</span><br><span class="line"><span class="keyword">mov </span>ds,ax</span><br><span class="line"><span class="keyword">mov </span><span class="keyword">bx,0</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword">mov </span>cx,<span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="symbol">s0</span>:</span><br><span class="line"><span class="keyword">push </span>cx     //保存外层循环的cx</span><br><span class="line"><span class="keyword">mov </span>si,<span class="number">0</span></span><br><span class="line"><span class="symbol">mob</span> cx,<span class="number">3</span>    //设置内层循环的cx</span><br><span class="line"></span><br><span class="line">s:</span><br><span class="line"><span class="keyword">mov </span>al,[<span class="keyword">bx+si]</span></span><br><span class="line"><span class="keyword">and </span>al,<span class="number">11011111</span>b</span><br><span class="line"><span class="keyword">mov </span>[<span class="keyword">bx+si],al</span></span><br><span class="line"><span class="keyword">inc </span>si</span><br><span class="line"><span class="symbol">loop</span> s</span><br><span class="line"></span><br><span class="line"><span class="keyword">add </span><span class="keyword">bx,16</span></span><br><span class="line"><span class="keyword">pop </span>cx      //恢复外层循环cx的值</span><br><span class="line"><span class="symbol">loop</span> <span class="built_in">s0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">mov </span><span class="number">4</span>c00h</span><br><span class="line"><span class="symbol">int</span> <span class="number">21</span>h</span><br><span class="line"></span><br><span class="line"><span class="symbol">codesg</span> ends</span><br><span class="line"><span class="symbol">end</span> start</span><br></pre></td></tr></table></figure></li>
+<li>例如：<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">//将每一行的字母都变为大写</span><br><span class="line"></span><br><span class="line"><span class="symbol">assume</span> cs:codesg,ds:datasg,ss:stacksg</span><br><span class="line"><span class="symbol">datasg</span> segment</span><br><span class="line"><span class="symbol">db</span> <span class="string">'ibm           '</span></span><br><span class="line"><span class="symbol">db</span> <span class="string">'dec           '</span></span><br><span class="line"><span class="symbol">db</span> <span class="string">'dos           '</span></span><br><span class="line"><span class="symbol">db</span> <span class="string">'vax           '</span></span><br><span class="line"><span class="symbol">datasg</span> ends</span><br><span class="line"></span><br><span class="line"><span class="symbol">stacksg</span> segment</span><br><span class="line"><span class="symbol">dw</span> <span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span></span><br><span class="line"><span class="symbol">stacksg</span> ends</span><br><span class="line"></span><br><span class="line"><span class="symbol">cosesg</span> segment</span><br><span class="line"></span><br><span class="line"><span class="symbol">start</span>:</span><br><span class="line"><span class="keyword">mov </span>ax,stacksg</span><br><span class="line"><span class="keyword">mov </span>ss,ax</span><br><span class="line"><span class="keyword">mov </span>ds,ax</span><br><span class="line"><span class="keyword">mov </span><span class="keyword">bx,0</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword">mov </span>cx,<span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="symbol">s0</span>:</span><br><span class="line"><span class="keyword">push </span>cx     //保存外层循环的cx</span><br><span class="line"><span class="keyword">mov </span>si,<span class="number">0</span></span><br><span class="line"><span class="symbol">mob</span> cx,<span class="number">3</span>    //设置内层循环的cx</span><br><span class="line"></span><br><span class="line">s:</span><br><span class="line"><span class="keyword">mov </span>al,[<span class="keyword">bx+si]</span></span><br><span class="line"><span class="keyword">and </span>al,<span class="number">11011111</span>b</span><br><span class="line"><span class="keyword">mov </span>[<span class="keyword">bx+si],al</span></span><br><span class="line"><span class="keyword">inc </span>si</span><br><span class="line"><span class="symbol">loop</span> s</span><br><span class="line"></span><br><span class="line"><span class="keyword">add </span><span class="keyword">bx,16</span></span><br><span class="line"><span class="keyword">pop </span>cx      //恢复外层循环cx的值</span><br><span class="line"><span class="symbol">loop</span> <span class="built_in">s0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">mov </span><span class="number">4</span>c00h</span><br><span class="line"><span class="symbol">int</span> <span class="number">21</span>h</span><br><span class="line"></span><br><span class="line"><span class="symbol">codesg</span> ends</span><br><span class="line"><span class="symbol">end</span> start</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <p>(end)</p>
 
@@ -655,7 +653,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">77</span>
+                  <span class="site-state-item-count">79</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -666,7 +664,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -677,7 +675,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -757,7 +755,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#更灵活的定位内存地址的方法"><span class="nav-number">1.</span> <span class="nav-text">更灵活的定位内存地址的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#and和or指令"><span class="nav-number">1.1.</span> <span class="nav-text">and和or指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符大小写转换"><span class="nav-number">1.2.</span> <span class="nav-text">字符大小写转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bx-idata"><span class="nav-number">1.3.</span> <span class="nav-text">[bx + idata]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#si和di"><span class="nav-number">1.4.</span> <span class="nav-text">SI和DI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不同的寻址方式的灵活运用"><span class="nav-number">1.5.</span> <span class="nav-text">不同的寻址方式的灵活运用</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#更灵活的定位内存地址的方法"><span class="nav-number">1.</span> <span class="nav-text">更灵活的定位内存地址的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#and和or指令"><span class="nav-number">1.1.</span> <span class="nav-text">and和or指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符大小写转换"><span class="nav-number">1.2.</span> <span class="nav-text">字符大小写转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bx-idata"><span class="nav-number">1.3.</span> <span class="nav-text">[bx + idata]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SI和DI"><span class="nav-number">1.4.</span> <span class="nav-text">SI和DI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不同的寻址方式的灵活运用"><span class="nav-number">1.5.</span> <span class="nav-text">不同的寻址方式的灵活运用</span></a></li></ol></li></ol></div>
             
 
           </div>

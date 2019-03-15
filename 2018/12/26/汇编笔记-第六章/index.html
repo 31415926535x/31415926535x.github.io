@@ -98,18 +98,18 @@
 
 
 
-<meta name="description" content="包含多个段的程序 在代码段中使用数据 先看程序： 123456789101112131415assume cs:codesgcodesg segmentdw 0123h,0456h,0789h,0abch,0fedh,0cbah,0987hstart:mov bx,0mov ax,0mov cx,8s:add ax,cx:[bx]add bx,2loop smov ax,4c00hint 2">
+<meta name="description" content="包含多个段的程序在代码段中使用数据先看程序： 123456789101112131415assume cs:codesgcodesg segmentdw 0123h,0456h,0789h,0abch,0fedh,0cbah,0987hstart:mov bx,0mov ax,0mov cx,8s:add ax,cx:[bx]add bx,2loop smov ax,4c00hint 21hcod">
 <meta name="keywords" content="笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="汇编笔记_第六章">
 <meta property="og:url" content="http://www.31415x.cf/2018/12/26/汇编笔记-第六章/index.html">
 <meta property="og:site_name" content="31415926535x">
-<meta property="og:description" content="包含多个段的程序 在代码段中使用数据 先看程序： 123456789101112131415assume cs:codesgcodesg segmentdw 0123h,0456h,0789h,0abch,0fedh,0cbah,0987hstart:mov bx,0mov ax,0mov cx,8s:add ax,cx:[bx]add bx,2loop smov ax,4c00hint 2">
+<meta property="og:description" content="包含多个段的程序在代码段中使用数据先看程序： 123456789101112131415assume cs:codesgcodesg segmentdw 0123h,0456h,0789h,0abch,0fedh,0cbah,0987hstart:mov bx,0mov ax,0mov cx,8s:add ax,cx:[bx]add bx,2loop smov ax,4c00hint 21hcod">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-12-26T13:45:43.421Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="汇编笔记_第六章">
-<meta name="twitter:description" content="包含多个段的程序 在代码段中使用数据 先看程序： 123456789101112131415assume cs:codesgcodesg segmentdw 0123h,0456h,0789h,0abch,0fedh,0cbah,0987hstart:mov bx,0mov ax,0mov cx,8s:add ax,cx:[bx]add bx,2loop smov ax,4c00hint 2">
+<meta name="twitter:description" content="包含多个段的程序在代码段中使用数据先看程序： 123456789101112131415assume cs:codesgcodesg segmentdw 0123h,0456h,0789h,0abch,0fedh,0cbah,0987hstart:mov bx,0mov ax,0mov cx,8s:add ax,cx:[bx]add bx,2loop smov ax,4c00hint 21hcod">
 
 
 
@@ -436,9 +436,7 @@
       
 
       
-        <h1 id="包含多个段的程序">包含多个段的程序</h1>
-<h2 id="在代码段中使用数据">在代码段中使用数据</h2>
-<p>先看程序：</p>
+        <h1 id="包含多个段的程序"><a href="#包含多个段的程序" class="headerlink" title="包含多个段的程序"></a>包含多个段的程序</h1><h2 id="在代码段中使用数据"><a href="#在代码段中使用数据" class="headerlink" title="在代码段中使用数据"></a>在代码段中使用数据</h2><p>先看程序：</p>
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">assume</span> cs:codesg</span><br><span class="line"><span class="symbol">codesg</span> segment</span><br><span class="line"><span class="symbol">dw</span> <span class="number">0123</span>h,<span class="number">0456</span>h,<span class="number">0789</span>h,<span class="number">0</span>abch,<span class="number">0</span>fedh,<span class="number">0</span>cbah,<span class="number">0987</span>h</span><br><span class="line"><span class="symbol">start</span>:</span><br><span class="line"><span class="keyword">mov </span><span class="keyword">bx,0</span></span><br><span class="line"><span class="keyword">mov </span>ax,<span class="number">0</span></span><br><span class="line"><span class="keyword">mov </span>cx,<span class="number">8</span></span><br><span class="line">s:</span><br><span class="line"><span class="keyword">add </span>ax,cx:[<span class="keyword">bx]</span></span><br><span class="line"><span class="keyword">add </span><span class="keyword">bx,2</span></span><br><span class="line"><span class="keyword">loop </span>s</span><br><span class="line"><span class="keyword">mov </span>ax,<span class="number">4</span>c00h</span><br><span class="line"><span class="symbol">int</span> <span class="number">21</span>h</span><br><span class="line"><span class="symbol">codesg</span> ends</span><br><span class="line"><span class="symbol">end</span> start</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <ul>
@@ -447,15 +445,14 @@
 </ul>
 <p>所以程序的框架可以为：</p>
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">assume</span> cs:<span class="meta">code</span></span><br><span class="line"></span><br><span class="line"><span class="symbol">cdoe</span> segment</span><br><span class="line"><span class="symbol">...</span></span><br><span class="line">数据</span><br><span class="line"><span class="symbol">...</span></span><br><span class="line"><span class="symbol">start</span>:</span><br><span class="line"><span class="symbol">...</span></span><br><span class="line">代码</span><br><span class="line"><span class="symbol">...</span></span><br><span class="line"><span class="symbol">code</span> ends</span><br><span class="line"></span><br><span class="line"><span class="symbol">end</span> start</span><br></pre></td></tr></table></figure>
-<h2 id="将数据代码栈放入不同的段">将数据、代码、栈放入不同的段</h2>
-<ul>
+<h2 id="将数据、代码、栈放入不同的段"><a href="#将数据、代码、栈放入不同的段" class="headerlink" title="将数据、代码、栈放入不同的段"></a>将数据、代码、栈放入不同的段</h2><ul>
 <li>放到一个段中使得程序很混乱</li>
 <li>当处理的数据、栈、代码需要的空间超过64KB时，就不能放在一个段中；</li>
 </ul>
 <p>伪指令；</p>
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">assume</span></span><br><span class="line"><span class="symbol">cs</span>:<span class="meta">code</span>,ds:<span class="meta">data</span>,ss:stack</span><br><span class="line"></span><br><span class="line"><span class="symbol">...</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">mov </span>ax,stack</span><br><span class="line"><span class="keyword">mov </span>ss,ax</span><br><span class="line"></span><br><span class="line"><span class="keyword">mov </span>ax,<span class="meta">data</span></span><br><span class="line"><span class="keyword">mov </span>ds,ax</span><br></pre></td></tr></table></figure>
 <p>ss:sp就指向stack:16，CPU把stack段当栈空间用；</p>
-<p>把数据段、堆栈段放在代码段前，其对应的段地址是x-1、x-2 放在后面紧跟代码段后面（貌似）</p>
+<p>把数据段、堆栈段放在代码段前，其对应的段地址是x-1、x-2<br>放在后面紧跟代码段后面（貌似）</p>
 <p>(end)</p>
 
       
@@ -608,7 +605,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">77</span>
+                  <span class="site-state-item-count">79</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -619,7 +616,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -630,7 +627,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -710,7 +707,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#包含多个段的程序"><span class="nav-number">1.</span> <span class="nav-text">包含多个段的程序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#在代码段中使用数据"><span class="nav-number">1.1.</span> <span class="nav-text">在代码段中使用数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将数据代码栈放入不同的段"><span class="nav-number">1.2.</span> <span class="nav-text">将数据、代码、栈放入不同的段</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#包含多个段的程序"><span class="nav-number">1.</span> <span class="nav-text">包含多个段的程序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#在代码段中使用数据"><span class="nav-number">1.1.</span> <span class="nav-text">在代码段中使用数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将数据、代码、栈放入不同的段"><span class="nav-number">1.2.</span> <span class="nav-text">将数据、代码、栈放入不同的段</span></a></li></ol></li></ol></div>
             
 
           </div>

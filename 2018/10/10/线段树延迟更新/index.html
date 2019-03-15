@@ -98,18 +98,18 @@
 
 
 
-<meta name="description" content="概述 暑假集训的时候好多东西只学了个皮毛，，，对付模板题还能试试，，，但是一看一些稍难的一些题时，，，肯定单纯的套模板是不行得了，，，那样多没意思啊，，， 延迟更新之前就看到过，，，当初的映像就是在普通的线段树里加一个lazy，，，然后可以延迟更新区间，，，这在对区间整段的更新很有用，，，因为不用对更新区间的每一个点更新，，这样就能省下很多时间，，， 但是，，那时没时间也看不懂，，，跟别提怎">
+<meta name="description" content="概述暑假集训的时候好多东西只学了个皮毛，，，对付模板题还能试试，，，但是一看一些稍难的一些题时，，，肯定单纯的套模板是不行得了，，，那样多没意思啊，，， 延迟更新之前就看到过，，，当初的映像就是在普通的线段树里加一个lazy，，，然后可以延迟更新区间，，，这在对区间整段的更新很有用，，，因为不用对更新区间的每一个点更新，，这样就能省下很多时间，，， 但是，，那时没时间也看不懂，，，跟别提怎么操作了">
 <meta name="keywords" content="acm,算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="线段树延迟更新">
 <meta property="og:url" content="http://www.31415x.cf/2018/10/10/线段树延迟更新/index.html">
 <meta property="og:site_name" content="31415926535x">
-<meta property="og:description" content="概述 暑假集训的时候好多东西只学了个皮毛，，，对付模板题还能试试，，，但是一看一些稍难的一些题时，，，肯定单纯的套模板是不行得了，，，那样多没意思啊，，， 延迟更新之前就看到过，，，当初的映像就是在普通的线段树里加一个lazy，，，然后可以延迟更新区间，，，这在对区间整段的更新很有用，，，因为不用对更新区间的每一个点更新，，这样就能省下很多时间，，， 但是，，那时没时间也看不懂，，，跟别提怎">
+<meta property="og:description" content="概述暑假集训的时候好多东西只学了个皮毛，，，对付模板题还能试试，，，但是一看一些稍难的一些题时，，，肯定单纯的套模板是不行得了，，，那样多没意思啊，，， 延迟更新之前就看到过，，，当初的映像就是在普通的线段树里加一个lazy，，，然后可以延迟更新区间，，，这在对区间整段的更新很有用，，，因为不用对更新区间的每一个点更新，，这样就能省下很多时间，，， 但是，，那时没时间也看不懂，，，跟别提怎么操作了">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-10-10T11:34:54.732Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线段树延迟更新">
-<meta name="twitter:description" content="概述 暑假集训的时候好多东西只学了个皮毛，，，对付模板题还能试试，，，但是一看一些稍难的一些题时，，，肯定单纯的套模板是不行得了，，，那样多没意思啊，，， 延迟更新之前就看到过，，，当初的映像就是在普通的线段树里加一个lazy，，，然后可以延迟更新区间，，，这在对区间整段的更新很有用，，，因为不用对更新区间的每一个点更新，，这样就能省下很多时间，，， 但是，，那时没时间也看不懂，，，跟别提怎">
+<meta name="twitter:description" content="概述暑假集训的时候好多东西只学了个皮毛，，，对付模板题还能试试，，，但是一看一些稍难的一些题时，，，肯定单纯的套模板是不行得了，，，那样多没意思啊，，， 延迟更新之前就看到过，，，当初的映像就是在普通的线段树里加一个lazy，，，然后可以延迟更新区间，，，这在对区间整段的更新很有用，，，因为不用对更新区间的每一个点更新，，这样就能省下很多时间，，， 但是，，那时没时间也看不懂，，，跟别提怎么操作了">
 
 
 
@@ -436,19 +436,16 @@
       
 
       
-        <h1 id="概述">概述</h1>
-<p>暑假集训的时候好多东西只学了个皮毛，，，对付模板题还能试试，，，但是一看一些稍难的一些题时，，，肯定单纯的套模板是不行得了，，，那样多没意思啊，，，</p>
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>暑假集训的时候好多东西只学了个皮毛，，，对付模板题还能试试，，，但是一看一些稍难的一些题时，，，肯定单纯的套模板是不行得了，，，那样多没意思啊，，，</p>
 <p>延迟更新之前就看到过，，，当初的映像就是在普通的线段树里加一个lazy，，，然后可以延迟更新区间，，，这在对区间整段的更新很有用，，，因为不用对更新区间的每一个点更新，，这样就能省下很多时间，，，</p>
 <p>但是，，那时没时间也看不懂，，，跟别提怎么操作了，，，，</p>
 <a id="more"></a>
 <p>国庆的时候专门看看了看这块知识，，，大概了解了lazy的作用以及该怎么使用他，，</p>
 <p><a href="https://www.cnblogs.com/AC-King/p/7789013.html" target="_blank" rel="noopener">当时是看这篇博客的</a></p>
-<h1 id="分析">分析</h1>
-<p>单纯的线段树主要是 <strong>单点修改，区间查询</strong> ，，，</p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>单纯的线段树主要是 <strong>单点修改，区间查询</strong> ，，，</p>
 <p>若是不更改进行区间的修改时，，，只能对区间里的每一个数进行单点修改，，，当数据量很大时，，这样的操作很费时间，，，</p>
 <p>所以可以对每一个节点都加一个lazy标记，，，当这一段要更新时，，父节点的lazy更新，，然后区间所维护的sum加上相应的几倍的lazy，，，，这样该节点对上时更新后的值，，向上正确，，，而对于它的两个子节点，，，只将lazy更新表明这里需要更新，，，但是并没有继续向下更新，，，这一段的操作由pushdown()函数完成，，，</p>
-<h1 id="实现和练习">实现和练习</h1>
-<p>看个具体的例子:<a href="http://acm.hdu.edu.cn/showproblem.php?pid=1698" target="_blank" rel="noopener">题目链接</a>，，，</p>
+<h1 id="实现和练习"><a href="#实现和练习" class="headerlink" title="实现和练习"></a>实现和练习</h1><p>看个具体的例子:<a href="http://acm.hdu.edu.cn/showproblem.php?pid=1698" target="_blank" rel="noopener">题目链接</a>，，，</p>
 <p>题目意思很简单，，，就是初始长度为n的一个数列值全为1，，</p>
 <p>然后对某些区间进行赋为1 , 2 , 3的操作，，，最后问你在这些操作之后这一段的和是多少，，，</p>
 <p>具体的实现如下:</p>
@@ -608,7 +605,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">77</span>
+                  <span class="site-state-item-count">79</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -619,7 +616,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -630,7 +627,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

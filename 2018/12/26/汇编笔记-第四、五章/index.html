@@ -98,18 +98,18 @@
 
 
 
-<meta name="description" content="第四章 第一个程序 程序执行的基本过程 编写-&amp;gt;编译-&amp;gt;连接-&amp;gt;执行 编程-&amp;gt;1.asm-&amp;gt;编译-&amp;gt;1.obj-&amp;gt;连接-&amp;gt;1.exe-&amp;gt;加载-&amp;gt;内存中的程序 程序的基本结构 伪指令 汇编语言源程序中，包含两种指令， 汇编指令 和 伪指令；  汇编指令是对应的机器码的指令，可以被编译为机器指令； 伪指令没有对应的机器指令，">
+<meta name="description" content="第四章 第一个程序程序执行的基本过程编写-&amp;gt;编译-&amp;gt;连接-&amp;gt;执行 编程-&amp;gt;1.asm-&amp;gt;编译-&amp;gt;1.obj-&amp;gt;连接-&amp;gt;1.exe-&amp;gt;加载-&amp;gt;内存中的程序 程序的基本结构伪指令汇编语言源程序中，包含两种指令， 汇编指令 和 伪指令；  汇编指令是对应的机器码的指令，可以被编译为机器指令； 伪指令没有对应的机器指令，由编译器来执行。">
 <meta name="keywords" content="笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="汇编笔记_第四、五章">
 <meta property="og:url" content="http://www.31415x.cf/2018/12/26/汇编笔记-第四、五章/index.html">
 <meta property="og:site_name" content="31415926535x">
-<meta property="og:description" content="第四章 第一个程序 程序执行的基本过程 编写-&amp;gt;编译-&amp;gt;连接-&amp;gt;执行 编程-&amp;gt;1.asm-&amp;gt;编译-&amp;gt;1.obj-&amp;gt;连接-&amp;gt;1.exe-&amp;gt;加载-&amp;gt;内存中的程序 程序的基本结构 伪指令 汇编语言源程序中，包含两种指令， 汇编指令 和 伪指令；  汇编指令是对应的机器码的指令，可以被编译为机器指令； 伪指令没有对应的机器指令，">
+<meta property="og:description" content="第四章 第一个程序程序执行的基本过程编写-&amp;gt;编译-&amp;gt;连接-&amp;gt;执行 编程-&amp;gt;1.asm-&amp;gt;编译-&amp;gt;1.obj-&amp;gt;连接-&amp;gt;1.exe-&amp;gt;加载-&amp;gt;内存中的程序 程序的基本结构伪指令汇编语言源程序中，包含两种指令， 汇编指令 和 伪指令；  汇编指令是对应的机器码的指令，可以被编译为机器指令； 伪指令没有对应的机器指令，由编译器来执行。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-12-26T10:14:31.675Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="汇编笔记_第四、五章">
-<meta name="twitter:description" content="第四章 第一个程序 程序执行的基本过程 编写-&amp;gt;编译-&amp;gt;连接-&amp;gt;执行 编程-&amp;gt;1.asm-&amp;gt;编译-&amp;gt;1.obj-&amp;gt;连接-&amp;gt;1.exe-&amp;gt;加载-&amp;gt;内存中的程序 程序的基本结构 伪指令 汇编语言源程序中，包含两种指令， 汇编指令 和 伪指令；  汇编指令是对应的机器码的指令，可以被编译为机器指令； 伪指令没有对应的机器指令，">
+<meta name="twitter:description" content="第四章 第一个程序程序执行的基本过程编写-&amp;gt;编译-&amp;gt;连接-&amp;gt;执行 编程-&amp;gt;1.asm-&amp;gt;编译-&amp;gt;1.obj-&amp;gt;连接-&amp;gt;1.exe-&amp;gt;加载-&amp;gt;内存中的程序 程序的基本结构伪指令汇编语言源程序中，包含两种指令， 汇编指令 和 伪指令；  汇编指令是对应的机器码的指令，可以被编译为机器指令； 伪指令没有对应的机器指令，由编译器来执行。">
 
 
 
@@ -436,13 +436,9 @@
       
 
       
-        <h1 id="第四章-第一个程序">第四章 第一个程序</h1>
-<h2 id="程序执行的基本过程">程序执行的基本过程</h2>
-<p>编写-&gt;编译-&gt;连接-&gt;执行</p>
+        <h1 id="第四章-第一个程序"><a href="#第四章-第一个程序" class="headerlink" title="第四章 第一个程序"></a>第四章 第一个程序</h1><h2 id="程序执行的基本过程"><a href="#程序执行的基本过程" class="headerlink" title="程序执行的基本过程"></a>程序执行的基本过程</h2><p>编写-&gt;编译-&gt;连接-&gt;执行</p>
 <p>编程-&gt;1.asm-&gt;编译-&gt;1.obj-&gt;连接-&gt;1.exe-&gt;加载-&gt;内存中的程序</p>
-<h2 id="程序的基本结构">程序的基本结构</h2>
-<h3 id="伪指令">伪指令</h3>
-<p>汇编语言源程序中，包含两种指令， <strong>汇编指令</strong> 和 <strong>伪指令</strong>；</p>
+<h2 id="程序的基本结构"><a href="#程序的基本结构" class="headerlink" title="程序的基本结构"></a>程序的基本结构</h2><h3 id="伪指令"><a href="#伪指令" class="headerlink" title="伪指令"></a>伪指令</h3><p>汇编语言源程序中，包含两种指令， <strong>汇编指令</strong> 和 <strong>伪指令</strong>；</p>
 <ul>
 <li>汇编指令是对应的机器码的指令，可以被编译为机器指令；</li>
 <li>伪指令没有对应的机器指令，由编译器来执行。</li>
@@ -452,13 +448,11 @@
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">段名 segment</span><br><span class="line"><span class="symbol">...</span>//定义一个段</span><br><span class="line">段名 ends</span><br></pre></td></tr></table></figure>
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">end</span>//汇编程序的结束标记</span><br></pre></td></tr></table></figure>
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">assume</span> //编译程序将段寄存器和某一具体的段相联系</span><br><span class="line"><span class="symbol">assume</span> cs:codesg</span><br></pre></td></tr></table></figure>
-<h3 id="标号">标号</h3>
-<ul>
+<h3 id="标号"><a href="#标号" class="headerlink" title="标号"></a>标号</h3><ul>
 <li>一个标号指代了一个地址</li>
 <li>codesg:放在segment前，作为一个段名称，最终编译连接处理后为 <strong>一个段的段地址</strong>；</li>
 </ul>
-<h3 id="程序的基本结构-1">程序的基本结构</h3>
-<ul>
+<h3 id="程序的基本结构-1"><a href="#程序的基本结构-1" class="headerlink" title="程序的基本结构"></a>程序的基本结构</h3><ul>
 <li>定义一个段</li>
 <li>实现处理任务</li>
 <li>程序结束</li>
@@ -466,78 +460,72 @@
 </ul>
 <p>eg:</p>
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">assume</span> cs:abc</span><br><span class="line"></span><br><span class="line"><span class="symbol">abc</span> segment</span><br><span class="line"></span><br><span class="line"><span class="keyword">mov </span>ax,<span class="number">2</span></span><br><span class="line"><span class="keyword">add </span>ax,ax</span><br><span class="line"><span class="keyword">add </span>ax,ax</span><br><span class="line"></span><br><span class="line"><span class="symbol">abc</span> ends</span><br><span class="line"></span><br><span class="line"><span class="symbol">end</span></span><br></pre></td></tr></table></figure>
-<h3 id="程序返回">程序返回</h3>
-<p>在程序的末尾添加 <strong>返回的程序段</strong></p>
+<h3 id="程序返回"><a href="#程序返回" class="headerlink" title="程序返回"></a>程序返回</h3><p>在程序的末尾添加 <strong>返回的程序段</strong></p>
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">mov </span>ax,<span class="number">4</span>c00H</span><br><span class="line"><span class="symbol">int</span> <span class="number">21</span>H</span><br></pre></td></tr></table></figure>
-<h3 id="与结束相关的概念">与结束相关的概念</h3>
+<h3 id="与结束相关的概念"><a href="#与结束相关的概念" class="headerlink" title="与结束相关的概念"></a>与结束相关的概念</h3><div class="table-container">
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>目的</th>
 <th>相关指令</th>
-<th style="text-align: center;">指令性质</th>
+<th style="text-align:center">指令性质</th>
 <th>指令执行者</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>通知编译器一个段结束</td>
 <td>段名 ends</td>
-<td style="text-align: center;">伪指令</td>
+<td style="text-align:center">伪指令</td>
 <td>编译时，由编译器执行</td>
 </tr>
-<tr class="even">
+<tr>
 <td>通知编译器程序结束</td>
 <td>end</td>
-<td style="text-align: center;">伪指令</td>
+<td style="text-align:center">伪指令</td>
 <td>编译时，由编译器执行</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>程序返回</td>
 <td>mov ax,4c00H int 21H</td>
-<td style="text-align: center;">汇编指令</td>
+<td style="text-align:center">汇编指令</td>
 <td>执行时，由CPU执行</td>
 </tr>
 </tbody>
 </table>
-<h2 id="程序的运行">程序的运行</h2>
-<ul>
+</div>
+<h2 id="程序的运行"><a href="#程序的运行" class="headerlink" title="程序的运行"></a>程序的运行</h2><ul>
 <li>在dos中直接执行1.exe时，正在运行的command将1.exe中的程序加载如内存；</li>
 <li>command设置CPU的CS:IP指向程序的第一条指令（及程序的入口），从而使程序得以运行；</li>
 <li>程序运行结束后，返回到command中，CPU继续运行command；</li>
 </ul>
-<h2 id="程序的执行和过程的跟踪">程序的执行和过程的跟踪</h2>
-<ul>
+<h2 id="程序的执行和过程的跟踪"><a href="#程序的执行和过程的跟踪" class="headerlink" title="程序的执行和过程的跟踪"></a>程序的执行和过程的跟踪</h2><ul>
 <li>可以用Debug来跟踪一个程序的运行过程；</li>
 <li>Debug不放弃对CPU的控制；</li>
-<li><p>R命令查看个寄存器的设置情况，cx保存程序的长度；</p></li>
-<li>程序加载后，ds保存着程序所在的内存区的段地址，之后256个字节为PSP，为程序和dos进行通讯，之后的空间存放程序，也就是说，程序的地址为SA+10H:0；</li>
+<li><p>R命令查看个寄存器的设置情况，cx保存程序的长度；</p>
+</li>
+<li><p>程序加载后，ds保存着程序所在的内存区的段地址，之后256个字节为PSP，为程序和dos进行通讯，之后的空间存放程序，也就是说，程序的地址为SA+10H:0；</p>
+</li>
 <li>要使用P命令执行int 21H；</li>
 <li>加载的顺序为：command加载debug加载1.exe；</li>
-<li><p>返回的顺序为：1.exe返回到debug返回到command；</p></li>
+<li>返回的顺序为：1.exe返回到debug返回到command；</li>
 </ul>
-<h1 id="第五章-bx和loop指令">第五章 [bx]和loop指令</h1>
-<h2 id="bx和内存的单元的描述">[bx]和内存的单元的描述</h2>
-<ul>
+<h1 id="第五章-bx-和loop指令"><a href="#第五章-bx-和loop指令" class="headerlink" title="第五章 [bx]和loop指令"></a>第五章 [bx]和loop指令</h1><h2 id="bx-和内存的单元的描述"><a href="#bx-和内存的单元的描述" class="headerlink" title="[bx]和内存的单元的描述"></a>[bx]和内存的单元的描述</h2><ul>
 <li>[bx]表示一个内存单元，它的偏移地址在bx中；</li>
 <li>要完整的描述一个内存单元，需要两种信息：内存单元的地址、内存单元的长度（类型）；</li>
 <li><code>mov ax,[bx]</code>相当于<code>(ax)=(ds*16 + (bx))</code>这里的(ax)表示ax中的内容；</li>
 </ul>
-<h2 id="loop指令">loop指令</h2>
-<ul>
+<h2 id="loop指令"><a href="#loop指令" class="headerlink" title="loop指令"></a>loop指令</h2><ul>
 <li>指令格式：<code>loop 标号</code>；</li>
 <li>CPU执行loop指令时，进行两步操作：1、<code>(cx)=(cx)-1</code>，2、判断cx中的值，不为零则转至标号出执行程序，为零则向下执行，即cx为循环的次数；</li>
 </ul>
-<h2 id="段前缀">段前缀</h2>
-<p>显式的指明内存单元的段地址的：ds: , cs: , ss: , es:，在汇编中称为段前缀；</p>
-<h2 id="指令的不同处理">指令的不同处理</h2>
-<ul>
+<h2 id="段前缀"><a href="#段前缀" class="headerlink" title="段前缀"></a>段前缀</h2><p>显式的指明内存单元的段地址的：ds: , cs: , ss: , es:，在汇编中称为段前缀；</p>
+<h2 id="指令的不同处理"><a href="#指令的不同处理" class="headerlink" title="指令的不同处理"></a>指令的不同处理</h2><ul>
 <li>debug中<code>mov al,[0]</code>指的就是将ds:[0]处的数据送到al中；</li>
 <li>编译器中则解释为将al赋值为0；</li>
 <li>只有<code>mov al,[bx]</code>这样的才能解释为将ds:[bx]处的数据送到al里；</li>
 </ul>
-<h2 id="一段安全的空间">一段安全的空间</h2>
-<ul>
+<h2 id="一段安全的空间"><a href="#一段安全的空间" class="headerlink" title="一段安全的空间"></a>一段安全的空间</h2><ul>
 <li>一般情况下，dos和其他合法程序都不会使用0:200H~0:2FFH 256个字节的空间；</li>
 </ul>
 <p>(end)</p>
@@ -692,7 +680,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">77</span>
+                  <span class="site-state-item-count">79</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -703,7 +691,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -714,7 +702,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -794,7 +782,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第四章-第一个程序"><span class="nav-number">1.</span> <span class="nav-text">第四章 第一个程序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#程序执行的基本过程"><span class="nav-number">1.1.</span> <span class="nav-text">程序执行的基本过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序的基本结构"><span class="nav-number">1.2.</span> <span class="nav-text">程序的基本结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#伪指令"><span class="nav-number">1.2.1.</span> <span class="nav-text">伪指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标号"><span class="nav-number">1.2.2.</span> <span class="nav-text">标号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序的基本结构-1"><span class="nav-number">1.2.3.</span> <span class="nav-text">程序的基本结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序返回"><span class="nav-number">1.2.4.</span> <span class="nav-text">程序返回</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#与结束相关的概念"><span class="nav-number">1.2.5.</span> <span class="nav-text">与结束相关的概念</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序的运行"><span class="nav-number">1.3.</span> <span class="nav-text">程序的运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序的执行和过程的跟踪"><span class="nav-number">1.4.</span> <span class="nav-text">程序的执行和过程的跟踪</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第五章-bx和loop指令"><span class="nav-number">2.</span> <span class="nav-text">第五章 [bx]和loop指令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bx和内存的单元的描述"><span class="nav-number">2.1.</span> <span class="nav-text">[bx]和内存的单元的描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#loop指令"><span class="nav-number">2.2.</span> <span class="nav-text">loop指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#段前缀"><span class="nav-number">2.3.</span> <span class="nav-text">段前缀</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指令的不同处理"><span class="nav-number">2.4.</span> <span class="nav-text">指令的不同处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一段安全的空间"><span class="nav-number">2.5.</span> <span class="nav-text">一段安全的空间</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第四章-第一个程序"><span class="nav-number">1.</span> <span class="nav-text">第四章 第一个程序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#程序执行的基本过程"><span class="nav-number">1.1.</span> <span class="nav-text">程序执行的基本过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序的基本结构"><span class="nav-number">1.2.</span> <span class="nav-text">程序的基本结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#伪指令"><span class="nav-number">1.2.1.</span> <span class="nav-text">伪指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标号"><span class="nav-number">1.2.2.</span> <span class="nav-text">标号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序的基本结构-1"><span class="nav-number">1.2.3.</span> <span class="nav-text">程序的基本结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序返回"><span class="nav-number">1.2.4.</span> <span class="nav-text">程序返回</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#与结束相关的概念"><span class="nav-number">1.2.5.</span> <span class="nav-text">与结束相关的概念</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序的运行"><span class="nav-number">1.3.</span> <span class="nav-text">程序的运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序的执行和过程的跟踪"><span class="nav-number">1.4.</span> <span class="nav-text">程序的执行和过程的跟踪</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第五章-bx-和loop指令"><span class="nav-number">2.</span> <span class="nav-text">第五章 [bx]和loop指令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bx-和内存的单元的描述"><span class="nav-number">2.1.</span> <span class="nav-text">[bx]和内存的单元的描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#loop指令"><span class="nav-number">2.2.</span> <span class="nav-text">loop指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#段前缀"><span class="nav-number">2.3.</span> <span class="nav-text">段前缀</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指令的不同处理"><span class="nav-number">2.4.</span> <span class="nav-text">指令的不同处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一段安全的空间"><span class="nav-number">2.5.</span> <span class="nav-text">一段安全的空间</span></a></li></ol></li></ol></div>
             
 
           </div>

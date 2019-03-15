@@ -98,18 +98,18 @@
 
 
 
-<meta name="description" content="数据处理的两个基本问题 两个描述性符号  寄存器reg:包括ax,bx,cx,dx,sp,bp,si,di 段寄存器sreg:包括ds,ss,cs,es">
+<meta name="description" content="数据处理的两个基本问题两个描述性符号 寄存器reg:包括ax,bx,cx,dx,sp,bp,si,di 段寄存器sreg:包括ds,ss,cs,es">
 <meta name="keywords" content="笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="汇编笔记_第八章">
 <meta property="og:url" content="http://www.31415x.cf/2018/12/27/汇编笔记-第八章/index.html">
 <meta property="og:site_name" content="31415926535x">
-<meta property="og:description" content="数据处理的两个基本问题 两个描述性符号  寄存器reg:包括ax,bx,cx,dx,sp,bp,si,di 段寄存器sreg:包括ds,ss,cs,es">
+<meta property="og:description" content="数据处理的两个基本问题两个描述性符号 寄存器reg:包括ax,bx,cx,dx,sp,bp,si,di 段寄存器sreg:包括ds,ss,cs,es">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-12-27T13:27:44.836Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="汇编笔记_第八章">
-<meta name="twitter:description" content="数据处理的两个基本问题 两个描述性符号  寄存器reg:包括ax,bx,cx,dx,sp,bp,si,di 段寄存器sreg:包括ds,ss,cs,es">
+<meta name="twitter:description" content="数据处理的两个基本问题两个描述性符号 寄存器reg:包括ax,bx,cx,dx,sp,bp,si,di 段寄存器sreg:包括ds,ss,cs,es">
 
 
 
@@ -436,107 +436,93 @@
       
 
       
-        <h1 id="数据处理的两个基本问题">数据处理的两个基本问题</h1>
-<h2 id="两个描述性符号">两个描述性符号</h2>
-<ul>
+        <h1 id="数据处理的两个基本问题"><a href="#数据处理的两个基本问题" class="headerlink" title="数据处理的两个基本问题"></a>数据处理的两个基本问题</h1><h2 id="两个描述性符号"><a href="#两个描述性符号" class="headerlink" title="两个描述性符号"></a>两个描述性符号</h2><ul>
 <li>寄存器reg:包括ax,bx,cx,dx,sp,bp,si,di</li>
 <li>段寄存器sreg:包括ds,ss,cs,es</li>
 </ul>
 <a id="more"></a>
-<h2 id="bxsidibp">bx,si,di,bp</h2>
-<ul>
+<h2 id="bx-si-di-bp"><a href="#bx-si-di-bp" class="headerlink" title="bx,si,di,bp"></a>bx,si,di,bp</h2><ul>
 <li>8086CPU中只有这四个寄存器可以用<code>[...]</code>来寻址，像<code>mov ax,[cx]</code>就是错误的；</li>
 <li>在<code>[...]</code>中，这四个寄存器可以的那个出现，或 <strong>只能以四种组合出现：bx和si、bx和di、bp和si 以及 bp和di</strong>，<code>mov ax,[bx+bp]</code>是错误的；</li>
 <li>只要在<code>[...]</code>中使用寄存器 <strong>bp</strong>,而指令中没有显示的给出段地址，段地址就默认在 <strong>ss</strong>中，比如：<code>mov ax,[bp+si+idata]</code>的含义是：<code>(ax)=((ss)*16+(bp)+(si)+idata)</code>；</li>
 </ul>
-<h2 id="机器指令处理的数据所在的位置">机器指令处理的数据所在的位置</h2>
-<ul>
+<h2 id="机器指令处理的数据所在的位置"><a href="#机器指令处理的数据所在的位置" class="headerlink" title="机器指令处理的数据所在的位置"></a>机器指令处理的数据所在的位置</h2><ul>
 <li>数据的处理可分为三类：读取、写入、运算</li>
 <li>机器指令并不关心数据的值，而关心数据所在的位置：cpu内部、内存、端口；</li>
 </ul>
-<h2 id="汇编语言中数据位置的表达">汇编语言中数据位置的表达</h2>
-<p>汇编语言中用三种概念来表达数据的位置：<strong>立即数(idata)</strong>、<strong>寄存器</strong>、<strong>段地址(SA)和偏移地址(EA)</strong>；</p>
-<h2 id="寻址方式">寻址方式</h2>
+<h2 id="汇编语言中数据位置的表达"><a href="#汇编语言中数据位置的表达" class="headerlink" title="汇编语言中数据位置的表达"></a>汇编语言中数据位置的表达</h2><p>汇编语言中用三种概念来表达数据的位置：<strong>立即数(idata)</strong>、<strong>寄存器</strong>、<strong>段地址(SA)和偏移地址(EA)</strong>；</p>
+<h2 id="寻址方式"><a href="#寻址方式" class="headerlink" title="寻址方式"></a>寻址方式</h2><div class="table-container">
 <table>
-<colgroup>
-<col style="width: 26%">
-<col style="width: 26%">
-<col style="width: 19%">
-<col style="width: 26%">
-</colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>寻址方式</th>
-<th style="text-align: center;">含义</th>
+<th style="text-align:center">含义</th>
 <th>名称</th>
 <th>常用格式举例</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>[idata]</td>
-<td style="text-align: center;">SA=(ds);EA=idata</td>
+<td style="text-align:center">SA=(ds);EA=idata</td>
 <td>直接寻址</td>
 <td>[idata]</td>
 </tr>
-<tr class="even">
+<tr>
 <td>[bx] <br> [si] <br> [di] <br> [bp]</td>
-<td style="text-align: center;">SA=(ds);EA=(bx) <br> SA=(ds);EA=(si) <br> SA=(ds);EA=(di) <br> SA=(ss);EA=(bp)</td>
+<td style="text-align:center">SA=(ds);EA=(bx) <br> SA=(ds);EA=(si) <br> SA=(ds);EA=(di) <br> SA=(ss);EA=(bp)</td>
 <td>寄存器间接寻址</td>
 <td>[bx]</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>[bx+idata] <br> [si+idata] <br> [di+idata] <br> [bp+idata]</td>
-<td style="text-align: center;">SA=(ds);EA=(bx)+idata <br> SA=(ds);EA=(si)+idata <br> SA=(ds);EA=(di)+idata <br> SA=(ss);EA=(bp)+idata</td>
+<td style="text-align:center">SA=(ds);EA=(bx)+idata <br> SA=(ds);EA=(si)+idata <br> SA=(ds);EA=(di)+idata <br> SA=(ss);EA=(bp)+idata</td>
 <td>寄存器相对寻址</td>
 <td>用于结构体：[bx].idata; <br> 用于数组：idata[si],idata[di]; <br> 用于二维数组：[bx][idata]</td>
 </tr>
-<tr class="even">
+<tr>
 <td>[bx+si] <br> [bx+di] <br> [bp+si] <br> [bp+di]</td>
-<td style="text-align: center;">SA=(ds);EA=(bx)+(si) <br> SA=(ds);EA=(bx)+(di) <br> SA=(ss);EA=(bp)+(si) <br> SA=(ss);EA=(bp)+(di)</td>
+<td style="text-align:center">SA=(ds);EA=(bx)+(si) <br> SA=(ds);EA=(bx)+(di) <br> SA=(ss);EA=(bp)+(si) <br> SA=(ss);EA=(bp)+(di)</td>
 <td>基址变址寻址</td>
 <td>用于二维数组：[bx][si]</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>[bx+si+idata] <br> [bx+di+idata] <br> [bp+si+idata] <br> [bp+di+idata]</td>
-<td style="text-align: center;">SA=(ds);EA=(bx)+(si)+idata <br> SA=(ds);EA=(bx)+(di)+idata <br> SA=(ss);EA=(bp)+(si)+idata <br> SA=(ss);EA=(bp)+(di)+idata</td>
+<td style="text-align:center">SA=(ds);EA=(bx)+(si)+idata <br> SA=(ds);EA=(bx)+(di)+idata <br> SA=(ss);EA=(bp)+(si)+idata <br> SA=(ss);EA=(bp)+(di)+idata</td>
 <td>相对基址变址寻址</td>
 <td>用于表格（结构）中的数据项：[bx].idata[si] <br> 用于二位数组：idata[bx][si]</td>
 </tr>
 </tbody>
 </table>
-<h2 id="指令处理的数据的长度">指令处理的数据的长度</h2>
-<ul>
+</div>
+<h2 id="指令处理的数据的长度"><a href="#指令处理的数据的长度" class="headerlink" title="指令处理的数据的长度"></a>指令处理的数据的长度</h2><ul>
 <li>8086CPU的指令，可以处理两种长度的数据：<strong>byte</strong>、<strong>word</strong>；</li>
 </ul>
-<h3 id="指明方式">指明方式</h3>
-<h4 id="寄存器指明">寄存器指明</h4>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">mov </span>al,ds:[<span class="number">0</span>]   //按字节操作</span><br><span class="line"><span class="keyword">mov </span>ax,ds:[<span class="number">0</span>]   //按字操作</span><br></pre></td></tr></table></figure>
-<h4 id="用操作符-x-ptr-指明xwordbyte">用操作符 <strong>X ptr</strong> 指明（X=word/byte）</h4>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">add </span>word ptr [<span class="keyword">bx],2 </span>    //按字操作</span><br><span class="line"><span class="keyword">mov </span><span class="keyword">byte </span>ptr ds:[<span class="number">0</span>],<span class="number">1</span>   //按字节操作</span><br></pre></td></tr></table></figure>
-<h4 id="其他方式">其他方式</h4>
-<p>有些指令默认是访问字单元还是字节单元，例如：push 指令只进行字操作；</p>
-<h2 id="寻址方式的综合应用">寻址方式的综合应用</h2>
-<p>一般来说，可以用 <code>[bx+idata+si]</code>的方式来访问结构体中的数据；</p>
+<h3 id="指明方式"><a href="#指明方式" class="headerlink" title="指明方式"></a>指明方式</h3><h4 id="寄存器指明"><a href="#寄存器指明" class="headerlink" title="寄存器指明"></a>寄存器指明</h4><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">mov </span>al,ds:[<span class="number">0</span>]   //按字节操作</span><br><span class="line"><span class="keyword">mov </span>ax,ds:[<span class="number">0</span>]   //按字操作</span><br></pre></td></tr></table></figure>
+<h4 id="用操作符-X-ptr-指明（X-word-byte）"><a href="#用操作符-X-ptr-指明（X-word-byte）" class="headerlink" title="用操作符 X ptr 指明（X=word/byte）"></a>用操作符 <strong>X ptr</strong> 指明（X=word/byte）</h4><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">add </span>word ptr [<span class="keyword">bx],2 </span>    //按字操作</span><br><span class="line"><span class="keyword">mov </span><span class="keyword">byte </span>ptr ds:[<span class="number">0</span>],<span class="number">1</span>   //按字节操作</span><br></pre></td></tr></table></figure>
+<h4 id="其他方式"><a href="#其他方式" class="headerlink" title="其他方式"></a>其他方式</h4><p>有些指令默认是访问字单元还是字节单元，例如：push 指令只进行字操作；</p>
+<h2 id="寻址方式的综合应用"><a href="#寻址方式的综合应用" class="headerlink" title="寻址方式的综合应用"></a>寻址方式的综合应用</h2><p>一般来说，可以用 <code>[bx+idata+si]</code>的方式来访问结构体中的数据；</p>
 <ul>
 <li>用bx定位整个结构体，用idata定位结构体中的某一个数据项，用si定位数组项中的每一个元素；</li>
-<li><p>汇编的写法：<code>[bx].idata , [bx].idata[si]</code>；</p></li>
-<li><p>例如c中: <code>dec.cp[i]</code>，dec指明了结构体变量的的地址；cp指明了数据项cp的地址；i用来定位cp中的每一个字符；汇编语言：<code>bx.10h[si]</code>；</p></li>
+<li><p>汇编的写法：<code>[bx].idata , [bx].idata[si]</code>；</p>
+</li>
+<li><p>例如c中: <code>dec.cp[i]</code>，dec指明了结构体变量的的地址；cp指明了数据项cp的地址；i用来定位cp中的每一个字符；汇编语言：<code>bx.10h[si]</code>；</p>
+</li>
 </ul>
-<h2 id="div指令">div指令</h2>
-<ul>
+<h2 id="div指令"><a href="#div指令" class="headerlink" title="div指令"></a>div指令</h2><ul>
 <li>div 是出除法指令；</li>
 <li>除数：在寄存器或内存单元中；</li>
 <li>被除数：（默认）放在AX或DX和AX中；</li>
 <li>结果：8位的商在AL中，余数在AH中；16位的商在AX中，余数在DX中</li>
-<li><p>div指令格式：<code>div reg</code>或<code>div 内存单元</code>；</p></li>
-<li><p><code>div byte ptr ds:[0]</code> <br> 含义： <br> <code>(al)=(ax)/((ds)*16+0)的商</code> <br> <code>(al)=(ax)/((ds)*16+0)的余数</code></p></li>
-<li><p><code>div word ptr es:[0]</code> <br> 含义：<br> <code>(ax)=[(dx)*10000H+(ax)]/((es)*16+0)的商</code> <br> <code>(dx)=[(dx)*10000H+(ax)]/((es)*16+0)的余数</code></p></li>
+<li><p>div指令格式：<code>div reg</code>或<code>div 内存单元</code>；</p>
+</li>
+<li><p><code>div byte ptr ds:[0]</code> <br> 含义： <br> <code>(al)=(ax)/((ds)*16+0)的商</code> <br> <code>(al)=(ax)/((ds)*16+0)的余数</code></p>
+</li>
+<li><p><code>div word ptr es:[0]</code> <br> 含义：<br> <code>(ax)=[(dx)*10000H+(ax)]/((es)*16+0)的商</code> <br> <code>(dx)=[(dx)*10000H+(ax)]/((es)*16+0)的余数</code></p>
+</li>
 </ul>
-<h2 id="伪指令dd">伪指令dd</h2>
-<p>dd是用来定义 <strong>dword(double word双字)</strong> 型数据的；</p>
-<h2 id="dup">dup</h2>
-<ul>
+<h2 id="伪指令dd"><a href="#伪指令dd" class="headerlink" title="伪指令dd"></a>伪指令dd</h2><p>dd是用来定义 <strong>dword(double word双字)</strong> 型数据的；</p>
+<h2 id="dup"><a href="#dup" class="headerlink" title="dup"></a>dup</h2><ul>
 <li>dup是一个操作符，同db,dw,dd一样由编译器识别处理；</li>
 <li>和db,dw,dd等伪指令配合使用，用来 <strong>数据的重复</strong>；</li>
 </ul>
@@ -693,7 +679,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">77</span>
+                  <span class="site-state-item-count">79</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -704,7 +690,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -715,7 +701,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -795,7 +781,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据处理的两个基本问题"><span class="nav-number">1.</span> <span class="nav-text">数据处理的两个基本问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#两个描述性符号"><span class="nav-number">1.1.</span> <span class="nav-text">两个描述性符号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bxsidibp"><span class="nav-number">1.2.</span> <span class="nav-text">bx,si,di,bp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#机器指令处理的数据所在的位置"><span class="nav-number">1.3.</span> <span class="nav-text">机器指令处理的数据所在的位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#汇编语言中数据位置的表达"><span class="nav-number">1.4.</span> <span class="nav-text">汇编语言中数据位置的表达</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#寻址方式"><span class="nav-number">1.5.</span> <span class="nav-text">寻址方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指令处理的数据的长度"><span class="nav-number">1.6.</span> <span class="nav-text">指令处理的数据的长度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#指明方式"><span class="nav-number">1.6.1.</span> <span class="nav-text">指明方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#寄存器指明"><span class="nav-number">1.6.1.1.</span> <span class="nav-text">寄存器指明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用操作符-x-ptr-指明xwordbyte"><span class="nav-number">1.6.1.2.</span> <span class="nav-text">用操作符 X ptr 指明（X=word/byte）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他方式"><span class="nav-number">1.6.1.3.</span> <span class="nav-text">其他方式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#寻址方式的综合应用"><span class="nav-number">1.7.</span> <span class="nav-text">寻址方式的综合应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#div指令"><span class="nav-number">1.8.</span> <span class="nav-text">div指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#伪指令dd"><span class="nav-number">1.9.</span> <span class="nav-text">伪指令dd</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dup"><span class="nav-number">1.10.</span> <span class="nav-text">dup</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据处理的两个基本问题"><span class="nav-number">1.</span> <span class="nav-text">数据处理的两个基本问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#两个描述性符号"><span class="nav-number">1.1.</span> <span class="nav-text">两个描述性符号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bx-si-di-bp"><span class="nav-number">1.2.</span> <span class="nav-text">bx,si,di,bp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#机器指令处理的数据所在的位置"><span class="nav-number">1.3.</span> <span class="nav-text">机器指令处理的数据所在的位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#汇编语言中数据位置的表达"><span class="nav-number">1.4.</span> <span class="nav-text">汇编语言中数据位置的表达</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#寻址方式"><span class="nav-number">1.5.</span> <span class="nav-text">寻址方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指令处理的数据的长度"><span class="nav-number">1.6.</span> <span class="nav-text">指令处理的数据的长度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#指明方式"><span class="nav-number">1.6.1.</span> <span class="nav-text">指明方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#寄存器指明"><span class="nav-number">1.6.1.1.</span> <span class="nav-text">寄存器指明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用操作符-X-ptr-指明（X-word-byte）"><span class="nav-number">1.6.1.2.</span> <span class="nav-text">用操作符 X ptr 指明（X=word/byte）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他方式"><span class="nav-number">1.6.1.3.</span> <span class="nav-text">其他方式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#寻址方式的综合应用"><span class="nav-number">1.7.</span> <span class="nav-text">寻址方式的综合应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#div指令"><span class="nav-number">1.8.</span> <span class="nav-text">div指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#伪指令dd"><span class="nav-number">1.9.</span> <span class="nav-text">伪指令dd</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dup"><span class="nav-number">1.10.</span> <span class="nav-text">dup</span></a></li></ol></li></ol></div>
             
 
           </div>

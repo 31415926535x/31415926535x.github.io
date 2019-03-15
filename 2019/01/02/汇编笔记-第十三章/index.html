@@ -98,18 +98,18 @@
 
 
 
-<meta name="description" content="中断程序设计 int 指令 int n：n为中断类型码，功能是引发中断过程">
+<meta name="description" content="中断程序设计int 指令int n：n为中断类型码，功能是引发中断过程">
 <meta name="keywords" content="笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="汇编笔记_第十三章">
 <meta property="og:url" content="http://www.31415x.cf/2019/01/02/汇编笔记-第十三章/index.html">
 <meta property="og:site_name" content="31415926535x">
-<meta property="og:description" content="中断程序设计 int 指令 int n：n为中断类型码，功能是引发中断过程">
+<meta property="og:description" content="中断程序设计int 指令int n：n为中断类型码，功能是引发中断过程">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-01-02T09:37:49.967Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="汇编笔记_第十三章">
-<meta name="twitter:description" content="中断程序设计 int 指令 int n：n为中断类型码，功能是引发中断过程">
+<meta name="twitter:description" content="中断程序设计int 指令int n：n为中断类型码，功能是引发中断过程">
 
 
 
@@ -436,14 +436,10 @@
       
 
       
-        <h1 id="中断程序设计">中断程序设计</h1>
-<h2 id="int-指令">int 指令</h2>
-<p><code>int n</code>：n为中断类型码，功能是引发中断过程</p>
+        <h1 id="中断程序设计"><a href="#中断程序设计" class="headerlink" title="中断程序设计"></a>中断程序设计</h1><h2 id="int-指令"><a href="#int-指令" class="headerlink" title="int 指令"></a>int 指令</h2><p><code>int n</code>：n为中断类型码，功能是引发中断过程</p>
 <a id="more"></a>
-<h2 id="定制自己的中断">定制自己的中断</h2>
-<p>eg：将data段中的字符转化为大写 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">assume</span> cs:<span class="meta">code</span></span><br><span class="line"><span class="symbol">data</span> segment </span><br><span class="line">    db <span class="string">'coversation'</span>,<span class="number">0</span></span><br><span class="line"><span class="symbol">data</span> ends</span><br><span class="line"></span><br><span class="line"><span class="symbol">code</span> segment</span><br><span class="line"><span class="symbol">start</span>:</span><br><span class="line">    <span class="keyword">mov </span>ax,<span class="meta">data</span></span><br><span class="line">    <span class="keyword">mov </span>ds,ax</span><br><span class="line">    <span class="keyword">mov </span>si,<span class="number">0</span></span><br><span class="line"></span><br><span class="line">    int <span class="number">7</span>ch</span><br><span class="line"></span><br><span class="line">    <span class="keyword">mov </span>ax,<span class="number">4</span>c00h</span><br><span class="line">    int <span class="number">21</span>h</span><br><span class="line"></span><br><span class="line"><span class="symbol">code</span> ends</span><br><span class="line"><span class="symbol">end</span> start</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="symbol">capital</span>:</span><br><span class="line">    <span class="keyword">push </span>cx</span><br><span class="line">    <span class="keyword">push </span>si</span><br><span class="line"><span class="symbol">change</span>:</span><br><span class="line">    <span class="keyword">mov </span>cl,[si]</span><br><span class="line">    <span class="keyword">mov </span>ch,<span class="number">0</span></span><br><span class="line">    jcxz ok</span><br><span class="line">    <span class="keyword">and </span><span class="keyword">byte </span>ptr [si],<span class="number">0</span>DFH</span><br><span class="line">    inc si</span><br><span class="line">    jmp short change</span><br><span class="line"></span><br><span class="line"><span class="symbol">ok</span>:</span><br><span class="line">    <span class="keyword">pop </span>si</span><br><span class="line">    <span class="keyword">pop </span>cx</span><br><span class="line">    iret</span><br><span class="line"></span><br><span class="line"><span class="symbol">capitalend</span>:<span class="keyword">nop</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="软件中断子程序的编写">软件中断子程序的编写</h2>
-<ul>
+<h2 id="定制自己的中断"><a href="#定制自己的中断" class="headerlink" title="定制自己的中断"></a>定制自己的中断</h2><p>eg：将data段中的字符转化为大写<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">assume</span> cs:<span class="meta">code</span></span><br><span class="line"><span class="symbol">data</span> segment </span><br><span class="line">    db <span class="string">'coversation'</span>,<span class="number">0</span></span><br><span class="line"><span class="symbol">data</span> ends</span><br><span class="line"></span><br><span class="line"><span class="symbol">code</span> segment</span><br><span class="line"><span class="symbol">start</span>:</span><br><span class="line">    <span class="keyword">mov </span>ax,<span class="meta">data</span></span><br><span class="line">    <span class="keyword">mov </span>ds,ax</span><br><span class="line">    <span class="keyword">mov </span>si,<span class="number">0</span></span><br><span class="line"></span><br><span class="line">    int <span class="number">7</span>ch</span><br><span class="line"></span><br><span class="line">    <span class="keyword">mov </span>ax,<span class="number">4</span>c00h</span><br><span class="line">    int <span class="number">21</span>h</span><br><span class="line"></span><br><span class="line"><span class="symbol">code</span> ends</span><br><span class="line"><span class="symbol">end</span> start</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="symbol">capital</span>:</span><br><span class="line">    <span class="keyword">push </span>cx</span><br><span class="line">    <span class="keyword">push </span>si</span><br><span class="line"><span class="symbol">change</span>:</span><br><span class="line">    <span class="keyword">mov </span>cl,[si]</span><br><span class="line">    <span class="keyword">mov </span>ch,<span class="number">0</span></span><br><span class="line">    jcxz ok</span><br><span class="line">    <span class="keyword">and </span><span class="keyword">byte </span>ptr [si],<span class="number">0</span>DFH</span><br><span class="line">    inc si</span><br><span class="line">    jmp short change</span><br><span class="line"></span><br><span class="line"><span class="symbol">ok</span>:</span><br><span class="line">    <span class="keyword">pop </span>si</span><br><span class="line">    <span class="keyword">pop </span>cx</span><br><span class="line">    iret</span><br><span class="line"></span><br><span class="line"><span class="symbol">capitalend</span>:<span class="keyword">nop</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="软件中断子程序的编写"><a href="#软件中断子程序的编写" class="headerlink" title="软件中断子程序的编写"></a>软件中断子程序的编写</h2><ul>
 <li>保存现场</li>
 <li>STI开中断指令；如允许中断嵌套，则开中断</li>
 <li>处理中断</li>
@@ -451,51 +447,47 @@
 <li>恢复现场</li>
 <li>IRET指令，返回被中断的程序</li>
 </ul>
-<h2 id="对intiret和栈的深入理解">对int,iret和栈的深入理解</h2>
-<p>用7ch中断完成loop指令的功能</p>
-<p>bx：保存位移（负的） cx: 保存循环次数</p>
+<h2 id="对int-iret和栈的深入理解"><a href="#对int-iret和栈的深入理解" class="headerlink" title="对int,iret和栈的深入理解"></a>对int,iret和栈的深入理解</h2><p>用7ch中断完成loop指令的功能</p>
+<p>bx：保存位移（负的）<br>cx: 保存循环次数</p>
 <p>所以7ch的功能有：</p>
 <ul>
 <li>dec cx</li>
 <li>判断(cx)，不为零循环，为零向下执行</li>
 </ul>
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">assume</span> cs:<span class="meta">code</span></span><br><span class="line"><span class="symbol">code</span> segment</span><br><span class="line"><span class="symbol">start</span>:</span><br><span class="line">    <span class="keyword">mov </span>ax,<span class="number">0</span>b800h</span><br><span class="line">    <span class="keyword">mov </span>es,ax</span><br><span class="line">    <span class="keyword">mov </span>di,<span class="number">160</span>*<span class="number">12</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">mov </span><span class="keyword">bx,offset </span>s-offset se</span><br><span class="line">    <span class="keyword">mov </span>cx,<span class="number">80</span></span><br><span class="line"></span><br><span class="line">  s:</span><br><span class="line">    <span class="keyword">mov </span><span class="keyword">byte </span>ptr es:[di],<span class="string">'!'</span></span><br><span class="line">    <span class="keyword">add </span>di,<span class="number">2</span></span><br><span class="line">    int <span class="number">7</span>ch</span><br><span class="line"><span class="symbol">  se:</span><span class="keyword">nop</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword"> </span> <span class="keyword">mov </span>ax,<span class="number">4</span>c00h</span><br><span class="line">  int <span class="number">21</span>h</span><br><span class="line"></span><br><span class="line"><span class="symbol">code</span> ends</span><br><span class="line"><span class="symbol">end</span> start</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">;int 7ch:</span></span><br><span class="line"><span class="comment">;直接修改IP的值到s处实现循环</span></span><br><span class="line"><span class="comment">;访问栈需要使用bp</span></span><br><span class="line"></span><br><span class="line"><span class="symbol">lp</span>:</span><br><span class="line">    <span class="keyword">push </span><span class="keyword">bp</span></span><br><span class="line"><span class="keyword"> </span>   <span class="keyword">mov </span><span class="keyword">bp,sp</span></span><br><span class="line"><span class="keyword"> </span>   dec cx</span><br><span class="line">    jcxz lpret</span><br><span class="line">    <span class="keyword">add </span>[<span class="keyword">bp+2],bx </span>  <span class="comment">;[bp+2]即为IP</span></span><br><span class="line"><span class="symbol">lpret</span>:</span><br><span class="line">    <span class="keyword">pop </span><span class="keyword">bp</span></span><br><span class="line"><span class="keyword"> </span>   iret</span><br></pre></td></tr></table></figure>
-<h2 id="bios和dos中断例程">BIOS和DOS中断例程</h2>
-<p>rom中存放着BIOS（基本输入输出系统）：</p>
+<h2 id="BIOS和DOS中断例程"><a href="#BIOS和DOS中断例程" class="headerlink" title="BIOS和DOS中断例程"></a>BIOS和DOS中断例程</h2><p>rom中存放着BIOS（基本输入输出系统）：</p>
 <ul>
 <li>硬件系统的检测和初始化程序</li>
 <li>外部中断和内部中断例程</li>
 <li>用于对硬件设备进行IO操作的中断例程</li>
 <li>其他和硬件系统相关的中断例程</li>
 </ul>
-<h2 id="bios和dos中断例程的安装过程">BIOS和DOS中断例程的安装过程</h2>
-<ul>
+<h2 id="BIOS和DOS中断例程的安装过程"><a href="#BIOS和DOS中断例程的安装过程" class="headerlink" title="BIOS和DOS中断例程的安装过程"></a>BIOS和DOS中断例程的安装过程</h2><ul>
 <li>CPU开机加电后，初始化(CS)=0FFFFH,(IP)=0，自动从FFFF:0单元开始执行程序（该单元处为一条跳转指令，CPU会转去执行BIOS中的硬件系统检测和初始化程序）</li>
 <li>初始化程序将建立BIOS所支持的中断向量，将BIOS提供的中断例程的入口地址登记在中断向量表中</li>
 <li>硬件系统检测和初始化完成后，调用 <code>int 19h</code> 进行操作系统的应道，从而将计算机交由操作系统控制</li>
 <li>DOS启动后，除完成其他工作外，还将它提供的中断例程装入内存，并建立相应的中断向量</li>
 </ul>
-<h2 id="bios中断">BIOS中断</h2>
-<p>BIOS主要分为：</p>
+<h2 id="BIOS中断"><a href="#BIOS中断" class="headerlink" title="BIOS中断"></a>BIOS中断</h2><p>BIOS主要分为：</p>
 <ul>
 <li>系统硬件检测和初始化程序</li>
 <li>内中断的中断处理程序</li>
 <li>硬件中断的中断处理程序</li>
 <li>IO设备及接口控制等功能模块</li>
 </ul>
-<h2 id="屏幕及光标控制-int-10h">屏幕及光标控制 int 10h</h2>
-<h3 id="光标控制">光标控制</h3>
-<ul>
-<li><p>光标大小控制 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">ah</span><span class="number">=01</span>h</span><br><span class="line"><span class="symbol">ch</span>=光标开始行</span><br><span class="line"><span class="symbol">cl</span>=光标结束行</span><br><span class="line"><span class="symbol">int</span> <span class="number">10</span>h</span><br></pre></td></tr></table></figure></p></li>
-<li><p>设置光标位置</p></li>
+<h2 id="屏幕及光标控制-int-10h"><a href="#屏幕及光标控制-int-10h" class="headerlink" title="屏幕及光标控制 int 10h"></a>屏幕及光标控制 int 10h</h2><h3 id="光标控制"><a href="#光标控制" class="headerlink" title="光标控制"></a>光标控制</h3><ul>
+<li><p>光标大小控制</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">ah</span><span class="number">=01</span>h</span><br><span class="line"><span class="symbol">ch</span>=光标开始行</span><br><span class="line"><span class="symbol">cl</span>=光标结束行</span><br><span class="line"><span class="symbol">int</span> <span class="number">10</span>h</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置光标位置</p>
+</li>
 </ul>
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">ah</span><span class="number">=01</span>h</span><br><span class="line"><span class="symbol">dh</span>=行号</span><br><span class="line"><span class="symbol">dl</span>=列号</span><br><span class="line"><span class="keyword">bh=页号</span></span><br><span class="line"><span class="keyword">int </span><span class="number">10</span>h</span><br></pre></td></tr></table></figure>
 <ul>
 <li>读光标位置</li>
 </ul>
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">ah</span><span class="number">=03</span>h</span><br><span class="line"><span class="keyword">bh=页号</span></span><br><span class="line"><span class="keyword">int </span><span class="number">10</span>h</span><br><span class="line"></span><br><span class="line">返回值：</span><br><span class="line"><span class="symbol">dh</span>=行号</span><br><span class="line"><span class="symbol">dl</span>=列号</span><br><span class="line"><span class="symbol">cx</span>=光标大小</span><br></pre></td></tr></table></figure>
-<h3 id="卷屏清屏开窗口">卷屏、清屏、开窗口</h3>
-<ul>
+<h3 id="卷屏、清屏、开窗口"><a href="#卷屏、清屏、开窗口" class="headerlink" title="卷屏、清屏、开窗口"></a>卷屏、清屏、开窗口</h3><ul>
 <li>选择显示页</li>
 </ul>
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">ah</span><span class="number">=05</span>h</span><br><span class="line"><span class="symbol">al</span>=页号</span><br><span class="line"><span class="symbol">int</span> <span class="number">10</span>h</span><br></pre></td></tr></table></figure>
@@ -511,8 +503,7 @@
 <li>屏幕下卷</li>
 </ul>
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">ah</span><span class="number">=07</span>h</span><br></pre></td></tr></table></figure>
-<h3 id="字符读与显示">字符读与显示</h3>
-<ul>
+<h3 id="字符读与显示"><a href="#字符读与显示" class="headerlink" title="字符读与显示"></a>字符读与显示</h3><ul>
 <li>读当前光标处字符和属性</li>
 </ul>
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">ah</span><span class="number">=08</span>h</span><br><span class="line"><span class="keyword">bh=页号</span></span><br><span class="line"><span class="keyword">int </span><span class="number">10</span>h</span><br><span class="line"></span><br><span class="line">返回值：</span><br><span class="line"><span class="symbol">ah</span>=属性</span><br><span class="line"><span class="symbol">al</span>=字符</span><br></pre></td></tr></table></figure>
@@ -520,8 +511,7 @@
 <li>显示多个带属性的相同字符</li>
 </ul>
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">ah</span><span class="number">=09</span>h</span><br><span class="line"><span class="keyword">bh=页号</span></span><br><span class="line"><span class="keyword">cx=字符重复个数</span></span><br><span class="line"><span class="keyword">al=字符</span></span><br><span class="line"><span class="keyword">bl=属性</span></span><br><span class="line"><span class="keyword">int </span><span class="number">10</span>h</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">7</span>   <span class="number">6</span> <span class="number">5</span> <span class="number">4</span>  <span class="number">3</span>  <span class="number">2</span> <span class="number">1</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">bl </span> r g <span class="keyword">b </span> i  r g <span class="keyword">b</span></span><br><span class="line"><span class="keyword">闪烁 </span>背景 高亮 前景</span><br></pre></td></tr></table></figure>
-<h2 id="dos中断">DOS中断</h2>
-<p>显示功能调用</p>
+<h2 id="DOS中断"><a href="#DOS中断" class="headerlink" title="DOS中断"></a>DOS中断</h2><p>显示功能调用</p>
 <ul>
 <li>显示一个字符</li>
 </ul>
@@ -695,7 +685,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">77</span>
+                  <span class="site-state-item-count">79</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -706,7 +696,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -717,7 +707,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -797,7 +787,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#中断程序设计"><span class="nav-number">1.</span> <span class="nav-text">中断程序设计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#int-指令"><span class="nav-number">1.1.</span> <span class="nav-text">int 指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定制自己的中断"><span class="nav-number">1.2.</span> <span class="nav-text">定制自己的中断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件中断子程序的编写"><span class="nav-number">1.3.</span> <span class="nav-text">软件中断子程序的编写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对intiret和栈的深入理解"><span class="nav-number">1.4.</span> <span class="nav-text">对int,iret和栈的深入理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bios和dos中断例程"><span class="nav-number">1.5.</span> <span class="nav-text">BIOS和DOS中断例程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bios和dos中断例程的安装过程"><span class="nav-number">1.6.</span> <span class="nav-text">BIOS和DOS中断例程的安装过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bios中断"><span class="nav-number">1.7.</span> <span class="nav-text">BIOS中断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#屏幕及光标控制-int-10h"><span class="nav-number">1.8.</span> <span class="nav-text">屏幕及光标控制 int 10h</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#光标控制"><span class="nav-number">1.8.1.</span> <span class="nav-text">光标控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卷屏清屏开窗口"><span class="nav-number">1.8.2.</span> <span class="nav-text">卷屏、清屏、开窗口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符读与显示"><span class="nav-number">1.8.3.</span> <span class="nav-text">字符读与显示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dos中断"><span class="nav-number">1.9.</span> <span class="nav-text">DOS中断</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#中断程序设计"><span class="nav-number">1.</span> <span class="nav-text">中断程序设计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#int-指令"><span class="nav-number">1.1.</span> <span class="nav-text">int 指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定制自己的中断"><span class="nav-number">1.2.</span> <span class="nav-text">定制自己的中断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件中断子程序的编写"><span class="nav-number">1.3.</span> <span class="nav-text">软件中断子程序的编写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对int-iret和栈的深入理解"><span class="nav-number">1.4.</span> <span class="nav-text">对int,iret和栈的深入理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BIOS和DOS中断例程"><span class="nav-number">1.5.</span> <span class="nav-text">BIOS和DOS中断例程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BIOS和DOS中断例程的安装过程"><span class="nav-number">1.6.</span> <span class="nav-text">BIOS和DOS中断例程的安装过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BIOS中断"><span class="nav-number">1.7.</span> <span class="nav-text">BIOS中断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#屏幕及光标控制-int-10h"><span class="nav-number">1.8.</span> <span class="nav-text">屏幕及光标控制 int 10h</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#光标控制"><span class="nav-number">1.8.1.</span> <span class="nav-text">光标控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卷屏、清屏、开窗口"><span class="nav-number">1.8.2.</span> <span class="nav-text">卷屏、清屏、开窗口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符读与显示"><span class="nav-number">1.8.3.</span> <span class="nav-text">字符读与显示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOS中断"><span class="nav-number">1.9.</span> <span class="nav-text">DOS中断</span></a></li></ol></li></ol></div>
             
 
           </div>
