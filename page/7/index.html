@@ -2,43 +2,28 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-CN">
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<!--顶部进度加载条*********************-->
-<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
-<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
-<style>
-    .pace .pace-progress {
-        background: #A593E0; /*进度条颜色*/
-        height: 5px;
-    }
-    .pace .pace-progress-inner {
-         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
-    }
-    .pace .pace-activity {
-        border-top-color: #A593E0;    /*上边框颜色*/
-        border-left-color: #A593E0;    /*左边框颜色*/
-    }
-</style>
-<!--**********************-->
-<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
 
 
 
 
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -57,7 +42,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
 
 
 
@@ -65,66 +50,42 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+<link rel="stylesheet" href="/css/main.css?v=7.0.1"/>
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
 
 
-
-
-
-  <meta name="keywords" content="Hexo, NexT" />
-
-
-
-
-
-  <link rel="alternate" href="/atom.xml" title="31415926535x" type="application/atom+xml" />
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
 
 
 
 
 
 
-<meta name="description" content="很感谢你能来，不遗憾你离开">
-<meta property="og:type" content="website">
-<meta property="og:title" content="31415926535x">
-<meta property="og:url" content="http://www.31415x.cf/page/7/index.html">
-<meta property="og:site_name" content="31415926535x">
-<meta property="og:description" content="很感谢你能来，不遗憾你离开">
-<meta property="og:locale" content="zh-Hans">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="31415926535x">
-<meta name="twitter:description" content="很感谢你能来，不遗憾你离开">
 
-
-
-<script type="text/javascript" id="hexo.configurations">
+<script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    version: '5.1.4',
-    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
     fancybox: true,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -136,12 +97,38 @@
 </script>
 
 
+  
+
+
+
+
+  <meta name="description" content="很感谢你能来，不遗憾你离开">
+<meta property="og:type" content="website">
+<meta property="og:title" content="31415926535x">
+<meta property="og:url" content="http://www.31415x.cf/page/7/index.html">
+<meta property="og:site_name" content="31415926535x">
+<meta property="og:description" content="很感谢你能来，不遗憾你离开">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="31415926535x">
+<meta name="twitter:description" content="很感谢你能来，不遗憾你离开">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="31415926535x" type="application/atom+xml"/>
+
+
+
 
   <link rel="canonical" href="http://www.31415x.cf/page/7/"/>
 
 
 
-
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
   <title>31415926535x</title>
   
@@ -149,51 +136,81 @@
 
 
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-114656515-1', 'auto');
-  ga('send', 'pageview');
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <script async src="//www.googletagmanager.com/gtag/js?id=UA-114656515-1"></script>
+  <script>
+    var host = window.location.hostname;
+    if (host !== "localhost" || !) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-114656515-1');
+    }
+  </script>
 
 
 
 
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right 
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left 
   page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">31415926535x</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-      
-        <p class="site-subtitle"></p>
-      
+    
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -201,86 +218,131 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-diary">
-          <a href="/categories/diary/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user-secret"></i> <br />
-            
-            日记
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-acm">
-          <a href="/acm" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-flag"></i> <br />
-            
-            acm
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
 
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-diary">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/diary/" rel="section"><i class="menu-item-icon fa fa-fw fa-user-secret"></i> <br/>diary</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-acm">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/acm" rel="section"><i class="menu-item-icon fa fa-fw fa-flag"></i> <br/>acm</a>
+
+  </li>
+
+      
       
         <li class="menu-item menu-item-search">
           
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            搜索
-          </a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>搜索</a>
         </li>
       
     </ul>
+  
+
+  
+    
+
   
 
   
@@ -311,12 +373,20 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
@@ -329,21 +399,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2018/09/18/数据结构-链表/">
+    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2018/09/18/acm-STL/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="31415926535x">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/misaka.jpg">
+      <meta itemprop="name" content="31415926535x"/>
+      <meta itemprop="description" content="很感谢你能来，不遗憾你离开"/>
+      <meta itemprop="image" content="/images/misaka.jpg"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="31415926535x">
+      <meta itemprop="name" content="31415926535x"/>
     </span>
 
     
@@ -353,11 +425,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/18/数据结构-链表/" itemprop="url">数据结构-链表</a></h1>
+                
+                <a href="/2018/09/18/acm-STL/" class="post-title-link" itemprop="url">acm-STL</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -365,30 +446,35 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-18T18:57:24+08:00">
-                2018-09-18
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-18 20:05:52" itemprop="dateCreated datePublished" datetime="2018-09-18T20:05:52+08:00">2018-09-18</time>
             
 
             
-              <span class="post-meta-divider">|</span>
-            
+              
 
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
               
-                <span class="post-meta-item-text">更新于&#58;</span>
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-09-21 23:19:01" itemprop="dateModified" datetime="2018-09-21T23:19:01+08:00">2018-09-21</time>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-09-18T19:58:57+08:00">
-                2018-09-18
-              </time>
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -399,11 +485,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/acm/" itemprop="url" rel="index"><span itemprop="name">acm</span></a></span>
 
                 
                 
@@ -412,6 +494,7 @@
           
 
           
+            
             
           
 
@@ -438,24 +521,34 @@
 
       
         
-          <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>作为数据结构中的入门基础，，表十分的重要，，基本上可以说数据结构中其他的大部分的实现都是基于顺序表的，，而 <strong>链表</strong> 则是顺序表中很重要的一个东西，，，</p>
-<p>之前在学习C/C++时就已经了解到了链表，，，那时粗略的看了看，，以为自己可以熟练的实现，，，但实际是，，我只会基于C++的链表的实现，，在使用C来实现时总是在报错，，，最后发现是自己的逻辑不清，，各个函数的实现中指针乱指，，，才导致总是出现各种报错，，，</p>
+          <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>c++中有很多stl模板，，在解决一些问题时使用它们可以在较小的时间复杂度里完成题目，，，</p>
+<p>本篇博客主要是对一些常用的stl的总结，，，</p>
+<p>大部分内容来自大佬的<br><a href="https://blog.csdn.net/f_zyj/article/details/51594851" target="_blank" rel="noopener">博客</a>;</p>
+<p>主要内容有: <strong>pair</strong> , <strong>set</strong> , <strong>vector</strong> , <strong>string</strong> , <strong>stack</strong> , <strong>queue</strong> , <strong>map</strong> , <strong>bitset</strong> , <strong>iterator</strong> , <strong>algorithm</strong>.</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/09/18/数据结构-链表/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/09/18/acm-STL/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -488,21 +581,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2018/09/06/chrome-PC-自定义字体作死改变之后的恢复方法/">
+    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2018/09/18/数据结构-链表/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="31415926535x">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/misaka.jpg">
+      <meta itemprop="name" content="31415926535x"/>
+      <meta itemprop="description" content="很感谢你能来，不遗憾你离开"/>
+      <meta itemprop="image" content="/images/misaka.jpg"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="31415926535x">
+      <meta itemprop="name" content="31415926535x"/>
     </span>
 
     
@@ -512,11 +607,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/06/chrome-PC-自定义字体作死改变之后的恢复方法/" itemprop="url">chrome PC 自定义字体作死改变之后的恢复方法</a></h1>
+                
+                <a href="/2018/09/18/数据结构-链表/" class="post-title-link" itemprop="url">数据结构-链表</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -524,30 +628,23 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-06T21:19:14+08:00">
-                2018-09-06
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-18 18:57:24 / 修改时间：19:58:57" itemprop="dateCreated datePublished" datetime="2018-09-18T18:57:24+08:00">2018-09-18</time>
             
 
             
-              <span class="post-meta-divider">|</span>
-            
+              
 
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
               
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-09-18T19:52:52+08:00">
-                2018-09-18
-              </time>
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -558,11 +655,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/chrome大法/" itemprop="url" rel="index">
-                    <span itemprop="name">chrome大法</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a></span>
 
                 
                 
@@ -571,6 +664,187 @@
           
 
           
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>作为数据结构中的入门基础，，表十分的重要，，基本上可以说数据结构中其他的大部分的实现都是基于顺序表的，，而 <strong>链表</strong> 则是顺序表中很重要的一个东西，，，</p>
+<p>之前在学习C/C++时就已经了解到了链表，，，那时粗略的看了看，，以为自己可以熟练的实现，，，但实际是，，我只会基于C++的链表的实现，，在使用C来实现时总是在报错，，，最后发现是自己的逻辑不清，，各个函数的实现中指针乱指，，，才导致总是出现各种报错，，，</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/09/18/数据结构-链表/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2018/09/06/chrome-PC-自定义字体作死改变之后的恢复方法/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="31415926535x"/>
+      <meta itemprop="description" content="很感谢你能来，不遗憾你离开"/>
+      <meta itemprop="image" content="/images/misaka.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="31415926535x"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/09/06/chrome-PC-自定义字体作死改变之后的恢复方法/" class="post-title-link" itemprop="url">chrome PC 自定义字体作死改变之后的恢复方法</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-06 21:19:14" itemprop="dateCreated datePublished" datetime="2018-09-06T21:19:14+08:00">2018-09-06</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-09-18 19:52:52" itemprop="dateModified" datetime="2018-09-18T19:52:52+08:00">2018-09-18</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/chrome大法/" itemprop="url" rel="index"><span itemprop="name">chrome大法</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
             
           
 
@@ -602,21 +876,29 @@
 <p>然后发现原来的自定义设置没了！！！！没了，，，</p>
 <p><img src="https://i.imgur.com/4quDbHM.png" alt=""></p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/09/06/chrome-PC-自定义字体作死改变之后的恢复方法/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/09/06/chrome-PC-自定义字体作死改变之后的恢复方法/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -649,21 +931,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2018/08/01/字符串hash与字典树/">
+    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2018/08/01/字符串hash与字典树/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="31415926535x">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/misaka.jpg">
+      <meta itemprop="name" content="31415926535x"/>
+      <meta itemprop="description" content="很感谢你能来，不遗憾你离开"/>
+      <meta itemprop="image" content="/images/misaka.jpg"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="31415926535x">
+      <meta itemprop="name" content="31415926535x"/>
     </span>
 
     
@@ -673,11 +957,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/08/01/字符串hash与字典树/" itemprop="url">字符串hash与字典树</a></h1>
+                
+                <a href="/2018/08/01/字符串hash与字典树/" class="post-title-link" itemprop="url">字符串hash与字典树</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -685,31 +978,25 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-01T22:05:29+08:00">
-                2018-08-01
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-08-01 22:05:29 / 修改时间：23:19:12" itemprop="dateCreated datePublished" datetime="2018-08-01T22:05:29+08:00">2018-08-01</time>
             
 
             
-              <span class="post-meta-divider">|</span>
-            
+              
 
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
               
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-08-01T23:19:12+08:00">
-                2018-08-01
-              </time>
             
           </span>
 
           
 
           
+            
             
           
 
@@ -738,21 +1025,29 @@
         
           <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>这篇主要是关于字符串里的 <strong>字符串hash</strong> 和 <strong>字符串字典树</strong>，，两个都是简单的套模板的东西，，，理解基本思想就行了，，，对了，，还有一个字典树的的变形—<strong>01字典树</strong>；</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/08/01/字符串hash与字典树/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/08/01/字符串hash与字典树/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -785,21 +1080,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2018/07/31/网络流/">
+    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2018/07/31/网络流/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="31415926535x">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/misaka.jpg">
+      <meta itemprop="name" content="31415926535x"/>
+      <meta itemprop="description" content="很感谢你能来，不遗憾你离开"/>
+      <meta itemprop="image" content="/images/misaka.jpg"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="31415926535x">
+      <meta itemprop="name" content="31415926535x"/>
     </span>
 
     
@@ -809,11 +1106,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/31/网络流/" itemprop="url">网络流</a></h1>
+                
+                <a href="/2018/07/31/网络流/" class="post-title-link" itemprop="url">网络流</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -821,31 +1127,25 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-31T22:01:22+08:00">
-                2018-07-31
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-31 22:01:22 / 修改时间：22:47:58" itemprop="dateCreated datePublished" datetime="2018-07-31T22:01:22+08:00">2018-07-31</time>
             
 
             
-              <span class="post-meta-divider">|</span>
-            
+              
 
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
               
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-07-31T22:47:58+08:00">
-                2018-07-31
-              </time>
             
           </span>
 
           
 
           
+            
             
           
 
@@ -875,21 +1175,29 @@
           <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>这篇博客主要是关于网络流的一些基本的知识点以及相应的模板，，</p>
 <p>算了，，，还是先贴大佬的博客，，，暑假在补一下。。。。QAQ</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/31/网络流/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/07/31/网络流/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -922,21 +1230,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2018/07/30/动态规划-背包问题/">
+    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2018/07/30/动态规划-背包问题/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="31415926535x">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/misaka.jpg">
+      <meta itemprop="name" content="31415926535x"/>
+      <meta itemprop="description" content="很感谢你能来，不遗憾你离开"/>
+      <meta itemprop="image" content="/images/misaka.jpg"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="31415926535x">
+      <meta itemprop="name" content="31415926535x"/>
     </span>
 
     
@@ -946,11 +1256,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/30/动态规划-背包问题/" itemprop="url">动态规划_背包问题</a></h1>
+                
+                <a href="/2018/07/30/动态规划-背包问题/" class="post-title-link" itemprop="url">动态规划_背包问题</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -958,31 +1277,25 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-30T20:36:18+08:00">
-                2018-07-30
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-30 20:36:18 / 修改时间：21:00:03" itemprop="dateCreated datePublished" datetime="2018-07-30T20:36:18+08:00">2018-07-30</time>
             
 
             
-              <span class="post-meta-divider">|</span>
-            
+              
 
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
               
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-07-30T21:00:03+08:00">
-                2018-07-30
-              </time>
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1012,21 +1325,29 @@
           <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>背包问题就是动态规划的一个典型问题，，，个人觉得重在考查动态规划的思维，，有时需要将题目抽象出来，，，找出相对应的模型，，，然后优化解决，，，而不是一味的套模板。。。</p>
 <p>这篇博客主要有 <strong>01背包问题</strong> ， <strong>完全背包问题</strong> ， <strong>多重背包问题</strong> ， <strong>混和背包问题</strong> 还有 <strong>二维费用背包问题</strong>，，，</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/30/动态规划-背包问题/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/07/30/动态规划-背包问题/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1059,21 +1380,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2018/07/29/动态规划-1/">
+    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2018/07/29/动态规划-1/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="31415926535x">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/misaka.jpg">
+      <meta itemprop="name" content="31415926535x"/>
+      <meta itemprop="description" content="很感谢你能来，不遗憾你离开"/>
+      <meta itemprop="image" content="/images/misaka.jpg"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="31415926535x">
+      <meta itemprop="name" content="31415926535x"/>
     </span>
 
     
@@ -1083,11 +1406,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/29/动态规划-1/" itemprop="url">动态规划_1</a></h1>
+                
+                <a href="/2018/07/29/动态规划-1/" class="post-title-link" itemprop="url">动态规划_1</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1095,31 +1427,25 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-29T22:29:49+08:00">
-                2018-07-29
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-29 22:29:49 / 修改时间：23:22:48" itemprop="dateCreated datePublished" datetime="2018-07-29T22:29:49+08:00">2018-07-29</time>
             
 
             
-              <span class="post-meta-divider">|</span>
-            
+              
 
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
               
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-07-29T23:22:48+08:00">
-                2018-07-29
-              </time>
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1148,21 +1474,29 @@
         
           <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>今天集训学的是动态规划，，，也就是dp，，，这玩意早就听说过了，，，一直感觉很难，，，听名字就有些高大上，，，今天了解了其大致的思想，，，四道题也就做了两道，，，还是学长上午讲过的，，自己根据模板直接套的，，，中间那两题完全不知道从哪下手，，，或者说不知道如何实现脑子里的想法，，，，其中B题是cpcc的一道原题，，，用了动态规划，树状数组，离散化三个主要的算法，，，综合性很强，，，难啊啊啊啊，，，</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/29/动态规划-1/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/07/29/动态规划-1/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1195,21 +1529,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2018/07/27/最短路/">
+    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2018/07/27/最短路/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="31415926535x">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/misaka.jpg">
+      <meta itemprop="name" content="31415926535x"/>
+      <meta itemprop="description" content="很感谢你能来，不遗憾你离开"/>
+      <meta itemprop="image" content="/images/misaka.jpg"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="31415926535x">
+      <meta itemprop="name" content="31415926535x"/>
     </span>
 
     
@@ -1219,11 +1555,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/27/最短路/" itemprop="url">最短路</a></h1>
+                
+                <a href="/2018/07/27/最短路/" class="post-title-link" itemprop="url">最短路</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1231,31 +1576,37 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-27T22:36:50+08:00">
-                2018-07-27
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-27 22:36:50" itemprop="dateCreated datePublished" datetime="2018-07-27T22:36:50+08:00">2018-07-27</time>
             
 
             
-              <span class="post-meta-divider">|</span>
-            
+              
 
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
               
-                <span class="post-meta-item-text">更新于&#58;</span>
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-07-29 11:56:55" itemprop="dateModified" datetime="2018-07-29T11:56:55+08:00">2018-07-29</time>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-07-29T11:56:55+08:00">
-                2018-07-29
-              </time>
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1285,21 +1636,29 @@
           <h2 id="概论"><a href="#概论" class="headerlink" title="概论"></a>概论</h2><p>最短路主要是寻找某个有图问题从起始点到终点的最短的路，，，这是最基本的一种情况，，，由此可以变形出各种各样的其他题型，，，，</p>
 <p>本篇主要有 <strong>图的储存</strong> , <strong>Dijstra算法</strong> ， <strong>SPFA算法</strong> , <strong>Floyd算法</strong> , 以及几道练习题和题解。。。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/27/最短路/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/07/27/最短路/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1332,21 +1691,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2018/07/25/组合数学与数论/">
+    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2018/07/25/组合数学与数论/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="31415926535x">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/misaka.jpg">
+      <meta itemprop="name" content="31415926535x"/>
+      <meta itemprop="description" content="很感谢你能来，不遗憾你离开"/>
+      <meta itemprop="image" content="/images/misaka.jpg"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="31415926535x">
+      <meta itemprop="name" content="31415926535x"/>
     </span>
 
     
@@ -1356,11 +1717,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/25/组合数学与数论/" itemprop="url">组合数学与数论</a></h1>
+                
+                <a href="/2018/07/25/组合数学与数论/" class="post-title-link" itemprop="url">组合数学与数论</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1368,31 +1738,37 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-25T20:42:12+08:00">
-                2018-07-25
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-25 20:42:12" itemprop="dateCreated datePublished" datetime="2018-07-25T20:42:12+08:00">2018-07-25</time>
             
 
             
-              <span class="post-meta-divider">|</span>
-            
+              
 
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
               
-                <span class="post-meta-item-text">更新于&#58;</span>
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-07-29 14:07:10" itemprop="dateModified" datetime="2018-07-29T14:07:10+08:00">2018-07-29</time>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-07-29T14:07:10+08:00">
-                2018-07-29
-              </time>
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1422,21 +1798,29 @@
           <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>这篇博客主要是一些数论里有关组合数学的一些东西，，，有 <strong>错排问题</strong> ，<strong>抽屉原理（鸽巢原理）</strong> , <strong>中国剩余定理（孙子定理）</strong> ， <strong>欧拉函数</strong></p>
 <p>数论好难啊，，，</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/25/组合数学与数论/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/07/25/组合数学与数论/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1469,21 +1853,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2018/07/23/深搜和广搜2/">
+    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2018/07/23/深搜和广搜2/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="31415926535x">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/misaka.jpg">
+      <meta itemprop="name" content="31415926535x"/>
+      <meta itemprop="description" content="很感谢你能来，不遗憾你离开"/>
+      <meta itemprop="image" content="/images/misaka.jpg"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="31415926535x">
+      <meta itemprop="name" content="31415926535x"/>
     </span>
 
     
@@ -1493,11 +1879,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/23/深搜和广搜2/" itemprop="url">深搜和广搜2</a></h1>
+                
+                <a href="/2018/07/23/深搜和广搜2/" class="post-title-link" itemprop="url">深搜和广搜2</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1505,31 +1900,37 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-23T22:29:45+08:00">
-                2018-07-23
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-23 22:29:45" itemprop="dateCreated datePublished" datetime="2018-07-23T22:29:45+08:00">2018-07-23</time>
             
 
             
-              <span class="post-meta-divider">|</span>
-            
+              
 
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
               
-                <span class="post-meta-item-text">更新于&#58;</span>
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-07-25 14:28:54" itemprop="dateModified" datetime="2018-07-25T14:28:54+08:00">2018-07-25</time>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-07-25T14:28:54+08:00">
-                2018-07-25
-              </time>
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1559,157 +1960,29 @@
           <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>来来来，，，补票了，，，</p>
 <p>前几个月看了一些bfs , dfs ， 自以为自己学会了搜索的基本算法，，但今天的集训练习水的啊真是一把把我浇醒了，，，不能再这样自以为学过的东西就全会了，，，</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/23/深搜和广搜2/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/07/23/深搜和广搜2/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
-    
-    
-    
 
     
 
     
-
+    
     
 
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
+    
 
     
       
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2018/07/23/同余问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="31415926535x">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/misaka.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="31415926535x">
-    </span>
-
     
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/23/同余问题/" itemprop="url">同余问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-23T13:50:14+08:00">
-                2018-07-23
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-07-23T14:27:06+08:00">
-                2018-07-23
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>最近学了好多有关最大公约数的知识点，，acm里的同余问题主要是关于一元线性方程的解法等等，，，在此罗列 <strong>最大公约数gcd</strong> ， <strong>最小公倍数lcm</strong> ， <strong>欧几里得算法</strong> ， <strong>扩展欧几里得算法</strong> ， 以及他们的一些应用，，，</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/23/同余问题/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
     
 
     
@@ -1738,15 +2011,12 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
 
           </div>
-          
-
-
           
 
         </div>
@@ -1762,61 +2032,176 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
                 src="/images/misaka.jpg"
-                alt="31415926535x" />
+                alt="31415926535x"/>
             
               <p class="site-author-name" itemprop="name">31415926535x</p>
-              <p class="site-description motion-element" itemprop="description">很感谢你能来，不遗憾你离开</p>
+              <div class="site-description motion-element" itemprop="description">很感谢你能来，不遗憾你离开</div>
           </div>
 
-          <nav class="site-state motion-element">
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">81</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
 
-            
-              <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
               
-                  <span class="site-state-item-count">80</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
 
-            
               
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
               
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">25</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">26</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
+            </nav>
+          
 
           
             <div class="feed-link motion-element">
@@ -1828,57 +2213,91 @@
           
 
           
+
+          
             <div class="links-of-author motion-element">
-                
-                  <span class="links-of-author-item">
-                    <a href="https://github.com/31415926535x" target="_blank" title="GitHub">
-                      
-                        <i class="fa fa-fw fa-github"></i>GitHub</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="mailto:2509437152wx@gmail.com" target="_blank" title="Gmail">
-                      
-                        <i class="fa fa-fw fa-envelope"></i>Gmail</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="https://plus.google.com/106114719135977350421" target="_blank" title="Google">
-                      
-                        <i class="fa fa-fw fa-google"></i>Google</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="https://instagram.com/314159265358x" target="_blank" title="Instagram">
-                      
-                        <i class="fa fa-fw fa-instagram"></i>Instagram</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="https://cnblogs.com/31415926535x" target="_blank" title="cnblogs">
-                      
-                        <i class="fa fa-fw fa-globe"></i>cnblogs</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="https://codeforces.com/profile/31415926535x" target="_blank" title="codeforces">
-                      
-                        <i class="fa fa-fw fa-globe"></i>codeforces</a>
-                  </span>
-                
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/31415926535x" title="GitHub &rarr; https://github.com/31415926535x" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:2509437152wx@gmail.com" title="Gmail &rarr; mailto:2509437152wx@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>Gmail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://plus.google.com/106114719135977350421" title="Google &rarr; https://plus.google.com/106114719135977350421" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i>Google</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://instagram.com/314159265358x" title="Instagram &rarr; https://instagram.com/314159265358x" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://cnblogs.com/31415926535x" title="cnblogs &rarr; https://cnblogs.com/31415926535x" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>cnblogs</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://codeforces.com/profile/31415926535x" title="codeforces &rarr; https://codeforces.com/profile/31415926535x" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>codeforces</a>
+                </span>
+              
             </div>
           
 
           
-          
 
           
           
 
+          
+            
+          
           
 
         </div>
-      </section>
+      </div>
 
       
 
@@ -1886,6 +2305,7 @@
 
     </div>
   </aside>
+  
 
 
         
@@ -1894,27 +2314,33 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">31415926535x</span>
 
   
+
+  
 </div>
-<!--
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
--->
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.5.0</div>
+
+
 
   <span class="post-meta-divider">|</span>
 
 
 
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.0.1</div>
+
+
 
 
         
+
 
 
 
@@ -1934,18 +2360,15 @@
     
 
     
-    <!-- 页面点击小红心 -->
-      <script type="text/javascript" src="/js/src/love.js"></script>
-    <!-- 动态背景 -->
-      <script type="text/javascript" src="/js/src/canvas-nest.js"></script>
-      <!-- 背景动画 -->
-      <script type="text/javascript" src="/js/src/particle.js"></script>
 
+    
+
+    
   </div>
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -1959,88 +2382,6 @@
 
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-    
-
-    
-
-  
-
-
-
-
-	
-
-
 
 
 
@@ -2059,9 +2400,62 @@
 
 
 
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
   
 
-  <script type="text/javascript">
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
+
+
+
+
+  
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+
+
+
+
+
+
+  
+  <script>
     // Popup Window;
     var isfetched = false;
     var isXml = true;
@@ -2110,6 +2504,8 @@
         .css('overflow', 'hidden');
       $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
 
+      
+
       $.ajax({
         url: path,
         dataType: isXml ? "xml" : "json",
@@ -2143,8 +2539,9 @@
                 var title = data.title.trim();
                 var titleInLowerCase = title.toLowerCase();
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
                 var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
                 var indexOfTitle = [];
                 var indexOfContent = [];
                 // only match articles with not empty titles
@@ -2313,9 +2710,9 @@
               })
             };
             if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
             } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
             } else {
               resultItems.sort(function (resultLeft, resultRight) {
                 if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
@@ -2387,31 +2784,124 @@
   
 
   
-
-  
   
 
   
   
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
 
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+<script>
+  $('.highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -2429,7 +2919,6 @@
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-  
 
 
   
