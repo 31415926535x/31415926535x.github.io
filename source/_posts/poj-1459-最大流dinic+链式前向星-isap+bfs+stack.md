@@ -1,0 +1,571 @@
+---
+title: poj-1459-最大流dinic+链式前向星-isap+bfs+stack
+date: 2018-11-22 20:57:54
+tags:
+- acm
+- 刷题
+categories:
+- ACM-网络流-最大流
+---
+
+# 概述
+
+[这道是一道网络流里最大流的板子题](http://poj.org/problem?id=1459),,,
+
+暑期集训网络流草草水过，，连基本的算法都不知道有哪些，，，更别提怎么实现了，，，只知道网络流的大致的概念，，
+
+今天花了一天的时间重新学习了一波，，，本以为这东西很简单，，，没想到不仅算法的实现一大堆的东西，，就连题目都有时候看不懂，，，，感受就是网络流的题不仅算法实现起来不好懂，，，每一道题的建图也很关键，，，几乎看到的每一道题的图都是得自己去建，，完全不像最短路那些题花里胡哨的东西都只改一改贪心时的方程就行，，，
+
+<!-- more -->
+
+# 分析思路
+
+## 最短路的一些基本概念
+
+这一段 *算法导论* 上讲的很好，，，不过我感觉还是在基本弄懂那几个算法再看一遍比较好QAQ
+
+[这里就直接摘抄别人写过的东西了](https://blog.andrewei.info/2016/04/11/network-flows/)
+
+## 容量网络和网络最大流
+
+# 容量网络: 
+$设 G(V, E)是一个有向网络, 在 V 中指定了一个顶点, 称为源点(记为 Vs ), 以及另一个顶点, 称为汇点(记为 Vt); 对于每一条弧 <u, v>∈E, 对应有一个权值 c(u, v)>0, 称为弧的容量, 通常把这样的有向网络 G 称为容量网络。$
+
+把它想象成 **自来水厂** 、 **自来水管网** 和 **用户** 那种图就行了，，，
+
+## 弧的流量:
+ 通过容量网络 G 中每条弧 <u, v> 上的实际流量(简称流量), 记为 $f(u, v)$。
+### **网络流**: 所有弧上流量的集合 f = { f(u, v) },称为该容量网络 G 的一个网络流。
+### **可行流**: 在容量网络 G(V, E) 中, 满足以下条件的网络流 f, 称为可行流:
+
+## 弧流量限制条件: $0≤f(u,v)≤c(u,v)$
+### **平衡条件**:
+ 除了 Vs, Vt 外, 其余的点流入的流量总和等于流出的流量总和, 其中 **Vs 流出的流量总和 - 流出的流量总和 = f**,   **Vt 流入的流量总和 - 流出的流量总和 = f**, 并且称 f 为可性流的流量
+
+也就是指: $在图中有一条从 Vs 到 Vt 的路径, 这条路径上起点 fo−fi=f, 终点 fi−fo=f， 其他的点 fi==fo, 并且所有的边的当前流量小于等于最大流量.(其中 fi 代表流入流量, fo 代表流出流量)$
+
+### **伪流**: 
+如果一个网络流只满足弧流量限制条件, 不满足平衡条件, 则这种网络流称为伪流, 或称为容量可行流。
+
+### **最大流**:
+
+ 在容量网络 G(V, E) 中, 满足弧流量限制条件和平衡条件、且具有最大流量的可行流, 称为网络最大流, 简称最大流。
+
+## 链与增广路
+在容量网络 G(V, E) 中, 设有一可行流 f = { f(u, v) }, 根据每条弧上流量的多少、以及流量和容量的关系,可将弧分四种类型:
+
+饱和弧, 即 f(u,v)=c(u,v);
+非饱和弧,即 f(u,v)<c(u,v);
+零流弧, 即 f(u,v)=0;
+非零流弧, 即 f(u,v)>0。
+
+### **链**:
+ 在容量网络中,称顶点序列(u,u1,u2,…,un,v)为一条链,要求相邻两个顶点之间有一条弧, 如 <u, u1> 或 <u1, u> 为容量网络中一条弧。沿着 Vs 到 Vt 的一条链, 各弧可分为两类:
+
++ **前向弧**: 方向与链的正方向一致的弧, 其集合记为 P+;
++ **后向弧**: 方向与链的正方向相反的弧, 其集合记为 P-;
+### **增广路**:
+
+ 设 f 是一个容量网络 G 中的一个可行流, P 是从 Vs 到 Vt 的一条链, 若 P 满足下列条件:
+
+在 P 的所有**前向弧** <u, v> 上, 0≤f(u,v)<c(u,v), 即 P+ 中每一条弧都是非饱和弧;
+在 P 的所有**后向弧** <u, v> 上, 0<f(u,v)≤c(u,v), 即 P– 中每一条弧是非零流弧。
+则称 P 为关于可行流 f 的一条增广路, 简称为 **增广路(或称为增广链、可改进路)** 。**沿着增广路改进可行流的操作称为增广**。
+
+
+
+
+## 残留容量与残留网络
+
+### **残留容量**:
+ 给定容量网络 G(V, E) 及可行流 f, 弧 <u, v> 上的残留容量记为 c′(u,v)=c(u,v)–f(u,v)。每条弧的残留容量表示该弧上可以增加的流量。因为从顶点 u 到顶点 v 流量的减少, 等效于顶点 v 到顶点 u 流量增加, 所以每条弧 <u, v> 上还有一个反方向的残留容量 c′(v,u)=–f(u,v)。
+
++ 一个容量网络中还可以压入的流量称为残留容量
+
+### **残留网络**:
+ $设有容量网络 G(V, E) 及其上的网络流 f,G 关于 f 的残留网络(简称残留网络)记为 G'(V', E'), 其中 G’的顶点集 V’和 G 的顶点集 V 相同,即 V’=V, 对于 G 中的任何一条弧 <u, v>, 如果 f(u,v)<c(u,v), 那么在 G’中有一条弧 <u, v>∈E', 其容量为 c′(u,v)=c(u,v)–f(u,v), 如果 f(u,v)>0,则在 G’中有一条弧 <v, u>∈E', 其容量为 c′(v,u)=f(u,v), 残留网络也称为剩余网络.$
+
++ 由残留的容量以及源点汇点构成的网络。
+
+### **割与最小割**
+
+**割**: $在容量网络 G(V, E) 中, 设 E'⊆E, 如果在 G 的基图中删去 E’ 后不再连通, 则称 E’ 是 G 的割。割将 G 的顶点集 V 划分成两个子集 S 和 T = V - S。将割记为(S, T)。
+s-t 割: 更进一步, 如果割所划分的两个顶点子集满足源点 Vs ∈ S,汇点 Vt ∈ T, 则称该割为 s-t 割。 s-t 割(S, T)中的弧 <u, v>(u∈S, v∈T) 称为割的前向弧, 弧 <u, v>( u∈T, v∈S) 称为割的反向弧。$
+
+**割的容量**:$设 (S, T) 为容量网络 G(V, E) 的一个割, 其容量定义为所有前向弧的容量总和, 用 c(S, T) 表示。$
+
+**最小割**: $容量网络 G(V, E) 的最小割是指容量最小的割。$
+
+
+## **相关定理**
+
+### 残留网络与原网络的关系
+$设 f 是容量网络 G(V, E) 的可行流, f’ 是残留网络 G’ 的可行流, 则 f + f’ 仍是容量网络 G 的一个可行流。(f + f’ 表示对应弧上的流量相加)$
+
+### 网络流流量与割的净流量之间的关系
+$在一个容量网络 G(V, E) 中, 设其任意一个流为 f, 关于 f 的任意一个割为(S, T), 则有 f(S,T)=|f|,即网络流的流量等于任何割的净流量。$
+
+### 网络流流量与割的容量之间的关系
+$在一个容量网络 G(V, E) 中, 设其任意一个流为 f, 任意一个割为(S, T), 则必有 f(S,T)≤c(S,T),即网络流的流量小于或等于任何割的容量。$
+
+### 最大流最小割定理
+$对容量网络 G(V, E), 其最大流的流量等于最小割的容量。$
+
+### 增广路定理
+$设容量网络 G(V, E) 的一个可行流为 f, f 为最大流的充要条件是在容量网络中不存在增广路。$
+
+### 几个等价命题
+
+$设容量网络 G(V, E)的一个可行流为 f 则:$
+
+$1) f 是容量网络 G 的最大流;$
+
+$2) | f |等于容量网络最小割的容量;$
+
+$3) 容量网络中不存在增广路;$
+
+$4) 残留网络 G’中不存在从源点到汇点的路径。$
+
+## **最大流**
+
+最大流相关算法有两种解决思想, 一种是**增广路算法思想**, 另一种是**预流推进**算法思想。 
+
+# **增广路算法**
+
+## 基本思想
+
+根据增广路定理, 为了得到最大流, 可以从任何一个可行流开始, 沿着增广路对网络流进行增广, 直到网络中不存在增广路为止,这样的算法称为增广路算法。问题的关键在于如何有效地找到增广路, 并保证算法在有限次增广后一定终止。
+增广路算法的基本流程是 :
+
++ (1) 取一个可行流 f 作为初始流(如果没有给定初始流,则取零流 f= { 0 }作为初始流);
++ (2) 寻找关于 f 的增广路 P,如果找到,则沿着这条增广路 P 将 f 改进成一个更大的流, 并建立相应的反向弧;
++ (3) 重复第(2)步直到 f 不存在增广路为止。
+
+图示如下:
+![](https://blog.andrewei.info/images/network-flows/FFalgo1.png)
+
+![](https://blog.andrewei.info/images/network-flows/FFalgo2.png)
+
+增广路算法的关键是 **寻找增广路** 和 **改进网络流**.
+
+## 创建反向弧的作用：
+**为程序提供一次返回的机会**
+
+在图中如果程序找到了一条增广路 1 -> 2 -> 4 -> 6, 此时得到一个流量为 2 的流并且无法继续进行增广,
+但是如果在更新可行流的同时建立反向弧的话, 就可以找到 1 -> 3 -> 4 -> 2 -> 5 -> 6 的可行流, 流量为1, 这样就可以得到最大流为 3.
+
+![](https://blog.andrewei.info/images/network-flows/FFalgo7.jpg)
+
+## dinic模板程序
+
+因为ek算法的效率没有dinic的高，，所以本着先追求实用主义就先看了dinic算法，，，算法实现的模板时kaungbin的，，，dinic+链式前向星。。。
+
+### 算法思想
+DINIC 在找增广路的时候也是找的最短增广路, 与 EK 算法不同的是 DINIC 算法并不是每次 bfs 只找一个增广路, 他会首先通过一次 bfs 为所有点添加一个标号, 构成一个层次图， 然后在层次图中寻找增广路进行更新。
+
+### 实现流程
+
++ 1.利用 BFS 对原来的图进行分层，即对每个结点进行标号，这个标号的含义是当前结点距离源点的最短距离(假设每条边的距离都为1)，注意：构建层次图的时候所走的边的残余流量必须大于0
+
++ 2.用 DFS 寻找一条从源点到汇点的增广路, 注意: 此处寻找增广路的时候要按照层次图的顺序, 即如果将边(u, v)纳入这条增广路的话必须满足dis[u]=dis[v]−1, 其中 dis[i]为结点 i的编号。找到一条路后要根据这条增广路径上的所有边的残余流量的最小值l更新所有边的残余流量(即正向弧 - l, 反向弧 + l).
+
++ 3。重复步骤 2, 当找不到一条增广路的时候, 重复步骤 1, 重新建立层次图, 直到从源点不能到达汇点为止。
+
+![](https://blog.andrewei.info/images/network-flows/FFalgo8.jpg)
+
+### 时间复杂度
+
+$O(V^2E)$
+
+### 思路
+
+这道题的题意是给你n个源点（发电站）、np个中间路径点（中转站）、nc个汇点（用户）以及m个通路。。求最大送到用户的效率也就是图的最大流。。
+
+多个源点和汇点所以要弄一个**超级源点s**和**超级汇点t**，，，s,t连源点，汇点然后跑dinic就行了，，
+
+具体的代码的细节都注释在里面了，，，都是自己的理解可能有误，，，看的头疼.jpg
+
+```cpp
+//dinic求网络流的最大流
+//bfs求一次层次图
+//dfs求源点到汇点的一条增广路
+//然后根据这条增广路中残余流量的最小值tp来更新所有边的残余流量
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <vector>
+#include <string.h>
+
+using namespace std;
+
+const int maxn = 105;
+const int maxm = 1e5 + 10;
+const int inf = 0x3f3f3f3f;
+
+int n , np , nc , m;
+int u , v , z;
+//前向星存图
+struct edge
+{
+    int to;
+    int next;
+    int cap;        //容量
+    int flow;       //流量
+}edge[maxm];        //注意边数为所给边数的两倍多
+int tol;
+int head[maxn];
+void init()
+{
+    tol = 2;        //???
+    memset(head , -1 , sizeof head);
+}
+void addedge(int u , int v , int w , int rw = 0)
+{
+    //前向星加边，反向弧容量为rw一般为0
+    //正反弧相邻存储，直接异或就能找到
+    //正向弧的编号要比反向弧的编号小
+    edge[tol].to = v;edge[tol].cap = w;edge[tol].flow = 0;
+    edge[tol].next = head[u];head[u] = tol++;
+    edge[tol].to = u; edge[tol].cap = rw;edge[tol].flow = 0;
+    edge[tol].next = head[v];head[v] = tol++;
+}
+int q[maxn];        //双向队列，bfs使用
+int dep[maxn] , cur[maxn] , sta[maxn];//sta保存增广路的边
+bool bfs(int s , int t , int n)
+{
+    //bfs搜索网络的层次
+    int front = 0;
+    int tail = 0;
+    memset(dep , -1 , sizeof(dep[0]) * (n + 1));
+    dep[s] = 0;
+    q[tail++] = s;
+    while(front < tail)
+    {
+        int u = q[front++];
+        //前向星图的遍历
+        for(int i = head[u]; ~i; i = edge[i].next)
+        {
+            int v = edge[i].to;
+            if(edge[i].cap > edge[i].flow && !(~dep[v]))
+            {
+                //(u,v)这条边的容量大于流量时即残余流量大于0并且这个点没有被分层时
+                dep[v] = dep[u] + 1;    //分层
+                if(v == t)return true;
+                q[tail++] = v;
+            }
+        }
+    }
+    return false;
+}
+int dinic(int s , int t , int n)
+{
+    int maxflow = 0;            //待求的最大流
+    while(bfs(s , t , n))       //当层次图存在时进行dfs寻找增广路
+    {
+        for(int i = 0; i < n; ++i)cur[i] = head[i]; //当前所有可以利用链式前向星遍历的边的编号
+        int u = s , tail = 0;   //tail表示找到的增广路的点的数量
+        while(~cur[s])          //边合法时
+        {
+            if(u == t)          //找到汇点时，即找到一条增广路时
+            {
+                int tp = inf;   //tp为该增广路中最小的残余流量
+                //找到最小值
+                for(int i = tail - 1; i >= 0; --i)
+                    tp = min(tp , edge[sta[i]].cap - edge[sta[i]].flow);
+                maxflow += tp;  //最大流增加
+                for(int i = tail - 1; i >= 0; --i)
+                {
+                    //用最小的残余流量更新参与网络
+                    //这里是倒着遍历每一条增广路中的边，，
+                    //所以编号是由大到小，sta[i]是(u,v)那条弧的编号，sta[i] ^ 1是其反向弧的编号
+                    //正向弧的流入流量加上tp
+                    //反向弧的流入流量就是减去tp
+                    edge[sta[i]].flow += tp;
+                    edge[sta[i] ^ 1].flow -= tp;
+                    //这条路的残余流量为零，经过这条路径的增广路不再存在
+                    //增广路的尾边缩回到这个点
+                    //并尝试寻找经过这个点的其他的增广路
+                    if(edge[sta[i]].cap - edge[sta[i]].flow == 0)
+                        tail = i;
+                }
+                //当前增广路的尾边回退到上一个点，，继续搜索其他的增广路
+                u = edge[sta[tail] ^ 1].to;
+            }
+            else if(~cur[u] &&
+                    edge[cur[u]].cap > edge[cur[u]].flow &&
+                    dep[u] + 1 == dep[edge[cur[u]].to])
+            {
+                //当这条边能到达、残余流量为正值并且u是v的上一层的点时
+                sta[tail++] = cur[u];   //增广路的点数tail++，并保存这条边到sta
+                u = edge[cur[u]].to;    //更新u
+            }
+            else
+            {
+                //回退？？
+                //while(u != s && cur[u] == -1)
+                while(u != s && !(~cur[u]))
+                    u = edge[sta[--tail] ^ 1].to;
+                cur[u] = edge[cur[u]].next;
+            }
+        }
+    }
+    return maxflow;
+}
+int main()
+{
+    while(scanf("%d%d%d%d " , &n , &np , &nc , &m) != EOF)
+    {
+        init();
+        while(m--)
+        {
+            scanf(" (%d,%d)%d" , &u , &v , &z); //输入前面有空格
+            ++u;++v;
+            addedge(u , v , z);
+        }
+        while(np--)
+        {
+            scanf(" (%d)%d" , &u , &z);
+            ++u;
+            addedge(0 , u , z);                 //超级源点
+        }
+        while(nc--)
+        {
+            scanf(" (%d)%d" , &u , &z);
+            ++u;
+            addedge(u , n + 1 , z);             //超级汇点
+        }
+        printf("%d\n" , dinic(0 , n + 1 , n + 1));
+    }
+}
+
+```
+
+~~下一个就是sap,isap了吧，，，头疼ing~~
+
+~~(end)~~
+
+## **isap模板**
+
+### **算法思路**
+
+**最短增广路算法(SAP)**
+
+>**算法思想**
+最短增广路算法是一种运用距离标号使寻找增广路的时间复杂度下降的算法。所谓的距离标号就是某个点到汇点的最少的弧的数量(即当边权为1时某个点的最短路径长度). 设点i的标号为d[i], 那么如果将满足d[i] = d[j] + 1, 且增广时只走允许弧, 那么就可以达到”怎么走都是最短路”的效果. 每个点的初始标号可以在一开始用一次从汇点沿所有反向的BFS求出.
+
+### **算法流程**
+
+>**算法流程**
++ 1) 定义节点的标号为到汇点的最短距离;
++ 2) 每次沿可行边进行增广, 可行边即: 假设有两个点 i, j 若 d[i] = 3, d[j] = 4, 则d[j] = d[i] + 1, 也就是从 j 到 i 有一条边.
++ 3) 找到增广路后，将路径上所有边的流量更新.
++ 4) 遍历完当前结点的可行边后更新当前结点的标号为 $d[now]=min(d[next]|Flow(now,next)>0)+1$，使下次再搜的时候有路可走。
++ 5) 图中不存在增广路后即退出程序，此时得到的流量值就是最大流。
+
+>需要注意的是, 标号的更新过程首先我们要理解更新标号的目的。**标号如果需要更新**，**说明在当前的标号下已经没有增广路可以继续走**，这时更新标号就可以使得我们有继续向下走的可能，**并且每次找的都是能走到的点中标号最小的那个点**，这样也使得每次搜索长度最小.
+
+**下面的图演示了标号的更新过程:**
+
++ 1.首先我们假设有个图如下，为了简化没有标箭头也没有写流量:
+![](https://blog.andrewei.info/images/network-flows/FFalgo3.png)
+
++ 2.红色的数为图标号, 每个点的标号为其到汇点的最短距离(这里把每条边看作1)
+![](https://blog.andrewei.info/images/network-flows/FFalgo4.png)
+
++ 3.第一遍遍历时，找到了1->2->9这样一条增广路以后，更新边上流量值, 得到下图
+![](https://blog.andrewei.info/images/network-flows/FFalgo5.png)
+
+$棕色字体为边上的流量值。这时按照标号再搜一遍,发现从1出发已经找不到增广路了，因为flow(1,2)等于0不可以走，h[1]=2,h[3]=2≠h[1]+1,h[5]=4≠h[1]+1，所以这时更新1的标号，按照 min(h[next]|Flow(now,next)>0)+1，修改后 h[1]=h[3]+1=3.$
+
++ 4.第二遍遍历以后找到了这样一条增广路：1->3->4->9,做完这条路以后又发现无法找到可行边了，这时再更新标号使图中有路可走，如上文所说的那样做，再次修改后h[1]=h[5]+1=5，就这样搜索并更新直到变成下图
+![](https://blog.andrewei.info/images/network-flows/FFalgo6.png)
+
++ 5.这时再更新h[1]发现没有点可以用来更新h[1]了，于是此时h[1]=∞，使程序退出。
+
+### 实现
+
+
+```cpp
+//isap+bfs+stack求最大流
+//貌似时间复杂度要比dinic还要小一些
+//bfs只求一次层次图，而且编号是从汇点开始的
+//之后的编号的更新在isap中更新
+//更新按照d[now]=min(d[next]|Flow(now,next)>0)+1
+//gap优化的目的是当出现断链时，即存在编号的个数为零的情况时停止寻找不存在增广路
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <string.h>
+using namespace std;
+
+const int maxn = 105;
+const int maxm = 1e6;
+const int inf = 0x3f3f3f3f;
+int tol;
+int n , np , nc , m;
+int u , v , z;
+int head[maxn];         //链式前向星存图
+int gap[maxn];          //gap优化，，gap[i]表示编号为i的节点的数量，，为零表示出现断链
+int dis[maxn];          //分层后每个点的编号
+int cur[maxn];          //弧优化所保存的弧，避免多次走到重复的位置上，比如走过x->y这条边后，下次再从x为起点开始走是就不再走x->y的边了
+
+struct edge
+{
+    int to;
+    int next;
+    int cap;
+    int flow;
+}edge[maxm];
+
+void init()
+{
+    tol = 0;            //？？？
+    memset(head , -1 , sizeof head);
+}
+
+void addedge(int u , int v , int w , int rw = 0)
+{
+    edge[tol].to = v;edge[tol].cap = w;edge[tol].flow = 0;
+    edge[tol].next = head[u];head[u] = tol++;
+    edge[tol].to = u; edge[tol].cap = rw;edge[tol].flow = 0;
+    edge[tol].next = head[v];head[v] = tol++;
+}
+
+int q[maxn];
+void bfs(int s , int t)
+{
+    //bfs一次得到从汇点开始的层次图
+    memset(dis , -1 , sizeof dis);
+    memset(gap , 0 , sizeof gap);
+    gap[0] = 1;
+    int front = 0;
+    int rear = 0;
+    dis[t] = 0;         //汇点的编号是0
+    q[rear++] = t;
+    while(front != rear)
+    {
+        //这里bfs应该用的逆图
+        int u = q[front++];
+        for(int i = head[u]; ~i; i = edge[i].next)
+        {
+            int v = edge[i].to;
+            if(~dis[v]) continue;
+            q[rear++] = v;
+            dis[v] = dis[u] + 1;    //相邻编号递增
+            ++gap[dis[v]];          //对应编号的点的数量增一
+        }
+    }
+}
+
+int stack[maxn];
+int isap(int s , int t , int n)
+{
+    bfs(s , t);                     //建一次层次图
+    memcpy(cur , head , sizeof head);
+    int top = 0;
+    int u = s;
+    int maxflow = 0;
+    while(dis[s] < n)               //最大的编号只可能是n-1，大于说明出现断层
+    {
+        if(u == t)
+        {
+            //当找到一条增广路时，更新这条路上的流量
+            int min = inf;
+            int inser;              //记录回退点
+            for(int i = 0; i < top; ++i)
+            {
+                //找到增广路上的最小残余流量
+                if(min > edge[stack[i]].cap - edge[stack[i]].flow)
+                {
+                    min = edge[stack[i]].cap - edge[stack[i]].flow;
+                    inser = i;
+                }
+            }
+            for(int i = 0; i < top; ++i)
+            {
+                edge[stack[i]].flow += min;
+                edge[stack[i] ^ 1].flow -= min;
+            }
+            maxflow += min;
+            //回退
+            top = inser;
+            u = edge[stack[top] ^ 1].to;
+            continue;
+        }
+
+        bool flag = false;
+        int v;
+        for(int i = cur[u]; ~i; i = edge[i].next)
+        {
+            //找到一条从u出发的可行路径
+            //满足残余流量大于零并且v是u的下一层
+            v = edge[i].to;
+            if(edge[i].cap - edge[i].flow && dis[v] + 1 == dis[u])
+            {
+                flag = true;
+                cur[u] = i;
+                break;
+            }
+        }
+        if(flag)
+        {
+            //存在这样的可行路径时压栈保存
+            //continue继续找
+            stack[top++] = cur[u];
+            u = v;
+            continue;
+        }
+        int min = n;
+        for(int i = head[u]; ~i; i = edge[i].next)
+        {
+            if(edge[i].cap - edge[i].flow && dis[edge[i].to] < min)
+            {
+                min = dis[edge[i].to];
+                cur[u] = i;
+            }
+        }
+        --gap[dis[u]];                          //该编号的数量减一
+        if(!gap[dis[u]])    return maxflow;     //出现断层时退出
+        dis[u] = min + 1;
+        ++gap[dis[u]];
+        if(u != s)
+            u = edge[stack[--top] ^ 1].to;
+    }
+    return maxflow;
+}
+
+int main()
+{
+    //freopen("233.txt" , "r" , stdin);
+    while(scanf("%d%d%d%d " , &n , &np , &nc , &m) != EOF)
+    {
+        init();
+        while(m--)
+        {
+            scanf(" (%d,%d)%d" , &u , &v , &z);
+            ++u;++v;
+            addedge(u , v , z);
+        }
+        while(np--)
+        {
+            scanf(" (%d)%d" , &u , &z);
+            ++u;
+            addedge(0 , u , z);
+        }
+        while(nc--)
+        {
+            scanf(" (%d)%d" , &u , &z);
+            ++u;
+            addedge(u , n + 1 , z);
+        }
+        printf("%d\n" , isap(0 , n + 1 , n + 2));
+    }
+}
+
+```
+
+还有一个更快的实现的方法，，预流推进算法，，，那天再看把，，，
+
+接下来就是做几道题去看最小费用最大流了吧，，，，
+
+时间为什么这么的快啊QAQ,,,
