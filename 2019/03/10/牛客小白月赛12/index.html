@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="31415926535x">
 <meta property="og:description" content="https://ac.nowcoder.com/acm/contest/392#question 学到很多东西，，，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-10T12:12:02.865Z">
+<meta property="og:updated_time" content="2019-03-17T03:55:28.018Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="牛客小白月赛12">
 <meta name="twitter:description" content="https://ac.nowcoder.com/acm/contest/392#question 学到很多东西，，，">
@@ -450,12 +450,24 @@
                 
               
 
-              <time title="创建时间：2019-03-10 17:31:00 / 修改时间：20:12:02" itemprop="dateCreated datePublished" datetime="2019-03-10T17:31:00+08:00">2019-03-10</time>
+              <time title="创建时间：2019-03-10 17:31:00" itemprop="dateCreated datePublished" datetime="2019-03-10T17:31:00+08:00">2019-03-10</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-17 11:55:28" itemprop="dateModified" datetime="2019-03-17T11:55:28+08:00">2019-03-17</time>
               
             
           </span>
@@ -501,7 +513,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.math.*;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 31415926535x</span></span><br><span class="line"><span class="comment"> * acm_java</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		<span class="keyword">int</span> t = input.nextInt();</span><br><span class="line">		<span class="keyword">while</span>(t &gt; <span class="number">0</span>) &#123;</span><br><span class="line">			BigInteger a = input.nextBigInteger();</span><br><span class="line">			BigInteger b = input.nextBigInteger();</span><br><span class="line">			BigInteger c = input.nextBigInteger();</span><br><span class="line">			BigInteger ans = a.modPow(b, c);</span><br><span class="line">			System.out.println(ans);</span><br><span class="line">			--t;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="C华华给月月出题"><a href="#C华华给月月出题" class="headerlink" title="C华华给月月出题"></a>C华华给月月出题</h1><p>新知识点get，，，积性函数+线性筛，，</p>
 <p>对于函数 $f(x)=x^n$他是一个完全积性函数，，什么是积性函数呢，，就是满足 $f(xy)=f(x)*f(y)$的函数其中xy满足 $(x, y)=1(gcd(x,y)=1)$，，，完全积性函数就是对于任意的xy都满足上式的函数，，，</p>
-<p>对于素数的n次幂直接用快速幂求就行了，，对于其他的合数 num 可以表示成 $num = i <em> prime[j]$，，，这样它的n次幂就可以用积性函数换成后面这两个数的n次幂的积来求得，，也就是 $a[i </em> prime[j]]=a[i] * a[prime[j]] \% mod$，，</p>
+<p>对于素数的n次幂直接用快速幂求就行了，，对于其他的合数 num 可以表示成  $num = i <em> prime[j]$ ，，，这样它的n次幂就可以用积性函数换成后面这两个数的n次幂的积来求得，，也就是 $a[i </em> prime[j]]=a[i] * a[prime[j]] \% mod$ ，，</p>
 <p>对于一个合数只要用它的最小的质因数和一个数的积求出来就行了，，不然一直算下去浪费时间会T</p>
 <p>求出所有1~n的数n次幂后异或和就行了</p>
 <p><a href="https://blog.csdn.net/consciousman/article/details/77888386" target="_blank" rel="noopener">具体的积性函数的内容看这里</a></p>
@@ -533,6 +545,30 @@
     
     
 
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>31415926535x</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://www.31415x.cf/2019/03/10/牛客小白月赛12/" title="牛客小白月赛12">http://www.31415x.cf/2019/03/10/牛客小白月赛12/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
@@ -646,7 +682,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">81</span>
+                    <span class="site-state-item-count">82</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -715,7 +751,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">26</span>
+                      
+                    
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -784,7 +822,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">26</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -966,7 +1008,14 @@
     
 
     
-
+	
+	<!-- 页面点击小红心 -->
+      <script type="text/javascript" src="/js/src/love.js"></script>
+    <!-- 动态背景 -->
+		<script type="text/javascript" src="/js/src/canvas-nest.js"></script>
+    <!-- 背景动画 -->
+    <script type="text/javascript" src="/js/src/particle.js"></script>
+	
     
 
     
