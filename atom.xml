@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.31415x.cf/"/>
-  <updated>2019-03-29T05:33:33.607Z</updated>
+  <updated>2019-03-31T09:46:00.448Z</updated>
   <id>http://www.31415x.cf/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>next-修改</title>
+    <link href="http://www.31415x.cf/2019/03/31/next-%E4%BF%AE%E6%94%B9/"/>
+    <id>http://www.31415x.cf/2019/03/31/next-修改/</id>
+    <published>2019-03-31T09:33:56.000Z</published>
+    <updated>2019-03-31T09:46:00.448Z</updated>
+    
+    <content type="html"><![CDATA[<p>搭建hexo+next这个博客也有一年多了，，期间碰到很多的事情，，比如说自己把博客搞崩，更新等等，，，之前做的一些改变，美化什么的因为太过久远，，重新设置一些东西还得一点一点的重新的去搜，，或者去翻书签记录，，想着记录一下折腾过的东西，，以后可能用得上，，</p><a id="more"></a><h1 id="底栏添加音乐"><a href="#底栏添加音乐" class="headerlink" title="底栏添加音乐"></a>底栏添加音乐</h1><p>很早之前就尝试添加过音乐，但是网易云的外链时间一长就掉了，，而且很不好看，，于是就放弃了，，</p><p>今天又尝试弄一下，，感觉还行，，添加音乐也方便，，嘿嘿，，</p><p>用的 Aplayer 这个插件，，，</p><p><a href="https://www.jianshu.com/p/23e33d1fdc4e" target="_blank" rel="noopener">参考</a></p><p>主要变化：</p><ul><li>在\next\source\ 下添加了dist 文件夹同时增加一个 <code>music.js</code> 歌单文件，，以后添加音乐就改这个就行了</li><li>\next\layout_layout.swig，，中添加插件的调用，，和红星什么的在一起，，</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;搭建hexo+next这个博客也有一年多了，，期间碰到很多的事情，，比如说自己把博客搞崩，更新等等，，，之前做的一些改变，美化什么的因为太过久远，，重新设置一些东西还得一点一点的重新的去搜，，或者去翻书签记录，，想着记录一下折腾过的东西，，以后可能用得上，，&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="hexo博客相关" scheme="http://www.31415x.cf/categories/hexo%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/"/>
+    
+    
+      <category term="hexo_blog" scheme="http://www.31415x.cf/tags/hexo-blog/"/>
+    
+      <category term="next_theme" scheme="http://www.31415x.cf/tags/next-theme/"/>
+    
+      <category term="hexo" scheme="http://www.31415x.cf/tags/hexo/"/>
+    
+      <category term="博客" scheme="http://www.31415x.cf/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
   
   <entry>
     <title>anaconda3下配置python-3.5+tensorflow-gpu-1.9.0人脸识别项目环境</title>
@@ -47,9 +75,9 @@
     <link href="http://www.31415x.cf/2019/03/26/ACM-%E9%A2%98%E9%9B%86/"/>
     <id>http://www.31415x.cf/2019/03/26/ACM-题集/</id>
     <published>2019-03-26T05:31:02.000Z</published>
-    <updated>2019-03-29T01:23:35.866Z</updated>
+    <updated>2019-04-01T04:10:14.013Z</updated>
     
-    <content type="html"><![CDATA[<p>按用到的算法分类保存一下自己做的题</p><a id="more"></a><h1 id="图论"><a href="#图论" class="headerlink" title="图论"></a>图论</h1><h2 id="2-sat"><a href="#2-sat" class="headerlink" title="2-sat"></a>2-sat</h2><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1814" target="_blank" rel="noopener">hdu-1814</a>: 2sat板子题</p><p><a href="https://cn.vjudge.net/problem/UVALive-3211" target="_blank" rel="noopener">UVALive-3211</a>: 二分枚举限制条件建图跑2sat求最值</p><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=3622" target="_blank" rel="noopener">HDU-3622-Bomb Game</a>: 也是二分枚举+建图求最值的问题</p><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=4115" target="_blank" rel="noopener">HDU-4115</a>: 不是单纯的全为矛盾项的2sat，其中还有一些必选项，例如选a就必须选b的情况（可以转化成矛盾项做，也可以直接利用这个条件建图（麻烦一点））</p><p><a href="http://poj.org/problem?id=3678" target="_blank" rel="noopener">poj-3678-Katu Puzzle</a>: 加必选边建图跑2sat判断是否有解（这题很好）</p>]]></content>
+    <content type="html"><![CDATA[<p>按用到的算法分类保存一下自己做的题</p><a id="more"></a><h1 id="图论"><a href="#图论" class="headerlink" title="图论"></a>图论</h1><h2 id="2-sat"><a href="#2-sat" class="headerlink" title="2-sat"></a>2-sat</h2><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1814" target="_blank" rel="noopener">hdu-1814</a>: 2sat板子题</p><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=3062" target="_blank" rel="noopener">hdu-3062</a>: 也算是板子题吧</p><p><a href="https://cn.vjudge.net/problem/UVALive-3211" target="_blank" rel="noopener">UVALive-3211</a>: 二分枚举限制条件建图跑2sat求最值</p><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=3622" target="_blank" rel="noopener">HDU-3622-Bomb Game</a>: 也是二分枚举+建图求最值的问题</p><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=4115" target="_blank" rel="noopener">HDU-4115</a>: 不是单纯的全为矛盾项的2sat，其中还有一些必选项，例如选a就必须选b的情况（可以转化成矛盾项做，也可以直接利用这个条件建图（麻烦一点））</p><p><a href="http://poj.org/problem?id=3678" target="_blank" rel="noopener">poj-3678-Katu Puzzle</a>: 加必选边建图跑2sat判断是否有解（这题很好）</p><p><a href="https://ac.nowcoder.com/acm/contest/327/F" target="_blank" rel="noopener">处女座与宝藏</a>: 2sat判断是否有解，建图的思想很不错，没有像前面那几道题那么直白的告诉你限制条件</p>]]></content>
     
     <summary type="html">
     
@@ -471,30 +499,6 @@
     </summary>
     
       <category term="ACM-动态规划" scheme="http://www.31415x.cf/categories/ACM-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-    
-      <category term="acm" scheme="http://www.31415x.cf/tags/acm/"/>
-    
-      <category term="刷题" scheme="http://www.31415x.cf/tags/%E5%88%B7%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>动态规划-线性dp-hdu-4055</title>
-    <link href="http://www.31415x.cf/2019/02/23/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E7%BA%BF%E6%80%A7dp-hdu-4055/"/>
-    <id>http://www.31415x.cf/2019/02/23/动态规划-线性dp-hdu-4055/</id>
-    <published>2019-02-23T06:18:58.000Z</published>
-    <updated>2019-02-23T08:53:10.557Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=4055" target="_blank" rel="noopener">这道题是大连的某一年的现场赛的题hdu-4055</a><br>，，，刚开始做线性dp的题，，看了好半天才看懂解法，，</p><a id="more"></a><h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p><a href="https://www.cnblogs.com/rhythmic/p/5398953.html" target="_blank" rel="noopener">参考1</a><br><a href="https://www.cnblogs.com/ftae/p/7057372.html" target="_blank" rel="noopener">参考2</a></p><p>题目的意思就是给出一个仅有1~n组成的序列的关系s：’I’表示 $a[i+1]&gt;a[i]$，’D’表示 $a[i+1] &lt; a[i]$，，’?’表示都可以，，然后问你所有可能的情况的总数，，</p><p>用 $dp[i][j]$ 表示长度为i并且仅由1~i组成的序列以j结尾时的种类数，，</p><ul><li><p>当 $s[i]= ?$ 时，，当前点的可能情况就是前面所有情况的和，即 $dp[i][j]=\sum_{k=1}^{i-1}dp[i-1][k]$</p></li><li><p>当 $s[i]=I$ 时，，因为第i位固定就为j了，并且前一位要满足小于等于j，所以就要找出所有长度为i-1且结尾小于等于j-1的情况的和，，即： $dp[i][j]=\sum_{k=1}^{j-1}dp[i-1][k]$</p></li><li><p>当 $s[i]=D$ 时，，和等于I的情况相反，，也就是要找到所有长度为i-1且最后一位大于j的种类数（同时要小于i-1），，也就是说可以直接用？的种类数减去I的种类数，，即： $dp[i][j]=\sum<em>{k=j}^{i-1}dp[i-1][k]=\sum</em>{k=1}^{i-1}dp[i-1][k]-\sum_{k=1}^{j-1}dp[i][k]$</p></li></ul><blockquote><p>假定每次使第i位为j时，前面大于等于j的值都加一，，这样保证前i个数都出现一次，，同时i-1变成了i，，j变成了j+1，，j就放在了后面，，所以遍历中的k是从j~i-1，，，</p></blockquote><p><a href="https://blog.csdn.net/lvshubao1314/article/details/46793805" target="_blank" rel="noopener">参考</a></p><p>最后用前缀和维护一下那个和，空间换时间</p><h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//hdu</span></span><br><span class="line"><span class="comment">//#include &lt;bits/stdc++.h&gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> aaa cout&lt;&lt;233&lt;&lt;endl;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> endl <span class="meta-string">'\n'</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pb push_back</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; pii;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;<span class="comment">//1061109567</span></span><br><span class="line"><span class="keyword">const</span> ll linf = <span class="number">0x3f3f3f3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> eps = <span class="number">1e-6</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> pi = <span class="number">3.14159265358979</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e3</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxm = <span class="number">2e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> ll mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"><span class="keyword">int</span> dp[maxn][maxn], sum[maxn][maxn];</span><br><span class="line"><span class="keyword">char</span> s[maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//    freopen("233.in" , "r" , stdin);</span></span><br><span class="line"><span class="comment">//    freopen("233.out" , "w" , stdout);</span></span><br><span class="line"><span class="comment">//    ios_base::sync_with_stdio(0);</span></span><br><span class="line"><span class="comment">//    cin.tie(0);cout.tie(0);</span></span><br><span class="line">    <span class="keyword">while</span>(~<span class="built_in">scanf</span>(<span class="string">"%s"</span>, s + <span class="number">2</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> len = <span class="built_in">strlen</span>(s + <span class="number">2</span>);</span><br><span class="line">        <span class="built_in">memset</span>(dp, <span class="number">0</span>, <span class="keyword">sizeof</span> dp);</span><br><span class="line">        <span class="built_in">memset</span>(sum, <span class="number">0</span>, <span class="keyword">sizeof</span> sum);</span><br><span class="line">        dp[<span class="number">1</span>][<span class="number">1</span>] = sum[<span class="number">1</span>][<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= len + <span class="number">1</span>; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= i; ++j)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(s[i] == <span class="string">'I'</span>)</span><br><span class="line">                    dp[i][j] = sum[i - <span class="number">1</span>][j - <span class="number">1</span>];</span><br><span class="line">                <span class="keyword">if</span>(s[i] == <span class="string">'D'</span>)</span><br><span class="line">                    dp[i][j] = (sum[i - <span class="number">1</span>][i - <span class="number">1</span>] - sum[i - <span class="number">1</span>][j - <span class="number">1</span>] + mod) % mod;</span><br><span class="line">                <span class="keyword">if</span>(s[i] == <span class="string">'?'</span>)</span><br><span class="line">                    dp[i][j] = sum[i - <span class="number">1</span>][i - <span class="number">1</span>];</span><br><span class="line">                sum[i][j] = (dp[i][j] + sum[i][j - <span class="number">1</span>]) % mod;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, sum[len + <span class="number">1</span>][len + <span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>(end)</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;http://acm.hdu.edu.cn/showproblem.php?pid=4055&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;这道题是大连的某一年的现场赛的题hdu-4055&lt;/a&gt;&lt;br&gt;，，，刚开始做线性dp的题，，看了好半天才看懂解法，，&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="ACM-动态规划-线性dp" scheme="http://www.31415x.cf/categories/ACM-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E7%BA%BF%E6%80%A7dp/"/>
     
     
       <category term="acm" scheme="http://www.31415x.cf/tags/acm/"/>
