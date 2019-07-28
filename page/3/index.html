@@ -406,7 +406,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2019/02/23/动态规划-线性dp-hdu-4055/"/>
+    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2019/03/18/hexo博客源文件备份至github设置/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="31415926535x"/>
@@ -426,7 +426,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/02/23/动态规划-线性dp-hdu-4055/" class="post-title-link" itemprop="url">动态规划-线性dp-hdu-4055</a>
+                <a href="/2019/03/18/hexo博客源文件备份至github设置/" class="post-title-link" itemprop="url">hexo博客源文件备份至github设置</a>
               
             
           </h1>
@@ -451,7 +451,7 @@
                 
               
 
-              <time title="创建时间：2019-02-23 14:18:58 / 修改时间：16:53:10" itemprop="dateCreated datePublished" datetime="2019-02-23T14:18:58+08:00">2019-02-23</time>
+              <time title="创建时间：2019-03-18 11:32:55 / 修改时间：12:23:23" itemprop="dateCreated datePublished" datetime="2019-03-18T11:32:55+08:00">2019-03-18</time>
             
 
             
@@ -473,7 +473,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ACM-动态规划-线性dp/" itemprop="url" rel="index"><span itemprop="name">ACM-动态规划-线性dp</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/hexo博客相关/" itemprop="url" rel="index"><span itemprop="name">hexo博客相关</span></a></span>
 
                 
                 
@@ -509,11 +509,13 @@
 
       
         
-          <p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=4055" target="_blank" rel="noopener">这道题是大连的某一年的现场赛的题hdu-4055</a><br>，，，刚开始做线性dp的题，，看了好半天才看懂解法，，</p>
+          <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>弄这个的主要原因是之前搞崩过两次博客（手贱在上传文件的时候按ctrl+c，，在恢复的时候总是怕再出错，，每次都备份了好几遍源文件，，，尤其是那些md文件，，，毕竟丢了就真的只能重写了啊，，，</p>
+<p>今天偶然看到有人把md文件和渲染后的html文件放在一个文件夹中，，，感觉不错，，，后来看完他的设置后，，感觉有一点不好：md文件不集中，，，真要拿回所有的md文件很麻烦，，，而且还要动配置文件 <code>_config.yml</code> ，，实在是不想因为改动这个出现各种奇奇怪怪的错误了，，不是说不会解决，，，主要是太麻烦:(，，，，</p>
+<p>后来又看到现在弄的这个方法： <strong>将主要的源文件定期备份到另一个分支里</strong> ，，，这样的话所有文件都在一个分支里，，，用的时候直接拉下来，，重新配置hexo环境等等就行了，，，</p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2019/02/23/动态规划-线性dp-hdu-4055/#more" rel="contents">
+              <a class="btn" href="/2019/03/18/hexo博客源文件备份至github设置/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -573,7 +575,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2019/02/21/动态规划-线性dp/"/>
+    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2019/03/16/拓扑排序判环-二分枚举建图/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="31415926535x"/>
@@ -593,7 +595,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/02/21/动态规划-线性dp/" class="post-title-link" itemprop="url">动态规划_线性dp</a>
+                <a href="/2019/03/16/拓扑排序判环-二分枚举建图/" class="post-title-link" itemprop="url">拓扑排序判环+二分枚举建图</a>
               
             
           </h1>
@@ -618,7 +620,512 @@
                 
               
 
-              <time title="创建时间：2019-02-21 15:09:25" itemprop="dateCreated datePublished" datetime="2019-02-21T15:09:25+08:00">2019-02-21</time>
+              <time title="创建时间：2019-03-16 22:17:36 / 修改时间：22:23:42" itemprop="dateCreated datePublished" datetime="2019-03-16T22:17:36+08:00">2019-03-16</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ACM-图论-拓扑排序/" itemprop="url" rel="index"><span itemprop="name">ACM-图论-拓扑排序</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>一道寒假没有做的题，，，当时没有看拓扑排序，，所以就跳过了，，今天看到了，，emmm很简单啊，，，</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/03/16/拓扑排序判环-二分枚举建图/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2019/03/16/求树的直径、树中最长路/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="31415926535x"/>
+      <meta itemprop="description" content="很感谢你能来，不遗憾你离开"/>
+      <meta itemprop="image" content="/images/misaka.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="31415926535x"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/16/求树的直径、树中最长路/" class="post-title-link" itemprop="url">求树的直径、树中最长路</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-16 18:02:37 / 修改时间：18:22:47" itemprop="dateCreated datePublished" datetime="2019-03-16T18:02:37+08:00">2019-03-16</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ACM-图论-树的直径/" itemprop="url" rel="index"><span itemprop="name">ACM-图论-树的直径</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>对于一颗有边权的树，，它的直径表示树中最远的两个节点之间的距离，，，</p>
+<p>可以通过两次深搜（广搜）来求出直径</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/03/16/求树的直径、树中最长路/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2019/03/15/拯救者Y720-gtx1050-window10-配置tensorflow-gpu环境/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="31415926535x"/>
+      <meta itemprop="description" content="很感谢你能来，不遗憾你离开"/>
+      <meta itemprop="image" content="/images/misaka.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="31415926535x"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/15/拯救者Y720-gtx1050-window10-配置tensorflow-gpu环境/" class="post-title-link" itemprop="url">拯救者Y720-gtx1050-window10-配置tensorflow-gpu环境</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-15 09:14:52 / 修改时间：16:05:14" itemprop="dateCreated datePublished" datetime="2019-03-15T09:14:52+08:00">2019-03-15</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/人脸识别/" itemprop="url" rel="index"><span itemprop="name">人脸识别</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>因为选修了数字图像这门课，，要做一个人脸识别的项目，和室友打算利用tensorflow来训练一个模型，，然后刚开始的环境配置就折腾了一天，，</p>
+<p>现在记录一下大致的流程和遇到的坑，，（只是简略的写写配置的要点，，具体的信息别的博客讲的很清楚了，，，</p>
+<p>最后的环境： win10x64 + gtx1050 + CUDA9.0 + cuDNN9.0 + Anaconda + <strong>Tensorflow1.9.0</strong></p>
+<p>英伟达官网你会发现1050不能使用它的CUDA，，但实际上是可以使用的，，后面可以看出算力大概是6.1，，</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/03/15/拯救者Y720-gtx1050-window10-配置tensorflow-gpu环境/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2019/03/14/kaungbin-简单搜索专题/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="31415926535x"/>
+      <meta itemprop="description" content="很感谢你能来，不遗憾你离开"/>
+      <meta itemprop="image" content="/images/misaka.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="31415926535x"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/14/kaungbin-简单搜索专题/" class="post-title-link" itemprop="url">kaungbin_简单搜索专题</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-14 08:25:13" itemprop="dateCreated datePublished" datetime="2019-03-14T08:25:13+08:00">2019-03-14</time>
             
 
             
@@ -635,7 +1142,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-02-23 14:20:39" itemprop="dateModified" datetime="2019-02-23T14:20:39+08:00">2019-02-23</time>
+                <time title="修改时间：2019-05-31 09:14:06" itemprop="dateModified" datetime="2019-05-31T09:14:06+08:00">2019-05-31</time>
               
             
           </span>
@@ -652,7 +1159,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ACM-动态规划-线性dp/" itemprop="url" rel="index"><span itemprop="name">ACM-动态规划-线性dp</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ACM-搜索/" itemprop="url" rel="index"><span itemprop="name">ACM-搜索</span></a></span>
 
                 
                 
@@ -688,13 +1195,12 @@
 
       
         
-          <p>线性dp是很基础的一种动态规划，，经典题和他的变种有很多，比如两个串的LCS,LIS,最大子序列和等等，，</p>
-<p>线性dp是用来解决一些 <strong>线性区间上的最优化问题</strong> ，，</p>
-<p>学这里的东西我感觉主要要理解好问题的子问题来写出转移方程，，还有弄清具体的边界条件就行了，，</p>
+          <p>基本的搜索不怎么熟练，，有时做题的时候感觉很坑，，现在来练习一下，，</p>
+<p>这个专题是<a href="https://vjudge.net/contest/287864" target="_blank" rel="noopener">kuangbin简单搜索专题</a></p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2019/02/21/动态规划-线性dp/#more" rel="contents">
+              <a class="btn" href="/2019/03/14/kaungbin-简单搜索专题/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -754,7 +1260,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2019/02/19/动态规划_背包问题笔记/"/>
+    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2019/03/11/Disqus使得博客空白/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="31415926535x"/>
@@ -774,7 +1280,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/02/19/动态规划_背包问题笔记/" class="post-title-link" itemprop="url">动态规划_背包问题笔记</a>
+                <a href="/2019/03/11/Disqus使得博客空白/" class="post-title-link" itemprop="url">Disqus使得博客空白</a>
               
             
           </h1>
@@ -799,7 +1305,156 @@
                 
               
 
-              <time title="创建时间：2019-02-19 13:30:33" itemprop="dateCreated datePublished" datetime="2019-02-19T13:30:33+08:00">2019-02-19</time>
+              <time title="创建时间：2019-03-11 20:40:15 / 修改时间：20:56:16" itemprop="dateCreated datePublished" datetime="2019-03-11T20:40:15+08:00">2019-03-11</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>昨天更新了一篇博文之后，随手一看发现博客全是白的，，但是实际上是有字的，，可以选择出来但是就是不显示（透明一样），，，</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/03/11/Disqus使得博客空白/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2019/03/10/牛客小白月赛12/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="31415926535x"/>
+      <meta itemprop="description" content="很感谢你能来，不遗憾你离开"/>
+      <meta itemprop="image" content="/images/misaka.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="31415926535x"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/10/牛客小白月赛12/" class="post-title-link" itemprop="url">牛客小白月赛12</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-10 17:31:00" itemprop="dateCreated datePublished" datetime="2019-03-10T17:31:00+08:00">2019-03-10</time>
             
 
             
@@ -816,29 +1471,11 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-02-21 13:32:25" itemprop="dateModified" datetime="2019-02-21T13:32:25+08:00">2019-02-21</time>
+                <time title="修改时间：2019-03-17 11:55:28" itemprop="dateModified" datetime="2019-03-17T11:55:28+08:00">2019-03-17</time>
               
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ACM-动态规划/" itemprop="url" rel="index"><span itemprop="name">ACM-动态规划</span></a></span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -869,11 +1506,12 @@
 
       
         
-          <p>dp自从知道有这么个东西时，就没有好好的学，，现在一看道dp的题就绕道走，，，但是，很多比赛中的dp问题有很多，，别人都会，自己不会很吃亏啊，，，于是从基础开始一点一点的补ing</p>
+          <p><a href="https://ac.nowcoder.com/acm/contest/392#question" target="_blank" rel="noopener">https://ac.nowcoder.com/acm/contest/392#question</a></p>
+<p>学到很多东西，，，</p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2019/02/19/动态规划_背包问题笔记/#more" rel="contents">
+              <a class="btn" href="/2019/03/10/牛客小白月赛12/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -933,7 +1571,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2019/02/18/codeforces-1111/"/>
+    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2019/03/10/图论-割点与桥/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="31415926535x"/>
@@ -953,7 +1591,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/02/18/codeforces-1111/" class="post-title-link" itemprop="url">codeforces-1111</a>
+                <a href="/2019/03/10/图论-割点与桥/" class="post-title-link" itemprop="url">图论-割点、桥与双连通分支</a>
               
             
           </h1>
@@ -978,7 +1616,343 @@
                 
               
 
-              <time title="创建时间：2019-02-18 11:41:17 / 修改时间：18:33:59" itemprop="dateCreated datePublished" datetime="2019-02-18T11:41:17+08:00">2019-02-18</time>
+              <time title="创建时间：2019-03-10 13:25:18 / 修改时间：14:38:56" itemprop="dateCreated datePublished" datetime="2019-03-10T13:25:18+08:00">2019-03-10</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ACM-图论-割点、桥与双连通分支/" itemprop="url" rel="index"><span itemprop="name">ACM-图论-割点、桥与双连通分支</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>这应该是图论的基础知识点了吧，，，当初上离散课的时候没有好好听（因为不怎么考。。QAQ），，只知道个大致概念，，至于怎么用代码去求一个图的割点与桥之前也只知道用tarjan可以实现，，但具体的细节一点都不知道，，，想着迟早有一天栽在不会这块内容上，，emmm昨天就因为不熟悉这块内容简单的板子题都没看出来，，，</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/03/10/图论-割点与桥/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2019/03/10/序列自动机/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="31415926535x"/>
+      <meta itemprop="description" content="很感谢你能来，不遗憾你离开"/>
+      <meta itemprop="image" content="/images/misaka.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="31415926535x"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/10/序列自动机/" class="post-title-link" itemprop="url">序列自动机</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-10 09:55:20 / 修改时间：10:26:52" itemprop="dateCreated datePublished" datetime="2019-03-10T09:55:20+08:00">2019-03-10</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ACM-字符串/" itemprop="url" rel="index"><span itemprop="name">ACM-字符串</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>昨天在牛客碰到了这样的一道题，判断一些字符串是不是原串的子序列，，，因为之前做过一些LCS子序列的题，，，就想，这不贼简单，，用lcs求一下每个子串和原串，，然后判断LCS的长度是不是等于要判断的那个串的长度，，，然后，，T了，，，</p>
+<p>因为dp求LCS几个串还好说，，但是当串又多又长时，，，不仅会T，，dp数组不弄滚动数组还会MLE，，，</p>
+<p>之后看了题解了解到这个处理子序列的好东西，序列自动机，，，</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/03/10/序列自动机/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2019/03/03/Codeforces-542div2/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="31415926535x"/>
+      <meta itemprop="description" content="很感谢你能来，不遗憾你离开"/>
+      <meta itemprop="image" content="/images/misaka.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="31415926535x"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/03/Codeforces-542div2/" class="post-title-link" itemprop="url">Codeforces-542div2</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-03 11:39:48 / 修改时间：22:17:18" itemprop="dateCreated datePublished" datetime="2019-03-03T11:39:48+08:00">2019-03-03</time>
             
 
             
@@ -1036,1045 +2010,12 @@
 
       
         
-          <p><a href="https://codeforces.com/contest/1111" target="_blank" rel="noopener">codeforces 537 div2</a></p>
-<h1 id="A"><a href="#A" class="headerlink" title="A"></a>A</h1><p>题意就是给你两个字符串，然后如果s,t的对应位上的字母要么都是元音，要么都是辅音，，就输出Yes反之输出No，，长度不等肯定输出的是No，，，</p>
+          <p>codeforces-1130A~G</p>
+<p>和队友做了一套题，，</p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2019/02/18/codeforces-1111/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2019/02/17/数论模板/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="31415926535x"/>
-      <meta itemprop="description" content="很感谢你能来，不遗憾你离开"/>
-      <meta itemprop="image" content="/images/misaka.jpg"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="31415926535x"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/02/17/数论模板/" class="post-title-link" itemprop="url">数论模板</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-02-17 16:31:51" itemprop="dateCreated datePublished" datetime="2019-02-17T16:31:51+08:00">2019-02-17</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-10 15:59:50" itemprop="dateModified" datetime="2019-03-10T15:59:50+08:00">2019-03-10</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数论/" itemprop="url" rel="index"><span itemprop="name">数论</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>自己虽然没有好好看过数论的知识，，但是实际的做题中有一些处理总是需要数论的板子，，总是再做题的时候翻别人的博客抄很耽误事，，而且对自己也不好，，所以总结一下平常用道的数论的板子，，</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/02/17/数论模板/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2019/02/17/codeforces-1114F-线段树练习/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="31415926535x"/>
-      <meta itemprop="description" content="很感谢你能来，不遗憾你离开"/>
-      <meta itemprop="image" content="/images/misaka.jpg"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="31415926535x"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/02/17/codeforces-1114F-线段树练习/" class="post-title-link" itemprop="url">codeforces-1114F-线段树练习</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-02-17 15:09:51 / 修改时间：16:27:12" itemprop="dateCreated datePublished" datetime="2019-02-17T15:09:51+08:00">2019-02-17</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ACM-线段树/" itemprop="url" rel="index"><span itemprop="name">ACM-线段树</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p><a href="https://codeforces.com/problemset/problem/1114/F" target="_blank" rel="noopener">这是一道用线段树维区间值的一道题</a>，，题意很简单，，就是对于给定的一个序列，，初始时每个数的值不大于300，，，然后有两中操作，，一个是对区间[l, r]的每个数乘上以个数x，，一个是询问区间的乘积的欧拉函数值，，，</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/02/17/codeforces-1114F-线段树练习/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2019/02/13/2-sat/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="31415926535x"/>
-      <meta itemprop="description" content="很感谢你能来，不遗憾你离开"/>
-      <meta itemprop="image" content="/images/misaka.jpg"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="31415926535x"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/02/13/2-sat/" class="post-title-link" itemprop="url">2-sat</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-02-13 00:45:38" itemprop="dateCreated datePublished" datetime="2019-02-13T00:45:38+08:00">2019-02-13</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-04-02 18:19:06" itemprop="dateModified" datetime="2019-04-02T18:19:06+08:00">2019-04-02</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ACM-图论-2-SAT/" itemprop="url" rel="index"><span itemprop="name">ACM-图论-2-SAT</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>2-sat是k-sat问题中k==2时的一种情况，，（废话qaq，，</p>
-<p>当k大于等于3时是npc问题，，所以一般都是问的2-sat，，</p>
-<p>这种题的大概形式是： 对于给定的n对的点，要求每一对都只能选择一个，并且其中还有一些限制条件，比如说选了u就不能选择v等等，，</p>
-<p>然后问你有没有可行解，，，</p>
-<p>解决这类问题一般是用 <strong>染色法（求字典序最小的解）</strong> 和 <strong>强连通分量法（拓扑排序只能得到任意解）</strong>，，</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/02/13/2-sat/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2019/02/12/拓扑排序/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="31415926535x"/>
-      <meta itemprop="description" content="很感谢你能来，不遗憾你离开"/>
-      <meta itemprop="image" content="/images/misaka.jpg"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="31415926535x"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/02/12/拓扑排序/" class="post-title-link" itemprop="url">拓扑排序</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-02-12 22:46:14 / 修改时间：22:57:13" itemprop="dateCreated datePublished" datetime="2019-02-12T22:46:14+08:00">2019-02-12</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/图论/" itemprop="url" rel="index"><span itemprop="name">图论</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>貌似从来没有敲过拓扑排序的板子，，，记录一下</p>
-<p>拓扑排序就是对DAG有向无环图中的边u-&gt;v,要求排序出一个点的序列，满足u在v的前面，，</p>
-<p>算法的思路是不停的将入度为零的点u放到前面，并且对u能到达的所有点v的入度递减，，循环处理所有的点即可，，期间将所有入度为零的点放在一个队列中，，</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/02/12/拓扑排序/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2019/02/11/强连通分量Tarjan-Kosaraju/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="31415926535x"/>
-      <meta itemprop="description" content="很感谢你能来，不遗憾你离开"/>
-      <meta itemprop="image" content="/images/misaka.jpg"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="31415926535x"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/02/11/强连通分量Tarjan-Kosaraju/" class="post-title-link" itemprop="url">强连通分量Tarjan_Kosaraju</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-02-11 18:32:58 / 修改时间：21:23:28" itemprop="dateCreated datePublished" datetime="2019-02-11T18:32:58+08:00">2019-02-11</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ACM-图论-强连通分量/" itemprop="url" rel="index"><span itemprop="name">ACM-图论-强连通分量</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>图的连通性是图论中的一个基础知识点，算法很简单，但是所所涉及的基础知识点也很多，后悔当初离散数学没有好好的学，QAQ，，，</p>
-<p>这篇主要是记录一下两种方法求强连通分量的算法，Tarjan和Kosaraju的模板，</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/02/11/强连通分量Tarjan-Kosaraju/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2019/01/02/汇编笔记-第十三章/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="31415926535x"/>
-      <meta itemprop="description" content="很感谢你能来，不遗憾你离开"/>
-      <meta itemprop="image" content="/images/misaka.jpg"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="31415926535x"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/01/02/汇编笔记-第十三章/" class="post-title-link" itemprop="url">汇编笔记_第十三章</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-02 15:45:55 / 修改时间：17:37:49" itemprop="dateCreated datePublished" datetime="2019-01-02T15:45:55+08:00">2019-01-02</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/汇编语言/" itemprop="url" rel="index"><span itemprop="name">汇编语言</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="中断程序设计"><a href="#中断程序设计" class="headerlink" title="中断程序设计"></a>中断程序设计</h1><h2 id="int-指令"><a href="#int-指令" class="headerlink" title="int 指令"></a>int 指令</h2><p><code>int n</code>：n为中断类型码，功能是引发中断过程</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/01/02/汇编笔记-第十三章/#more" rel="contents">
+              <a class="btn" href="/2019/03/03/Codeforces-542div2/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -2123,7 +2064,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2169,7 +2110,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">87</span>
+                    <span class="site-state-item-count">102</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2244,7 +2185,21 @@
                     
                       
                     
-                    <span class="site-state-item-count">29</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">36</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -2319,7 +2274,29 @@
                     
                       
                     
-                    <span class="site-state-item-count">29</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">40</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
