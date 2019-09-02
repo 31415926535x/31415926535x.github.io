@@ -15,11 +15,11 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-CN">
-<head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
-<meta name="theme-color" content="#222"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
 
 
 
@@ -42,7 +42,7 @@
 
   
   
-  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5">
 
 
 
@@ -50,9 +50,9 @@
 
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
 
-<link rel="stylesheet" href="/css/main.css?v=7.0.1"/>
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
@@ -103,7 +103,7 @@
 
 
   <meta name="description" content="概述图的连通性是图论中的一个基础知识点，算法很简单，但是所所涉及的基础知识点也很多，后悔当初离散数学没有好好的学，QAQ，，， 这篇主要是记录一下两种方法求强连通分量的算法，Tarjan和Kosaraju的模板，">
-<meta name="keywords" content="刷题,acm">
+<meta name="keywords" content="acm,刷题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="强连通分量Tarjan_Kosaraju">
 <meta property="og:url" content="http://www.31415x.cf/2019/02/11/强连通分量Tarjan-Kosaraju/index.html">
@@ -119,12 +119,12 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="31415926535x" type="application/atom+xml"/>
+  <link rel="alternate" href="/atom.xml" title="31415926535x" type="application/atom+xml">
 
 
 
 
-  <link rel="canonical" href="http://www.31415x.cf/2019/02/11/强连通分量Tarjan-Kosaraju/"/>
+  <link rel="canonical" href="http://www.31415x.cf/2019/02/11/强连通分量Tarjan-Kosaraju/">
 
 
 
@@ -241,7 +241,7 @@
 
     
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
 
   </li>
         
@@ -258,7 +258,7 @@
 
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签</a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
 
   </li>
         
@@ -275,7 +275,7 @@
 
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类</a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
 
   </li>
         
@@ -292,7 +292,7 @@
 
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
 
   </li>
         
@@ -309,7 +309,7 @@
 
     
 
-    <a href="/categories/diary/" rel="section"><i class="menu-item-icon fa fa-fw fa-user-secret"></i> <br/>diary</a>
+    <a href="/categories/diary/" rel="section"><i class="menu-item-icon fa fa-fw fa-user-secret"></i> <br>diary</a>
 
   </li>
         
@@ -326,7 +326,7 @@
 
     
 
-    <a href="/acm" rel="section"><i class="menu-item-icon fa fa-fw fa-flag"></i> <br/>acm</a>
+    <a href="/acm" rel="section"><i class="menu-item-icon fa fa-fw fa-flag"></i> <br>acm</a>
 
   </li>
 
@@ -337,7 +337,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>搜索</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
       
     </ul>
@@ -360,9 +360,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -409,16 +407,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2019/02/11/强连通分量Tarjan-Kosaraju/"/>
+    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2019/02/11/强连通分量Tarjan-Kosaraju/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="31415926535x"/>
-      <meta itemprop="description" content="很感谢你能来，不遗憾你离开"/>
-      <meta itemprop="image" content="/images/misaka.jpg"/>
+      <meta itemprop="name" content="31415926535x">
+      <meta itemprop="description" content="很感谢你能来，不遗憾你离开">
+      <meta itemprop="image" content="/images/misaka.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="31415926535x"/>
+      <meta itemprop="name" content="31415926535x">
     </span>
 
     
@@ -513,7 +511,7 @@
 <p>这篇主要是记录一下两种方法求强连通分量的算法，Tarjan和Kosaraju的模板，</p>
 <a id="more"></a>
 <h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p>（具体的算法的证明和相关的内容来自<a href="https://www.cnblogs.com/five20/p/7594239.html" target="_blank" rel="noopener">这篇博客</a>以及红书上的内容）</p>
-<p>强连通分量即 Strongly Connected Component，一个有向图中的人一两点若能相互到达，即为强连通图，若不为强连通图，则改图肯定由若干个小的强连通图组成，即为强连通分量，例如<br><img src="https://images2017.cnblogs.com/blog/1240891/201709/1240891-20170926095934964-988227089.png" alt=""></p>
+<p>强连通分量即 Strongly Connected Component，一个有向图中的人一两点若能相互到达，即为强连通图，若不为强连通图，则改图肯定由若干个小的强连通图组成，即为强连通分量，例如<br><img src="https://images2017.cnblogs.com/blog/1240891/201709/1240891-20170926095934964-988227089.png" alt></p>
 <p>对于这个图，有三个强连通分量，{1,2,3,4},{5},{6}，，，</p>
 <h3 id="Kosaraju算法"><a href="#Kosaraju算法" class="headerlink" title="Kosaraju算法"></a>Kosaraju算法</h3><ul>
 <li>对原图进行一次深搜，计算出每一个节点被访问的次序（时间）st[i]；</li>
@@ -583,9 +581,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/刷题/" rel="tag"># 刷题</a>
-          
             <a href="/tags/acm/" rel="tag"># acm</a>
+          
+            <a href="/tags/刷题/" rel="tag"># 刷题</a>
           
         </div>
       
@@ -675,9 +673,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/misaka.jpg"
-                alt="31415926535x"/>
+              <img class="site-author-image" itemprop="image" src="/images/misaka.jpg" alt="31415926535x">
             
               <p class="site-author-name" itemprop="name">31415926535x</p>
               <div class="site-description motion-element" itemprop="description">很感谢你能来，不遗憾你离开</div>
@@ -690,7 +686,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">102</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -779,7 +775,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">36</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">38</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -876,7 +876,23 @@
                     
                       
                     
-                    <span class="site-state-item-count">40</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">48</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1024,7 +1040,7 @@
 </div>
 
 
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.5.0</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
 
 
 
