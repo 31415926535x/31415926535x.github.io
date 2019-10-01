@@ -53,7 +53,7 @@ $$
     dp[i][j]=
     \begin{cases}
         dp[i-1][j-1]+1, & \text{if a[i]=b[j]}\\
-        max(dp[i-1][j], dp[i][j-1], & \text{if a[i] != b[j]})\\
+        max(dp[i-1][j], dp[i][j-1]), & \text{if a[i] != b[j]}\\
     \end{cases}
 }
 $$

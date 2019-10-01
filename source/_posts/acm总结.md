@@ -149,6 +149,10 @@ for(int u = 1; u <= n; ++i)
 
 ## codeforces上的
 
+### 思想
+
++ 二进制甚至是n进制的思想，很重要啊，，bitmarks[就比如说这个](https://codeforces.com/contest/1117/problem/E)
++ 线性递推方程可以使用 **矩阵快速幂加速** 或者直接上 **杜教筛**,,[例如](https://codeforces.com/contest/1117/problem/D)
 
 ## 奇技淫巧
 

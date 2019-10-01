@@ -514,3 +514,568 @@ int main()
 }
 ```
 
+# E - Find The Multiple POJ - 1426 
+
+好坑(cai啊这题，，，
+
+题意是让求一个仅有01组成的十进制的可以整除n的数，，，然后他给了几个很大很大的满足题意的样例，，，
+
+然后我就天真的以为对于这些数的解都是巨大的数，，会爆ll，，，然后就想着用一个数组去存这一位是0还是1，，然后搜一下，，，写到一半之后发现，，如果这样想的话，，中间判断计算出来的的岂不是也巨大，，那怎么保证搜到的这个数是对的？？？ 然后我就蒙蔽了，，，看了别人的题解之后，，惊了，，，居然最大的数是不会爆ll的，，，那个大样例是吓唬人的，，，噗，，，，
+
+```cpp
+// #include <bits/stdc++.h>
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <string.h>
+// #include <vector>
+// #include <queue>
+#define aaa cout<<233<<endl;
+#define endl '\n'
+#define pb push_back
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+const int inf = 0x3f3f3f3f;//1061109567
+const ll linf = 0x3f3f3f3f3f3f3f;
+const double eps = 1e-6;
+const double pi = 3.14159265358979;
+const int maxn = 1e3 + 5;
+const int maxm = 2e5 + 5;
+const int mod = 1e9 + 7;
+
+
+int n;
+bool dfs(ll ans, int k)
+{
+    if(k == 20)
+    {
+        return false;
+    }
+    if(ans && ans / n * n == ans)
+    {
+        printf("%lld\n", ans);
+        return true;
+    }
+    if(dfs(ans * 10, k + 1))return true;
+    if(dfs(ans * 10 + 1, k + 1))return true;
+    
+    return false;
+}
+int main()
+{
+//    freopen("233.in" , "r" , stdin);
+//    freopen("233.out" , "w" , stdout);
+    // ios_base::sync_with_stdio(0);
+    // cin.tie(0);cout.tie(0);
+    while(scanf("%d", &n) && n)
+    {
+        dfs(0, 0);
+    }
+    return 0;
+}
+```
+
+# F - Prime Path POJ - 3126 
+
+这段时间(5月了)发现搜索还是不怎么会啊，，于是又捡起扔下的搜索专题，，，
+
+我的思路是先预处理出所有的质数，以及经过一次变化可以得到的每一个质数的其他的质数，，，然后搜一下，，
+
+先开始写的dfs，，然后自己造的样例发现时间爆炸，，发现别人都是用bfs，，
+
+然后换bfs，，，因为一开始没有标记每一个数是否被用了，，所以队列中会出现一些一样的数，，于是又多余的操作，，，t了，，标记后就好了，，，
+
+```cpp
+// #include <bits/stdc++.h>
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <string.h>
+#include <vector>
+// #include <algorithm>
+// #include <set>
+// #include <vector>
+// #include <cmath>
+#include <queue>
+// #include <stack>
+#include <ctime>
+#define aaa cout<<233<<endl;
+#define endl '\n'
+#define pb push_back
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+const int inf = 0x3f3f3f3f;//1061109567 > 1e10
+const ll linf = 0x3f3f3f3f3f3f3f;
+const double eps = 1e-6;
+const double pi = 3.14159265358979;
+const int maxn = 1e4 + 10;
+const int maxm = 1e3 + 5;
+const int mod = 1e9 + 7;
+
+int t, s;
+int ans;
+int a[2000], tot;
+vector<int> pp[maxn];
+// bool vis[maxn];
+bool prime[maxn];
+int p[maxn], tol;
+bool check(int a, int b)
+{
+    int flag = 0;
+    for(int i = 1; i <= 4; ++i)
+    {
+        if(a % 10 != b % 10)++flag;
+        a /= 10; b /= 10;
+    }
+    if(flag == 1 ||flag == 0)return true;
+    return false;
+}
+void init()
+{
+    for(int i = 2; i < maxn; ++i)prime[i] = true;
+    for(int i = 2; i < maxn; ++i)
+    {
+        if(prime[i])p[tol++] = i;
+        for(int j = 0; j < tol && i * p[j] < maxn; ++j)
+        {
+            prime[i * p[j]] = false;
+            if(i % p[j] == 0)break;
+        }
+    }
+    for(int i = 1; i <= 2000; ++i)
+    {
+        if(p[i] >= 1000 && p[i] <= 9999)
+        {
+            a[++tot] = p[i];
+        }
+    }
+    for(int i = 1; i <= tot; ++i)
+    {
+        for(int j = i + 1; j <= tot; ++j)
+        {
+            if(check(a[i], a[j]))
+            {
+                pp[a[i]].push_back(a[j]);
+                pp[a[j]].push_back(a[i]);
+            }
+        }
+    }
+    
+}
+
+// void dfs(int x, int ret)
+// {
+//     if(x == t)
+//     {
+//         ans = min(ans, ret);
+//         return;
+//     }
+//     if(ret >= ans)return;
+//     for(auto i : pp[x])
+//     {
+//         if(!vis[i])
+//         {
+//             vis[i] = true;
+//             dfs(i, ret + 1);
+//             vis[i] = false;
+//         }
+
+//     }
+// }
+bool vis[maxn];
+int bfs()
+{
+    if(s == t)return 0;
+    queue<pair<int, int> > q;
+    while(!q.empty())q.pop();
+    // for(auto i : pp[s])q.push(make_pair(i, 1));
+    for(int i = 0; i < pp[s].size(); ++i)q.push(make_pair(pp[s][i], 1));
+    while(!q.empty())
+    {
+        pair<int, int> now = q.front(); q.pop();
+        vis[now.first] = false;
+        if(now.first == t)return now.second;
+        // for(auto i : pp[now.first])q.push(make_pair(i, now.second + 1));
+        for(int i = 0; i < pp[now.first].size(); ++i)
+            if(!vis[pp[now.first][i]])
+            {
+                vis[pp[now.first][i]] = true;
+                q.push(make_pair(pp[now.first][i], now.second + 1));
+            }
+        
+    }
+    return inf;
+}
+int main()
+{
+    // double pp = clock();
+    // freopen("233.in" , "r" , stdin);
+    // freopen("233.out" , "w" , stdout);
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);cout.tie(0);
+    init();
+    int tt; cin >> tt;
+    while(tt--)
+    {
+        cin >> s >> t;
+        memset(vis, false, sizeof vis);
+        ans = bfs();
+        if(ans == inf)cout << "Impossible" << endl;
+        else cout << ans << endl;
+        // ans = inf;
+        // memset(vis, false, sizeof vis);
+        // vis[s] = true;
+        // dfs(s, 0);
+        // cout << ans << endl;
+    }
+    
+    
+    // cout << endl << (clock() - pp) / CLOCKS_PER_SEC << endl;
+    return 0;       
+}
+```
+
+好菜啊，，，
+
+
+# K - 迷宫问题 POJ - 3984
+
+简单的迷宫问题，，深搜广搜都行，，
+
+# L - Oil Deposits HDU - 1241 
+
+求联通块的个数，，很简单，，但是在hdu不知道怎么回事，，蜜汁wa，，最后换了一种dfs的写法就可以了，，，poj上原来的写法就没事，，，emmmm
+
+```cpp
+// #include <bits/stdc++.h>
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <string.h>
+// #include <vector>
+// #include <algorithm>
+// #include <set>
+// #include <vector>
+// #include <cmath>
+#include <queue>
+// #include <stack>
+// #include <ctime>
+#define aaa cout<<233<<endl;
+#define endl '\n'
+#define pb push_back
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+const int inf = 0x3f3f3f3f;//1061109567 > 1e10
+const ll linf = 0x3f3f3f3f3f3f3f;
+const double eps = 1e-6;
+const double pi = 3.14159265358979;
+const int maxn = 1e2 + 5;
+const int maxm = 1e3 + 5;
+const int mod = 1e9 + 7;
+
+int n, m;
+char mp[maxn][maxn];
+bool vis[maxn][maxn];
+int dx[] = {0, 1, 1, 1, 0, -1, -1, -1};
+int dy[] = {1, 1, 0, -1, -1, -1, 0, 1};
+
+void dfs(int x, int y)
+{
+    for(int i = 0; i < 8; ++i)
+    {
+        int tx = x + dx[i];
+        int ty = y + dy[i];
+        if(tx >= 1 && ty >= 1 && tx <= n && ty <= m && mp[tx][ty] == '@')
+        {
+            mp[tx][ty] = '*';
+            dfs(tx, ty);
+        }
+    }
+
+    // if(x >= 1 && y >= 1 && x <= n && y <= m && mp[x][y] == '@')
+    // {
+    //     mp[x][y] = '*';
+    //     for(int i = 0; i < 8; ++i)
+    //         dfs(x + dx[i], y + dy[i]);
+    // }
+}
+void solve()
+{
+    memset(vis, false, sizeof vis);
+    int ans = 0;
+    for(int i = 1; i <= n; ++i)
+        for(int j = 1; j <= m; ++j)
+            if(mp[i][j] == '@')
+            {
+                mp[i][j] = '*';
+                dfs(i, j);
+                ++ans;
+            }
+    printf("%d\n", ans);
+}
+
+int main()
+{
+    // double pp = clock();
+    // freopen("233.in" , "r" , stdin);
+    // freopen("233.out" , "w" , stdout);
+    // ios_base::sync_with_stdio(0);
+    // cin.tie(0);cout.tie(0);
+    
+    while(~scanf("%d%d", &n, &m) && n)
+    {
+        for(int i = 1; i <= n; ++i)
+            scanf("%s", mp[i] + 1);
+        solve();
+    }
+    
+    // cout << endl << (clock() - pp) / CLOCKS_PER_SEC << endl;
+    return 0;       
+}
+```
+
+# M - 非常可乐 HDU - 1495 
+
+倒腾水的问题，，dfs直接搜就可以了，，（开visa数组的时候不知道怎么想的一直想着1e3==100，，，emmm mle了好几发，，，自闭ing
+
+```cpp
+// #include <bits/stdc++.h>
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <string.h>
+// #include <vector>
+// #include <algorithm>
+// #include <set>
+// #include <vector>
+// #include <cmath>
+#include <queue>
+// #include <stack>
+// #include <ctime>
+#define aaa cout<<233<<endl;
+#define endl '\n'
+#define pb push_back
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+const int inf = 0x3f3f3f3f;//1061109567 > 1e10
+const ll linf = 0x3f3f3f3f3f3f3f;
+const double eps = 1e-6;
+const double pi = 3.14159265358979;
+const int maxn = 1e2 + 5;
+const int maxm = 1e3 + 5;
+const int mod = 1e9 + 7;
+
+struct node
+{
+    int v[3];
+    int st;
+}s,t,u;
+bool vis[maxn][maxn][maxn];
+void pour(int i, int j)
+{
+    // t = u;
+    t.st = u.st;
+    t.v[0] = u.v[0]; t.v[1] = u.v[1]; t.v[2] = u.v[2];
+    ++t.st;
+    if(t.v[i] >= s.v[j] - t.v[j])
+    {
+        t.v[i] -= (s.v[j] - t.v[j]);
+        t.v[j] = s.v[j];
+    }
+    else
+    {
+        t.v[j] += t.v[i];
+        t.v[i] = 0;
+    }
+}
+queue<node> q;
+int bfs(node st)
+{
+    while(!q.empty())q.pop();
+    q.push(st);
+    memset(vis, false, sizeof vis);
+    vis[st.v[0]][st.v[1]][st.v[2]] = true;
+    while(!q.empty())
+    {
+        u = q.front();q.pop();
+        //vis[u.v[0]][u.v[1]][u.v[2]] = false;
+        // cout << u.v[0] << u.v[1] << u.v[2] << endl;
+        
+        // if(num)return u.st + num % 2;
+        for(int i = 0; i <= 2; ++i)
+            for(int j = 0; j <= 2; ++j)
+                if(i != j && u.v[i] > 0)
+                {
+                    pour(i, j);
+                    if(!vis[t.v[0]][t.v[1]][t.v[2]])
+                    {
+                        int num = 0;
+                        for(int i = 0; i <= 2; ++i)
+                            if(t.v[i] * 2 == s.v[0])
+                                ++num;
+                        if(num == 2)return t.st;
+                        else if(num == 1)return t.st + 1;
+                        q.push(t);
+                        vis[t.v[0]][t.v[1]][t.v[2]] = true;
+                    }
+                }
+    }
+    return -1;
+}
+
+int main()
+{
+    // double pp = clock();
+    // freopen("233.in" , "r" , stdin);
+    // freopen("233.out" , "w" , stdout);
+    // ios_base::sync_with_stdio(0);
+    // cin.tie(0);cout.tie(0);
+    
+    int S, N, M;
+    while(~scanf("%d%d%d", &S, &N, &M) && S + N + M)
+    {
+        s.v[0] = S; s.v[1] = N, s.v[2] = M;
+        s.st = 0;
+        node st = s;
+        st.v[1] = st.v[2] = 0;
+        if(s.v[0] & 1)printf("NO\n");
+        else
+        {
+            int ans = bfs(st);
+            if(~ans)printf("%d\n", ans);
+            else puts("NO");
+        }
+        
+    }
+    
+    // cout << endl << (clock() - pp) / CLOCKS_PER_SEC << endl;
+    return 0;       
+}
+```
+
+# N - Find a way HDU - 2612 
+
+两次bfs就行了，，，因为很像最短路的题，，，写的写的就写成了最短路的样子
+
+```cpp
+#include <bits/stdc++.h>
+// #include <iostream>
+// #include <cstdio>
+// #include <cstdlib>
+// #include <string.h>
+// #include <vector>
+// #include <queue>
+#include <stack>
+#define aaa cout<<233<<endl;
+#define endl '\n'
+#define pb push_back
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+const int inf = 0x3f3f3f3f;//1061109567
+const ll linf = 0x3f3f3f3f3f3f3f;
+const double eps = 1e-6;
+const double pi = 3.14159265358979;
+const int maxn = 1e5 + 5;
+const int maxm = 2e5 + 5;
+const int mod = 1e9 + 7;
+
+int n, m;
+char mp[205][205];
+struct node
+{
+    int x, y, mi;
+    node(int _x, int _y, int _mi = 0):x(_x), y(_y), mi(_mi){}
+    const bool operator<(const node &r)const
+    {
+        return mi < r.mi;
+    }
+};
+struct node Y(0, 0, 0), M(0, 0, 0);
+vector<int> yy;
+bool vis[205][205];
+int dis[205][205];
+int dx[5] = {0, 0, 1, 0, -1};
+int dy[5] = {0, 1, 0, -1, 0};
+bool check(node i)
+{
+    if(mp[i.x][i.y] == '#')return true;
+    if(i.x < 1 || i.y < 1 || i.x > n || i.y > m)return true;
+    return false;
+}
+void bfs(node s)
+{
+    for(int i = 1; i <= n; ++i)
+        for(int j = 1; j <= m; ++j)
+            vis[i][j] = false;
+    for(int i = 1; i <= n; ++i)
+        for(int j = 1; j <= m; ++j)
+            dis[i][j] = inf;
+    
+    vis[s.x][s.y] = true;
+    queue<node> q;
+    while(!q.empty())q.pop();
+    q.push(s);
+    dis[s.x][s.y] = 0;
+    while(!q.empty())
+    {
+        node u = q.front(); q.pop();
+        for(int i = 1; i <= 4; ++i)
+        {
+            node v = node(u.x + dx[i], u.y + dy[i]);
+            if(check(v))continue;
+            if(!vis[v.x][v.y])
+            {
+                vis[v.x][v.y] = true;
+                dis[v.x][v.y] = dis[u.x][u.y] + 1;
+                q.push(v);
+            }
+        }
+    }
+}
+int main()
+{
+//    freopen("233.in" , "r" , stdin);
+//    freopen("233.out" , "w" , stdout);
+    // ios_base::sync_with_stdio(0);
+    // cin.tie(0);cout.tie(0);
+    while(~scanf("%d%d", &n, &m))
+    {
+        for(int i = 1; i <= n; ++i)
+            scanf("%s", (mp[i] + 1));
+
+        for(int i = 1; i <= n; ++i)
+            for(int j = 1; j <= m; ++j)
+                if(mp[i][j] == 'Y')
+                    Y.x = i, Y.y = j;
+                else if(mp[i][j] == 'M')
+                    M.x = i, M.y = j;
+        
+        bfs(Y);
+        yy.clear();
+        for(int i = 1; i <= n; ++i)
+            for(int j = 1; j <= m; ++j)
+                if(mp[i][j] == '@')
+                    yy.push_back(dis[i][j]);
+
+
+        int ans = inf;
+        int cnt = 0;
+        bfs(M);
+        for(int i = 1; i <= n; ++i)
+            for(int j = 1; j <= m; ++j)
+                if(mp[i][j] == '@')
+                    ans = min(ans, yy[cnt++] + dis[i][j]);
+        
+        
+        printf("%d\n", ans * 11);
+
+    }
+    return 0;    
+}
+```
+

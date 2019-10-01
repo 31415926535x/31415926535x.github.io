@@ -117,4 +117,6 @@ $ npm install hexo-deployer-git
 
 [参考2](https://blog.csdn.net/White_Idiot/article/details/80685990)
 
-(end)
+~~(end)~~
+
+刚写完就发现一个[备份插件](https://github.com/coneycode/hexo-git-backup)，，以后在说

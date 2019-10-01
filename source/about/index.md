@@ -67,3 +67,6 @@ comments: false
 
 
 <script type="text/javascript" src="//ra.revolvermaps.com/0/0/6.js?i=02928r5f7ey&amp;m=7&amp;c=ff0000&amp;cr1=00fff6&amp;f=tahoma&amp;l=1&amp;bv=50&amp;v0=50&amp;cr0=ffc000" async="async"></script>
+
+
+你啊，如果对重要的事情只字不提，就会害的自己孤独走完一生。
