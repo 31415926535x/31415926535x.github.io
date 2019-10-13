@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="做一些简单图论题，， list">
+<meta name="keywords" content="ACM,刷题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ACM-简单图论刷题">
+<meta property="og:url" content="http://www.31415x.cf/2019/10/07/ACM-简单图论刷题/index.html">
+<meta property="og:site_name" content="31415926535x">
+<meta property="og:description" content="做一些简单图论题，， list">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-12T12:48:59.298Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ACM-简单图论刷题">
+<meta name="twitter:description" content="做一些简单图论题，， list">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="31415926535x" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://www.31415x.cf/2019/10/07/ACM-简单图论刷题/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>ACM-简单图论刷题 | 31415926535x</title>
+  
+
+
+
+
+  <script async src="//www.googletagmanager.com/gtag/js?id=UA-114656515-1"></script>
+  <script>
+    var host = window.location.hostname;
+    if (host !== "localhost" || !) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-114656515-1');
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">31415926535x</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-diary">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/diary/" rel="section"><i class="menu-item-icon fa fa-fw fa-user-secret"></i> <br>diary</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-acm">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/acm" rel="section"><i class="menu-item-icon fa fa-fw fa-flag"></i> <br>acm</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2019/10/07/ACM-简单图论刷题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="31415926535x">
+      <meta itemprop="description" content="很感谢你能来，不遗憾你离开">
+      <meta itemprop="image" content="/images/misaka.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="31415926535x">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ACM-简单图论刷题
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-07 17:58:20" itemprop="dateCreated datePublished" datetime="2019-10-07T17:58:20+08:00">2019-10-07</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-12 20:48:59" itemprop="dateModified" datetime="2019-10-12T20:48:59+08:00">2019-10-12</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Codeforces/" itemprop="url" rel="index"><span itemprop="name">Codeforces</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>做一些简单图论题，， <a href="https://codeforces.com/problemset?order=BY_RATING_ASC&amp;tags=graphs%2C2000-" target="_blank" rel="noopener">list</a></p>
+<a id="more"></a>
+<h1 id="463D-Gargari-and-Permutations-多个串的LCS"><a href="#463D-Gargari-and-Permutations-多个串的LCS" class="headerlink" title="463D    Gargari and Permutations 多个串的LCS"></a>463D    Gargari and Permutations 多个串的LCS</h1><p>对于每一对数： <code>&lt;i, j&gt;</code> ，，如果每一个串的j都在i前面的话连一条边 <code>i-&gt;j</code> ，，然后跑找一个最长路，，<a href="https://codeforces.com/problemset/submission/463/62052575" target="_blank" rel="noopener">code</a></p>
+<h1 id="449B-Jzzhu-and-Cities-最短路判必经边"><a href="#449B-Jzzhu-and-Cities-最短路判必经边" class="headerlink" title="449B    Jzzhu and Cities 最短路判必经边"></a>449B    Jzzhu and Cities 最短路判必经边</h1><p>直接跑最短路并记录每个点的路径数，最后可删边对的点v如果路径数大于1或者是这条边的权值小于最短路的值就说明这边可删 （路径数很多以单模），，，记得前面去重就行了，，或者跑完最短路抠出的新图判这个点的入度大于1否，，</p>
+<p>本来是道乱搞题，，最开始的想法错了些就全否了，，不断的写假算法，，，<del>（失去理智</del> <a href="https://codeforces.com/contest/449/submission/62090227" target="_blank" rel="noopener">code</a></p>
+<h1 id="558C-Amr-and-Chemistry-暴力？？"><a href="#558C-Amr-and-Chemistry-暴力？？" class="headerlink" title="558C    Amr and Chemistry 暴力？？"></a>558C    Amr and Chemistry 暴力？？</h1><p>一开始看到tag有一个shortest path 以为是根据一些关系来建张图，，然后跑最短路得到答案，，，但是发现不管怎么建边，，最短路都是求得的，，，和最短路没啥关系，，妥妥的暴力，，最后看了官方题解，，才发现将求每个数的情况的搜索看成了最短路，，我,,,emmmmmmm <a href="https://codeforces.com/contest/558/submission/62109249" target="_blank" rel="noopener">code</a></p>
+<h1 id="739B-Alyona-and-a-tree-dfs-路径二分"><a href="#739B-Alyona-and-a-tree-dfs-路径二分" class="headerlink" title="739B    Alyona and a tree dfs+路径二分"></a>739B    Alyona and a tree dfs+路径二分</h1><p>这题不错，，</p>
+<p>假定 $dep[u]$ 表示从根节点到点 <code>u</code> 的一条链的前缀路径长度，，这样这条链上的任意一条路径长度就知道了，，然后对于当前访问的一个点 <code>v</code> ，先考虑这个点对上面的某些满足条件的点的贡献：上面的点中存在这样的点 <code>u</code> ，使得 $dep[v] - dep[u] &lt;= a[v]$ 也就是说 <code>v</code> 在 <code>u</code> 的子树中并且路径长度是不大于点权的，，这样的话 <code>u</code> 的个数加一，，</p>
+<p>同样，，这段路径间的点的也满足这样的条件，，因为路径长度是单调的，，所以，，我们只要找到一个满足条件的最远的一个点 <code>u</code> 的上一个，</p>
+<p>（寻找的方法是：将上面的条件转换以下，， $dep[v] - a[v] &lt;= dep[u]$ 又因为dep是单调递增的，，所以找这个 <code>u</code> 就是找一个刚好 $dep[u]$ 是大于等于 $dep[v] - a[v]$ 的点即可），，，，</p>
+<p>将其的答案减一，，然后利用他更新他的上面的点（看成都不算这个点的贡献，，而 <code>u</code> 到 <code>v</code> 的点都会加上一个1），，，对于每一个点考虑dfs中的所有儿子节点的贡献和即可，，<a href="https://codeforces.com/contest/739/submission/62394729" target="_blank" rel="noopener">code</a></p>
+<h1 id="1217D-Coloring-Edges-判环-染色"><a href="#1217D-Coloring-Edges-判环-染色" class="headerlink" title="1217D    Coloring Edges 判环+染色"></a>1217D    Coloring Edges 判环+染色</h1><p><a href="https://codeforces.com/contest/1217/submission/61395907" target="_blank" rel="noopener">直接拓扑排序判环染色</a>，，<a href="https://codeforces.com/contest/1217/submission/61365723" target="_blank" rel="noopener">或者利用dfs的性质来染色判环</a></p>
+<h1 id="842C-Ilya-And-The-Tree-dfs-优化"><a href="#842C-Ilya-And-The-Tree-dfs-优化" class="headerlink" title="842C    Ilya And The Tree dfs+优化"></a>842C    Ilya And The Tree dfs+优化</h1><p>一道搜索题，，刚开始我直接将搜索到的每一条路径的所有数的因数扔到了map中，，然后遍历尝试找一个最大的因数并且其数量是大于等于n-1的，，，但是这样会随着路径的长度map的大小不断地增加，，即使控制反向遍历也会爆栈等等，，可以先假设每一条路径都去掉根节点，这样每一个点的答案就是 $ans[v]=__gcd(ans[u], a[v])$ ，，，然后如果一定加上根节点的话，答案一定是根节点的一个因数，，所以map直接保存的就是根节点的因数，，再像上面那样遍历一遍和第一次得到的答案取最大就行了，，<a href="https://codeforces.com/contest/842/submission/62238501" target="_blank" rel="noopener">code</a></p>
+<h1 id="1213G-Path-Queries-并查集"><a href="#1213G-Path-Queries-并查集" class="headerlink" title="1213G    Path Queries 并查集"></a>1213G    Path Queries 并查集</h1><p>离线询问，然后利用并查集将符合当前询问的所有两个点放到一堆集合中，，此时的答案就是每一个集合的边数 $m$ 的 $m<em>(m + 1)/2$ ，，，询问排序后之前加的边也是满足条件的，，，这样就可以利用前一个答案来获得当前的询问的答案，，更新的方式是，，，将这条边的两个点所在的集合的大小 $a, b$ 清空，，然后答案 $ans = ans - (a </em> (a + 1) / 2) - (b <em> (b + 1) / 2) + ((a + b + 1) </em> (a + b + 2) / 2))$ ，，最后合并集合即可，，刚开始我是用并查集维护边，，，因为要建图，，一直T，，，emmm <a href="https://codeforces.com/contest/1213/submission/62347660" target="_blank" rel="noopener">code</a></p>
+<h1 id="776D-The-Door-Problem-2sat"><a href="#776D-The-Door-Problem-2sat" class="headerlink" title="776D    The Door Problem 2sat"></a>776D    The Door Problem 2sat</h1><p>2sat板子题吧，，直接按题意找出限制关系建图判以下就行了，，之前写过，，<a href="https://codeforces.com/contest/776/submission/52218310" target="_blank" rel="noopener">code</a></p>
+<h1 id="767C-Garland-dfs-贪心"><a href="#767C-Garland-dfs-贪心" class="headerlink" title="767C    Garland dfs+贪心"></a>767C    Garland dfs+贪心</h1><p>dfs搜出所有的 $sum/3$ 和 $2*sum/3$ 的子树，，记前者为1，后面的为2，，</p>
+<p>记录搜的过程中的1的出现位置，如果出现一个2，并且它的子树中有一个1，那么这就是一个答案，，直接输出后退出程序就行了，，没有跳过</p>
+<p>如果找到一个1的同时他的子树中有一个1，，那么这个1不要，，继续搜，，，最后如果搜到的1超过两个输出就行了，，没有的话就是无解，，，<a href="https://codeforces.com/contest/767/submission/62419845" target="_blank" rel="noopener">code</a></p>
+<p><del>（很简单的一道题，，思路很早就通了，，就是实现的时候因为一些细节疯狂wa，，emmmmm</del></p>
+<h1 id><a href="#" class="headerlink" title=" "></a> </h1>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>31415926535x</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://www.31415x.cf/2019/10/07/ACM-简单图论刷题/" title="ACM-简单图论刷题">http://www.31415x.cf/2019/10/07/ACM-简单图论刷题/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ACM/" rel="tag"># ACM</a>
+          
+            <a href="/tags/刷题/" rel="tag"># 刷题</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/05/2019-ccpc秦皇岛现场赛/" rel="next" title="2019-ccpc秦皇岛现场赛">
+                <i class="fa fa-chevron-left"></i> 2019-ccpc秦皇岛现场赛
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/13/2017北京区域赛/" rel="prev" title="2017北京区域赛">
+                2017北京区域赛 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/misaka.jpg" alt="31415926535x">
+            
+              <p class="site-author-name" itemprop="name">31415926535x</p>
+              <div class="site-description motion-element" itemprop="description">很感谢你能来，不遗憾你离开</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">124</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">40</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">55</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/31415926535x" title="GitHub &rarr; https://github.com/31415926535x" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:2509437152wx@gmail.com" title="Gmail &rarr; mailto:2509437152wx@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>Gmail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://plus.google.com/106114719135977350421" title="Google &rarr; https://plus.google.com/106114719135977350421" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i>Google</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://instagram.com/314159265358x" title="Instagram &rarr; https://instagram.com/314159265358x" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://cnblogs.com/31415926535x" title="cnblogs &rarr; https://cnblogs.com/31415926535x" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>cnblogs</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://codeforces.com/profile/31415926535x" title="codeforces &rarr; https://codeforces.com/profile/31415926535x" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>codeforces</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#463D-Gargari-and-Permutations-多个串的LCS"><span class="nav-number">1.</span> <span class="nav-text">463D    Gargari and Permutations 多个串的LCS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#449B-Jzzhu-and-Cities-最短路判必经边"><span class="nav-number">2.</span> <span class="nav-text">449B    Jzzhu and Cities 最短路判必经边</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#558C-Amr-and-Chemistry-暴力？？"><span class="nav-number">3.</span> <span class="nav-text">558C    Amr and Chemistry 暴力？？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#739B-Alyona-and-a-tree-dfs-路径二分"><span class="nav-number">4.</span> <span class="nav-text">739B    Alyona and a tree dfs+路径二分</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1217D-Coloring-Edges-判环-染色"><span class="nav-number">5.</span> <span class="nav-text">1217D    Coloring Edges 判环+染色</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#842C-Ilya-And-The-Tree-dfs-优化"><span class="nav-number">6.</span> <span class="nav-text">842C    Ilya And The Tree dfs+优化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1213G-Path-Queries-并查集"><span class="nav-number">7.</span> <span class="nav-text">1213G    Path Queries 并查集</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#776D-The-Door-Problem-2sat"><span class="nav-number">8.</span> <span class="nav-text">776D    The Door Problem 2sat</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#767C-Garland-dfs-贪心"><span class="nav-number">9.</span> <span class="nav-text">767C    Garland dfs+贪心</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">10.</span> <span class="nav-text"> </span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">31415926535x</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.0.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+	<!-- 页面点击小红心 -->
+      <script type="text/javascript" src="/js/src/love.js"></script>
+    <!-- 动态背景 -->
+		<script type="text/javascript" src="/js/src/canvas-nest.js"></script>
+    <!-- 背景动画 -->
+    <script type="text/javascript" src="/js/src/particle.js"></script>
+	<!-- 添加音乐 -->
+	<link rel="stylesheet" href="/dist/APlayer.min.css">
+	<div id="aplayer"></div>
+	<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+	<script type="text/javascript" src="/dist/music.js"></script>
+
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://www.31415x.cf/2019/10/07/ACM-简单图论刷题/";
+    this.page.identifier = "2019/10/07/ACM-简单图论刷题/";
+    this.page.title = 'ACM-简单图论刷题';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://www-31415-cf.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    loadComments();
+  
+</script>
+
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+<script>
+  $('.highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+  
+
+  
+
+</body>
+</html>
