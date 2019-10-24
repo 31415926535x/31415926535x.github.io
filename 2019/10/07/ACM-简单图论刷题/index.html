@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="31415926535x">
 <meta property="og:description" content="做一些简单图论题，， list">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-12T12:48:59.298Z">
+<meta property="og:updated_time" content="2019-10-15T12:32:05.488Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ACM-简单图论刷题">
 <meta name="twitter:description" content="做一些简单图论题，， list">
@@ -465,7 +465,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-12 20:48:59" itemprop="dateModified" datetime="2019-10-12T20:48:59+08:00">2019-10-12</time>
+                <time title="修改时间：2019-10-15 20:32:05" itemprop="dateModified" datetime="2019-10-15T20:32:05+08:00">2019-10-15</time>
               
             
           </span>
@@ -530,7 +530,7 @@
 <p>将其的答案减一，，然后利用他更新他的上面的点（看成都不算这个点的贡献，，而 <code>u</code> 到 <code>v</code> 的点都会加上一个1），，，对于每一个点考虑dfs中的所有儿子节点的贡献和即可，，<a href="https://codeforces.com/contest/739/submission/62394729" target="_blank" rel="noopener">code</a></p>
 <h1 id="1217D-Coloring-Edges-判环-染色"><a href="#1217D-Coloring-Edges-判环-染色" class="headerlink" title="1217D    Coloring Edges 判环+染色"></a>1217D    Coloring Edges 判环+染色</h1><p><a href="https://codeforces.com/contest/1217/submission/61395907" target="_blank" rel="noopener">直接拓扑排序判环染色</a>，，<a href="https://codeforces.com/contest/1217/submission/61365723" target="_blank" rel="noopener">或者利用dfs的性质来染色判环</a></p>
 <h1 id="842C-Ilya-And-The-Tree-dfs-优化"><a href="#842C-Ilya-And-The-Tree-dfs-优化" class="headerlink" title="842C    Ilya And The Tree dfs+优化"></a>842C    Ilya And The Tree dfs+优化</h1><p>一道搜索题，，刚开始我直接将搜索到的每一条路径的所有数的因数扔到了map中，，然后遍历尝试找一个最大的因数并且其数量是大于等于n-1的，，，但是这样会随着路径的长度map的大小不断地增加，，即使控制反向遍历也会爆栈等等，，可以先假设每一条路径都去掉根节点，这样每一个点的答案就是 $ans[v]=__gcd(ans[u], a[v])$ ，，，然后如果一定加上根节点的话，答案一定是根节点的一个因数，，所以map直接保存的就是根节点的因数，，再像上面那样遍历一遍和第一次得到的答案取最大就行了，，<a href="https://codeforces.com/contest/842/submission/62238501" target="_blank" rel="noopener">code</a></p>
-<h1 id="1213G-Path-Queries-并查集"><a href="#1213G-Path-Queries-并查集" class="headerlink" title="1213G    Path Queries 并查集"></a>1213G    Path Queries 并查集</h1><p>离线询问，然后利用并查集将符合当前询问的所有两个点放到一堆集合中，，此时的答案就是每一个集合的边数 $m$ 的 $m<em>(m + 1)/2$ ，，，询问排序后之前加的边也是满足条件的，，，这样就可以利用前一个答案来获得当前的询问的答案，，更新的方式是，，，将这条边的两个点所在的集合的大小 $a, b$ 清空，，然后答案 $ans = ans - (a </em> (a + 1) / 2) - (b <em> (b + 1) / 2) + ((a + b + 1) </em> (a + b + 2) / 2))$ ，，最后合并集合即可，，刚开始我是用并查集维护边，，，因为要建图，，一直T，，，emmm <a href="https://codeforces.com/contest/1213/submission/62347660" target="_blank" rel="noopener">code</a></p>
+<h1 id="1213G-Path-Queries-并查集"><a href="#1213G-Path-Queries-并查集" class="headerlink" title="1213G    Path Queries 并查集"></a>1213G    Path Queries 并查集</h1><p>离线询问，然后利用并查集将符合当前询问的所有两个点放到一堆集合中，，此时的答案就是每一个集合的边数 $m$ 的 $m(m + 1)/2$ ，，，询问排序后之前加的边也是满足条件的，，，这样就可以利用前一个答案来获得当前的询问的答案，，更新的方式是，，，将这条边的两个点所在的集合的大小 $a, b$ 清空，，然后答案 $ans = ans - (a <em> (a + 1) / 2) - (b </em> (b + 1) / 2) + ((a + b + 1) * (a + b + 2) / 2))$  ，，最后合并集合即可，，刚开始我是用并查集维护边，，，因为要建图，，一直T，，，emmm <a href="https://codeforces.com/contest/1213/submission/62347660" target="_blank" rel="noopener">code</a></p>
 <h1 id="776D-The-Door-Problem-2sat"><a href="#776D-The-Door-Problem-2sat" class="headerlink" title="776D    The Door Problem 2sat"></a>776D    The Door Problem 2sat</h1><p>2sat板子题吧，，直接按题意找出限制关系建图判以下就行了，，之前写过，，<a href="https://codeforces.com/contest/776/submission/52218310" target="_blank" rel="noopener">code</a></p>
 <h1 id="767C-Garland-dfs-贪心"><a href="#767C-Garland-dfs-贪心" class="headerlink" title="767C    Garland dfs+贪心"></a>767C    Garland dfs+贪心</h1><p>dfs搜出所有的 $sum/3$ 和 $2*sum/3$ 的子树，，记前者为1，后面的为2，，</p>
 <p>记录搜的过程中的1的出现位置，如果出现一个2，并且它的子树中有一个1，那么这就是一个答案，，直接输出后退出程序就行了，，没有跳过</p>
@@ -688,7 +688,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">124</span>
+                    <span class="site-state-item-count">125</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
