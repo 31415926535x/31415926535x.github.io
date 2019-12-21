@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="31415926535x">
 <meta property="og:description" content="很久之前就了解到有二分图这么个东西，，但是一直没看，拖到现在来学一下，图论的东西向来是理论简单，建图难，，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-23T09:16:18.570Z">
+<meta property="og:updated_time" content="2019-10-25T12:09:00.295Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图论-二分图">
 <meta name="twitter:description" content="很久之前就了解到有二分图这么个东西，，但是一直没看，拖到现在来学一下，图论的东西向来是理论简单，建图难，，">
@@ -465,7 +465,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-23 17:16:18" itemprop="dateModified" datetime="2019-10-23T17:16:18+08:00">2019-10-23</time>
+                <time title="修改时间：2019-10-25 20:09:00" itemprop="dateModified" datetime="2019-10-25T20:09:00+08:00">2019-10-25</time>
               
             
           </span>
@@ -527,7 +527,7 @@
 <li>最大匹配数：边数最多的匹配，，，</li>
 <li>完美匹配：原图的每个点都是某个匹配的匹配点的匹配</li>
 <li><strong>最小点覆盖数</strong> ： 选取最少的点，使得任意一条边至少一个顶点是被选择的</li>
-<li><strong>最小路径覆盖数</strong> ： 对于一个有向无环图DAG，选取最少的路径，使得每个顶点属于一条路径，路径长度可以为零（将每个点拆点后做最大匹配，利用性质求即可，具体的路径是 <code>i-&gt;j&#39; j-&gt;k&#39; k-&gt;l&#39;.....</code> 和网络流解决时的处理方法一致</li>
+<li><strong>最小路径覆盖数</strong> ： 对于一个有向无环图DAG，选取最少的路径，使得每个顶点属于一条路径，路径长度可以为零（将每个点拆点后做最大匹配，利用性质求即可，具体的路径是 <code>i-&gt;j&#39; j-&gt;k&#39; k-&gt;l&#39;.....</code> 和网络流解决时的处理方法一致，，<strong>（注意这样算的最小路径覆盖每一个点都是属于一条路径，即交点只能走一次，，如果交点可以算多次，先跑一次传递闭包，然后再求最大匹配）</strong></li>
 <li>$最大匹配数=最小点覆盖数$ ，，konig定理</li>
 <li>$最大独立数=最小边覆盖=总点数-最大匹配数$ </li>
 <li>$最小路径覆盖=总点数-最大匹配数$</li>
@@ -553,6 +553,12 @@
 <h2 id="E-Swap"><a href="#E-Swap" class="headerlink" title="E - Swap"></a>E - Swap</h2><p>这题不错，，</p>
 <p>首先要知道一个性质：一个矩阵如果对角线全是一，它的秩就是n，，然后行列变换可以侑全是列变换或者行变换来得到，，</p>
 <p>行列对1点建图，，然后如果最大匹配是n（完备匹配）就是有解的，，，然后输出方案利用到了上面性质，每个匹配也就是选的要交换的1点，，将他移动到对应的对角线所在的位置就行了，，移动的时候要将列的记录也同时交换，，<a href="https://vjudge.net/solution/22409107" target="_blank" rel="noopener">code</a></p>
+<h2 id="F-Rain-on-your-Parade"><a href="#F-Rain-on-your-Parade" class="headerlink" title="F - Rain on your Parade"></a>F - Rain on your Parade</h2><p>一边人，另一边伞，然后对于满足条件能得到伞的连边，，用hk来跑，，匈牙利会T<a href="https://vjudge.net/solution/22444013" target="_blank" rel="noopener">code</a></p>
+<h2 id="G-Oil-Skimming"><a href="#G-Oil-Skimming" class="headerlink" title="G - Oil Skimming"></a>G - Oil Skimming</h2><p>水题，，建图直接跑就行了<a href="https://vjudge.net/solution/22446412" target="_blank" rel="noopener">code</a></p>
+<h2 id="H-Antenna-Placement"><a href="#H-Antenna-Placement" class="headerlink" title="H - Antenna Placement"></a>H - Antenna Placement</h2><p>水题++，，，建图跑匈牙利，，然后对于没有匹配到的点加到答案里就行了，，<a href="https://vjudge.net/solution/22447059" target="_blank" rel="noopener">code</a></p>
+<h2 id="I-Strategic-Game"><a href="#I-Strategic-Game" class="headerlink" title="I - Strategic Game"></a>I - Strategic Game</h2><p>最小点覆盖，，处理一下图然后跑最大匹配就行了，，等价<a href="https://vjudge.net/solution/22447904" target="_blank" rel="noopener">code</a></p>
+<h2 id="J-Air-Raid"><a href="#J-Air-Raid" class="headerlink" title="J - Air Raid"></a>J - Air Raid</h2><p>最小路径覆盖数，，拆点后跑最大匹配，，答案就是点数减取匹配数，，<a href="https://vjudge.net/solution/22448190" target="_blank" rel="noopener">code</a></p>
+<h2 id="K-Treasure-Exploration"><a href="#K-Treasure-Exploration" class="headerlink" title="K - Treasure Exploration"></a>K - Treasure Exploration</h2><p>可以侑相交点的最小路径覆盖，，先传递闭包一次，这样就可以使得相交点算多次，，<a href="https://vjudge.net/solution/22451346" target="_blank" rel="noopener">code</a></p>
 <h2 id><a href="#" class="headerlink" title=" "></a> </h2>
       
     </div>
@@ -707,7 +713,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">125</span>
+                    <span class="site-state-item-count">127</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -804,7 +810,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">40</span>
+                      
+                    
+                    <span class="site-state-item-count">41</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1046,7 +1054,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概念"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#几个重要的概念"><span class="nav-number">2.</span> <span class="nav-text">几个重要的概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二分图的最大权匹配KM"><span class="nav-number">3.</span> <span class="nav-text">二分图的最大权匹配KM</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最小点覆盖得到点集"><span class="nav-number">4.</span> <span class="nav-text">最小点覆盖得到点集</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二分图刷题"><span class="nav-number">5.</span> <span class="nav-text">二分图刷题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#A-Fire-Net-HDU-1045"><span class="nav-number">5.1.</span> <span class="nav-text">A - Fire Net HDU - 1045</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B-The-Accomodation-of-Students"><span class="nav-number">5.2.</span> <span class="nav-text">B - The Accomodation of Students</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-Courses"><span class="nav-number">5.3.</span> <span class="nav-text">C - Courses</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#D-棋盘游戏"><span class="nav-number">5.4.</span> <span class="nav-text">D - 棋盘游戏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#E-Swap"><span class="nav-number">5.5.</span> <span class="nav-text">E - Swap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">5.6.</span> <span class="nav-text"> </span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概念"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#几个重要的概念"><span class="nav-number">2.</span> <span class="nav-text">几个重要的概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二分图的最大权匹配KM"><span class="nav-number">3.</span> <span class="nav-text">二分图的最大权匹配KM</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最小点覆盖得到点集"><span class="nav-number">4.</span> <span class="nav-text">最小点覆盖得到点集</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二分图刷题"><span class="nav-number">5.</span> <span class="nav-text">二分图刷题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#A-Fire-Net-HDU-1045"><span class="nav-number">5.1.</span> <span class="nav-text">A - Fire Net HDU - 1045</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B-The-Accomodation-of-Students"><span class="nav-number">5.2.</span> <span class="nav-text">B - The Accomodation of Students</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-Courses"><span class="nav-number">5.3.</span> <span class="nav-text">C - Courses</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#D-棋盘游戏"><span class="nav-number">5.4.</span> <span class="nav-text">D - 棋盘游戏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#E-Swap"><span class="nav-number">5.5.</span> <span class="nav-text">E - Swap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#F-Rain-on-your-Parade"><span class="nav-number">5.6.</span> <span class="nav-text">F - Rain on your Parade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#G-Oil-Skimming"><span class="nav-number">5.7.</span> <span class="nav-text">G - Oil Skimming</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#H-Antenna-Placement"><span class="nav-number">5.8.</span> <span class="nav-text">H - Antenna Placement</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#I-Strategic-Game"><span class="nav-number">5.9.</span> <span class="nav-text">I - Strategic Game</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#J-Air-Raid"><span class="nav-number">5.10.</span> <span class="nav-text">J - Air Raid</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#K-Treasure-Exploration"><span class="nav-number">5.11.</span> <span class="nav-text">K - Treasure Exploration</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">5.12.</span> <span class="nav-text"> </span></a></li></ol></li></ol></div>
             
 
           </div>

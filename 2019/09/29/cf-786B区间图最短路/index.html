@@ -103,21 +103,21 @@
 
 
   <meta name="description" content="偶然看到的这个东西，可以说是第一次见到图论+数据结构的题了，，这题代码很简单，细节处理一下就没啥了，，，主要是一步一步的思路的推导很不错，，">
-<meta name="keywords" content="ACM,刷题,最短路,线段树">
+<meta name="keywords" content="刷题,ACM,最短路,线段树">
 <meta property="og:type" content="article">
 <meta property="og:title" content="cf-786B区间图最短路">
 <meta property="og:url" content="http://www.31415x.cf/2019/09/29/cf-786B区间图最短路/index.html">
 <meta property="og:site_name" content="31415926535x">
 <meta property="og:description" content="偶然看到的这个东西，可以说是第一次见到图论+数据结构的题了，，这题代码很简单，细节处理一下就没啥了，，，主要是一步一步的思路的推导很不错，，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://img-blog.csdn.net/20170723135435553?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlua2ZxeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="https://img-blog.csdn.net/20170723140149120?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlua2ZxeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="https://img-blog.csdn.net/20170723141642088?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlua2ZxeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2019-10-01T12:45:41.522Z">
+<meta property="og:image" content="https://img-blog.csdn.net/20170723135435553">
+<meta property="og:image" content="https://img-blog.csdn.net/20170723140149120">
+<meta property="og:image" content="https://img-blog.csdn.net/20170723141642088">
+<meta property="og:updated_time" content="2019-10-25T11:33:20.743Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cf-786B区间图最短路">
 <meta name="twitter:description" content="偶然看到的这个东西，可以说是第一次见到图论+数据结构的题了，，这题代码很简单，细节处理一下就没啥了，，，主要是一步一步的思路的推导很不错，，">
-<meta name="twitter:image" content="https://img-blog.csdn.net/20170723135435553?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlua2ZxeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20170723135435553">
 
 
 
@@ -469,7 +469,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-01 20:45:41" itemprop="dateModified" datetime="2019-10-01T20:45:41+08:00">2019-10-01</time>
+                <time title="修改时间：2019-10-25 19:33:20" itemprop="dateModified" datetime="2019-10-25T19:33:20+08:00">2019-10-25</time>
               
             
           </span>
@@ -532,15 +532,15 @@
 <p>这时的建图是线性的建图方式，，线性+区间==线段树？？！！，，这是我做这道题学习到的最有价值的一个处理方式，，在降了一维之后，虽然是线性的建图，，但是点还是很多，，而线段树恰好可以用很少的子区间来表示原来的区间，，，如果将线段树中的每一个表示的区间看成一个点，，那么我们就可以用很少的点来建图，，，这样就可以将上面的n次的建图降下去，，，</p>
 <p>那么这时的问题就变成了该如何利用线段树来处理，，</p>
 <p>我们需要两棵线段树，，一棵看成 <strong>入树</strong> 另一棵看成 <strong>出树</strong> ，，</p>
-<p><img src="https://img-blog.csdn.net/20170723135435553?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlua2ZxeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt></p>
+<p><img src="https://img-blog.csdn.net/20170723135435553" alt></p>
 <p>首先我们的目的是用少量的区间来表示原来的很大的区间，以达到用很少的点来表示原来的所有点，，优化的问题用线段树解决了，，但是，如何正确的表示原来的所有点呢，，，</p>
 <p>线段树的每一个节点表示一个区间，，这个节点可以表示他下面的所有点，，也就是说，，我们可以从上向下的看，，定义选择了一个节点，，就选择了下面的所有点，，，按照这个思想，入树中的一个节点要向其儿子连一条指向儿子的有向边，，也就是说，，入树中所有的边指向下，，用 <code>down</code> 表示</p>
 <p>同理，，对于出树，，我们要保证在一个节点要能表示所有的点，，于是就是一个节点下的所有节点都要指向它，，，这样看这棵树就是一个向上的树，，用 <code>up</code> 表示，，</p>
 <p>这个样子的：</p>
-<p><img src="https://img-blog.csdn.net/20170723140149120?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlua2ZxeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt></p>
+<p><img src="https://img-blog.csdn.net/20170723140149120" alt></p>
 <p>这样最后在这样初始图加上题目给的一些条件的边跑一边最短路就可以了，，</p>
 <p>加上题目的边后的图大致是这样的：</p>
-<p><img src="https://img-blog.csdn.net/20170723141642088?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlua2ZxeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt></p>
+<p><img src="https://img-blog.csdn.net/20170723141642088" alt></p>
 <p>实际上，，这里的线段树的作用只是一个建树和查询其子区间的作用，，这个思想有点像是分块，，，只要能找到一个合理的区间分块，，用一些合理的、数量少的区间表示原来的区间，，就能达到减少点数的作用，，，，而线段树恰好是一个熟悉的、好操作的区间划分模型，，所以很多人都对于 区间图的最短路问题都是套一个线段树的板子，，</p>
 <p>回到这道题，，题目的加边方式只有 点对区间 和 区间对点 两种，，所以我们可以先预留出那n个点，，可以想象成放在这两棵树之间的一排点（不用再将两棵树的叶子节点相连，，），，，</p>
 <p>然后再处理出出树、入树的边后，，对于 <code>u-&gt;[l, r]</code> 和 <code>u-&gt;v</code> 的边，，从点 <code>u</code> 向入树的符合条件的节点连边即可，，因为之前说的入树保证了每一个节点是可以到其下面的叶子节点的，，所以我们这样连边就相当于是点 <code>u</code> 向区间的每一个点连边，，，</p>
@@ -604,9 +604,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ACM/" rel="tag"># ACM</a>
-          
             <a href="/tags/刷题/" rel="tag"># 刷题</a>
+          
+            <a href="/tags/ACM/" rel="tag"># ACM</a>
           
             <a href="/tags/最短路/" rel="tag"># 最短路</a>
           
@@ -713,7 +713,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">125</span>
+                    <span class="site-state-item-count">127</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -810,7 +810,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">40</span>
+                      
+                    
+                    <span class="site-state-item-count">41</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
