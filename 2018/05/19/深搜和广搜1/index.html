@@ -106,7 +106,7 @@
 <meta name="keywords" content="acm,算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深搜和广搜1">
-<meta property="og:url" content="http://www.31415x.cf/2018/05/19/深搜和广搜1/index.html">
+<meta property="og:url" content="http://www.31415.cf/2018/05/19/深搜和广搜1/index.html">
 <meta property="og:site_name" content="31415926535x">
 <meta property="og:description" content="2018.5.19 这一篇主要是关于深搜和广搜实现的一些总结，因为一些模板和数据结构还未学习，，所以这一篇深搜广搜都是使用基本的方法，，虽然便于理解，，但是如要解决问题acm之类还是使用带有模板的更高效的方法。。。。 搜索是一种求解的方法，通常来说就是将所有情况探索一遍，找出其中符合要求的情况作为最后的解。按照 生成解的顺序 有两种基本的求解顺序：深度优先搜索（Depth-first Search">
 <meta property="og:locale" content="zh-CN">
@@ -122,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="http://www.31415x.cf/2018/05/19/深搜和广搜1/">
+  <link rel="canonical" href="http://www.31415.cf/2018/05/19/深搜和广搜1/">
 
 
 
@@ -405,7 +405,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.31415x.cf/2018/05/19/深搜和广搜1/">
+    <link itemprop="mainEntityOfPage" href="http://www.31415.cf/2018/05/19/深搜和广搜1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="31415926535x">
@@ -504,7 +504,7 @@
 </ul>
 <h1 id="广搜"><a href="#广搜" class="headerlink" title="广搜:"></a>广搜:</h1><h2 id="思想-1"><a href="#思想-1" class="headerlink" title="思想:"></a>思想:</h2><ul>
 <li>广搜与深搜不同的地方在于，后者主要运用了递归的思想来遍历每一种可能性，，而前者则是层层递进的思想即层级遍历每一种可能性;</li>
-<li>广搜使用到了<a href="http://www.31415.cf/2018/03/29/%E9%98%9F%E5%88%97%E3%80%81%E9%93%BE%E8%A1%A8/" target="_blank" rel="noopener">队列</a>,用队列将每一种可能性保存下来,优先选择看似最优的状态进行拓展，以达到最先扩展到目标位置的目的;</li>
+<li>广搜使用到了<a href="http://www.31415.cf/2018/03/29/%E9%98%9F%E5%88%97%E3%80%81%E9%93%BE%E8%A1%A8/">队列</a>,用队列将每一种可能性保存下来,优先选择看似最优的状态进行拓展，以达到最先扩展到目标位置的目的;</li>
 <li>与深搜一样，广搜也可能需要两个数组，一个保存地图信息，一个保存标记信息(迷宫问题);此外大多数情况下需要一个结构体数组作为队列来保存状态(就目前我所学的方法来说，，，Σ( ° △ °|||)︴)，，，(当然应该使用#include &lt; queue &gt;来的更快一些，，，哪天再学习一下，，，ʅ（´◔౪◔）ʃ)</li>
 </ul>
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现:"></a>实现:</h2><h3 id="基本实现模板-1"><a href="#基本实现模板-1" class="headerlink" title="基本实现模板:"></a>基本实现模板:</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">bfs()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//队列初始化，，，</span></span><br><span class="line">    <span class="comment">//比如head,tail,起始点等等</span></span><br><span class="line">    <span class="comment">/************************/</span></span><br><span class="line">    <span class="keyword">while</span> (head &lt; tail)     <span class="comment">//队列非空时;</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//枚举当前位置下的所有可能性</span></span><br><span class="line">        <span class="keyword">for</span> (...)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//判断当前尝试是否超出问题的界限,超出继续下一个尝试</span></span><br><span class="line">            <span class="keyword">if</span> (...)    <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//当该位置合法且未被搜索过时入队(记得更新步数和tail,并将f指向head即f=head)</span></span><br><span class="line">            <span class="comment">//如果该点被搜索过，则说明从此路径来该位置不是最短的方法，，</span></span><br><span class="line">            <span class="comment">//这是因为广搜对每个位置的处理时，对应的距离是严格递增的&lt;(ˉ^ˉ)&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//判断是否此次尝试找到了所找的</span></span><br><span class="line">            <span class="comment">//若找到flag = 1,并且跳出for循环</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//判断flag真假</span></span><br><span class="line">        <span class="comment">//若真说明找到了题解,退出while循环</span></span><br><span class="line">        **若假说明这一层还未找到题解，队列头增head++;继续对后面的点扩展**  Σ(｀д′*ノ)ノ</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -574,7 +574,7 @@
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     
-    <a href="http://www.31415x.cf/2018/05/19/深搜和广搜1/" title="深搜和广搜1">http://www.31415x.cf/2018/05/19/深搜和广搜1/</a>
+    <a href="http://www.31415.cf/2018/05/19/深搜和广搜1/" title="深搜和广搜1">http://www.31415.cf/2018/05/19/深搜和广搜1/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -692,7 +692,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">128</span>
+                    <span class="site-state-item-count">132</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1208,7 +1208,7 @@
 
 <script>
   var disqus_config = function() {
-    this.page.url = "http://www.31415x.cf/2018/05/19/深搜和广搜1/";
+    this.page.url = "http://www.31415.cf/2018/05/19/深搜和广搜1/";
     this.page.identifier = "2018/05/19/深搜和广搜1/";
     this.page.title = '深搜和广搜1';
     };
