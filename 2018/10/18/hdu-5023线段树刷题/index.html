@@ -31,9 +31,9 @@ ga('send', 'pageview');
     <meta name="theme-color" content="#40c4ff">
     
     
-    <meta name="keywords" content="刷题,acm">
+    <meta name="keywords" content="acm,刷题">
     <meta name="description" content="概述这道题和上次做的那道染色问题一样，，，这次主要是看看我再过去两三天之后，，大概凭借以前的记忆敲出来得多长的时间，，，， 结果是，，，大体的框架没问题了，，，，一遍下来编译也没问题，，，但是，，细节问题有两个，，，  数组写成了1e6而不是1e6+10虽然对本题没什么影响，， 建树中的初始化操作时染色初始化为2，，，所以应该是从右往左数的第二个bit记为1，，，然后我就少算了一位，，，因为bit">
-<meta name="keywords" content="刷题,acm">
+<meta name="keywords" content="acm,刷题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hdu-5023线段树刷题">
 <meta property="og:url" content="http://www.31415.cf/2018/10/18/hdu-5023线段树刷题/index.html">
@@ -416,8 +416,15 @@ ga('send', 'pageview');
             </span>
         </p>
     </div>
-
-	{% meting "2254014329" "netease" "playlist" "mini" "list-folded" %}
+	
+	
+	<div id="aplayer">
+		<!-- 音乐播放器 -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.css">
+		<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.js"></script>
+		<div id="aplayer" class="aplayer" data-id="2254014329" data-lrctype="0" data-server="netease" data-type="playlist" data-fixed="true" data-listfolded="true"></div>
+		<script src="https://unpkg.com/meting@1.2/dist/Meting.min.js"></script>
+	</div>
 </footer>
 
     </main>
