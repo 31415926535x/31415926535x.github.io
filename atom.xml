@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://www.31415.cf/"/>
-  <updated>2020-09-30T07:05:58.316Z</updated>
-  <id>http://www.31415.cf/</id>
+  <link href="http://blog.31415x.cf/"/>
+  <updated>2021-01-22T06:32:12.139Z</updated>
+  <id>http://blog.31415x.cf/</id>
   
   <author>
     <name>31415926535x</name>
@@ -18,12 +18,12 @@
   
   <entry>
     <title>[资源]一些电子书下载集合</title>
-    <link href="http://www.31415.cf/2020/09/30/%E8%B5%84%E6%BA%90-%E4%B8%80%E4%BA%9B%E7%94%B5%E5%AD%90%E4%B9%A6%E4%B8%8B%E8%BD%BD%E9%9B%86%E5%90%88/"/>
-    <id>http://www.31415.cf/2020/09/30/资源-一些电子书下载集合/</id>
+    <link href="http://blog.31415x.cf/2020/09/30/%E8%B5%84%E6%BA%90-%E4%B8%80%E4%BA%9B%E7%94%B5%E5%AD%90%E4%B9%A6%E4%B8%8B%E8%BD%BD%E9%9B%86%E5%90%88/"/>
+    <id>http://blog.31415x.cf/2020/09/30/资源-一些电子书下载集合/</id>
     <published>2020-09-30T06:38:29.000Z</published>
-    <updated>2020-09-30T07:05:58.316Z</updated>
+    <updated>2021-01-22T06:32:12.139Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting/dist/Meting.min.js"></script><p>(仅罗列资源，不代表任何立场）</p><ul><li><a href="https://github.com/sxcool1024/Machinery-Industry-Press" target="_blank" rel="noopener">https://github.com/sxcool1024/Machinery-Industry-Press</a> 文件提取码：2014 文件解压密码：1024</li><li><a href="https://github.com/fuhmmin/it-ebooks-cn" target="_blank" rel="noopener">https://github.com/fuhmmin/it-ebooks-cn</a> <a href="http://it-ebooks.flygon.net/" target="_blank" rel="noopener">http://it-ebooks.flygon.net/</a></li><li><a href="https://github.com/programthink/books" target="_blank" rel="noopener">https://github.com/programthink/books</a></li></ul>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting/dist/Meting.min.js"></script><p>(仅罗列资源，不代表任何立场）</p><ul><li><a href="https://github.com/sxcool1024/Machinery-Industry-Press" target="_blank" rel="noopener">https://github.com/sxcool1024/Machinery-Industry-Press</a> 文件提取码：2014 文件解压密码：1024</li><li><a href="https://github.com/fuhmmin/it-ebooks-cn" target="_blank" rel="noopener">https://github.com/fuhmmin/it-ebooks-cn</a> <a href="http://it-ebooks.flygon.net/" target="_blank" rel="noopener">http://it-ebooks.flygon.net/</a></li><li><a href="https://github.com/programthink/books" target="_blank" rel="noopener">https://github.com/programthink/books</a></li><li><a href="https://jikbook.com/" target="_blank" rel="noopener">https://jikbook.com/</a> 缺点：百度云</li></ul>]]></content>
     
     <summary type="html">
     
@@ -39,8 +39,8 @@
   
   <entry>
     <title>一个简单的爬取b站up下所有视频的所有评论信息的爬虫</title>
-    <link href="http://www.31415.cf/2020/03/03/%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E7%88%AC%E5%8F%96b%E7%AB%99up%E4%B8%8B%E6%89%80%E6%9C%89%E8%A7%86%E9%A2%91%E7%9A%84%E6%89%80%E6%9C%89%E8%AF%84%E8%AE%BA%E4%BF%A1%E6%81%AF%E7%9A%84%E7%88%AC%E8%99%AB/"/>
-    <id>http://www.31415.cf/2020/03/03/一个简单的爬取b站up下所有视频的所有评论信息的爬虫/</id>
+    <link href="http://blog.31415x.cf/2020/03/03/%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E7%88%AC%E5%8F%96b%E7%AB%99up%E4%B8%8B%E6%89%80%E6%9C%89%E8%A7%86%E9%A2%91%E7%9A%84%E6%89%80%E6%9C%89%E8%AF%84%E8%AE%BA%E4%BF%A1%E6%81%AF%E7%9A%84%E7%88%AC%E8%99%AB/"/>
+    <id>http://blog.31415x.cf/2020/03/03/一个简单的爬取b站up下所有视频的所有评论信息的爬虫/</id>
     <published>2020-03-02T16:23:39.000Z</published>
     <updated>2020-03-02T16:41:12.898Z</updated>
     
@@ -53,17 +53,17 @@
     
     </summary>
     
-      <category term="工具" scheme="http://www.31415.cf/categories/%E5%B7%A5%E5%85%B7/"/>
+      <category term="工具" scheme="http://blog.31415x.cf/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="工具使用" scheme="http://www.31415.cf/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/"/>
+      <category term="工具使用" scheme="http://blog.31415x.cf/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/"/>
     
   </entry>
   
   <entry>
     <title>笔记-观视频-未曾设想的道路</title>
-    <link href="http://www.31415.cf/2020/03/01/%E7%AC%94%E8%AE%B0-%E8%A7%82%E8%A7%86%E9%A2%91-%E6%9C%AA%E6%9B%BE%E8%AE%BE%E6%83%B3%E7%9A%84%E9%81%93%E8%B7%AF/"/>
-    <id>http://www.31415.cf/2020/03/01/笔记-观视频-未曾设想的道路/</id>
+    <link href="http://blog.31415x.cf/2020/03/01/%E7%AC%94%E8%AE%B0-%E8%A7%82%E8%A7%86%E9%A2%91-%E6%9C%AA%E6%9B%BE%E8%AE%BE%E6%83%B3%E7%9A%84%E9%81%93%E8%B7%AF/"/>
+    <id>http://blog.31415x.cf/2020/03/01/笔记-观视频-未曾设想的道路/</id>
     <published>2020-02-29T16:33:14.000Z</published>
     <updated>2020-02-29T16:34:55.439Z</updated>
     
@@ -75,21 +75,21 @@
     
     </summary>
     
-      <category term="笔记" scheme="http://www.31415.cf/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="http://blog.31415x.cf/categories/%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="思想记录" scheme="http://www.31415.cf/categories/%E7%AC%94%E8%AE%B0/%E6%80%9D%E6%83%B3%E8%AE%B0%E5%BD%95/"/>
+      <category term="思想记录" scheme="http://blog.31415x.cf/categories/%E7%AC%94%E8%AE%B0/%E6%80%9D%E6%83%B3%E8%AE%B0%E5%BD%95/"/>
     
     
-      <category term="笔记" scheme="http://www.31415.cf/tags/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="http://blog.31415x.cf/tags/%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="杂记" scheme="http://www.31415.cf/tags/%E6%9D%82%E8%AE%B0/"/>
+      <category term="杂记" scheme="http://blog.31415x.cf/tags/%E6%9D%82%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>hexo更新域名以及配置</title>
-    <link href="http://www.31415.cf/2020/02/21/hexo%E6%9B%B4%E6%96%B0%E5%9F%9F%E5%90%8D%E4%BB%A5%E5%8F%8A%E9%85%8D%E7%BD%AE/"/>
-    <id>http://www.31415.cf/2020/02/21/hexo更新域名以及配置/</id>
+    <link href="http://blog.31415x.cf/2020/02/21/hexo%E6%9B%B4%E6%96%B0%E5%9F%9F%E5%90%8D%E4%BB%A5%E5%8F%8A%E9%85%8D%E7%BD%AE/"/>
+    <id>http://blog.31415x.cf/2020/02/21/hexo更新域名以及配置/</id>
     <published>2020-02-21T02:01:00.000Z</published>
     <updated>2020-02-21T02:34:10.460Z</updated>
     
@@ -106,8 +106,8 @@
   
   <entry>
     <title>笔记-编译原理</title>
-    <link href="http://www.31415.cf/2020/02/20/%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
-    <id>http://www.31415.cf/2020/02/20/笔记-编译原理/</id>
+    <link href="http://blog.31415x.cf/2020/02/20/%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
+    <id>http://blog.31415x.cf/2020/02/20/笔记-编译原理/</id>
     <published>2020-02-20T06:57:08.000Z</published>
     <updated>2020-02-21T08:37:31.308Z</updated>
     
@@ -119,17 +119,17 @@
     
     </summary>
     
-      <category term="笔记" scheme="http://www.31415.cf/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="http://blog.31415x.cf/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="笔记" scheme="http://www.31415.cf/tags/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="http://blog.31415x.cf/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>笔记-物联网工程</title>
-    <link href="http://www.31415.cf/2020/02/18/%E7%AC%94%E8%AE%B0-%E7%89%A9%E8%81%94%E7%BD%91%E5%B7%A5%E7%A8%8B/"/>
-    <id>http://www.31415.cf/2020/02/18/笔记-物联网工程/</id>
+    <link href="http://blog.31415x.cf/2020/02/18/%E7%AC%94%E8%AE%B0-%E7%89%A9%E8%81%94%E7%BD%91%E5%B7%A5%E7%A8%8B/"/>
+    <id>http://blog.31415x.cf/2020/02/18/笔记-物联网工程/</id>
     <published>2020-02-18T06:36:40.000Z</published>
     <updated>2020-02-18T07:55:16.995Z</updated>
     
@@ -141,17 +141,17 @@
     
     </summary>
     
-      <category term="笔记" scheme="http://www.31415.cf/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="http://blog.31415x.cf/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="笔记" scheme="http://www.31415.cf/tags/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="http://blog.31415x.cf/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>笔记-软件体系结构于设计模式</title>
-    <link href="http://www.31415.cf/2020/02/10/%E7%AC%94%E8%AE%B0-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E4%BA%8E%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://www.31415.cf/2020/02/10/笔记-软件体系结构于设计模式/</id>
+    <link href="http://blog.31415x.cf/2020/02/10/%E7%AC%94%E8%AE%B0-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E4%BA%8E%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://blog.31415x.cf/2020/02/10/笔记-软件体系结构于设计模式/</id>
     <published>2020-02-10T00:36:23.000Z</published>
     <updated>2020-02-10T00:37:11.103Z</updated>
     
@@ -163,17 +163,17 @@
     
     </summary>
     
-      <category term="笔记" scheme="http://www.31415.cf/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="http://blog.31415x.cf/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="笔记" scheme="http://www.31415.cf/tags/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="http://blog.31415x.cf/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>[工具使用]-新版正方教务系统导出课程表-油猴脚本</title>
-    <link href="http://www.31415.cf/2020/01/31/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8-%E6%96%B0%E7%89%88%E6%AD%A3%E6%96%B9%E6%95%99%E5%8A%A1%E7%B3%BB%E7%BB%9F%E5%AF%BC%E5%87%BA%E8%AF%BE%E7%A8%8B%E8%A1%A8-%E6%B2%B9%E7%8C%B4%E8%84%9A%E6%9C%AC/"/>
-    <id>http://www.31415.cf/2020/01/31/工具使用-新版正方教务系统导出课程表-油猴脚本/</id>
+    <link href="http://blog.31415x.cf/2020/01/31/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8-%E6%96%B0%E7%89%88%E6%AD%A3%E6%96%B9%E6%95%99%E5%8A%A1%E7%B3%BB%E7%BB%9F%E5%AF%BC%E5%87%BA%E8%AF%BE%E7%A8%8B%E8%A1%A8-%E6%B2%B9%E7%8C%B4%E8%84%9A%E6%9C%AC/"/>
+    <id>http://blog.31415x.cf/2020/01/31/工具使用-新版正方教务系统导出课程表-油猴脚本/</id>
     <published>2020-01-30T16:02:32.000Z</published>
     <updated>2020-03-02T16:29:12.056Z</updated>
     
@@ -185,17 +185,17 @@
     
     </summary>
     
-      <category term="工具" scheme="http://www.31415.cf/categories/%E5%B7%A5%E5%85%B7/"/>
+      <category term="工具" scheme="http://blog.31415x.cf/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="工具使用" scheme="http://www.31415.cf/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/"/>
+      <category term="工具使用" scheme="http://blog.31415x.cf/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/"/>
     
   </entry>
   
   <entry>
     <title>[笔记]应用写作</title>
-    <link href="http://www.31415.cf/2019/12/21/%E7%AC%94%E8%AE%B0-%E5%BA%94%E7%94%A8%E5%86%99%E4%BD%9C/"/>
-    <id>http://www.31415.cf/2019/12/21/笔记-应用写作/</id>
+    <link href="http://blog.31415x.cf/2019/12/21/%E7%AC%94%E8%AE%B0-%E5%BA%94%E7%94%A8%E5%86%99%E4%BD%9C/"/>
+    <id>http://blog.31415x.cf/2019/12/21/笔记-应用写作/</id>
     <published>2019-12-21T08:11:38.000Z</published>
     <updated>2020-01-30T16:27:05.780Z</updated>
     
@@ -212,17 +212,17 @@
     
     </summary>
     
-      <category term="笔记" scheme="http://www.31415.cf/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="http://blog.31415x.cf/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="笔记" scheme="http://www.31415.cf/tags/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="http://blog.31415x.cf/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>[机器学习]-sklearn下的特征选择</title>
-    <link href="http://www.31415.cf/2019/11/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-sklearn%E4%B8%8B%E7%9A%84%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/"/>
-    <id>http://www.31415.cf/2019/11/16/机器学习-sklearn下的特征选择/</id>
+    <link href="http://blog.31415x.cf/2019/11/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-sklearn%E4%B8%8B%E7%9A%84%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/"/>
+    <id>http://blog.31415x.cf/2019/11/16/机器学习-sklearn下的特征选择/</id>
     <published>2019-11-16T14:05:10.000Z</published>
     <updated>2019-11-16T14:05:11.170Z</updated>
     
@@ -242,8 +242,8 @@
   
   <entry>
     <title>ACM-图论-同余最短路</title>
-    <link href="http://www.31415.cf/2019/10/15/ACM-%E5%9B%BE%E8%AE%BA-%E5%90%8C%E4%BD%99%E6%9C%80%E7%9F%AD%E8%B7%AF/"/>
-    <id>http://www.31415.cf/2019/10/15/ACM-图论-同余最短路/</id>
+    <link href="http://blog.31415x.cf/2019/10/15/ACM-%E5%9B%BE%E8%AE%BA-%E5%90%8C%E4%BD%99%E6%9C%80%E7%9F%AD%E8%B7%AF/"/>
+    <id>http://blog.31415x.cf/2019/10/15/ACM-图论-同余最短路/</id>
     <published>2019-10-15T12:23:07.000Z</published>
     <updated>2019-10-17T05:48:30.702Z</updated>
     
@@ -255,19 +255,19 @@
     
     </summary>
     
-      <category term="ACM-最短路" scheme="http://www.31415.cf/categories/ACM-%E6%9C%80%E7%9F%AD%E8%B7%AF/"/>
+      <category term="ACM-最短路" scheme="http://blog.31415x.cf/categories/ACM-%E6%9C%80%E7%9F%AD%E8%B7%AF/"/>
     
     
-      <category term="ACM" scheme="http://www.31415.cf/tags/ACM/"/>
+      <category term="ACM" scheme="http://blog.31415x.cf/tags/ACM/"/>
     
-      <category term="最短路" scheme="http://www.31415.cf/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/"/>
+      <category term="最短路" scheme="http://blog.31415x.cf/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/"/>
     
   </entry>
   
   <entry>
     <title>2017北京区域赛</title>
-    <link href="http://www.31415.cf/2019/10/13/2017%E5%8C%97%E4%BA%AC%E5%8C%BA%E5%9F%9F%E8%B5%9B/"/>
-    <id>http://www.31415.cf/2019/10/13/2017北京区域赛/</id>
+    <link href="http://blog.31415x.cf/2019/10/13/2017%E5%8C%97%E4%BA%AC%E5%8C%BA%E5%9F%9F%E8%B5%9B/"/>
+    <id>http://blog.31415x.cf/2019/10/13/2017北京区域赛/</id>
     <published>2019-10-13T13:48:01.000Z</published>
     <updated>2019-10-29T13:32:46.674Z</updated>
     
@@ -280,21 +280,21 @@
     
     </summary>
     
-      <category term="ACM-比赛补题" scheme="http://www.31415.cf/categories/ACM-%E6%AF%94%E8%B5%9B%E8%A1%A5%E9%A2%98/"/>
+      <category term="ACM-比赛补题" scheme="http://blog.31415x.cf/categories/ACM-%E6%AF%94%E8%B5%9B%E8%A1%A5%E9%A2%98/"/>
     
-      <category term="ACM-题解" scheme="http://www.31415.cf/categories/ACM-%E6%AF%94%E8%B5%9B%E8%A1%A5%E9%A2%98/ACM-%E9%A2%98%E8%A7%A3/"/>
+      <category term="ACM-题解" scheme="http://blog.31415x.cf/categories/ACM-%E6%AF%94%E8%B5%9B%E8%A1%A5%E9%A2%98/ACM-%E9%A2%98%E8%A7%A3/"/>
     
     
-      <category term="ACM" scheme="http://www.31415.cf/tags/ACM/"/>
+      <category term="ACM" scheme="http://blog.31415x.cf/tags/ACM/"/>
     
-      <category term="题解" scheme="http://www.31415.cf/tags/%E9%A2%98%E8%A7%A3/"/>
+      <category term="题解" scheme="http://blog.31415x.cf/tags/%E9%A2%98%E8%A7%A3/"/>
     
   </entry>
   
   <entry>
     <title>ACM-简单图论刷题</title>
-    <link href="http://www.31415.cf/2019/10/07/ACM-%E7%AE%80%E5%8D%95%E5%9B%BE%E8%AE%BA%E5%88%B7%E9%A2%98/"/>
-    <id>http://www.31415.cf/2019/10/07/ACM-简单图论刷题/</id>
+    <link href="http://blog.31415x.cf/2019/10/07/ACM-%E7%AE%80%E5%8D%95%E5%9B%BE%E8%AE%BA%E5%88%B7%E9%A2%98/"/>
+    <id>http://blog.31415x.cf/2019/10/07/ACM-简单图论刷题/</id>
     <published>2019-10-07T09:58:20.000Z</published>
     <updated>2019-10-15T12:32:05.488Z</updated>
     
@@ -306,19 +306,19 @@
     
     </summary>
     
-      <category term="Codeforces" scheme="http://www.31415.cf/categories/Codeforces/"/>
+      <category term="Codeforces" scheme="http://blog.31415x.cf/categories/Codeforces/"/>
     
     
-      <category term="刷题" scheme="http://www.31415.cf/tags/%E5%88%B7%E9%A2%98/"/>
+      <category term="ACM" scheme="http://blog.31415x.cf/tags/ACM/"/>
     
-      <category term="ACM" scheme="http://www.31415.cf/tags/ACM/"/>
+      <category term="刷题" scheme="http://blog.31415x.cf/tags/%E5%88%B7%E9%A2%98/"/>
     
   </entry>
   
   <entry>
     <title>2019-ccpc秦皇岛现场赛</title>
-    <link href="http://www.31415.cf/2019/10/05/2019-ccpc%E7%A7%A6%E7%9A%87%E5%B2%9B%E7%8E%B0%E5%9C%BA%E8%B5%9B/"/>
-    <id>http://www.31415.cf/2019/10/05/2019-ccpc秦皇岛现场赛/</id>
+    <link href="http://blog.31415x.cf/2019/10/05/2019-ccpc%E7%A7%A6%E7%9A%87%E5%B2%9B%E7%8E%B0%E5%9C%BA%E8%B5%9B/"/>
+    <id>http://blog.31415x.cf/2019/10/05/2019-ccpc秦皇岛现场赛/</id>
     <published>2019-10-05T10:08:28.000Z</published>
     <updated>2019-10-05T11:14:30.066Z</updated>
     
@@ -331,19 +331,19 @@
     
     </summary>
     
-      <category term="Codeforces" scheme="http://www.31415.cf/categories/Codeforces/"/>
+      <category term="Codeforces" scheme="http://blog.31415x.cf/categories/Codeforces/"/>
     
     
-      <category term="刷题" scheme="http://www.31415.cf/tags/%E5%88%B7%E9%A2%98/"/>
+      <category term="ACM" scheme="http://blog.31415x.cf/tags/ACM/"/>
     
-      <category term="ACM" scheme="http://www.31415.cf/tags/ACM/"/>
+      <category term="刷题" scheme="http://blog.31415x.cf/tags/%E5%88%B7%E9%A2%98/"/>
     
   </entry>
   
   <entry>
     <title>ACM-图论刷题</title>
-    <link href="http://www.31415.cf/2019/10/01/ACM-%E5%9B%BE%E8%AE%BA%E5%88%B7%E9%A2%98/"/>
-    <id>http://www.31415.cf/2019/10/01/ACM-图论刷题/</id>
+    <link href="http://blog.31415x.cf/2019/10/01/ACM-%E5%9B%BE%E8%AE%BA%E5%88%B7%E9%A2%98/"/>
+    <id>http://blog.31415x.cf/2019/10/01/ACM-图论刷题/</id>
     <published>2019-10-01T12:43:00.000Z</published>
     <updated>2019-10-17T07:46:36.665Z</updated>
     
@@ -355,19 +355,19 @@
     
     </summary>
     
-      <category term="Codeforces" scheme="http://www.31415.cf/categories/Codeforces/"/>
+      <category term="Codeforces" scheme="http://blog.31415x.cf/categories/Codeforces/"/>
     
     
-      <category term="刷题" scheme="http://www.31415.cf/tags/%E5%88%B7%E9%A2%98/"/>
+      <category term="ACM" scheme="http://blog.31415x.cf/tags/ACM/"/>
     
-      <category term="ACM" scheme="http://www.31415.cf/tags/ACM/"/>
+      <category term="刷题" scheme="http://blog.31415x.cf/tags/%E5%88%B7%E9%A2%98/"/>
     
   </entry>
   
   <entry>
     <title>cf-786B区间图最短路</title>
-    <link href="http://www.31415.cf/2019/09/29/cf-786B%E5%8C%BA%E9%97%B4%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF/"/>
-    <id>http://www.31415.cf/2019/09/29/cf-786B区间图最短路/</id>
+    <link href="http://blog.31415x.cf/2019/09/29/cf-786B%E5%8C%BA%E9%97%B4%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF/"/>
+    <id>http://blog.31415x.cf/2019/09/29/cf-786B区间图最短路/</id>
     <published>2019-09-29T07:54:30.000Z</published>
     <updated>2019-10-25T11:33:20.743Z</updated>
     
@@ -379,23 +379,23 @@
     
     </summary>
     
-      <category term="ACM-最短路" scheme="http://www.31415.cf/categories/ACM-%E6%9C%80%E7%9F%AD%E8%B7%AF/"/>
+      <category term="ACM-最短路" scheme="http://blog.31415x.cf/categories/ACM-%E6%9C%80%E7%9F%AD%E8%B7%AF/"/>
     
     
-      <category term="刷题" scheme="http://www.31415.cf/tags/%E5%88%B7%E9%A2%98/"/>
+      <category term="ACM" scheme="http://blog.31415x.cf/tags/ACM/"/>
     
-      <category term="ACM" scheme="http://www.31415.cf/tags/ACM/"/>
+      <category term="刷题" scheme="http://blog.31415x.cf/tags/%E5%88%B7%E9%A2%98/"/>
     
-      <category term="最短路" scheme="http://www.31415.cf/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/"/>
+      <category term="最短路" scheme="http://blog.31415x.cf/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/"/>
     
-      <category term="线段树" scheme="http://www.31415.cf/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
+      <category term="线段树" scheme="http://blog.31415x.cf/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
     
   </entry>
   
   <entry>
     <title>2017icpc西安区域赛</title>
-    <link href="http://www.31415.cf/2019/09/28/2017icpc%E8%A5%BF%E5%AE%89%E5%8C%BA%E5%9F%9F%E8%B5%9B/"/>
-    <id>http://www.31415.cf/2019/09/28/2017icpc西安区域赛/</id>
+    <link href="http://blog.31415x.cf/2019/09/28/2017icpc%E8%A5%BF%E5%AE%89%E5%8C%BA%E5%9F%9F%E8%B5%9B/"/>
+    <id>http://blog.31415x.cf/2019/09/28/2017icpc西安区域赛/</id>
     <published>2019-09-28T11:59:58.000Z</published>
     <updated>2019-09-28T12:08:04.567Z</updated>
     
@@ -409,16 +409,16 @@
     </summary>
     
     
-      <category term="刷题" scheme="http://www.31415.cf/tags/%E5%88%B7%E9%A2%98/"/>
+      <category term="ACM" scheme="http://blog.31415x.cf/tags/ACM/"/>
     
-      <category term="ACM" scheme="http://www.31415.cf/tags/ACM/"/>
+      <category term="刷题" scheme="http://blog.31415x.cf/tags/%E5%88%B7%E9%A2%98/"/>
     
   </entry>
   
   <entry>
     <title>Educational Codeforces Round 72 (Rated for Div. 2)</title>
-    <link href="http://www.31415.cf/2019/09/28/Educational-Codeforces-Round-72-Rated-for-Div-2/"/>
-    <id>http://www.31415.cf/2019/09/28/Educational-Codeforces-Round-72-Rated-for-Div-2/</id>
+    <link href="http://blog.31415x.cf/2019/09/28/Educational-Codeforces-Round-72-Rated-for-Div-2/"/>
+    <id>http://blog.31415x.cf/2019/09/28/Educational-Codeforces-Round-72-Rated-for-Div-2/</id>
     <published>2019-09-28T02:12:37.000Z</published>
     <updated>2019-10-08T12:47:00.000Z</updated>
     
@@ -430,21 +430,21 @@
     
     </summary>
     
-      <category term="Codeforces" scheme="http://www.31415.cf/categories/Codeforces/"/>
+      <category term="Codeforces" scheme="http://blog.31415x.cf/categories/Codeforces/"/>
     
     
-      <category term="刷题" scheme="http://www.31415.cf/tags/%E5%88%B7%E9%A2%98/"/>
+      <category term="ACM" scheme="http://blog.31415x.cf/tags/ACM/"/>
     
-      <category term="ACM" scheme="http://www.31415.cf/tags/ACM/"/>
+      <category term="刷题" scheme="http://blog.31415x.cf/tags/%E5%88%B7%E9%A2%98/"/>
     
-      <category term="cf" scheme="http://www.31415.cf/tags/cf/"/>
+      <category term="cf" scheme="http://blog.31415x.cf/tags/cf/"/>
     
   </entry>
   
   <entry>
     <title>随机生成中文姓名</title>
-    <link href="http://www.31415.cf/2019/09/25/%E9%9A%8F%E6%9C%BA%E7%94%9F%E6%88%90%E4%B8%AD%E6%96%87%E5%A7%93%E5%90%8D/"/>
-    <id>http://www.31415.cf/2019/09/25/随机生成中文姓名/</id>
+    <link href="http://blog.31415x.cf/2019/09/25/%E9%9A%8F%E6%9C%BA%E7%94%9F%E6%88%90%E4%B8%AD%E6%96%87%E5%A7%93%E5%90%8D/"/>
+    <id>http://blog.31415x.cf/2019/09/25/随机生成中文姓名/</id>
     <published>2019-09-25T11:47:19.000Z</published>
     <updated>2019-09-25T11:51:27.484Z</updated>
     
@@ -456,19 +456,19 @@
     
     </summary>
     
-      <category term="小工具" scheme="http://www.31415.cf/categories/%E5%B0%8F%E5%B7%A5%E5%85%B7/"/>
+      <category term="小工具" scheme="http://blog.31415x.cf/categories/%E5%B0%8F%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="笔记" scheme="http://www.31415.cf/tags/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="http://blog.31415x.cf/tags/%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="工程" scheme="http://www.31415.cf/tags/%E5%B7%A5%E7%A8%8B/"/>
+      <category term="工程" scheme="http://blog.31415x.cf/tags/%E5%B7%A5%E7%A8%8B/"/>
     
   </entry>
   
   <entry>
     <title>Codeforces Round #585 (Div. 2)</title>
-    <link href="http://www.31415.cf/2019/09/19/Codeforces-Round-585-Div-2/"/>
-    <id>http://www.31415.cf/2019/09/19/Codeforces-Round-585-Div-2/</id>
+    <link href="http://blog.31415x.cf/2019/09/19/Codeforces-Round-585-Div-2/"/>
+    <id>http://blog.31415x.cf/2019/09/19/Codeforces-Round-585-Div-2/</id>
     <published>2019-09-19T14:08:30.000Z</published>
     <updated>2019-09-19T14:56:13.682Z</updated>
     
@@ -480,12 +480,12 @@
     
     </summary>
     
-      <category term="Codeforces" scheme="http://www.31415.cf/categories/Codeforces/"/>
+      <category term="Codeforces" scheme="http://blog.31415x.cf/categories/Codeforces/"/>
     
     
-      <category term="刷题" scheme="http://www.31415.cf/tags/%E5%88%B7%E9%A2%98/"/>
+      <category term="ACM" scheme="http://blog.31415x.cf/tags/ACM/"/>
     
-      <category term="ACM" scheme="http://www.31415.cf/tags/ACM/"/>
+      <category term="刷题" scheme="http://blog.31415x.cf/tags/%E5%88%B7%E9%A2%98/"/>
     
   </entry>
   
