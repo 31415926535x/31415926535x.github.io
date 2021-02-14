@@ -127,8 +127,8 @@
         <category>Codeforces</category>
       </categories>
       <tags>
-        <tag>ACM</tag>
         <tag>刷题</tag>
+        <tag>ACM</tag>
       </tags>
   </entry>
   <entry>
@@ -139,8 +139,8 @@
         <category>Codeforces</category>
       </categories>
       <tags>
-        <tag>ACM</tag>
         <tag>刷题</tag>
+        <tag>ACM</tag>
       </tags>
   </entry>
   <entry>
@@ -151,8 +151,8 @@
         <category>Codeforces</category>
       </categories>
       <tags>
-        <tag>ACM</tag>
         <tag>刷题</tag>
+        <tag>ACM</tag>
       </tags>
   </entry>
   <entry>
@@ -163,8 +163,8 @@
         <category>ACM-最短路</category>
       </categories>
       <tags>
-        <tag>ACM</tag>
         <tag>刷题</tag>
+        <tag>ACM</tag>
         <tag>最短路</tag>
         <tag>线段树</tag>
       </tags>
@@ -174,8 +174,8 @@
     <url>%2F2019%2F09%2F28%2F2017icpc%E8%A5%BF%E5%AE%89%E5%8C%BA%E5%9F%9F%E8%B5%9B%2F</url>
     <content type="text"><![CDATA[线段树专场，，，emmmm 作完签到就自闭了，，数据出锅2333 A. XOR之前就知道看到这个线性基+线段树的板子题，，一直想补，，拖到现在 题意很简单，，就是问一个区间某些数的异或和与K的或的最大值，，， 如果没有K，，这道题显然是签到题，，，但是多了一个K，， 其实K也很好处理，，， 因为要求两个数的或的最大值，，K又是给定的，，所以我们可以贪心的选择一个二进制位是1的但是对应在K中是0的数，，，这样显然最后求得或值最大，， 所以这题就变成了不考虑K中是1的那几位的数，，也就是对于 $a_i$ 只考虑K对应位是0的那些数，，将1删去，，，删去的操作就是对于每一个数都和K的取反的结果相与，，这样留下的就是在K中是0的那些位，，，最后对于这个处理后的新的数组快乐的用线性基+线段树暴力合并询问就行了，，， 线性基的合并要使用不是高斯消元的那种，，（忘记关同步T了一发 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135136137138139#include &lt;bits/stdc++.h&gt;#define aaa cout&lt;&lt;233&lt;&lt;endl;#define endl '\n'using namespace std;typedef long long ll;typedef unsigned long long ull;typedef long double ld;// mt19937 rnd(time(0));const int inf = 0x3f3f3f3f;//1061109567 &gt; 1e9const ll linf = 0x3f3f3f3f3f3f3f3f;const double eps = 1e-6;const double pi = 3.14159265358979;const int maxn = 1e4 + 5;const int maxm = 4e5 + 233;const int mod = 1e9 + 7;ll n, q, k;struct linerbasis&#123; static const int maxbase = 33; bool flag = false; ll a[maxbase + 1]; linerbasis() &#123; memset(a, 0, sizeof a); &#125; linerbasis(ll *x, int n) &#123; linerbasis(); build(x, n); &#125; void build(ll *x, int n) &#123; for(int i = 1; i &lt;= n; ++i) insert(x[i]); &#125; void clear() &#123; memset(a, 0, sizeof a); &#125; bool insert(ll t) &#123; for(int i = maxbase; i &gt;= 0; --i) &#123; if(t &amp; (1ll &lt;&lt; i)) &#123; if(!a[i]) &#123; a[i] = t; break; &#125; t ^= a[i]; &#125; &#125; if(t == 0)flag = true; return t; &#125; linerbasis merge(const linerbasis &amp;l1, const linerbasis &amp;l2) &#123; linerbasis ret = l1; for(int i = maxbase; i &gt;= 0; --i) if(l2.a[i]) ret.insert(l2.a[i]); return ret; &#125; void merge(const linerbasis &amp;l) &#123; for(int i = maxbase; i &gt;= 0; --i) if(l.a[i]) insert(l.a[i]); &#125; ll queryMax() &#123; ll ret = 0; for(int i = maxbase; i &gt;= 0; --i) if((ret ^ a[i]) &gt; ret) ret ^= a[i]; return ret; &#125;&#125;lb[maxn &lt;&lt; 2];ll a[maxn];void pushup(int rt)&#123; lb[rt] = lb[rt].merge(lb[rt &lt;&lt; 1], lb[rt &lt;&lt; 1 | 1]);&#125;void build(int rt, int l, int r)&#123; lb[rt].clear(); if(l == r) &#123; lb[rt].insert(a[l]); return; &#125; int mid = l + r &gt;&gt; 1; build(rt &lt;&lt; 1, l, mid); build(rt &lt;&lt; 1 | 1, mid + 1, r); pushup(rt);&#125;linerbasis query(int rt, int l, int r, int L, int R)&#123; if(L &lt;= l &amp;&amp; r &lt;= R) &#123; return lb[rt]; &#125; int mid = l + r &gt;&gt; 1; linerbasis ret; if(L &lt;= mid)ret.merge(query(rt &lt;&lt; 1, l, mid, L, R)); if(R &gt; mid)ret.merge(query(rt &lt;&lt; 1 | 1, mid + 1, r, L, R)); return ret;&#125;int main()&#123; // double pp = clock(); // freopen("233.in", "r", stdin); // freopen("233.out", "w", stdout); ios_base::sync_with_stdio(0); cin.tie(0);cout.tie(0); int t; cin &gt;&gt; t; while(t--) &#123; cin &gt;&gt; n &gt;&gt; q &gt;&gt; k; for(int i = 1; i &lt;= n; ++i)cin &gt;&gt; a[i]; k = ~k; for(int i = 1; i &lt;= n; ++i)a[i] &amp;= k; k = ~k; build(1, 1, n); int l, r; while(q--) &#123; cin &gt;&gt; l &gt;&gt; r; cout &lt;&lt; (k | query(1, 1, n, l, r).queryMax()) &lt;&lt; endl; &#125; &#125; // cout &lt;&lt; endl &lt;&lt; (clock() - pp) / CLOCKS_PER_SEC &lt;&lt; endl; return 0;&#125;]]></content>
       <tags>
-        <tag>ACM</tag>
         <tag>刷题</tag>
+        <tag>ACM</tag>
       </tags>
   </entry>
   <entry>
@@ -186,8 +186,8 @@
         <category>Codeforces</category>
       </categories>
       <tags>
-        <tag>ACM</tag>
         <tag>刷题</tag>
+        <tag>ACM</tag>
         <tag>cf</tag>
       </tags>
   </entry>
@@ -211,8 +211,8 @@
         <category>Codeforces</category>
       </categories>
       <tags>
-        <tag>ACM</tag>
         <tag>刷题</tag>
+        <tag>ACM</tag>
       </tags>
   </entry>
   <entry>
@@ -220,8 +220,8 @@
     <url>%2F2019%2F09%2F14%2F2019%E6%B2%88%E9%98%B3%E7%BD%91%E7%BB%9C%E8%B5%9BB-Dudu-s-maze%2F</url>
     <content type="text"><![CDATA[啊，，不在状态啊，，自闭一下午，，读错题，，然后背锅，，，明明这个简单的题，，， 这题题面不容易看懂，，大致意思是给你一张图，，然后从1节点开始可以任意的走，， 有些节点是 monster 节点，，这样的节点总共只能走一次，，其他的点有一个糖果，问最大的取得糖果的期望 解法很简单，，先求出从1可以不经过 monster 的点的个数，，也就是1的联通块，， 然后对于每一个和1联通块的 monster 的下的联通块求他的点的个数，，点权就是个数与其所有从这点出发的路径数的商，，取这样 monster 的点权最大加前面的1联通块的点数就行了，，， 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135136137#include &lt;bits/stdc++.h&gt;#define aaa cout&lt;&lt;233&lt;&lt;endl;#define endl '\n'using namespace std;typedef long long ll;typedef unsigned long long ull;typedef long double ld;// mt19937 rnd(time(0));const int inf = 0x3f3f3f3f;//1061109567 &gt; 1e9const ll linf = 0x3f3f3f3f3f3f3f3f;const double eps = 1e-6;const double pi = 3.14159265358979;const int maxn = 1e5 + 5;const int maxm = 2e5 + 233;const int mod = 1e9 + 7;int n, m, k;struct edge&#123; int to, nxt;&#125;edge[maxm &lt;&lt; 1];int tot, head[maxm &lt;&lt; 1];void init()&#123; tot = 0; memset(head, -1, sizeof head);&#125;void addedge(int u, int v)&#123; edge[tot].to = v; edge[tot].nxt = head[u]; head[u] = tot++;&#125;int monster[maxn];bool vismonster[maxn];int fa[maxn];inline int _find(int x)&#123; if(fa[x] == x)return x; return fa[x] = _find(fa[x]);&#125;void _union(int x, int y)&#123; int f1 = _find(x); int f2 = _find(y); if(f1 != f2)fa[f2] = f1;&#125;bool vis[maxn];int ans[maxn];queue&lt;int&gt; q;void bfs(int s)&#123; while(!q.empty())q.pop(); q.push(s); for(int i = 1; i &lt;= n; ++i)vis[i] = false; vis[s] = true; while(!q.empty()) &#123; int u = q.front(); q.pop(); for(int i = head[u]; ~i; i = edge[i].nxt) &#123; int v = edge[i].to; if(vis[v] || _find(v) == _find(1))continue; if(vismonster[v]) &#123; _union(s, v); vis[v] = true; continue; &#125; vis[v] = true; q.push(v); _union(s, v); ++ans[s]; &#125; &#125;&#125;int main()&#123; // double pp = clock(); // freopen("233.in", "r", stdin); // freopen("233.out", "w", stdout); // ios_base::sync_with_stdio(0); // cin.tie(0);cout.tie(0); // int t; cin &gt;&gt; t; int t; scanf("%d", &amp;t); while(t--) &#123; // cin &gt;&gt; n &gt;&gt; m &gt;&gt; k; scanf("%d%d%d", &amp;n, &amp;m, &amp;k); int u, v; init(); for(int i = 1; i &lt;= n; ++i)vismonster[i] = false; for(int i = 1; i &lt;= m; ++i) &#123; // cin &gt;&gt; u &gt;&gt; v; scanf("%d%d", &amp;u, &amp;v); addedge(u, v); addedge(v, u); &#125; // for(int i = 1; i &lt;= k; ++i)cin &gt;&gt; monster[i], vismonster[monster[i]] = true; for(int i = 1; i &lt;= k; ++i) &#123; scanf("%d", &amp;monster[i]); vismonster[monster[i]] = true; &#125; for(int i = 1; i &lt;= n; ++i)fa[i] = i; for(int i = 1; i &lt;= n; ++i)ans[i] = 0; ans[1] = 1; bfs(1); double ret = 0; for(int j = 1; j &lt;= k; ++j) &#123; if(_find(monster[j]) == _find(1)) &#123; int sz = 0, sum = 0; for(int i = head[monster[j]]; ~i; i = edge[i].nxt) &#123; ++sz; if(vismonster[edge[i].to] || _find(edge[i].to) == _find(1))continue; ans[edge[i].to] = 0; bfs(edge[i].to); sum += ans[edge[i].to] + 1; &#125; // for(int l = 1; l &lt;= n; ++l)cout &lt;&lt; ans[l] &lt;&lt; " ";cout &lt;&lt; endl; ret = max(ret, (double)sum / (double)sz); // cout &lt;&lt; sum &lt;&lt; "-" &lt;&lt; sz &lt;&lt; "-" &lt;&lt; ret &lt;&lt; endl; &#125; &#125; // cout &lt;&lt; ret + (double)ans[1] &lt;&lt; endl; printf("%.6f\n", ret + (double)ans[1]); &#125; // cout &lt;&lt; endl &lt;&lt; (clock() - pp) / CLOCKS_PER_SEC &lt;&lt; endl; return 0;&#125; 今天不适合写代码，，，，]]></content>
       <tags>
-        <tag>ACM</tag>
         <tag>刷题</tag>
+        <tag>ACM</tag>
       </tags>
   </entry>
   <entry>
@@ -242,8 +242,8 @@
         <category>ACM-题解</category>
       </categories>
       <tags>
-        <tag>ACM</tag>
         <tag>刷题</tag>
+        <tag>ACM</tag>
         <tag>网络赛</tag>
       </tags>
   </entry>
@@ -315,8 +315,8 @@
         <category>ACM-最短路</category>
       </categories>
       <tags>
-        <tag>ACM</tag>
         <tag>刷题</tag>
+        <tag>ACM</tag>
       </tags>
   </entry>
   <entry>
@@ -374,8 +374,8 @@
         <category>ACM-题解</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
         <tag>多校</tag>
       </tags>
   </entry>
@@ -454,8 +454,8 @@
         <category>ACM-比赛补题</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -478,8 +478,8 @@
         <category>Codeforces</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
         <tag>cf</tag>
       </tags>
   </entry>
@@ -575,8 +575,8 @@
         <category>ACM-图论-拓扑排序</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -587,8 +587,8 @@
         <category>ACM-图论-树的直径</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -611,8 +611,8 @@
         <category>ACM-搜索</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -629,8 +629,8 @@
     <url>%2F2019%2F03%2F10%2F%E7%89%9B%E5%AE%A2%E5%B0%8F%E7%99%BD%E6%9C%88%E8%B5%9B12%2F</url>
     <content type="text"><![CDATA[https://ac.nowcoder.com/acm/contest/392#question 学到很多东西，，， A华华听月月唱歌排序然后枚举左端点，，，区间的题总是不怎么会，，， 将所有区间按照左端点排序，从左往右遍历。用一个变量维护我们当前最远可以够到的右端点，然后枚举左端点不超过右端点+1的所有区间，选择右端点最靠右的一个即可。 12345678910111213141516171819202122232425262728293031323334353637383940414243444546struct node&#123; int l, r; const bool operator &lt;(const node &amp;rr)const &#123; if(l == rr.l)return r &lt; rr.r; return l &lt; rr.l; &#125;&#125;node[maxn];int main()&#123;// freopen("233.in" , "r" , stdin);// freopen("233.out" , "w" , stdout); ios_base::sync_with_stdio(0); cin.tie(0);cout.tie(0); int n, m; cin &gt;&gt; n &gt;&gt; m; for(int i = 1; i &lt;= m; ++i)cin &gt;&gt; node[i].l &gt;&gt; node[i].r; sort(node + 1, node + 1 + m); int r = 0, ans = 0, mx = 0; for(int i = 1; i &lt;= m; ++i) &#123; if(node[i].l &lt;= mx + 1)r = max(r, node[i].r); else &#123; mx = r; r = 0; ++ans; if(node[i].l &lt;= mx + 1) &#123; r = max(r, node[i].r); &#125; else break; &#125; &#125; if(mx != n) &#123; ++ans; mx = r; &#125; if(mx != n) ans = -1; cout &lt;&lt; ans &lt;&lt; endl; return 0;&#125; B华华教月月做数学求$A^B(mod)$，，第一反应是快速幂，，然后一看样例，，好大的数，，直接上java，，， 123456789101112131415161718192021import java.io.*;import java.util.*;import java.math.*;/** * @author 31415926535x * acm_java */public class Main&#123; public static void main(String[] args) &#123; Scanner input = new Scanner(System.in); int t = input.nextInt(); while(t &gt; 0) &#123; BigInteger a = input.nextBigInteger(); BigInteger b = input.nextBigInteger(); BigInteger c = input.nextBigInteger(); BigInteger ans = a.modPow(b, c); System.out.println(ans); --t; &#125; &#125;&#125; C华华给月月出题新知识点get，，，积性函数+线性筛，， 对于函数 $f(x)=x^n$他是一个完全积性函数，，什么是积性函数呢，，就是满足 $f(xy)=f(x)*f(y)$的函数其中xy满足 $(x, y)=1(gcd(x,y)=1)$，，，完全积性函数就是对于任意的xy都满足上式的函数，，， 对于素数的n次幂直接用快速幂求就行了，，对于其他的合数 num 可以表示成 $num = i prime[j]$ ，，，这样它的n次幂就可以用积性函数换成后面这两个数的n次幂的积来求得，，也就是 $a[i prime[j]]=a[i] * a[prime[j]] \% mod$ ，， 对于一个合数只要用它的最小的质因数和一个数的积求出来就行了，，不然一直算下去浪费时间会T 求出所有1~n的数n次幂后异或和就行了 具体的积性函数的内容看这里 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667#include &lt;bits/stdc++.h&gt;#define aaa cout&lt;&lt;233&lt;&lt;endl;#define endl '\n'#define pb push_backusing namespace std;typedef long long ll;typedef unsigned long long ull;const int inf = 0x3f3f3f3f;//1061109567const ll linf = 0x3f3f3f3f3f3f3f;const double eps = 1e-6;const double pi = 3.14159265358979;const int maxn = 1.3e7 + 5;const int maxm = 1e5 + 5;const int mod = 1e9 + 7;inline int read() &#123; char c = getchar(); int x = 0, f = 1; while(c &lt; '0' || c &gt; '9') &#123;if(c == '-') f = -1; c = getchar();&#125; while(c &gt;= '0' &amp;&amp; c &lt;= '9') x = x * 10 + c - '0', c = getchar(); return x * f;&#125;ll a[maxn], prime[maxn], tot;bool isprime[maxn];ll pow_(ll a, ll b)&#123; ll ret = 1; while(b) &#123; if(b &amp; 1)ret = (ret * a) % mod; a = (a * a) % mod; b &gt;&gt;= 1; &#125; return ret;&#125;void init(int n)&#123; for(int i = 1; i &lt;= n; ++i)isprime[i] = true; a[1] = 1; tot = -1; for(int i = 2; i &lt;= n; ++i) &#123; if(isprime[i]) //对于质数来说 &#123; prime[++tot] = i; //加一个质数 a[i] = pow_(i, n); //素数直接快速幂求就行了 &#125; for(int j = 1; j &lt;= tot &amp;&amp; i * prime[j] &lt;= n; ++j) &#123; isprime[i * prime[j]] = false; //标记为合数 a[i * prime[j]] = (a[i] * a[prime[j]]) % mod; //积性函数的性质 if(!(i % prime[j]))break; //对于每个合数用它最小的质因数求出来就行了，，否则会重复计算会T &#125; &#125;&#125;int main()&#123;// freopen("233.in" , "r" , stdin);// freopen("233.out" , "w" , stdout);// ios_base::sync_with_stdio(0);// cin.tie(0);cout.tie(0); ll n; scanf("%lld", &amp;n); init(n); ll ans = 0; for(int i = 1; i &lt;= n; ++i) ans ^= a[i]; printf("%lld", ans); return 0;&#125; E华华给月月准备礼物哇，这是签到题啊，，，我当时没看出来，，没思路就跑去做图论的题了，，（最后图论的题也没出来，，，菜的真实，，， 二分答案判断一下去最值就行了，， 123456789101112131415161718192021222324252627int a[maxn], n, k;int main()&#123;// freopen("233.in" , "r" , stdin);// freopen("233.out" , "w" , stdout); ios_base::sync_with_stdio(0); cin.tie(0);cout.tie(0); cin &gt;&gt; n &gt;&gt; k; for(int i = 1; i &lt;= n; ++i)cin &gt;&gt; a[i]; int ans = 0; int l = 1, r = a[max_element(a + 1, a + 1 + n) - a]; while(l &lt;= r) &#123; int mid = (l + r) &gt;&gt; 1; int sum = 0; for(int i = 1; i &lt;= n; ++i) sum += a[i] / mid; if(sum &gt;= k) ans = max(ans, mid); if(sum &lt; k) r = mid - 1; else l = mid + 1; &#125; cout &lt;&lt; ans &lt;&lt; endl; return 0;&#125; G华华对月月的忠诚当时看这样例推了两下，猜测 $(F_{n-1},F{n})=(A,B)$，，而且n还那么大，，，肯定不是吧这两项算出来的，，，果断交了 1234567891011121314151617ll gcd(ll a, ll b)&#123; if(b == 0)return a; else return gcd(b, a % b);&#125;int main()&#123;// freopen("233.in" , "r" , stdin);// freopen("233.out" , "w" , stdout); ios_base::sync_with_stdio(0); cin.tie(0);cout.tie(0); ll a, b; string s; cin &gt;&gt; a &gt;&gt; b &gt;&gt; s; cout &lt;&lt; gcd(a, b) &lt;&lt; endl; return 0;&#125; I华华和月月逛公园用tarjan求桥的个数就行了，，当时没看出来，，中午看了一会割点桥的内容（在上一篇博客 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122#include &lt;bits/stdc++.h&gt;#define aaa cout&lt;&lt;233&lt;&lt;endl;#define endl '\n'#define pb push_backusing namespace std;typedef long long ll;typedef unsigned long long ull;const int inf = 0x3f3f3f3f;//1061109567const ll linf = 0x3f3f3f3f3f3f3f;const double eps = 1e-6;const double pi = 3.14159265358979;const int maxn = 1e6 + 5;const int maxm = 1e5 + 5;const int mod = 1e9 + 7;inline int read() &#123; char c = getchar(); int x = 0, f = 1; while(c &lt; '0' || c &gt; '9') &#123;if(c == '-') f = -1; c = getchar();&#125; while(c &gt;= '0' &amp;&amp; c &lt;= '9') x = x * 10 + c - '0', c = getchar(); return x * f;&#125;struct edge&#123; int to, next; bool cut; //&#125;edge[maxn];int head[maxn], tot;int low[maxn], dfn[maxn], sta[maxn];int idx, top;bool insta[maxn];bool cut[maxn];int add_block[maxn];int bridge;void init()&#123; tot = 0; memset(head, -1, sizeof head);&#125;void addedge(int u, int v)&#123; edge[tot].to = v; edge[tot].cut = false; edge[tot].next = head[u]; head[u] = tot++;&#125;void tarjan(int u, int pre)&#123; int v; low[u] = dfn[u] = ++idx; sta[top++] = u; insta[u] = true; int son = 0; int pre_cnt = 0; // for(int i = head[u]; ~i; i = edge[i].next) &#123; v = edge[i].to; if(v == pre &amp;&amp; pre_cnt == 0) &#123; ++pre_cnt; continue; &#125; if(!dfn[v]) &#123; ++son; tarjan(v, u); if(low[u] &gt; low[v])low[u] = low[v]; if(low[v] &gt; dfn[u]) &#123; ++bridge; edge[i].cut = true; edge[i ^ 1].cut = true; &#125; if(u != pre &amp;&amp; low[v] &gt;= dfn[u]) &#123; cut[u] = true; ++add_block[u]; &#125; &#125; else if(low[u] &gt; dfn[v]) low[u] = dfn[v]; &#125; if(u == pre &amp;&amp; son &gt; 1)cut[u] = true; if(u == pre)add_block[u] = son - 1; insta[u] = false; --top;&#125;void solve(int n, int m)&#123; memset(dfn, 0, sizeof dfn); memset(insta, false, sizeof insta); memset(add_block, 0, sizeof add_block); memset(cut, false, sizeof cut); idx = top = bridge = 0; for(int i = 1; i &lt;= n; ++i) if(!dfn[i]) tarjan(i, i);// int ans = 0;// for(int u = 1; u &lt;= n; ++u)// for(int i = head[u]; ~i; i = edge[i].next)// if(edge[i].cut &amp;&amp; edge[i].to &gt; u)// ++ans; printf("%d", m - bridge);&#125;int main()&#123;// freopen("233.in" , "r" , stdin);// freopen("233.out" , "w" , stdout);// ios_base::sync_with_stdio(0);// cin.tie(0);cout.tie(0); int n, m; scanf("%d%d", &amp;n, &amp;m); int u, v; init(); for(int i = 1; i &lt;= m; ++i) &#123; scanf("%d%d", &amp;u, &amp;v); addedge(u, v); addedge(v, u); &#125; solve(n, m); return 0;&#125; J月月查华华的手机当时做这道题的时候以为是调用n次的LCS，，，然后显示MLE然后一直T，，， 后来看了题解才知道是序列自动机，，，（应该在上上篇博客，， 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970#include &lt;bits/stdc++.h&gt;#define aaa cout&lt;&lt;233&lt;&lt;endl;#define endl '\n'#define pb push_backusing namespace std;typedef long long ll;typedef unsigned long long ull;const int inf = 0x3f3f3f3f;//1061109567const ll linf = 0x3f3f3f3f3f3f3f;const double eps = 1e-6;const double pi = 3.14159265358979;const int maxn = 1e6 + 5;const int maxm = 1e5 + 5;const int mod = 1e9 + 7;inline int read() &#123; char c = getchar(); int x = 0, f = 1; while(c &lt; '0' || c &gt; '9') &#123;if(c == '-') f = -1; c = getchar();&#125; while(c &gt;= '0' &amp;&amp; c &lt;= '9') x = x * 10 + c - '0', c = getchar(); return x * f;&#125;int nxt[maxn][30];int now[30];char s[maxn];void init()&#123; //序列自动机预处理 memset(now, -1, sizeof now); //mow_i表示第i个字母在原串中从后向前最晚出现的位置 int len = strlen(s); --len; for(int i = len; ~i; --i) //处理每一个字符 &#123; for(int j = 0; j &lt; 26; ++j) //找出第i个字符后面的26个字母最早出现的字符的位置 nxt[i][j] = now[j]; now[s[i] - 'a'] = i; //用当前字符更新当前字符在原串中从后向前最晚出现的位置 &#125;&#125;char ss[maxn];int main()&#123;// freopen("233.in" , "r" , stdin);// freopen("233.out" , "w" , stdout);// ios_base::sync_with_stdio(0);// cin.tie(0);cout.tie(0); scanf("%s", s); int n; scanf("%d", &amp;n); init(); while(n--) &#123; scanf("%s", ss); int loc = now[ss[0] - 'a']; //没有以子串第一个字符出现的子序列时 if(!~loc)printf("No\n"); else &#123; bool flag = true; int len = strlen(ss); for(int i = 1; i &lt; len; ++i) &#123; loc = nxt[loc][ss[i] - 'a']; //寻找母串中子串第i个字符下一次出现的位置 if(!~loc) //没有就退出 &#123; flag = false; break; &#125; &#125; if(flag)printf("Yes\n"); else printf("No\n"); &#125; &#125; return 0;&#125;]]></content>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -665,8 +665,8 @@
         <category>Codeforces</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -698,8 +698,8 @@
         <category>Codeforces</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -710,8 +710,8 @@
         <category>Codeforces</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -722,8 +722,8 @@
         <category>ACM-动态规划</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -734,8 +734,8 @@
         <category>ACM-动态规划-线性dp</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -771,8 +771,8 @@
         <category>Codeforces</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -795,8 +795,8 @@
         <category>ACM-线段树</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -807,8 +807,8 @@
         <category>ACM-图论-2-SAT</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -819,8 +819,8 @@
         <category>图论</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -831,8 +831,8 @@
         <category>ACM-图论-强连通分量</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -980,8 +980,8 @@
     <url>%2F2018%2F12%2F24%2Fcodeforces-1092c%2F</url>
     <content type="text"><![CDATA[概述一道有关字符串前缀后缀的题，，，自己迟早要坑在这字符串的题上，，，一看到这样的题，，不管简单还是难一些的心里就发怵，， 明明思路是对的，，总是莫名其妙的wa,,wa,,,wa,,,,,, 题意题意很简单，，就是给你一个串的所有前缀串和它的后缀串，，，然后让你判断这些串可能是那种串，，， 首先肯定是要求出原串嘛，，，不然怎么判断，，，因为有两个长度为n-1的串和两个长度为1的串，，所以可以由此来得出原串，，，但是就是这里，，，我寻找原串写崩了，，，一直wa，，，，QAQ，，，，最后还是看了别人的思路，，，直接不寻找原串，，，对于每一种可能可原串都求一下答案，，，要是某个子串既不是前缀串又不是后缀串，，，那么就说明这个可能的原串不对，，换下一个，，直到碰到符合的原串，，输出之后终止程序，，， string 里的 函数可以寻找第一与子串匹配的坐标(从零开始)，，```rfing()```可以寻找最后一个与子串匹配的坐标。。。123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778# 代码```cpp#include &lt;bits/stdc++.h&gt;//#include &lt;iostream&gt;//#include &lt;cstdio&gt;//#include &lt;cstdlib&gt;//#include &lt;string.h&gt;#define aaa cout&lt;&lt;233&lt;&lt;endl;using namespace std;typedef long long ll;const int inf = 0x3f3f3f3f;const ll linf = 0x3f3f3f3f3f3f3f;const int maxn = 1e5 + 5;const int maxm = 1e5 + 5;const int mod = 1e9 + 7;struct strings&#123; string s; int id; bool operator &lt; (const strings &amp;r)const &#123; return s.size() &lt; r.s.size(); &#125;&#125;str[300];char ans[300];int n;void get(string s)&#123; for(int i = 1; i &lt;= 2 * n - 2; i += 2) &#123; if(s.find(str[i].s) == 0 &amp;&amp; s.rfind(str[i + 1].s) == n - str[i + 1].s.length()) &#123; ans[str[i].id] = &apos;P&apos;; ans[str[i + 1].id] = &apos;S&apos;; continue; &#125; if(s.rfind(str[i].s) == n - str[i].s.length() &amp;&amp; s.find(str[i + 1].s) == 0) &#123; ans[str[i].id] = &apos;S&apos;; ans[str[i + 1].id] = &apos;P&apos;; continue; &#125; return; &#125; for(int i = 1; i &lt;= 2 * n - 2; ++i) cout &lt;&lt; ans[i]; cout &lt;&lt; endl; exit(0);&#125;int main()&#123;// freopen(&quot;233.txt&quot; , &quot;r&quot; , stdin);// freopen(&quot;233.out&quot; , &quot;w&quot; , stdout); ios_base::sync_with_stdio(0); cin.tie(0);cout.tie(0); cin &gt;&gt; n; string pre , suf , t[2]; bool flag = true; int cnt = 0; for(int i = 1; i &lt;= 2 * n - 2; ++i) &#123; cin &gt;&gt; str[i].s; str[i].id = i; &#125; sort(str + 1 , str + 1 + 2 * n - 2); get(str[1].s + str[2 * n - 2].s); get(str[1].s + str[2 * n - 3].s); get(str[2].s + str[2 * n - 2].s); get(str[2].s + str[2 * n - 3].s); return 0;&#125; 菜到哭😭QAQ]]></content>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -992,8 +992,8 @@
         <category>acm</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -1004,8 +1004,8 @@
         <category>ACM-网络流-最大权闭合子图</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -1021,8 +1021,8 @@
         <category>Codeforces</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -1033,8 +1033,8 @@
         <category>Codeforces</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -1045,8 +1045,8 @@
         <category>Codeforces</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -1057,8 +1057,8 @@
         <category>ACM-网络流-最大流</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -1069,8 +1069,8 @@
         <category>ACM-最小生成树</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -1081,8 +1081,8 @@
         <category>ACM-最小生成树</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -1093,8 +1093,8 @@
         <category>ACM-最短路</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -1102,8 +1102,8 @@
     <url>%2F2018%2F10%2F30%2Fpoj-1151%E7%9F%A9%E5%BD%A2%E9%9D%A2%E7%A7%AF%E5%B9%B6-%E7%BA%BF%E6%AE%B5%E6%A0%91%2F</url>
     <content type="text"><![CDATA[概述线段树问题里的另一个问题，，，矩形面积并，，，， 之前看lazy更新时看到下面这个的讲解，，，一大堆文字还有一大堆的图，，，，当时果断跳过，，， 今天花了一下午加一晚上的时间看了看这块知识，，，然后尝试自己写出代码，，，算是简单的了解一下这块，，， 题意这道矩形面积并问题的大意是给很多个矩形，，矩形之间可能有交集，，，然后问你这一大片的图形面积是多少，，，， 数据量不大，，看到有很多人是暴力过的，，， 但是用线段树来当作练习题锻炼锻炼思维还是很好的QAQ 思路一开始我是看这篇博客有关矩形面积并的知识，，，这篇博客讲解的思路很不错，，，一遍之后大致了解了整个解决问题的思路，，，，但是它没有相应的练习题以及代码，，，，我完全不知道该从哪里下手，，，线段树的具体如何实现一脸懵逼，，，，还有，，，一般这种题都是要将一个方向的坐标 离散化，，，，嗯，，又是这个东西，，，，更是一脸的懵逼，，，， 然后看了这篇博客，，对着代码，，，然后顺着思路写出来了，，， 主要的几点： 前面两个博客的图很形象的把思路理了一遍，，，，就是枚举一个方向，，比如y方向，，然后，，将x方向的坐标离散化，，分成若干个 单位线段，，，，线段树维护这个单位线段，，，还是那个博客形象一些 整个图形的面积可以分成若干个小的矩形，，，然后加起来就行，，，， 代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293#include &lt;iostream&gt;#include &lt;cstdio&gt;#include &lt;cstdlib&gt;#include &lt;cstring&gt;#include &lt;algorithm&gt;using namespace std;#define aaa cout &lt;&lt; x[r + 1] &lt;&lt; "----" &lt;&lt; x[l] &lt;&lt; endl;const int maxn = 205;double x[maxn &lt;&lt; 2]; //所有的x的数据//每一条线段struct segment&#123; double y; double l; double r; int flag; //1 or -1: 入边or出边 segment()&#123;&#125; segment(double y, double l , double r , int flag):y(y) , l(l) , r(r) , flag(flag)&#123;&#125; bool operator &lt; (const segment &amp;res) &#123; return y &lt; res.y; &#125;&#125;seg[maxn &lt;&lt; 1];//线段树维护所有的单位线段（离散后的）struct node&#123; int cov; double len;&#125;node[maxn &lt;&lt; 2];void pushdown(int rt , int l , int r)&#123; if(node[rt].cov) node[rt].len = x[r + 1] - x[l]; else if(l == r) node[rt].len = 0; else node[rt].len = node[rt &lt;&lt; 1].len + node[rt &lt;&lt; 1 | 1].len;&#125;void update(int rt , int l , int r , int L , int R , int cov)&#123; if(L &lt;= l &amp;&amp; r &lt;= R) &#123; node[rt].cov += cov; pushdown(rt , l , r); return; &#125; int mid = (l + r) &gt;&gt; 1; if(L &lt;= mid) update(rt &lt;&lt; 1 , l , mid , L , R , cov); if(R &gt; mid) update(rt &lt;&lt; 1 | 1 , mid + 1 , r , L , R , cov); //pushdown pushdown(rt , l , r); return;&#125;int main()&#123; int n; int q = 1; while(scanf("%d" , &amp;n) &amp;&amp; n) &#123; memset(x , 0 , sizeof x); double x1 , y1 , x2 , y2; int count = 0; for(int i = 0; i &lt; n; ++i) &#123; scanf("%lf%lf%lf%lf" , &amp;x1 , &amp;y1 , &amp;x2 , &amp;y2); seg[count]=segment(y1 , x1 , x2 , 1); x[count++] = x1; seg[count]=segment(y2 , x1 , x2 , -1); //segment[i].y = y1;segment[i].l = x1;segment[i].r = x2;segment[i].flag = 1; //segment[i + 1].y = y2;segment[i + n].l = x1;segment[i + n].r = x2;segment[i + n].flag = -1; x[count++] = x2; &#125; //离散 sort(seg , seg + count); sort(x , x + count); int sz = unique(x , x + count) - x; double ans = 0; for(int i = 0; i &lt; count; ++i) &#123; int l = lower_bound(x , x + sz , seg[i].l) - x; int r = lower_bound(x , x + sz , seg[i].r) - x - 1; update(1 , 0 , sz , l , r , seg[i].flag); ans += node[1].len * (seg[i + 1].y - seg[i].y); &#125; printf("Test case #%d\nTotal explored area: %.2f\n\n",q++,ans); &#125;&#125; 总结算了，，，先鸽了，，，细节那天再补一下，，，，(loading,,,,)]]></content>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -1114,8 +1114,8 @@
         <category>ACM-最短路</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -1126,8 +1126,8 @@
         <category>ACM-线段树</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -1138,8 +1138,8 @@
         <category>ACM-线段树</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -1150,8 +1150,8 @@
         <category>ACM-线段树</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -1162,8 +1162,8 @@
         <category>ACM-线段树</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -1174,8 +1174,8 @@
         <category>ACM-最短路</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -1186,8 +1186,8 @@
         <category>ACM-线段树</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -1198,8 +1198,8 @@
         <category>ACM-线段树</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
         <tag>算法</tag>
       </tags>
   </entry>
@@ -1223,8 +1223,8 @@
         <category>ACM-线段树</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>acm</tag>
+        <tag>刷题</tag>
         <tag>算法</tag>
       </tags>
   </entry>
