@@ -1,562 +1,563 @@
+
+
 <!DOCTYPE html>
-<html>
-<head><meta name="generator" content="Hexo 3.9.0">
-    
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Google Analytics -->
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-114656515-1', 'auto');
-ga('send', 'pageview');
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-<!-- End Google Analytics -->
-
-
-    
-
-    
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
-    <meta charset="utf-8">
-    
-    
-    
-    <link rel="canonical" href="https://31415926535x.github.io/2019/09/25/随机生成中文姓名/">
-    
-    
-    <title>随机生成中文姓名 | 31415926535x</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#40c4ff">
-    
-    
-    <meta name="keywords" content="笔记,工程">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/misaka.jpg">
+  <link rel="icon" href="/img/misaka.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  
     <meta name="description" content="做项目的时候有时会用到自己造一个数据库，数值信息都可以随便rand出来，，但是中文姓名不太好处理，，最后借鉴了这篇博客 ，， 把他的一些东西改了改，够用了，，">
-<meta name="keywords" content="笔记,工程">
-<meta property="og:type" content="article">
-<meta property="og:title" content="随机生成中文姓名">
-<meta property="og:url" content="http://blog.31415x.cf/2019/09/25/随机生成中文姓名/index.html">
-<meta property="og:site_name" content="31415926535x">
-<meta property="og:description" content="做项目的时候有时会用到自己造一个数据库，数值信息都可以随便rand出来，，但是中文姓名不太好处理，，最后借鉴了这篇博客 ，， 把他的一些东西改了改，够用了，，">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-25T11:51:27.484Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="随机生成中文姓名">
-<meta name="twitter:description" content="做项目的时候有时会用到自己造一个数据库，数值信息都可以随便rand出来，，但是中文姓名不太好处理，，最后借鉴了这篇博客 ，， 把他的一些东西改了改，够用了，，">
-    
-        <link rel="alternate" type="application/atom+xml" title="31415926535x" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
+  
+  <meta name="author" content="31415926535x">
+  <meta name="keywords" content="">
+  
+  <title>随机生成中文姓名 - 31415926535x</title>
 
-    <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-    
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/monokai.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"blog.31415x.cf","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":null,"google":"UA-114656515-1","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="31415926535x" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
-<body>
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide" >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/misaka.jpg">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">31415926535x</h5>
-          <a href="mailto:2509437152wx@gmail.com" title="2509437152wx@gmail.com" class="mail">2509437152wx@gmail.com</a>
-        </hgroup>
-      </div>
-    </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>31415926535x</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                Archives
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                标签
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/31415926535x" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="https://plus.google.com/106114719135977350421" target="_blank" >
-                <i class="icon icon-lg icon-google"></i>
-                Google+
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="https://instagram.com/314159265358x" target="_blank" >
-                <i class="icon icon-lg icon-instagram"></i>
-                Instagram
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="https://cnblogs.com/31415926535x" target="_blank" >
-                <i class="icon icon-lg icon-th-large"></i>
-                cnblogs
-              </a>
-            </li>
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
         
-            <li class="waves-block waves-effect">
-              <a href="https://blog.csdn.net/pi31415926535x" target="_blank" >
-                <i class="icon icon-lg icon-cubes"></i>
-                csdn
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/timeline"  >
-                <i class="icon icon-lg icon-calendar"></i>
-                timeline
-              </a>
-            </li>
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
         
       </ul>
     </div>
   </div>
-</aside>
-
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">随机生成中文姓名</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
-        
-    </div>
-</header>
-<header class="content-header post-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">随机生成中文姓名</h1>
-        <h5 class="subtitle">
-            
-                <time datetime="2019-09-25T11:47:19.000Z" itemprop="datePublished" class="page-time">
-  2019-09-25
-</time>
-
-
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/小工具/">小工具</a></li></ul>
-
-            
-        </h5>
-    </div>
-
-    
-
-
-</header>
-
-
-<div class="container body-wrap">
-    
-
-<article id="post-随机生成中文姓名"
-  class="post-article article-type-post fade" itemprop="blogPost">
-
-    <div class="post-card">
-        <h1 class="post-card-title">随机生成中文姓名</h1>
-        <div class="post-meta">
-            <time class="post-time" title="2019-09-25 19:47:19" datetime="2019-09-25T11:47:19.000Z"  itemprop="datePublished">2019-09-25</time>
-
-            
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/小工具/">小工具</a></li></ul>
-
-
-
-            
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
-
-
-        </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            <p>做项目的时候有时会用到自己造一个数据库，数值信息都可以随便rand出来，，但是中文姓名不太好处理，，<a href="https://www.cnblogs.com/kindom/p/3963610.html" target="_blank" rel="noopener">最后借鉴了这篇博客</a> ，， 把他的一些东西改了改，够用了，，</p>
-<a id="more"></a>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;random&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">mt19937 rnd(time(0));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">NAME</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	srand(time(<span class="literal">NULL</span>));</span><br><span class="line">	<span class="comment">//百家姓-单姓</span></span><br><span class="line">	<span class="built_in">string</span> NA1[<span class="number">444</span>] = &#123; <span class="string">"赵"</span>, <span class="string">"钱"</span>, <span class="string">"孙"</span>, <span class="string">"李"</span>, <span class="string">"周"</span>, <span class="string">"吴"</span>, <span class="string">"郑"</span>, <span class="string">"王"</span>, <span class="string">"冯"</span>, <span class="string">"陈"</span>, <span class="string">"褚"</span>, <span class="string">"卫"</span>, <span class="string">"蒋"</span>, <span class="string">"沈"</span>, <span class="string">"韩"</span>, <span class="string">"杨"</span>, <span class="string">"朱"</span>, <span class="string">"秦"</span>, <span class="string">"尤"</span>, <span class="string">"许"</span>, <span class="string">"何"</span>, <span class="string">"吕"</span>, <span class="string">"施"</span>, <span class="string">"张"</span>, <span class="string">"孔"</span>, <span class="string">"曹"</span>, <span class="string">"严"</span>, <span class="string">"华"</span>, <span class="string">"金"</span>, <span class="string">"魏"</span>, <span class="string">"陶"</span>, <span class="string">"姜"</span>, <span class="string">"戚"</span>, <span class="string">"谢"</span>, <span class="string">"邹"</span>, <span class="string">"喻"</span>, <span class="string">"柏"</span>, <span class="string">"水"</span>, <span class="string">"窦"</span>, <span class="string">"章"</span>, <span class="string">"云"</span>, <span class="string">"苏"</span>, <span class="string">"潘"</span>, <span class="string">"葛"</span>, <span class="string">"奚"</span>, <span class="string">"范"</span>, <span class="string">"彭"</span>, <span class="string">"郎"</span>, <span class="string">"鲁"</span>, <span class="string">"韦"</span>, <span class="string">"昌"</span>, <span class="string">"马"</span>, <span class="string">"苗"</span>, <span class="string">"凤"</span>, <span class="string">"花"</span>, <span class="string">"方"</span>, <span class="string">"俞"</span>, <span class="string">"任"</span>, <span class="string">"袁"</span>, <span class="string">"柳"</span>, <span class="string">"酆"</span>, <span class="string">"鲍"</span>, <span class="string">"史"</span>, <span class="string">"唐"</span>, <span class="string">"费"</span>, <span class="string">"廉"</span>, <span class="string">"岑"</span>, <span class="string">"薛"</span>, <span class="string">"雷"</span>, <span class="string">"贺"</span>, <span class="string">"倪"</span>, <span class="string">"汤"</span>, <span class="string">"滕"</span>, <span class="string">"殷"</span>, <span class="string">"罗"</span>, <span class="string">"毕"</span>, <span class="string">"郝"</span>, <span class="string">"邬"</span>, <span class="string">"安"</span>, <span class="string">"常"</span>, <span class="string">"乐"</span>, <span class="string">"于"</span>, <span class="string">"时"</span>, <span class="string">"傅"</span>, <span class="string">"皮"</span>, <span class="string">"卞"</span>, <span class="string">"齐"</span>, <span class="string">"康"</span>, <span class="string">"伍"</span>, <span class="string">"余"</span>, <span class="string">"元"</span>, <span class="string">"卜"</span>, <span class="string">"顾"</span>, <span class="string">"孟"</span>, <span class="string">"平"</span>, <span class="string">"黄"</span>, <span class="string">"和"</span>, <span class="string">"穆"</span>, <span class="string">"萧"</span>, <span class="string">"尹"</span>, <span class="string">"姚"</span>, <span class="string">"邵"</span>, <span class="string">"湛"</span>, <span class="string">"汪"</span>, <span class="string">"祁"</span>, <span class="string">"毛"</span>, <span class="string">"禹"</span>, <span class="string">"狄"</span>, <span class="string">"米"</span>, <span class="string">"贝"</span>, <span class="string">"明"</span>, <span class="string">"臧"</span>, <span class="string">"计"</span>, <span class="string">"伏"</span>, <span class="string">"成"</span>, <span class="string">"戴"</span>, <span class="string">"谈"</span>, <span class="string">"宋"</span>, <span class="string">"茅"</span>, <span class="string">"庞"</span>, <span class="string">"熊"</span>, <span class="string">"纪"</span>, <span class="string">"舒"</span>, <span class="string">"屈"</span>, <span class="string">"项"</span>, <span class="string">"祝"</span>, <span class="string">"董"</span>, <span class="string">"梁"</span>, <span class="string">"杜"</span>, <span class="string">"阮"</span>, <span class="string">"蓝"</span>, <span class="string">"闵"</span>, <span class="string">"席"</span>, <span class="string">"季"</span>, <span class="string">"麻"</span>, <span class="string">"强"</span>, <span class="string">"贾"</span>, <span class="string">"路"</span>, <span class="string">"娄"</span>, <span class="string">"危"</span>, <span class="string">"江"</span>, <span class="string">"童"</span>, <span class="string">"颜"</span>, <span class="string">"郭"</span>, <span class="string">"梅"</span>, <span class="string">"盛"</span>, <span class="string">"林"</span>, <span class="string">"刁"</span>, <span class="string">"钟"</span>, <span class="string">"徐"</span>, <span class="string">"邱"</span>, <span class="string">"骆"</span>, <span class="string">"高"</span>, <span class="string">"夏"</span>, <span class="string">"蔡"</span>, <span class="string">"田"</span>, <span class="string">"樊"</span>, <span class="string">"胡"</span>, <span class="string">"凌"</span>, <span class="string">"霍"</span>, <span class="string">"虞"</span>, <span class="string">"万"</span>, <span class="string">"支"</span>, <span class="string">"柯"</span>, <span class="string">"昝"</span>, <span class="string">"管"</span>, <span class="string">"卢"</span>, <span class="string">"莫"</span>, <span class="string">"经"</span>, <span class="string">"房"</span>, <span class="string">"裘"</span>, <span class="string">"缪"</span>, <span class="string">"干"</span>, <span class="string">"解"</span>, <span class="string">"应"</span>, <span class="string">"宗"</span>, <span class="string">"丁"</span>, <span class="string">"宣"</span>, <span class="string">"贲"</span>, <span class="string">"邓"</span>, <span class="string">"郁"</span>, <span class="string">"单"</span>, <span class="string">"杭"</span>, <span class="string">"洪"</span>, <span class="string">"包"</span>, <span class="string">"诸"</span>, <span class="string">"左"</span>, <span class="string">"石"</span>, <span class="string">"崔"</span>, <span class="string">"吉"</span>, <span class="string">"钮"</span>, <span class="string">"龚"</span>, <span class="string">"程"</span>, <span class="string">"嵇"</span>, <span class="string">"邢"</span>, <span class="string">"滑"</span>, <span class="string">"裴"</span>, <span class="string">"陆"</span>, <span class="string">"荣"</span>, <span class="string">"翁"</span>, <span class="string">"荀"</span>, <span class="string">"羊"</span>, <span class="string">"於"</span>, <span class="string">"惠"</span>, <span class="string">"甄"</span>, <span class="string">"麴"</span>, <span class="string">"家"</span>, <span class="string">"封"</span>, <span class="string">"芮"</span>, <span class="string">"羿"</span>, <span class="string">"储"</span>, <span class="string">"靳"</span>, <span class="string">"汲"</span>, <span class="string">"邴"</span>, <span class="string">"糜"</span>, <span class="string">"松"</span>, <span class="string">"井"</span>, <span class="string">"段"</span>, <span class="string">"富"</span>, <span class="string">"巫"</span>, <span class="string">"乌"</span>, <span class="string">"焦"</span>, <span class="string">"巴"</span>, <span class="string">"弓"</span>, <span class="string">"牧"</span>, <span class="string">"隗"</span>, <span class="string">"山"</span>, <span class="string">"谷"</span>, <span class="string">"车"</span>, <span class="string">"侯"</span>, <span class="string">"宓"</span>, <span class="string">"蓬"</span>, <span class="string">"全"</span>, <span class="string">"郗"</span>, <span class="string">"班"</span>, <span class="string">"仰"</span>, <span class="string">"秋"</span>, <span class="string">"仲"</span>, <span class="string">"伊"</span>, <span class="string">"宫"</span>, <span class="string">"宁"</span>, <span class="string">"仇"</span>, <span class="string">"栾"</span>, <span class="string">"暴"</span>, <span class="string">"甘"</span>, <span class="string">"钭"</span>, <span class="string">"厉"</span>, <span class="string">"戎"</span>, <span class="string">"祖"</span>, <span class="string">"武"</span>, <span class="string">"符"</span>, <span class="string">"刘"</span>, <span class="string">"景"</span>, <span class="string">"詹"</span>, <span class="string">"束"</span>, <span class="string">"龙"</span>, <span class="string">"叶"</span>, <span class="string">"幸"</span>, <span class="string">"司"</span>, <span class="string">"韶"</span>, <span class="string">"郜"</span>, <span class="string">"黎"</span>, <span class="string">"蓟"</span>, <span class="string">"薄"</span>, <span class="string">"印"</span>, <span class="string">"宿"</span>, <span class="string">"白"</span>, <span class="string">"怀"</span>, <span class="string">"蒲"</span>, <span class="string">"邰"</span>, <span class="string">"从"</span>, <span class="string">"鄂"</span>, <span class="string">"索"</span>, <span class="string">"咸"</span>, <span class="string">"籍"</span>, <span class="string">"赖"</span>, <span class="string">"卓"</span>, <span class="string">"蔺"</span>, <span class="string">"屠"</span>, <span class="string">"蒙"</span>, <span class="string">"池"</span>, <span class="string">"乔"</span>, <span class="string">"阴"</span>, <span class="string">"郁"</span>, <span class="string">"胥"</span>, <span class="string">"能"</span>, <span class="string">"苍"</span>, <span class="string">"双"</span>, <span class="string">"闻"</span>, <span class="string">"莘"</span>, <span class="string">"党"</span>, <span class="string">"翟"</span>, <span class="string">"谭"</span>, <span class="string">"贡"</span>, <span class="string">"劳"</span>, <span class="string">"逄"</span>, <span class="string">"姬"</span>, <span class="string">"申"</span>, <span class="string">"扶"</span>, <span class="string">"堵"</span>, <span class="string">"冉"</span>, <span class="string">"宰"</span>, <span class="string">"郦"</span>, <span class="string">"雍"</span>, <span class="string">"舄"</span>, <span class="string">"璩"</span>, <span class="string">"桑"</span>, <span class="string">"桂"</span>, <span class="string">"濮"</span>, <span class="string">"牛"</span>, <span class="string">"寿"</span>, <span class="string">"通"</span>, <span class="string">"边"</span>, <span class="string">"扈"</span>, <span class="string">"燕"</span>, <span class="string">"冀"</span>, <span class="string">"郏"</span>, <span class="string">"浦"</span>, <span class="string">"尚"</span>, <span class="string">"农"</span>, <span class="string">"温"</span>, <span class="string">"别"</span>, <span class="string">"庄"</span>, <span class="string">"晏"</span>, <span class="string">"柴"</span>, <span class="string">"瞿"</span>, <span class="string">"阎"</span>, <span class="string">"充"</span>, <span class="string">"慕"</span>, <span class="string">"连"</span>, <span class="string">"茹"</span>, <span class="string">"习"</span>, <span class="string">"宦"</span>, <span class="string">"艾"</span>, <span class="string">"鱼"</span>, <span class="string">"容"</span>, <span class="string">"向"</span>, <span class="string">"古"</span>, <span class="string">"易"</span>, <span class="string">"慎"</span>, <span class="string">"戈"</span>, <span class="string">"廖"</span>, <span class="string">"庾"</span>, <span class="string">"终"</span>, <span class="string">"暨"</span>, <span class="string">"居"</span>, <span class="string">"衡"</span>, <span class="string">"步"</span>, <span class="string">"都"</span>, <span class="string">"耿"</span>, <span class="string">"满"</span>, <span class="string">"弘"</span>, <span class="string">"匡"</span>, <span class="string">"国"</span>, <span class="string">"文"</span>, <span class="string">"寇"</span>, <span class="string">"广"</span>, <span class="string">"禄"</span>, <span class="string">"阙"</span>, <span class="string">"东"</span>, <span class="string">"殴"</span>, <span class="string">"殳"</span>, <span class="string">"沃"</span>, <span class="string">"利"</span>, <span class="string">"蔚"</span>, <span class="string">"越"</span>, <span class="string">"夔"</span>, <span class="string">"隆"</span>, <span class="string">"师"</span>, <span class="string">"巩"</span>, <span class="string">"厍"</span>, <span class="string">"聂"</span>, <span class="string">"晁"</span>, <span class="string">"勾"</span>, <span class="string">"敖"</span>, <span class="string">"融"</span>, <span class="string">"冷"</span>, <span class="string">"訾"</span>, <span class="string">"辛"</span>, <span class="string">"阚"</span>, <span class="string">"那"</span>, <span class="string">"简"</span>, <span class="string">"饶"</span>, <span class="string">"空"</span>, <span class="string">"曾"</span>, <span class="string">"毋"</span>, <span class="string">"沙"</span>, <span class="string">"乜"</span>, <span class="string">"养"</span>, <span class="string">"鞠"</span>, <span class="string">"须"</span>, <span class="string">"丰"</span>, <span class="string">"巢"</span>, <span class="string">"关"</span>, <span class="string">"蒯"</span>, <span class="string">"相"</span>, <span class="string">"查"</span>, <span class="string">"後"</span>, <span class="string">"荆"</span>, <span class="string">"红"</span>, <span class="string">"游"</span>, <span class="string">"竺"</span>, <span class="string">"权"</span>, <span class="string">"逯"</span>, <span class="string">"盖"</span>, <span class="string">"益"</span>, <span class="string">"桓"</span>, <span class="string">"公"</span>, <span class="string">"仉"</span>, <span class="string">"督"</span>, <span class="string">"晋"</span>, <span class="string">"楚"</span>, <span class="string">"闫"</span>, <span class="string">"法"</span>, <span class="string">"汝"</span>, <span class="string">"鄢"</span>, <span class="string">"涂"</span>, <span class="string">"钦"</span>, <span class="string">"归"</span>, <span class="string">"海"</span>, <span class="string">"岳"</span>, <span class="string">"帅"</span>, <span class="string">"缑"</span>, <span class="string">"亢"</span>, <span class="string">"况"</span>, <span class="string">"后"</span>, <span class="string">"有"</span>, <span class="string">"琴"</span>, <span class="string">"商"</span>, <span class="string">"牟"</span>, <span class="string">"佘"</span>, <span class="string">"佴"</span>, <span class="string">"伯"</span>, <span class="string">"赏"</span>, <span class="string">"墨"</span>, <span class="string">"哈"</span>, <span class="string">"谯"</span>, <span class="string">"笪"</span>, <span class="string">"年"</span>, <span class="string">"爱"</span>, <span class="string">"阳"</span>, <span class="string">"佟"</span>, <span class="string">"言"</span>, <span class="string">"福"</span> &#125;;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//百家姓-复姓</span></span><br><span class="line">	<span class="built_in">string</span> NA2[<span class="number">59</span>] = &#123; <span class="string">"万俟"</span>, <span class="string">"司马"</span>, <span class="string">"上官"</span>, <span class="string">"欧阳"</span>, <span class="string">"夏侯"</span>, <span class="string">"诸葛"</span>, <span class="string">"闻人"</span>, <span class="string">"东方"</span>, <span class="string">"赫连"</span>, <span class="string">"皇甫"</span>, <span class="string">"尉迟"</span>, <span class="string">"公羊"</span>, <span class="string">"澹台"</span>, <span class="string">"公冶"</span>, <span class="string">"宗政"</span>, <span class="string">"濮阳"</span>, <span class="string">"淳于"</span>, <span class="string">"单于"</span>, <span class="string">"太叔"</span>, <span class="string">"申屠"</span>, <span class="string">"公孙"</span>, <span class="string">"仲孙"</span>, <span class="string">"轩辕"</span>, <span class="string">"令狐"</span>, <span class="string">"钟离"</span>, <span class="string">"宇文"</span>, <span class="string">"长孙"</span>, <span class="string">"慕容"</span>, <span class="string">"鲜于"</span>, <span class="string">"闾丘"</span>, <span class="string">"司徒"</span>, <span class="string">"司空"</span>, <span class="string">"亓官"</span>, <span class="string">"司寇"</span>, <span class="string">"子车"</span>, <span class="string">"颛孙"</span>, <span class="string">"端木"</span>, <span class="string">"巫马"</span>, <span class="string">"公西"</span>, <span class="string">"漆雕"</span>, <span class="string">"乐正"</span>, <span class="string">"壤驷"</span>, <span class="string">"公良"</span>, <span class="string">"拓跋"</span>, <span class="string">"夹谷"</span>, <span class="string">"宰父"</span>, <span class="string">"谷梁"</span>, <span class="string">"百里"</span>, <span class="string">"东郭"</span>, <span class="string">"南门"</span>, <span class="string">"呼延"</span>, <span class="string">"羊舌"</span>, <span class="string">"微生"</span>, <span class="string">"梁丘"</span>, <span class="string">"左丘"</span>, <span class="string">"东门"</span>, <span class="string">"西门"</span>, <span class="string">"南宫"</span>, <span class="string">"第五"</span> &#125;;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//男性常用名</span></span><br><span class="line">	<span class="built_in">string</span> ME1m[<span class="number">140</span>] = &#123; <span class="string">"伟"</span>, <span class="string">"刚"</span>, <span class="string">"勇"</span>, <span class="string">"毅"</span>, <span class="string">"俊"</span>, <span class="string">"峰"</span>, <span class="string">"强"</span>, <span class="string">"军"</span>, <span class="string">"平"</span>, <span class="string">"保"</span>, <span class="string">"东"</span>, <span class="string">"文"</span>, <span class="string">"辉"</span>, <span class="string">"力"</span>, <span class="string">"明"</span>, <span class="string">"永"</span>, <span class="string">"健"</span>, <span class="string">"世"</span>, <span class="string">"广"</span>, <span class="string">"志"</span>, <span class="string">"义"</span>, <span class="string">"兴"</span>, <span class="string">"良"</span>, <span class="string">"海"</span>, <span class="string">"山"</span>, <span class="string">"仁"</span>, <span class="string">"波"</span>, <span class="string">"宁"</span>, <span class="string">"贵"</span>, <span class="string">"福"</span>, <span class="string">"生"</span>, <span class="string">"龙"</span>, <span class="string">"元"</span>, <span class="string">"全"</span>, <span class="string">"国"</span>, <span class="string">"胜"</span>, <span class="string">"学"</span>, <span class="string">"祥"</span>, <span class="string">"才"</span>, <span class="string">"发"</span>, <span class="string">"武"</span>, <span class="string">"新"</span>, <span class="string">"利"</span>, <span class="string">"清"</span>, <span class="string">"飞"</span>, <span class="string">"彬"</span>, <span class="string">"富"</span>, <span class="string">"顺"</span>, <span class="string">"信"</span>, <span class="string">"子"</span>, <span class="string">"杰"</span>, <span class="string">"涛"</span>, <span class="string">"昌"</span>, <span class="string">"成"</span>, <span class="string">"康"</span>, <span class="string">"星"</span>, <span class="string">"光"</span>, <span class="string">"天"</span>, <span class="string">"达"</span>, <span class="string">"安"</span>, <span class="string">"岩"</span>, <span class="string">"中"</span>, <span class="string">"茂"</span>, <span class="string">"进"</span>, <span class="string">"林"</span>, <span class="string">"有"</span>, <span class="string">"坚"</span>, <span class="string">"和"</span>, <span class="string">"彪"</span>, <span class="string">"博"</span>, <span class="string">"诚"</span>, <span class="string">"先"</span>, <span class="string">"敬"</span>, <span class="string">"震"</span>, <span class="string">"振"</span>, <span class="string">"壮"</span>, <span class="string">"会"</span>, <span class="string">"思"</span>, <span class="string">"群"</span>, <span class="string">"豪"</span>, <span class="string">"心"</span>, <span class="string">"邦"</span>, <span class="string">"承"</span>, <span class="string">"乐"</span>, <span class="string">"绍"</span>, <span class="string">"功"</span>, <span class="string">"松"</span>, <span class="string">"善"</span>, <span class="string">"厚"</span>, <span class="string">"庆"</span>, <span class="string">"磊"</span>, <span class="string">"民"</span>, <span class="string">"友"</span>, <span class="string">"裕"</span>, <span class="string">"河"</span>, <span class="string">"哲"</span>, <span class="string">"江"</span>, <span class="string">"超"</span>, <span class="string">"浩"</span>, <span class="string">"亮"</span>, <span class="string">"政"</span>, <span class="string">"谦"</span>, <span class="string">"亨"</span>, <span class="string">"奇"</span>, <span class="string">"固"</span>, <span class="string">"之"</span>, <span class="string">"轮"</span>, <span class="string">"翰"</span>, <span class="string">"朗"</span>, <span class="string">"伯"</span>, <span class="string">"宏"</span>, <span class="string">"言"</span>, <span class="string">"若"</span>, <span class="string">"鸣"</span>, <span class="string">"朋"</span>, <span class="string">"斌"</span>, <span class="string">"梁"</span>, <span class="string">"栋"</span>, <span class="string">"维"</span>, <span class="string">"启"</span>, <span class="string">"克"</span>, <span class="string">"伦"</span>, <span class="string">"翔"</span>, <span class="string">"旭"</span>, <span class="string">"鹏"</span>, <span class="string">"泽"</span>, <span class="string">"晨"</span>, <span class="string">"辰"</span>, <span class="string">"士"</span>, <span class="string">"以"</span>, <span class="string">"建"</span>, <span class="string">"家"</span>, <span class="string">"致"</span>, <span class="string">"树"</span>, <span class="string">"炎"</span>, <span class="string">"德"</span>, <span class="string">"行"</span>, <span class="string">"时"</span>, <span class="string">"泰"</span>, <span class="string">"盛"</span> &#125;;</span><br><span class="line">	<span class="built_in">string</span> ME2m[<span class="number">140</span>] = &#123; <span class="string">"伟"</span>, <span class="string">"刚"</span>, <span class="string">"勇"</span>, <span class="string">"毅"</span>, <span class="string">"俊"</span>, <span class="string">"峰"</span>, <span class="string">"强"</span>, <span class="string">"军"</span>, <span class="string">"平"</span>, <span class="string">"保"</span>, <span class="string">"东"</span>, <span class="string">"文"</span>, <span class="string">"辉"</span>, <span class="string">"力"</span>, <span class="string">"明"</span>, <span class="string">"永"</span>, <span class="string">"健"</span>, <span class="string">"世"</span>, <span class="string">"广"</span>, <span class="string">"志"</span>, <span class="string">"义"</span>, <span class="string">"兴"</span>, <span class="string">"良"</span>, <span class="string">"海"</span>, <span class="string">"山"</span>, <span class="string">"仁"</span>, <span class="string">"波"</span>, <span class="string">"宁"</span>, <span class="string">"贵"</span>, <span class="string">"福"</span>, <span class="string">"生"</span>, <span class="string">"龙"</span>, <span class="string">"元"</span>, <span class="string">"全"</span>, <span class="string">"国"</span>, <span class="string">"胜"</span>, <span class="string">"学"</span>, <span class="string">"祥"</span>, <span class="string">"才"</span>, <span class="string">"发"</span>, <span class="string">"武"</span>, <span class="string">"新"</span>, <span class="string">"利"</span>, <span class="string">"清"</span>, <span class="string">"飞"</span>, <span class="string">"彬"</span>, <span class="string">"富"</span>, <span class="string">"顺"</span>, <span class="string">"信"</span>, <span class="string">"子"</span>, <span class="string">"杰"</span>, <span class="string">"涛"</span>, <span class="string">"昌"</span>, <span class="string">"成"</span>, <span class="string">"康"</span>, <span class="string">"星"</span>, <span class="string">"光"</span>, <span class="string">"天"</span>, <span class="string">"达"</span>, <span class="string">"安"</span>, <span class="string">"岩"</span>, <span class="string">"中"</span>, <span class="string">"茂"</span>, <span class="string">"进"</span>, <span class="string">"林"</span>, <span class="string">"有"</span>, <span class="string">"坚"</span>, <span class="string">"和"</span>, <span class="string">"彪"</span>, <span class="string">"博"</span>, <span class="string">"诚"</span>, <span class="string">"先"</span>, <span class="string">"敬"</span>, <span class="string">"震"</span>, <span class="string">"振"</span>, <span class="string">"壮"</span>, <span class="string">"会"</span>, <span class="string">"思"</span>, <span class="string">"群"</span>, <span class="string">"豪"</span>, <span class="string">"心"</span>, <span class="string">"邦"</span>, <span class="string">"承"</span>, <span class="string">"乐"</span>, <span class="string">"绍"</span>, <span class="string">"功"</span>, <span class="string">"松"</span>, <span class="string">"善"</span>, <span class="string">"厚"</span>, <span class="string">"庆"</span>, <span class="string">"磊"</span>, <span class="string">"民"</span>, <span class="string">"友"</span>, <span class="string">"裕"</span>, <span class="string">"河"</span>, <span class="string">"哲"</span>, <span class="string">"江"</span>, <span class="string">"超"</span>, <span class="string">"浩"</span>, <span class="string">"亮"</span>, <span class="string">"政"</span>, <span class="string">"谦"</span>, <span class="string">"亨"</span>, <span class="string">"奇"</span>, <span class="string">"固"</span>, <span class="string">"之"</span>, <span class="string">"轮"</span>, <span class="string">"翰"</span>, <span class="string">"朗"</span>, <span class="string">"伯"</span>, <span class="string">"宏"</span>, <span class="string">"言"</span>, <span class="string">"若"</span>, <span class="string">"鸣"</span>, <span class="string">"朋"</span>, <span class="string">"斌"</span>, <span class="string">"梁"</span>, <span class="string">"栋"</span>, <span class="string">"维"</span>, <span class="string">"启"</span>, <span class="string">"克"</span>, <span class="string">"伦"</span>, <span class="string">"翔"</span>, <span class="string">"旭"</span>, <span class="string">"鹏"</span>, <span class="string">"泽"</span>, <span class="string">"晨"</span>, <span class="string">"辰"</span>, <span class="string">"士"</span>, <span class="string">"以"</span>, <span class="string">"建"</span>, <span class="string">"家"</span>, <span class="string">"致"</span>, <span class="string">"树"</span>, <span class="string">"炎"</span>, <span class="string">"德"</span>, <span class="string">"行"</span>, <span class="string">"时"</span>, <span class="string">"泰"</span>, <span class="string">"盛"</span> &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="comment">//女性常用名</span></span><br><span class="line">	<span class="built_in">string</span> ME1f[<span class="number">165</span>] = &#123; <span class="string">"秀"</span>, <span class="string">"娟"</span>, <span class="string">"英"</span>, <span class="string">"华"</span>, <span class="string">"慧"</span>, <span class="string">"巧"</span>, <span class="string">"美"</span>, <span class="string">"娜"</span>, <span class="string">"静"</span>, <span class="string">"淑"</span>, <span class="string">"惠"</span>, <span class="string">"珠"</span>, <span class="string">"翠"</span>, <span class="string">"雅"</span>, <span class="string">"芝"</span>, <span class="string">"玉"</span>, <span class="string">"萍"</span>, <span class="string">"红"</span>, <span class="string">"娥"</span>, <span class="string">"玲"</span>, <span class="string">"芬"</span>, <span class="string">"芳"</span>, <span class="string">"燕"</span>, <span class="string">"彩"</span>, <span class="string">"春"</span>, <span class="string">"菊"</span>, <span class="string">"兰"</span>, <span class="string">"凤"</span>, <span class="string">"洁"</span>, <span class="string">"梅"</span>, <span class="string">"琳"</span>, <span class="string">"素"</span>, <span class="string">"云"</span>, <span class="string">"莲"</span>, <span class="string">"真"</span>, <span class="string">"环"</span>, <span class="string">"雪"</span>, <span class="string">"荣"</span>, <span class="string">"爱"</span>, <span class="string">"妹"</span>, <span class="string">"霞"</span>, <span class="string">"香"</span>, <span class="string">"月"</span>, <span class="string">"莺"</span>, <span class="string">"媛"</span>, <span class="string">"艳"</span>, <span class="string">"瑞"</span>, <span class="string">"凡"</span>, <span class="string">"佳"</span>, <span class="string">"嘉"</span>, <span class="string">"琼"</span>, <span class="string">"勤"</span>, <span class="string">"珍"</span>, <span class="string">"贞"</span>, <span class="string">"莉"</span>, <span class="string">"桂"</span>, <span class="string">"娣"</span>, <span class="string">"叶"</span>, <span class="string">"璧"</span>, <span class="string">"璐"</span>, <span class="string">"娅"</span>, <span class="string">"琦"</span>, <span class="string">"晶"</span>, <span class="string">"妍"</span>, <span class="string">"茜"</span>, <span class="string">"秋"</span>, <span class="string">"珊"</span>, <span class="string">"莎"</span>, <span class="string">"锦"</span>, <span class="string">"黛"</span>, <span class="string">"青"</span>, <span class="string">"倩"</span>, <span class="string">"婷"</span>, <span class="string">"姣"</span>, <span class="string">"婉"</span>, <span class="string">"娴"</span>, <span class="string">"瑾"</span>, <span class="string">"颖"</span>, <span class="string">"露"</span>, <span class="string">"瑶"</span>, <span class="string">"怡"</span>, <span class="string">"婵"</span>, <span class="string">"雁"</span>, <span class="string">"蓓"</span>, <span class="string">"纨"</span>, <span class="string">"仪"</span>, <span class="string">"荷"</span>, <span class="string">"丹"</span>, <span class="string">"蓉"</span>, <span class="string">"眉"</span>, <span class="string">"君"</span>, <span class="string">"琴"</span>, <span class="string">"蕊"</span>, <span class="string">"薇"</span>, <span class="string">"菁"</span>, <span class="string">"梦"</span>, <span class="string">"岚"</span>, <span class="string">"苑"</span>, <span class="string">"筠"</span>, <span class="string">"柔"</span>, <span class="string">"竹"</span>, <span class="string">"霭"</span>, <span class="string">"凝"</span>, <span class="string">"晓"</span>, <span class="string">"欢"</span>, <span class="string">"霄"</span>, <span class="string">"枫"</span>, <span class="string">"芸"</span>, <span class="string">"菲"</span>, <span class="string">"寒"</span>, <span class="string">"欣"</span>, <span class="string">"滢"</span>, <span class="string">"伊"</span>, <span class="string">"亚"</span>, <span class="string">"宜"</span>, <span class="string">"可"</span>, <span class="string">"姬"</span>, <span class="string">"舒"</span>, <span class="string">"影"</span>, <span class="string">"荔"</span>, <span class="string">"枝"</span>, <span class="string">"思"</span>, <span class="string">"丽"</span>, <span class="string">"秀"</span>, <span class="string">"飘"</span>, <span class="string">"育"</span>, <span class="string">"馥"</span>, <span class="string">"琦"</span>, <span class="string">"晶"</span>, <span class="string">"妍"</span>, <span class="string">"茜"</span>, <span class="string">"秋"</span>, <span class="string">"珊"</span>, <span class="string">"莎"</span>, <span class="string">"锦"</span>, <span class="string">"黛"</span>, <span class="string">"青"</span>, <span class="string">"倩"</span>, <span class="string">"婷"</span>, <span class="string">"宁"</span>, <span class="string">"蓓"</span>, <span class="string">"纨"</span>, <span class="string">"苑"</span>, <span class="string">"婕"</span>, <span class="string">"馨"</span>, <span class="string">"瑗"</span>, <span class="string">"琰"</span>, <span class="string">"韵"</span>, <span class="string">"融"</span>, <span class="string">"园"</span>, <span class="string">"艺"</span>, <span class="string">"咏"</span>, <span class="string">"卿"</span>, <span class="string">"聪"</span>, <span class="string">"澜"</span>, <span class="string">"纯"</span>, <span class="string">"毓"</span>, <span class="string">"悦"</span>, <span class="string">"昭"</span>, <span class="string">"冰"</span>, <span class="string">"爽"</span>, <span class="string">"琬"</span>, <span class="string">"茗"</span>, <span class="string">"羽"</span>, <span class="string">"希"</span> &#125;;</span><br><span class="line">	<span class="built_in">string</span> ME2f[<span class="number">165</span>] = &#123; <span class="string">"秀"</span>, <span class="string">"娟"</span>, <span class="string">"英"</span>, <span class="string">"华"</span>, <span class="string">"慧"</span>, <span class="string">"巧"</span>, <span class="string">"美"</span>, <span class="string">"娜"</span>, <span class="string">"静"</span>, <span class="string">"淑"</span>, <span class="string">"惠"</span>, <span class="string">"珠"</span>, <span class="string">"翠"</span>, <span class="string">"雅"</span>, <span class="string">"芝"</span>, <span class="string">"玉"</span>, <span class="string">"萍"</span>, <span class="string">"红"</span>, <span class="string">"娥"</span>, <span class="string">"玲"</span>, <span class="string">"芬"</span>, <span class="string">"芳"</span>, <span class="string">"燕"</span>, <span class="string">"彩"</span>, <span class="string">"春"</span>, <span class="string">"菊"</span>, <span class="string">"兰"</span>, <span class="string">"凤"</span>, <span class="string">"洁"</span>, <span class="string">"梅"</span>, <span class="string">"琳"</span>, <span class="string">"素"</span>, <span class="string">"云"</span>, <span class="string">"莲"</span>, <span class="string">"真"</span>, <span class="string">"环"</span>, <span class="string">"雪"</span>, <span class="string">"荣"</span>, <span class="string">"爱"</span>, <span class="string">"妹"</span>, <span class="string">"霞"</span>, <span class="string">"香"</span>, <span class="string">"月"</span>, <span class="string">"莺"</span>, <span class="string">"媛"</span>, <span class="string">"艳"</span>, <span class="string">"瑞"</span>, <span class="string">"凡"</span>, <span class="string">"佳"</span>, <span class="string">"嘉"</span>, <span class="string">"琼"</span>, <span class="string">"勤"</span>, <span class="string">"珍"</span>, <span class="string">"贞"</span>, <span class="string">"莉"</span>, <span class="string">"桂"</span>, <span class="string">"娣"</span>, <span class="string">"叶"</span>, <span class="string">"璧"</span>, <span class="string">"璐"</span>, <span class="string">"娅"</span>, <span class="string">"琦"</span>, <span class="string">"晶"</span>, <span class="string">"妍"</span>, <span class="string">"茜"</span>, <span class="string">"秋"</span>, <span class="string">"珊"</span>, <span class="string">"莎"</span>, <span class="string">"锦"</span>, <span class="string">"黛"</span>, <span class="string">"青"</span>, <span class="string">"倩"</span>, <span class="string">"婷"</span>, <span class="string">"姣"</span>, <span class="string">"婉"</span>, <span class="string">"娴"</span>, <span class="string">"瑾"</span>, <span class="string">"颖"</span>, <span class="string">"露"</span>, <span class="string">"瑶"</span>, <span class="string">"怡"</span>, <span class="string">"婵"</span>, <span class="string">"雁"</span>, <span class="string">"蓓"</span>, <span class="string">"纨"</span>, <span class="string">"仪"</span>, <span class="string">"荷"</span>, <span class="string">"丹"</span>, <span class="string">"蓉"</span>, <span class="string">"眉"</span>, <span class="string">"君"</span>, <span class="string">"琴"</span>, <span class="string">"蕊"</span>, <span class="string">"薇"</span>, <span class="string">"菁"</span>, <span class="string">"梦"</span>, <span class="string">"岚"</span>, <span class="string">"苑"</span>, <span class="string">"筠"</span>, <span class="string">"柔"</span>, <span class="string">"竹"</span>, <span class="string">"霭"</span>, <span class="string">"凝"</span>, <span class="string">"晓"</span>, <span class="string">"欢"</span>, <span class="string">"霄"</span>, <span class="string">"枫"</span>, <span class="string">"芸"</span>, <span class="string">"菲"</span>, <span class="string">"寒"</span>, <span class="string">"欣"</span>, <span class="string">"滢"</span>, <span class="string">"伊"</span>, <span class="string">"亚"</span>, <span class="string">"宜"</span>, <span class="string">"可"</span>, <span class="string">"姬"</span>, <span class="string">"舒"</span>, <span class="string">"影"</span>, <span class="string">"荔"</span>, <span class="string">"枝"</span>, <span class="string">"思"</span>, <span class="string">"丽"</span>, <span class="string">"秀"</span>, <span class="string">"飘"</span>, <span class="string">"育"</span>, <span class="string">"馥"</span>, <span class="string">"琦"</span>, <span class="string">"晶"</span>, <span class="string">"妍"</span>, <span class="string">"茜"</span>, <span class="string">"秋"</span>, <span class="string">"珊"</span>, <span class="string">"莎"</span>, <span class="string">"锦"</span>, <span class="string">"黛"</span>, <span class="string">"青"</span>, <span class="string">"倩"</span>, <span class="string">"婷"</span>, <span class="string">"宁"</span>, <span class="string">"蓓"</span>, <span class="string">"纨"</span>, <span class="string">"苑"</span>, <span class="string">"婕"</span>, <span class="string">"馨"</span>, <span class="string">"瑗"</span>, <span class="string">"琰"</span>, <span class="string">"韵"</span>, <span class="string">"融"</span>, <span class="string">"园"</span>, <span class="string">"艺"</span>, <span class="string">"咏"</span>, <span class="string">"卿"</span>, <span class="string">"聪"</span>, <span class="string">"澜"</span>, <span class="string">"纯"</span>, <span class="string">"毓"</span>, <span class="string">"悦"</span>, <span class="string">"昭"</span>, <span class="string">"冰"</span>, <span class="string">"爽"</span>, <span class="string">"琬"</span>, <span class="string">"茗"</span>, <span class="string">"羽"</span>, <span class="string">"希"</span> &#125;;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> NA1Roll = rnd() % <span class="number">444</span>;<span class="comment">//单姓</span></span><br><span class="line">	<span class="keyword">int</span> NA2Roll = rnd() % <span class="number">59</span>;<span class="comment">//复姓</span></span><br><span class="line">	<span class="keyword">int</span> ME1mRoll = rnd() % <span class="number">140</span>;<span class="comment">//男名</span></span><br><span class="line">	<span class="keyword">int</span> ME2mRoll = rnd() % <span class="number">140</span>;<span class="comment">//男名</span></span><br><span class="line">	<span class="keyword">int</span> ME1fRoll = rnd() % <span class="number">165</span>;<span class="comment">//女名</span></span><br><span class="line">	<span class="keyword">int</span> ME2fRoll = rnd() % <span class="number">165</span>;<span class="comment">//女名</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//单姓单名男</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; NA1[NA1Roll] &lt;&lt; <span class="string">" "</span> &lt;&lt; ME1m[ME1mRoll] &lt;&lt; <span class="string">" 男"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	NA1Roll = rnd() % <span class="number">444</span>;<span class="comment">//单姓</span></span><br><span class="line">	ME1mRoll = rnd() % <span class="number">140</span>;<span class="comment">//男名</span></span><br><span class="line">	<span class="comment">//单姓单名女</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; NA1[NA1Roll] &lt;&lt; <span class="string">" "</span> &lt;&lt; ME1f[ME1fRoll] &lt;&lt; <span class="string">" 女"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	NA1Roll = rnd() % <span class="number">444</span>;<span class="comment">//单姓</span></span><br><span class="line">	ME1mRoll = rnd() % <span class="number">140</span>;<span class="comment">//男名</span></span><br><span class="line">	ME2mRoll = rnd() % <span class="number">140</span>;<span class="comment">//男名</span></span><br><span class="line">	<span class="comment">//单姓双名男</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; NA1[NA1Roll] &lt;&lt; <span class="string">" "</span> &lt;&lt; ME1m[ME1mRoll] &lt;&lt; ME1m[ME2mRoll] &lt;&lt; <span class="string">" 男"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	NA1Roll = rnd() % <span class="number">444</span>;<span class="comment">//单姓</span></span><br><span class="line">	ME1fRoll = rnd() % <span class="number">165</span>;<span class="comment">//女名</span></span><br><span class="line">	ME2fRoll = rnd() % <span class="number">165</span>;<span class="comment">//女名</span></span><br><span class="line">	<span class="comment">//单姓双名女</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; NA1[NA1Roll] &lt;&lt; <span class="string">" "</span> &lt;&lt; ME1f[ME1fRoll] &lt;&lt; ME1f[ME2fRoll] &lt;&lt; <span class="string">" 女"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(rnd() % <span class="number">2</span> == <span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		</span><br><span class="line">		NA2Roll = rnd() % <span class="number">59</span>;<span class="comment">//复姓</span></span><br><span class="line">		ME1mRoll = rnd() % <span class="number">140</span>;<span class="comment">//男名</span></span><br><span class="line">		<span class="comment">//复姓单名男</span></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; NA2[NA2Roll] &lt;&lt; <span class="string">" "</span> &lt;&lt; ME1m[ME1mRoll] &lt;&lt; <span class="string">" 男"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		NA2Roll = rnd() % <span class="number">59</span>;<span class="comment">//复姓</span></span><br><span class="line">		ME1fRoll = rnd() % <span class="number">165</span>;<span class="comment">//女名</span></span><br><span class="line">		<span class="comment">//复姓单名女</span></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; NA2[NA2Roll] &lt;&lt; <span class="string">" "</span> &lt;&lt; ME1f[ME1fRoll] &lt;&lt; <span class="string">" 女"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(rnd() % <span class="number">2</span> == <span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		NA2Roll = rnd() % <span class="number">59</span>;<span class="comment">//复姓</span></span><br><span class="line">		ME1mRoll = rnd() % <span class="number">140</span>;<span class="comment">//男名</span></span><br><span class="line">		ME2mRoll = rnd() % <span class="number">140</span>;<span class="comment">//男名</span></span><br><span class="line">		<span class="comment">//复姓双名男</span></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; NA2[NA2Roll] &lt;&lt; <span class="string">" "</span> &lt;&lt; ME1m[ME1mRoll] &lt;&lt; ME2m[ME2mRoll] &lt;&lt; <span class="string">" 男"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		</span><br><span class="line">		NA2Roll = rnd() % <span class="number">59</span>;<span class="comment">//复姓</span></span><br><span class="line">		ME1fRoll = rnd() % <span class="number">165</span>;<span class="comment">//女名</span></span><br><span class="line">		ME2fRoll = rnd() % <span class="number">165</span>;<span class="comment">//女名</span></span><br><span class="line">		<span class="comment">//复姓双名女</span></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; NA2[NA2Roll] &lt;&lt; <span class="string">" "</span> &lt;&lt; ME1f[ME1fRoll] &lt;&lt; ME2f[ME2fRoll] &lt;&lt; <span class="string">" 女"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// cout &lt;&lt; "\n" &lt;&lt; endl;</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	freopen(<span class="string">"name.txt"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">10</span>; ++i)NAME();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>最后生成的姓名，姓、名是分开的以及对应的性别，，</p>
-<p>类似这样，，，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">包 梁 男</span><br><span class="line">伊 苑 女</span><br><span class="line">芮 光功 男</span><br><span class="line">从 菊茜 女</span><br><span class="line">澹台 纯 女</span><br><span class="line">宗政 超德 男</span><br><span class="line">钮 生 男</span><br><span class="line">湛 竹 女</span><br><span class="line">叶 泰固 男</span><br><span class="line">仰 彩秋 女</span><br><span class="line">太叔 芝 女</span><br><span class="line">呼延 俊进 男</span><br><span class="line">经 谦 男</span><br><span class="line">宓 娥 女</span><br><span class="line">韩 贵有 男</span><br></pre></td></tr></table></figure>
-<p>(end)</p>
-
-        </div>
-
-        <blockquote class="post-copyright">
-    
-    <div class="content">
-        
-<span class="post-time">
-    最后更新时间：<time datetime="2019-09-25T11:51:27.484Z" itemprop="dateUpdated">2019-09-25 19:51:27</time>
-</span><br>
-
-
-        
-        <a href="/2019/09/25/随机生成中文姓名/" target="_blank" rel="external">http://blog.31415x.cf/2019/09/25/随机生成中文姓名/</a>
-        
-    </div>
-    
-    <footer>
-        <a href="http://blog.31415x.cf">
-            <img src="/img/misaka.jpg" alt="31415926535x">
-            31415926535x
-        </a>
-    </footer>
-</blockquote>
-
-        
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工程/">工程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
-
-
-            
-<div class="page-share-wrap">
-    
-
-<div class="page-share" id="pageShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.31415x.cf/2019/09/25/随机生成中文姓名/&title=《随机生成中文姓名》 — 31415926535x&pic=http://blog.31415x.cf/img/misaka.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.31415x.cf/2019/09/25/随机生成中文姓名/&title=《随机生成中文姓名》 — 31415926535x&source=做项目的时候有时会用到自己造一个数据库，数值信息都可以随便rand出来，，但是中文姓名不太好处理，，最后借鉴了这篇博客 ，， 把他的一些东西改了改，够用了，，" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.31415x.cf/2019/09/25/随机生成中文姓名/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《随机生成中文姓名》 — 31415926535x&url=http://blog.31415x.cf/2019/09/25/随机生成中文姓名/&via=http://blog.31415x.cf" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.31415x.cf/2019/09/25/随机生成中文姓名/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
-        <i class="icon icon-share-alt icon-lg"></i>
-    </a>
-</div>
-
-
-
-        </div>
-    </div>
-
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2019/09/28/Educational-Codeforces-Round-72-Rated-for-Div-2/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Educational Codeforces Round 72 (Rated for Div. 2)</h4>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/2019/09/19/Codeforces-Round-585-Div-2/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Codeforces Round #585 (Div. 2)</h4>
-      </a>
-    </div>
-  
 </nav>
 
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="随机生成中文姓名">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      31415926535x
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-09-25 19:47" pubdate>
+        2019年9月25日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      66
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">随机生成中文姓名</h1>
+            
+            <div class="markdown-body">
+              <p>做项目的时候有时会用到自己造一个数据库，数值信息都可以随便rand出来，，但是中文姓名不太好处理，，<a target="_blank" rel="noopener" href="https://www.cnblogs.com/kindom/p/3963610.html">最后借鉴了这篇博客</a> ，， 把他的一些东西改了改，够用了，，</p>
+<span id="more"></span>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;random&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><span class="hljs-function">mt19937 <span class="hljs-title">rnd</span><span class="hljs-params">(time(<span class="hljs-number">0</span>))</span></span>;<br><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">NAME</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	srand(time(<span class="hljs-literal">NULL</span>));<br>	<span class="hljs-comment">//百家姓-单姓</span><br>	<span class="hljs-built_in">string</span> NA1[<span class="hljs-number">444</span>] = &#123; <span class="hljs-string">&quot;赵&quot;</span>, <span class="hljs-string">&quot;钱&quot;</span>, <span class="hljs-string">&quot;孙&quot;</span>, <span class="hljs-string">&quot;李&quot;</span>, <span class="hljs-string">&quot;周&quot;</span>, <span class="hljs-string">&quot;吴&quot;</span>, <span class="hljs-string">&quot;郑&quot;</span>, <span class="hljs-string">&quot;王&quot;</span>, <span class="hljs-string">&quot;冯&quot;</span>, <span class="hljs-string">&quot;陈&quot;</span>, <span class="hljs-string">&quot;褚&quot;</span>, <span class="hljs-string">&quot;卫&quot;</span>, <span class="hljs-string">&quot;蒋&quot;</span>, <span class="hljs-string">&quot;沈&quot;</span>, <span class="hljs-string">&quot;韩&quot;</span>, <span class="hljs-string">&quot;杨&quot;</span>, <span class="hljs-string">&quot;朱&quot;</span>, <span class="hljs-string">&quot;秦&quot;</span>, <span class="hljs-string">&quot;尤&quot;</span>, <span class="hljs-string">&quot;许&quot;</span>, <span class="hljs-string">&quot;何&quot;</span>, <span class="hljs-string">&quot;吕&quot;</span>, <span class="hljs-string">&quot;施&quot;</span>, <span class="hljs-string">&quot;张&quot;</span>, <span class="hljs-string">&quot;孔&quot;</span>, <span class="hljs-string">&quot;曹&quot;</span>, <span class="hljs-string">&quot;严&quot;</span>, <span class="hljs-string">&quot;华&quot;</span>, <span class="hljs-string">&quot;金&quot;</span>, <span class="hljs-string">&quot;魏&quot;</span>, <span class="hljs-string">&quot;陶&quot;</span>, <span class="hljs-string">&quot;姜&quot;</span>, <span class="hljs-string">&quot;戚&quot;</span>, <span class="hljs-string">&quot;谢&quot;</span>, <span class="hljs-string">&quot;邹&quot;</span>, <span class="hljs-string">&quot;喻&quot;</span>, <span class="hljs-string">&quot;柏&quot;</span>, <span class="hljs-string">&quot;水&quot;</span>, <span class="hljs-string">&quot;窦&quot;</span>, <span class="hljs-string">&quot;章&quot;</span>, <span class="hljs-string">&quot;云&quot;</span>, <span class="hljs-string">&quot;苏&quot;</span>, <span class="hljs-string">&quot;潘&quot;</span>, <span class="hljs-string">&quot;葛&quot;</span>, <span class="hljs-string">&quot;奚&quot;</span>, <span class="hljs-string">&quot;范&quot;</span>, <span class="hljs-string">&quot;彭&quot;</span>, <span class="hljs-string">&quot;郎&quot;</span>, <span class="hljs-string">&quot;鲁&quot;</span>, <span class="hljs-string">&quot;韦&quot;</span>, <span class="hljs-string">&quot;昌&quot;</span>, <span class="hljs-string">&quot;马&quot;</span>, <span class="hljs-string">&quot;苗&quot;</span>, <span class="hljs-string">&quot;凤&quot;</span>, <span class="hljs-string">&quot;花&quot;</span>, <span class="hljs-string">&quot;方&quot;</span>, <span class="hljs-string">&quot;俞&quot;</span>, <span class="hljs-string">&quot;任&quot;</span>, <span class="hljs-string">&quot;袁&quot;</span>, <span class="hljs-string">&quot;柳&quot;</span>, <span class="hljs-string">&quot;酆&quot;</span>, <span class="hljs-string">&quot;鲍&quot;</span>, <span class="hljs-string">&quot;史&quot;</span>, <span class="hljs-string">&quot;唐&quot;</span>, <span class="hljs-string">&quot;费&quot;</span>, <span class="hljs-string">&quot;廉&quot;</span>, <span class="hljs-string">&quot;岑&quot;</span>, <span class="hljs-string">&quot;薛&quot;</span>, <span class="hljs-string">&quot;雷&quot;</span>, <span class="hljs-string">&quot;贺&quot;</span>, <span class="hljs-string">&quot;倪&quot;</span>, <span class="hljs-string">&quot;汤&quot;</span>, <span class="hljs-string">&quot;滕&quot;</span>, <span class="hljs-string">&quot;殷&quot;</span>, <span class="hljs-string">&quot;罗&quot;</span>, <span class="hljs-string">&quot;毕&quot;</span>, <span class="hljs-string">&quot;郝&quot;</span>, <span class="hljs-string">&quot;邬&quot;</span>, <span class="hljs-string">&quot;安&quot;</span>, <span class="hljs-string">&quot;常&quot;</span>, <span class="hljs-string">&quot;乐&quot;</span>, <span class="hljs-string">&quot;于&quot;</span>, <span class="hljs-string">&quot;时&quot;</span>, <span class="hljs-string">&quot;傅&quot;</span>, <span class="hljs-string">&quot;皮&quot;</span>, <span class="hljs-string">&quot;卞&quot;</span>, <span class="hljs-string">&quot;齐&quot;</span>, <span class="hljs-string">&quot;康&quot;</span>, <span class="hljs-string">&quot;伍&quot;</span>, <span class="hljs-string">&quot;余&quot;</span>, <span class="hljs-string">&quot;元&quot;</span>, <span class="hljs-string">&quot;卜&quot;</span>, <span class="hljs-string">&quot;顾&quot;</span>, <span class="hljs-string">&quot;孟&quot;</span>, <span class="hljs-string">&quot;平&quot;</span>, <span class="hljs-string">&quot;黄&quot;</span>, <span class="hljs-string">&quot;和&quot;</span>, <span class="hljs-string">&quot;穆&quot;</span>, <span class="hljs-string">&quot;萧&quot;</span>, <span class="hljs-string">&quot;尹&quot;</span>, <span class="hljs-string">&quot;姚&quot;</span>, <span class="hljs-string">&quot;邵&quot;</span>, <span class="hljs-string">&quot;湛&quot;</span>, <span class="hljs-string">&quot;汪&quot;</span>, <span class="hljs-string">&quot;祁&quot;</span>, <span class="hljs-string">&quot;毛&quot;</span>, <span class="hljs-string">&quot;禹&quot;</span>, <span class="hljs-string">&quot;狄&quot;</span>, <span class="hljs-string">&quot;米&quot;</span>, <span class="hljs-string">&quot;贝&quot;</span>, <span class="hljs-string">&quot;明&quot;</span>, <span class="hljs-string">&quot;臧&quot;</span>, <span class="hljs-string">&quot;计&quot;</span>, <span class="hljs-string">&quot;伏&quot;</span>, <span class="hljs-string">&quot;成&quot;</span>, <span class="hljs-string">&quot;戴&quot;</span>, <span class="hljs-string">&quot;谈&quot;</span>, <span class="hljs-string">&quot;宋&quot;</span>, <span class="hljs-string">&quot;茅&quot;</span>, <span class="hljs-string">&quot;庞&quot;</span>, <span class="hljs-string">&quot;熊&quot;</span>, <span class="hljs-string">&quot;纪&quot;</span>, <span class="hljs-string">&quot;舒&quot;</span>, <span class="hljs-string">&quot;屈&quot;</span>, <span class="hljs-string">&quot;项&quot;</span>, <span class="hljs-string">&quot;祝&quot;</span>, <span class="hljs-string">&quot;董&quot;</span>, <span class="hljs-string">&quot;梁&quot;</span>, <span class="hljs-string">&quot;杜&quot;</span>, <span class="hljs-string">&quot;阮&quot;</span>, <span class="hljs-string">&quot;蓝&quot;</span>, <span class="hljs-string">&quot;闵&quot;</span>, <span class="hljs-string">&quot;席&quot;</span>, <span class="hljs-string">&quot;季&quot;</span>, <span class="hljs-string">&quot;麻&quot;</span>, <span class="hljs-string">&quot;强&quot;</span>, <span class="hljs-string">&quot;贾&quot;</span>, <span class="hljs-string">&quot;路&quot;</span>, <span class="hljs-string">&quot;娄&quot;</span>, <span class="hljs-string">&quot;危&quot;</span>, <span class="hljs-string">&quot;江&quot;</span>, <span class="hljs-string">&quot;童&quot;</span>, <span class="hljs-string">&quot;颜&quot;</span>, <span class="hljs-string">&quot;郭&quot;</span>, <span class="hljs-string">&quot;梅&quot;</span>, <span class="hljs-string">&quot;盛&quot;</span>, <span class="hljs-string">&quot;林&quot;</span>, <span class="hljs-string">&quot;刁&quot;</span>, <span class="hljs-string">&quot;钟&quot;</span>, <span class="hljs-string">&quot;徐&quot;</span>, <span class="hljs-string">&quot;邱&quot;</span>, <span class="hljs-string">&quot;骆&quot;</span>, <span class="hljs-string">&quot;高&quot;</span>, <span class="hljs-string">&quot;夏&quot;</span>, <span class="hljs-string">&quot;蔡&quot;</span>, <span class="hljs-string">&quot;田&quot;</span>, <span class="hljs-string">&quot;樊&quot;</span>, <span class="hljs-string">&quot;胡&quot;</span>, <span class="hljs-string">&quot;凌&quot;</span>, <span class="hljs-string">&quot;霍&quot;</span>, <span class="hljs-string">&quot;虞&quot;</span>, <span class="hljs-string">&quot;万&quot;</span>, <span class="hljs-string">&quot;支&quot;</span>, <span class="hljs-string">&quot;柯&quot;</span>, <span class="hljs-string">&quot;昝&quot;</span>, <span class="hljs-string">&quot;管&quot;</span>, <span class="hljs-string">&quot;卢&quot;</span>, <span class="hljs-string">&quot;莫&quot;</span>, <span class="hljs-string">&quot;经&quot;</span>, <span class="hljs-string">&quot;房&quot;</span>, <span class="hljs-string">&quot;裘&quot;</span>, <span class="hljs-string">&quot;缪&quot;</span>, <span class="hljs-string">&quot;干&quot;</span>, <span class="hljs-string">&quot;解&quot;</span>, <span class="hljs-string">&quot;应&quot;</span>, <span class="hljs-string">&quot;宗&quot;</span>, <span class="hljs-string">&quot;丁&quot;</span>, <span class="hljs-string">&quot;宣&quot;</span>, <span class="hljs-string">&quot;贲&quot;</span>, <span class="hljs-string">&quot;邓&quot;</span>, <span class="hljs-string">&quot;郁&quot;</span>, <span class="hljs-string">&quot;单&quot;</span>, <span class="hljs-string">&quot;杭&quot;</span>, <span class="hljs-string">&quot;洪&quot;</span>, <span class="hljs-string">&quot;包&quot;</span>, <span class="hljs-string">&quot;诸&quot;</span>, <span class="hljs-string">&quot;左&quot;</span>, <span class="hljs-string">&quot;石&quot;</span>, <span class="hljs-string">&quot;崔&quot;</span>, <span class="hljs-string">&quot;吉&quot;</span>, <span class="hljs-string">&quot;钮&quot;</span>, <span class="hljs-string">&quot;龚&quot;</span>, <span class="hljs-string">&quot;程&quot;</span>, <span class="hljs-string">&quot;嵇&quot;</span>, <span class="hljs-string">&quot;邢&quot;</span>, <span class="hljs-string">&quot;滑&quot;</span>, <span class="hljs-string">&quot;裴&quot;</span>, <span class="hljs-string">&quot;陆&quot;</span>, <span class="hljs-string">&quot;荣&quot;</span>, <span class="hljs-string">&quot;翁&quot;</span>, <span class="hljs-string">&quot;荀&quot;</span>, <span class="hljs-string">&quot;羊&quot;</span>, <span class="hljs-string">&quot;於&quot;</span>, <span class="hljs-string">&quot;惠&quot;</span>, <span class="hljs-string">&quot;甄&quot;</span>, <span class="hljs-string">&quot;麴&quot;</span>, <span class="hljs-string">&quot;家&quot;</span>, <span class="hljs-string">&quot;封&quot;</span>, <span class="hljs-string">&quot;芮&quot;</span>, <span class="hljs-string">&quot;羿&quot;</span>, <span class="hljs-string">&quot;储&quot;</span>, <span class="hljs-string">&quot;靳&quot;</span>, <span class="hljs-string">&quot;汲&quot;</span>, <span class="hljs-string">&quot;邴&quot;</span>, <span class="hljs-string">&quot;糜&quot;</span>, <span class="hljs-string">&quot;松&quot;</span>, <span class="hljs-string">&quot;井&quot;</span>, <span class="hljs-string">&quot;段&quot;</span>, <span class="hljs-string">&quot;富&quot;</span>, <span class="hljs-string">&quot;巫&quot;</span>, <span class="hljs-string">&quot;乌&quot;</span>, <span class="hljs-string">&quot;焦&quot;</span>, <span class="hljs-string">&quot;巴&quot;</span>, <span class="hljs-string">&quot;弓&quot;</span>, <span class="hljs-string">&quot;牧&quot;</span>, <span class="hljs-string">&quot;隗&quot;</span>, <span class="hljs-string">&quot;山&quot;</span>, <span class="hljs-string">&quot;谷&quot;</span>, <span class="hljs-string">&quot;车&quot;</span>, <span class="hljs-string">&quot;侯&quot;</span>, <span class="hljs-string">&quot;宓&quot;</span>, <span class="hljs-string">&quot;蓬&quot;</span>, <span class="hljs-string">&quot;全&quot;</span>, <span class="hljs-string">&quot;郗&quot;</span>, <span class="hljs-string">&quot;班&quot;</span>, <span class="hljs-string">&quot;仰&quot;</span>, <span class="hljs-string">&quot;秋&quot;</span>, <span class="hljs-string">&quot;仲&quot;</span>, <span class="hljs-string">&quot;伊&quot;</span>, <span class="hljs-string">&quot;宫&quot;</span>, <span class="hljs-string">&quot;宁&quot;</span>, <span class="hljs-string">&quot;仇&quot;</span>, <span class="hljs-string">&quot;栾&quot;</span>, <span class="hljs-string">&quot;暴&quot;</span>, <span class="hljs-string">&quot;甘&quot;</span>, <span class="hljs-string">&quot;钭&quot;</span>, <span class="hljs-string">&quot;厉&quot;</span>, <span class="hljs-string">&quot;戎&quot;</span>, <span class="hljs-string">&quot;祖&quot;</span>, <span class="hljs-string">&quot;武&quot;</span>, <span class="hljs-string">&quot;符&quot;</span>, <span class="hljs-string">&quot;刘&quot;</span>, <span class="hljs-string">&quot;景&quot;</span>, <span class="hljs-string">&quot;詹&quot;</span>, <span class="hljs-string">&quot;束&quot;</span>, <span class="hljs-string">&quot;龙&quot;</span>, <span class="hljs-string">&quot;叶&quot;</span>, <span class="hljs-string">&quot;幸&quot;</span>, <span class="hljs-string">&quot;司&quot;</span>, <span class="hljs-string">&quot;韶&quot;</span>, <span class="hljs-string">&quot;郜&quot;</span>, <span class="hljs-string">&quot;黎&quot;</span>, <span class="hljs-string">&quot;蓟&quot;</span>, <span class="hljs-string">&quot;薄&quot;</span>, <span class="hljs-string">&quot;印&quot;</span>, <span class="hljs-string">&quot;宿&quot;</span>, <span class="hljs-string">&quot;白&quot;</span>, <span class="hljs-string">&quot;怀&quot;</span>, <span class="hljs-string">&quot;蒲&quot;</span>, <span class="hljs-string">&quot;邰&quot;</span>, <span class="hljs-string">&quot;从&quot;</span>, <span class="hljs-string">&quot;鄂&quot;</span>, <span class="hljs-string">&quot;索&quot;</span>, <span class="hljs-string">&quot;咸&quot;</span>, <span class="hljs-string">&quot;籍&quot;</span>, <span class="hljs-string">&quot;赖&quot;</span>, <span class="hljs-string">&quot;卓&quot;</span>, <span class="hljs-string">&quot;蔺&quot;</span>, <span class="hljs-string">&quot;屠&quot;</span>, <span class="hljs-string">&quot;蒙&quot;</span>, <span class="hljs-string">&quot;池&quot;</span>, <span class="hljs-string">&quot;乔&quot;</span>, <span class="hljs-string">&quot;阴&quot;</span>, <span class="hljs-string">&quot;郁&quot;</span>, <span class="hljs-string">&quot;胥&quot;</span>, <span class="hljs-string">&quot;能&quot;</span>, <span class="hljs-string">&quot;苍&quot;</span>, <span class="hljs-string">&quot;双&quot;</span>, <span class="hljs-string">&quot;闻&quot;</span>, <span class="hljs-string">&quot;莘&quot;</span>, <span class="hljs-string">&quot;党&quot;</span>, <span class="hljs-string">&quot;翟&quot;</span>, <span class="hljs-string">&quot;谭&quot;</span>, <span class="hljs-string">&quot;贡&quot;</span>, <span class="hljs-string">&quot;劳&quot;</span>, <span class="hljs-string">&quot;逄&quot;</span>, <span class="hljs-string">&quot;姬&quot;</span>, <span class="hljs-string">&quot;申&quot;</span>, <span class="hljs-string">&quot;扶&quot;</span>, <span class="hljs-string">&quot;堵&quot;</span>, <span class="hljs-string">&quot;冉&quot;</span>, <span class="hljs-string">&quot;宰&quot;</span>, <span class="hljs-string">&quot;郦&quot;</span>, <span class="hljs-string">&quot;雍&quot;</span>, <span class="hljs-string">&quot;舄&quot;</span>, <span class="hljs-string">&quot;璩&quot;</span>, <span class="hljs-string">&quot;桑&quot;</span>, <span class="hljs-string">&quot;桂&quot;</span>, <span class="hljs-string">&quot;濮&quot;</span>, <span class="hljs-string">&quot;牛&quot;</span>, <span class="hljs-string">&quot;寿&quot;</span>, <span class="hljs-string">&quot;通&quot;</span>, <span class="hljs-string">&quot;边&quot;</span>, <span class="hljs-string">&quot;扈&quot;</span>, <span class="hljs-string">&quot;燕&quot;</span>, <span class="hljs-string">&quot;冀&quot;</span>, <span class="hljs-string">&quot;郏&quot;</span>, <span class="hljs-string">&quot;浦&quot;</span>, <span class="hljs-string">&quot;尚&quot;</span>, <span class="hljs-string">&quot;农&quot;</span>, <span class="hljs-string">&quot;温&quot;</span>, <span class="hljs-string">&quot;别&quot;</span>, <span class="hljs-string">&quot;庄&quot;</span>, <span class="hljs-string">&quot;晏&quot;</span>, <span class="hljs-string">&quot;柴&quot;</span>, <span class="hljs-string">&quot;瞿&quot;</span>, <span class="hljs-string">&quot;阎&quot;</span>, <span class="hljs-string">&quot;充&quot;</span>, <span class="hljs-string">&quot;慕&quot;</span>, <span class="hljs-string">&quot;连&quot;</span>, <span class="hljs-string">&quot;茹&quot;</span>, <span class="hljs-string">&quot;习&quot;</span>, <span class="hljs-string">&quot;宦&quot;</span>, <span class="hljs-string">&quot;艾&quot;</span>, <span class="hljs-string">&quot;鱼&quot;</span>, <span class="hljs-string">&quot;容&quot;</span>, <span class="hljs-string">&quot;向&quot;</span>, <span class="hljs-string">&quot;古&quot;</span>, <span class="hljs-string">&quot;易&quot;</span>, <span class="hljs-string">&quot;慎&quot;</span>, <span class="hljs-string">&quot;戈&quot;</span>, <span class="hljs-string">&quot;廖&quot;</span>, <span class="hljs-string">&quot;庾&quot;</span>, <span class="hljs-string">&quot;终&quot;</span>, <span class="hljs-string">&quot;暨&quot;</span>, <span class="hljs-string">&quot;居&quot;</span>, <span class="hljs-string">&quot;衡&quot;</span>, <span class="hljs-string">&quot;步&quot;</span>, <span class="hljs-string">&quot;都&quot;</span>, <span class="hljs-string">&quot;耿&quot;</span>, <span class="hljs-string">&quot;满&quot;</span>, <span class="hljs-string">&quot;弘&quot;</span>, <span class="hljs-string">&quot;匡&quot;</span>, <span class="hljs-string">&quot;国&quot;</span>, <span class="hljs-string">&quot;文&quot;</span>, <span class="hljs-string">&quot;寇&quot;</span>, <span class="hljs-string">&quot;广&quot;</span>, <span class="hljs-string">&quot;禄&quot;</span>, <span class="hljs-string">&quot;阙&quot;</span>, <span class="hljs-string">&quot;东&quot;</span>, <span class="hljs-string">&quot;殴&quot;</span>, <span class="hljs-string">&quot;殳&quot;</span>, <span class="hljs-string">&quot;沃&quot;</span>, <span class="hljs-string">&quot;利&quot;</span>, <span class="hljs-string">&quot;蔚&quot;</span>, <span class="hljs-string">&quot;越&quot;</span>, <span class="hljs-string">&quot;夔&quot;</span>, <span class="hljs-string">&quot;隆&quot;</span>, <span class="hljs-string">&quot;师&quot;</span>, <span class="hljs-string">&quot;巩&quot;</span>, <span class="hljs-string">&quot;厍&quot;</span>, <span class="hljs-string">&quot;聂&quot;</span>, <span class="hljs-string">&quot;晁&quot;</span>, <span class="hljs-string">&quot;勾&quot;</span>, <span class="hljs-string">&quot;敖&quot;</span>, <span class="hljs-string">&quot;融&quot;</span>, <span class="hljs-string">&quot;冷&quot;</span>, <span class="hljs-string">&quot;訾&quot;</span>, <span class="hljs-string">&quot;辛&quot;</span>, <span class="hljs-string">&quot;阚&quot;</span>, <span class="hljs-string">&quot;那&quot;</span>, <span class="hljs-string">&quot;简&quot;</span>, <span class="hljs-string">&quot;饶&quot;</span>, <span class="hljs-string">&quot;空&quot;</span>, <span class="hljs-string">&quot;曾&quot;</span>, <span class="hljs-string">&quot;毋&quot;</span>, <span class="hljs-string">&quot;沙&quot;</span>, <span class="hljs-string">&quot;乜&quot;</span>, <span class="hljs-string">&quot;养&quot;</span>, <span class="hljs-string">&quot;鞠&quot;</span>, <span class="hljs-string">&quot;须&quot;</span>, <span class="hljs-string">&quot;丰&quot;</span>, <span class="hljs-string">&quot;巢&quot;</span>, <span class="hljs-string">&quot;关&quot;</span>, <span class="hljs-string">&quot;蒯&quot;</span>, <span class="hljs-string">&quot;相&quot;</span>, <span class="hljs-string">&quot;查&quot;</span>, <span class="hljs-string">&quot;後&quot;</span>, <span class="hljs-string">&quot;荆&quot;</span>, <span class="hljs-string">&quot;红&quot;</span>, <span class="hljs-string">&quot;游&quot;</span>, <span class="hljs-string">&quot;竺&quot;</span>, <span class="hljs-string">&quot;权&quot;</span>, <span class="hljs-string">&quot;逯&quot;</span>, <span class="hljs-string">&quot;盖&quot;</span>, <span class="hljs-string">&quot;益&quot;</span>, <span class="hljs-string">&quot;桓&quot;</span>, <span class="hljs-string">&quot;公&quot;</span>, <span class="hljs-string">&quot;仉&quot;</span>, <span class="hljs-string">&quot;督&quot;</span>, <span class="hljs-string">&quot;晋&quot;</span>, <span class="hljs-string">&quot;楚&quot;</span>, <span class="hljs-string">&quot;闫&quot;</span>, <span class="hljs-string">&quot;法&quot;</span>, <span class="hljs-string">&quot;汝&quot;</span>, <span class="hljs-string">&quot;鄢&quot;</span>, <span class="hljs-string">&quot;涂&quot;</span>, <span class="hljs-string">&quot;钦&quot;</span>, <span class="hljs-string">&quot;归&quot;</span>, <span class="hljs-string">&quot;海&quot;</span>, <span class="hljs-string">&quot;岳&quot;</span>, <span class="hljs-string">&quot;帅&quot;</span>, <span class="hljs-string">&quot;缑&quot;</span>, <span class="hljs-string">&quot;亢&quot;</span>, <span class="hljs-string">&quot;况&quot;</span>, <span class="hljs-string">&quot;后&quot;</span>, <span class="hljs-string">&quot;有&quot;</span>, <span class="hljs-string">&quot;琴&quot;</span>, <span class="hljs-string">&quot;商&quot;</span>, <span class="hljs-string">&quot;牟&quot;</span>, <span class="hljs-string">&quot;佘&quot;</span>, <span class="hljs-string">&quot;佴&quot;</span>, <span class="hljs-string">&quot;伯&quot;</span>, <span class="hljs-string">&quot;赏&quot;</span>, <span class="hljs-string">&quot;墨&quot;</span>, <span class="hljs-string">&quot;哈&quot;</span>, <span class="hljs-string">&quot;谯&quot;</span>, <span class="hljs-string">&quot;笪&quot;</span>, <span class="hljs-string">&quot;年&quot;</span>, <span class="hljs-string">&quot;爱&quot;</span>, <span class="hljs-string">&quot;阳&quot;</span>, <span class="hljs-string">&quot;佟&quot;</span>, <span class="hljs-string">&quot;言&quot;</span>, <span class="hljs-string">&quot;福&quot;</span> &#125;;<br><br>	<span class="hljs-comment">//百家姓-复姓</span><br>	<span class="hljs-built_in">string</span> NA2[<span class="hljs-number">59</span>] = &#123; <span class="hljs-string">&quot;万俟&quot;</span>, <span class="hljs-string">&quot;司马&quot;</span>, <span class="hljs-string">&quot;上官&quot;</span>, <span class="hljs-string">&quot;欧阳&quot;</span>, <span class="hljs-string">&quot;夏侯&quot;</span>, <span class="hljs-string">&quot;诸葛&quot;</span>, <span class="hljs-string">&quot;闻人&quot;</span>, <span class="hljs-string">&quot;东方&quot;</span>, <span class="hljs-string">&quot;赫连&quot;</span>, <span class="hljs-string">&quot;皇甫&quot;</span>, <span class="hljs-string">&quot;尉迟&quot;</span>, <span class="hljs-string">&quot;公羊&quot;</span>, <span class="hljs-string">&quot;澹台&quot;</span>, <span class="hljs-string">&quot;公冶&quot;</span>, <span class="hljs-string">&quot;宗政&quot;</span>, <span class="hljs-string">&quot;濮阳&quot;</span>, <span class="hljs-string">&quot;淳于&quot;</span>, <span class="hljs-string">&quot;单于&quot;</span>, <span class="hljs-string">&quot;太叔&quot;</span>, <span class="hljs-string">&quot;申屠&quot;</span>, <span class="hljs-string">&quot;公孙&quot;</span>, <span class="hljs-string">&quot;仲孙&quot;</span>, <span class="hljs-string">&quot;轩辕&quot;</span>, <span class="hljs-string">&quot;令狐&quot;</span>, <span class="hljs-string">&quot;钟离&quot;</span>, <span class="hljs-string">&quot;宇文&quot;</span>, <span class="hljs-string">&quot;长孙&quot;</span>, <span class="hljs-string">&quot;慕容&quot;</span>, <span class="hljs-string">&quot;鲜于&quot;</span>, <span class="hljs-string">&quot;闾丘&quot;</span>, <span class="hljs-string">&quot;司徒&quot;</span>, <span class="hljs-string">&quot;司空&quot;</span>, <span class="hljs-string">&quot;亓官&quot;</span>, <span class="hljs-string">&quot;司寇&quot;</span>, <span class="hljs-string">&quot;子车&quot;</span>, <span class="hljs-string">&quot;颛孙&quot;</span>, <span class="hljs-string">&quot;端木&quot;</span>, <span class="hljs-string">&quot;巫马&quot;</span>, <span class="hljs-string">&quot;公西&quot;</span>, <span class="hljs-string">&quot;漆雕&quot;</span>, <span class="hljs-string">&quot;乐正&quot;</span>, <span class="hljs-string">&quot;壤驷&quot;</span>, <span class="hljs-string">&quot;公良&quot;</span>, <span class="hljs-string">&quot;拓跋&quot;</span>, <span class="hljs-string">&quot;夹谷&quot;</span>, <span class="hljs-string">&quot;宰父&quot;</span>, <span class="hljs-string">&quot;谷梁&quot;</span>, <span class="hljs-string">&quot;百里&quot;</span>, <span class="hljs-string">&quot;东郭&quot;</span>, <span class="hljs-string">&quot;南门&quot;</span>, <span class="hljs-string">&quot;呼延&quot;</span>, <span class="hljs-string">&quot;羊舌&quot;</span>, <span class="hljs-string">&quot;微生&quot;</span>, <span class="hljs-string">&quot;梁丘&quot;</span>, <span class="hljs-string">&quot;左丘&quot;</span>, <span class="hljs-string">&quot;东门&quot;</span>, <span class="hljs-string">&quot;西门&quot;</span>, <span class="hljs-string">&quot;南宫&quot;</span>, <span class="hljs-string">&quot;第五&quot;</span> &#125;;<br><br>	<span class="hljs-comment">//男性常用名</span><br>	<span class="hljs-built_in">string</span> ME1m[<span class="hljs-number">140</span>] = &#123; <span class="hljs-string">&quot;伟&quot;</span>, <span class="hljs-string">&quot;刚&quot;</span>, <span class="hljs-string">&quot;勇&quot;</span>, <span class="hljs-string">&quot;毅&quot;</span>, <span class="hljs-string">&quot;俊&quot;</span>, <span class="hljs-string">&quot;峰&quot;</span>, <span class="hljs-string">&quot;强&quot;</span>, <span class="hljs-string">&quot;军&quot;</span>, <span class="hljs-string">&quot;平&quot;</span>, <span class="hljs-string">&quot;保&quot;</span>, <span class="hljs-string">&quot;东&quot;</span>, <span class="hljs-string">&quot;文&quot;</span>, <span class="hljs-string">&quot;辉&quot;</span>, <span class="hljs-string">&quot;力&quot;</span>, <span class="hljs-string">&quot;明&quot;</span>, <span class="hljs-string">&quot;永&quot;</span>, <span class="hljs-string">&quot;健&quot;</span>, <span class="hljs-string">&quot;世&quot;</span>, <span class="hljs-string">&quot;广&quot;</span>, <span class="hljs-string">&quot;志&quot;</span>, <span class="hljs-string">&quot;义&quot;</span>, <span class="hljs-string">&quot;兴&quot;</span>, <span class="hljs-string">&quot;良&quot;</span>, <span class="hljs-string">&quot;海&quot;</span>, <span class="hljs-string">&quot;山&quot;</span>, <span class="hljs-string">&quot;仁&quot;</span>, <span class="hljs-string">&quot;波&quot;</span>, <span class="hljs-string">&quot;宁&quot;</span>, <span class="hljs-string">&quot;贵&quot;</span>, <span class="hljs-string">&quot;福&quot;</span>, <span class="hljs-string">&quot;生&quot;</span>, <span class="hljs-string">&quot;龙&quot;</span>, <span class="hljs-string">&quot;元&quot;</span>, <span class="hljs-string">&quot;全&quot;</span>, <span class="hljs-string">&quot;国&quot;</span>, <span class="hljs-string">&quot;胜&quot;</span>, <span class="hljs-string">&quot;学&quot;</span>, <span class="hljs-string">&quot;祥&quot;</span>, <span class="hljs-string">&quot;才&quot;</span>, <span class="hljs-string">&quot;发&quot;</span>, <span class="hljs-string">&quot;武&quot;</span>, <span class="hljs-string">&quot;新&quot;</span>, <span class="hljs-string">&quot;利&quot;</span>, <span class="hljs-string">&quot;清&quot;</span>, <span class="hljs-string">&quot;飞&quot;</span>, <span class="hljs-string">&quot;彬&quot;</span>, <span class="hljs-string">&quot;富&quot;</span>, <span class="hljs-string">&quot;顺&quot;</span>, <span class="hljs-string">&quot;信&quot;</span>, <span class="hljs-string">&quot;子&quot;</span>, <span class="hljs-string">&quot;杰&quot;</span>, <span class="hljs-string">&quot;涛&quot;</span>, <span class="hljs-string">&quot;昌&quot;</span>, <span class="hljs-string">&quot;成&quot;</span>, <span class="hljs-string">&quot;康&quot;</span>, <span class="hljs-string">&quot;星&quot;</span>, <span class="hljs-string">&quot;光&quot;</span>, <span class="hljs-string">&quot;天&quot;</span>, <span class="hljs-string">&quot;达&quot;</span>, <span class="hljs-string">&quot;安&quot;</span>, <span class="hljs-string">&quot;岩&quot;</span>, <span class="hljs-string">&quot;中&quot;</span>, <span class="hljs-string">&quot;茂&quot;</span>, <span class="hljs-string">&quot;进&quot;</span>, <span class="hljs-string">&quot;林&quot;</span>, <span class="hljs-string">&quot;有&quot;</span>, <span class="hljs-string">&quot;坚&quot;</span>, <span class="hljs-string">&quot;和&quot;</span>, <span class="hljs-string">&quot;彪&quot;</span>, <span class="hljs-string">&quot;博&quot;</span>, <span class="hljs-string">&quot;诚&quot;</span>, <span class="hljs-string">&quot;先&quot;</span>, <span class="hljs-string">&quot;敬&quot;</span>, <span class="hljs-string">&quot;震&quot;</span>, <span class="hljs-string">&quot;振&quot;</span>, <span class="hljs-string">&quot;壮&quot;</span>, <span class="hljs-string">&quot;会&quot;</span>, <span class="hljs-string">&quot;思&quot;</span>, <span class="hljs-string">&quot;群&quot;</span>, <span class="hljs-string">&quot;豪&quot;</span>, <span class="hljs-string">&quot;心&quot;</span>, <span class="hljs-string">&quot;邦&quot;</span>, <span class="hljs-string">&quot;承&quot;</span>, <span class="hljs-string">&quot;乐&quot;</span>, <span class="hljs-string">&quot;绍&quot;</span>, <span class="hljs-string">&quot;功&quot;</span>, <span class="hljs-string">&quot;松&quot;</span>, <span class="hljs-string">&quot;善&quot;</span>, <span class="hljs-string">&quot;厚&quot;</span>, <span class="hljs-string">&quot;庆&quot;</span>, <span class="hljs-string">&quot;磊&quot;</span>, <span class="hljs-string">&quot;民&quot;</span>, <span class="hljs-string">&quot;友&quot;</span>, <span class="hljs-string">&quot;裕&quot;</span>, <span class="hljs-string">&quot;河&quot;</span>, <span class="hljs-string">&quot;哲&quot;</span>, <span class="hljs-string">&quot;江&quot;</span>, <span class="hljs-string">&quot;超&quot;</span>, <span class="hljs-string">&quot;浩&quot;</span>, <span class="hljs-string">&quot;亮&quot;</span>, <span class="hljs-string">&quot;政&quot;</span>, <span class="hljs-string">&quot;谦&quot;</span>, <span class="hljs-string">&quot;亨&quot;</span>, <span class="hljs-string">&quot;奇&quot;</span>, <span class="hljs-string">&quot;固&quot;</span>, <span class="hljs-string">&quot;之&quot;</span>, <span class="hljs-string">&quot;轮&quot;</span>, <span class="hljs-string">&quot;翰&quot;</span>, <span class="hljs-string">&quot;朗&quot;</span>, <span class="hljs-string">&quot;伯&quot;</span>, <span class="hljs-string">&quot;宏&quot;</span>, <span class="hljs-string">&quot;言&quot;</span>, <span class="hljs-string">&quot;若&quot;</span>, <span class="hljs-string">&quot;鸣&quot;</span>, <span class="hljs-string">&quot;朋&quot;</span>, <span class="hljs-string">&quot;斌&quot;</span>, <span class="hljs-string">&quot;梁&quot;</span>, <span class="hljs-string">&quot;栋&quot;</span>, <span class="hljs-string">&quot;维&quot;</span>, <span class="hljs-string">&quot;启&quot;</span>, <span class="hljs-string">&quot;克&quot;</span>, <span class="hljs-string">&quot;伦&quot;</span>, <span class="hljs-string">&quot;翔&quot;</span>, <span class="hljs-string">&quot;旭&quot;</span>, <span class="hljs-string">&quot;鹏&quot;</span>, <span class="hljs-string">&quot;泽&quot;</span>, <span class="hljs-string">&quot;晨&quot;</span>, <span class="hljs-string">&quot;辰&quot;</span>, <span class="hljs-string">&quot;士&quot;</span>, <span class="hljs-string">&quot;以&quot;</span>, <span class="hljs-string">&quot;建&quot;</span>, <span class="hljs-string">&quot;家&quot;</span>, <span class="hljs-string">&quot;致&quot;</span>, <span class="hljs-string">&quot;树&quot;</span>, <span class="hljs-string">&quot;炎&quot;</span>, <span class="hljs-string">&quot;德&quot;</span>, <span class="hljs-string">&quot;行&quot;</span>, <span class="hljs-string">&quot;时&quot;</span>, <span class="hljs-string">&quot;泰&quot;</span>, <span class="hljs-string">&quot;盛&quot;</span> &#125;;<br>	<span class="hljs-built_in">string</span> ME2m[<span class="hljs-number">140</span>] = &#123; <span class="hljs-string">&quot;伟&quot;</span>, <span class="hljs-string">&quot;刚&quot;</span>, <span class="hljs-string">&quot;勇&quot;</span>, <span class="hljs-string">&quot;毅&quot;</span>, <span class="hljs-string">&quot;俊&quot;</span>, <span class="hljs-string">&quot;峰&quot;</span>, <span class="hljs-string">&quot;强&quot;</span>, <span class="hljs-string">&quot;军&quot;</span>, <span class="hljs-string">&quot;平&quot;</span>, <span class="hljs-string">&quot;保&quot;</span>, <span class="hljs-string">&quot;东&quot;</span>, <span class="hljs-string">&quot;文&quot;</span>, <span class="hljs-string">&quot;辉&quot;</span>, <span class="hljs-string">&quot;力&quot;</span>, <span class="hljs-string">&quot;明&quot;</span>, <span class="hljs-string">&quot;永&quot;</span>, <span class="hljs-string">&quot;健&quot;</span>, <span class="hljs-string">&quot;世&quot;</span>, <span class="hljs-string">&quot;广&quot;</span>, <span class="hljs-string">&quot;志&quot;</span>, <span class="hljs-string">&quot;义&quot;</span>, <span class="hljs-string">&quot;兴&quot;</span>, <span class="hljs-string">&quot;良&quot;</span>, <span class="hljs-string">&quot;海&quot;</span>, <span class="hljs-string">&quot;山&quot;</span>, <span class="hljs-string">&quot;仁&quot;</span>, <span class="hljs-string">&quot;波&quot;</span>, <span class="hljs-string">&quot;宁&quot;</span>, <span class="hljs-string">&quot;贵&quot;</span>, <span class="hljs-string">&quot;福&quot;</span>, <span class="hljs-string">&quot;生&quot;</span>, <span class="hljs-string">&quot;龙&quot;</span>, <span class="hljs-string">&quot;元&quot;</span>, <span class="hljs-string">&quot;全&quot;</span>, <span class="hljs-string">&quot;国&quot;</span>, <span class="hljs-string">&quot;胜&quot;</span>, <span class="hljs-string">&quot;学&quot;</span>, <span class="hljs-string">&quot;祥&quot;</span>, <span class="hljs-string">&quot;才&quot;</span>, <span class="hljs-string">&quot;发&quot;</span>, <span class="hljs-string">&quot;武&quot;</span>, <span class="hljs-string">&quot;新&quot;</span>, <span class="hljs-string">&quot;利&quot;</span>, <span class="hljs-string">&quot;清&quot;</span>, <span class="hljs-string">&quot;飞&quot;</span>, <span class="hljs-string">&quot;彬&quot;</span>, <span class="hljs-string">&quot;富&quot;</span>, <span class="hljs-string">&quot;顺&quot;</span>, <span class="hljs-string">&quot;信&quot;</span>, <span class="hljs-string">&quot;子&quot;</span>, <span class="hljs-string">&quot;杰&quot;</span>, <span class="hljs-string">&quot;涛&quot;</span>, <span class="hljs-string">&quot;昌&quot;</span>, <span class="hljs-string">&quot;成&quot;</span>, <span class="hljs-string">&quot;康&quot;</span>, <span class="hljs-string">&quot;星&quot;</span>, <span class="hljs-string">&quot;光&quot;</span>, <span class="hljs-string">&quot;天&quot;</span>, <span class="hljs-string">&quot;达&quot;</span>, <span class="hljs-string">&quot;安&quot;</span>, <span class="hljs-string">&quot;岩&quot;</span>, <span class="hljs-string">&quot;中&quot;</span>, <span class="hljs-string">&quot;茂&quot;</span>, <span class="hljs-string">&quot;进&quot;</span>, <span class="hljs-string">&quot;林&quot;</span>, <span class="hljs-string">&quot;有&quot;</span>, <span class="hljs-string">&quot;坚&quot;</span>, <span class="hljs-string">&quot;和&quot;</span>, <span class="hljs-string">&quot;彪&quot;</span>, <span class="hljs-string">&quot;博&quot;</span>, <span class="hljs-string">&quot;诚&quot;</span>, <span class="hljs-string">&quot;先&quot;</span>, <span class="hljs-string">&quot;敬&quot;</span>, <span class="hljs-string">&quot;震&quot;</span>, <span class="hljs-string">&quot;振&quot;</span>, <span class="hljs-string">&quot;壮&quot;</span>, <span class="hljs-string">&quot;会&quot;</span>, <span class="hljs-string">&quot;思&quot;</span>, <span class="hljs-string">&quot;群&quot;</span>, <span class="hljs-string">&quot;豪&quot;</span>, <span class="hljs-string">&quot;心&quot;</span>, <span class="hljs-string">&quot;邦&quot;</span>, <span class="hljs-string">&quot;承&quot;</span>, <span class="hljs-string">&quot;乐&quot;</span>, <span class="hljs-string">&quot;绍&quot;</span>, <span class="hljs-string">&quot;功&quot;</span>, <span class="hljs-string">&quot;松&quot;</span>, <span class="hljs-string">&quot;善&quot;</span>, <span class="hljs-string">&quot;厚&quot;</span>, <span class="hljs-string">&quot;庆&quot;</span>, <span class="hljs-string">&quot;磊&quot;</span>, <span class="hljs-string">&quot;民&quot;</span>, <span class="hljs-string">&quot;友&quot;</span>, <span class="hljs-string">&quot;裕&quot;</span>, <span class="hljs-string">&quot;河&quot;</span>, <span class="hljs-string">&quot;哲&quot;</span>, <span class="hljs-string">&quot;江&quot;</span>, <span class="hljs-string">&quot;超&quot;</span>, <span class="hljs-string">&quot;浩&quot;</span>, <span class="hljs-string">&quot;亮&quot;</span>, <span class="hljs-string">&quot;政&quot;</span>, <span class="hljs-string">&quot;谦&quot;</span>, <span class="hljs-string">&quot;亨&quot;</span>, <span class="hljs-string">&quot;奇&quot;</span>, <span class="hljs-string">&quot;固&quot;</span>, <span class="hljs-string">&quot;之&quot;</span>, <span class="hljs-string">&quot;轮&quot;</span>, <span class="hljs-string">&quot;翰&quot;</span>, <span class="hljs-string">&quot;朗&quot;</span>, <span class="hljs-string">&quot;伯&quot;</span>, <span class="hljs-string">&quot;宏&quot;</span>, <span class="hljs-string">&quot;言&quot;</span>, <span class="hljs-string">&quot;若&quot;</span>, <span class="hljs-string">&quot;鸣&quot;</span>, <span class="hljs-string">&quot;朋&quot;</span>, <span class="hljs-string">&quot;斌&quot;</span>, <span class="hljs-string">&quot;梁&quot;</span>, <span class="hljs-string">&quot;栋&quot;</span>, <span class="hljs-string">&quot;维&quot;</span>, <span class="hljs-string">&quot;启&quot;</span>, <span class="hljs-string">&quot;克&quot;</span>, <span class="hljs-string">&quot;伦&quot;</span>, <span class="hljs-string">&quot;翔&quot;</span>, <span class="hljs-string">&quot;旭&quot;</span>, <span class="hljs-string">&quot;鹏&quot;</span>, <span class="hljs-string">&quot;泽&quot;</span>, <span class="hljs-string">&quot;晨&quot;</span>, <span class="hljs-string">&quot;辰&quot;</span>, <span class="hljs-string">&quot;士&quot;</span>, <span class="hljs-string">&quot;以&quot;</span>, <span class="hljs-string">&quot;建&quot;</span>, <span class="hljs-string">&quot;家&quot;</span>, <span class="hljs-string">&quot;致&quot;</span>, <span class="hljs-string">&quot;树&quot;</span>, <span class="hljs-string">&quot;炎&quot;</span>, <span class="hljs-string">&quot;德&quot;</span>, <span class="hljs-string">&quot;行&quot;</span>, <span class="hljs-string">&quot;时&quot;</span>, <span class="hljs-string">&quot;泰&quot;</span>, <span class="hljs-string">&quot;盛&quot;</span> &#125;;<br><br><br>	<span class="hljs-comment">//女性常用名</span><br>	<span class="hljs-built_in">string</span> ME1f[<span class="hljs-number">165</span>] = &#123; <span class="hljs-string">&quot;秀&quot;</span>, <span class="hljs-string">&quot;娟&quot;</span>, <span class="hljs-string">&quot;英&quot;</span>, <span class="hljs-string">&quot;华&quot;</span>, <span class="hljs-string">&quot;慧&quot;</span>, <span class="hljs-string">&quot;巧&quot;</span>, <span class="hljs-string">&quot;美&quot;</span>, <span class="hljs-string">&quot;娜&quot;</span>, <span class="hljs-string">&quot;静&quot;</span>, <span class="hljs-string">&quot;淑&quot;</span>, <span class="hljs-string">&quot;惠&quot;</span>, <span class="hljs-string">&quot;珠&quot;</span>, <span class="hljs-string">&quot;翠&quot;</span>, <span class="hljs-string">&quot;雅&quot;</span>, <span class="hljs-string">&quot;芝&quot;</span>, <span class="hljs-string">&quot;玉&quot;</span>, <span class="hljs-string">&quot;萍&quot;</span>, <span class="hljs-string">&quot;红&quot;</span>, <span class="hljs-string">&quot;娥&quot;</span>, <span class="hljs-string">&quot;玲&quot;</span>, <span class="hljs-string">&quot;芬&quot;</span>, <span class="hljs-string">&quot;芳&quot;</span>, <span class="hljs-string">&quot;燕&quot;</span>, <span class="hljs-string">&quot;彩&quot;</span>, <span class="hljs-string">&quot;春&quot;</span>, <span class="hljs-string">&quot;菊&quot;</span>, <span class="hljs-string">&quot;兰&quot;</span>, <span class="hljs-string">&quot;凤&quot;</span>, <span class="hljs-string">&quot;洁&quot;</span>, <span class="hljs-string">&quot;梅&quot;</span>, <span class="hljs-string">&quot;琳&quot;</span>, <span class="hljs-string">&quot;素&quot;</span>, <span class="hljs-string">&quot;云&quot;</span>, <span class="hljs-string">&quot;莲&quot;</span>, <span class="hljs-string">&quot;真&quot;</span>, <span class="hljs-string">&quot;环&quot;</span>, <span class="hljs-string">&quot;雪&quot;</span>, <span class="hljs-string">&quot;荣&quot;</span>, <span class="hljs-string">&quot;爱&quot;</span>, <span class="hljs-string">&quot;妹&quot;</span>, <span class="hljs-string">&quot;霞&quot;</span>, <span class="hljs-string">&quot;香&quot;</span>, <span class="hljs-string">&quot;月&quot;</span>, <span class="hljs-string">&quot;莺&quot;</span>, <span class="hljs-string">&quot;媛&quot;</span>, <span class="hljs-string">&quot;艳&quot;</span>, <span class="hljs-string">&quot;瑞&quot;</span>, <span class="hljs-string">&quot;凡&quot;</span>, <span class="hljs-string">&quot;佳&quot;</span>, <span class="hljs-string">&quot;嘉&quot;</span>, <span class="hljs-string">&quot;琼&quot;</span>, <span class="hljs-string">&quot;勤&quot;</span>, <span class="hljs-string">&quot;珍&quot;</span>, <span class="hljs-string">&quot;贞&quot;</span>, <span class="hljs-string">&quot;莉&quot;</span>, <span class="hljs-string">&quot;桂&quot;</span>, <span class="hljs-string">&quot;娣&quot;</span>, <span class="hljs-string">&quot;叶&quot;</span>, <span class="hljs-string">&quot;璧&quot;</span>, <span class="hljs-string">&quot;璐&quot;</span>, <span class="hljs-string">&quot;娅&quot;</span>, <span class="hljs-string">&quot;琦&quot;</span>, <span class="hljs-string">&quot;晶&quot;</span>, <span class="hljs-string">&quot;妍&quot;</span>, <span class="hljs-string">&quot;茜&quot;</span>, <span class="hljs-string">&quot;秋&quot;</span>, <span class="hljs-string">&quot;珊&quot;</span>, <span class="hljs-string">&quot;莎&quot;</span>, <span class="hljs-string">&quot;锦&quot;</span>, <span class="hljs-string">&quot;黛&quot;</span>, <span class="hljs-string">&quot;青&quot;</span>, <span class="hljs-string">&quot;倩&quot;</span>, <span class="hljs-string">&quot;婷&quot;</span>, <span class="hljs-string">&quot;姣&quot;</span>, <span class="hljs-string">&quot;婉&quot;</span>, <span class="hljs-string">&quot;娴&quot;</span>, <span class="hljs-string">&quot;瑾&quot;</span>, <span class="hljs-string">&quot;颖&quot;</span>, <span class="hljs-string">&quot;露&quot;</span>, <span class="hljs-string">&quot;瑶&quot;</span>, <span class="hljs-string">&quot;怡&quot;</span>, <span class="hljs-string">&quot;婵&quot;</span>, <span class="hljs-string">&quot;雁&quot;</span>, <span class="hljs-string">&quot;蓓&quot;</span>, <span class="hljs-string">&quot;纨&quot;</span>, <span class="hljs-string">&quot;仪&quot;</span>, <span class="hljs-string">&quot;荷&quot;</span>, <span class="hljs-string">&quot;丹&quot;</span>, <span class="hljs-string">&quot;蓉&quot;</span>, <span class="hljs-string">&quot;眉&quot;</span>, <span class="hljs-string">&quot;君&quot;</span>, <span class="hljs-string">&quot;琴&quot;</span>, <span class="hljs-string">&quot;蕊&quot;</span>, <span class="hljs-string">&quot;薇&quot;</span>, <span class="hljs-string">&quot;菁&quot;</span>, <span class="hljs-string">&quot;梦&quot;</span>, <span class="hljs-string">&quot;岚&quot;</span>, <span class="hljs-string">&quot;苑&quot;</span>, <span class="hljs-string">&quot;筠&quot;</span>, <span class="hljs-string">&quot;柔&quot;</span>, <span class="hljs-string">&quot;竹&quot;</span>, <span class="hljs-string">&quot;霭&quot;</span>, <span class="hljs-string">&quot;凝&quot;</span>, <span class="hljs-string">&quot;晓&quot;</span>, <span class="hljs-string">&quot;欢&quot;</span>, <span class="hljs-string">&quot;霄&quot;</span>, <span class="hljs-string">&quot;枫&quot;</span>, <span class="hljs-string">&quot;芸&quot;</span>, <span class="hljs-string">&quot;菲&quot;</span>, <span class="hljs-string">&quot;寒&quot;</span>, <span class="hljs-string">&quot;欣&quot;</span>, <span class="hljs-string">&quot;滢&quot;</span>, <span class="hljs-string">&quot;伊&quot;</span>, <span class="hljs-string">&quot;亚&quot;</span>, <span class="hljs-string">&quot;宜&quot;</span>, <span class="hljs-string">&quot;可&quot;</span>, <span class="hljs-string">&quot;姬&quot;</span>, <span class="hljs-string">&quot;舒&quot;</span>, <span class="hljs-string">&quot;影&quot;</span>, <span class="hljs-string">&quot;荔&quot;</span>, <span class="hljs-string">&quot;枝&quot;</span>, <span class="hljs-string">&quot;思&quot;</span>, <span class="hljs-string">&quot;丽&quot;</span>, <span class="hljs-string">&quot;秀&quot;</span>, <span class="hljs-string">&quot;飘&quot;</span>, <span class="hljs-string">&quot;育&quot;</span>, <span class="hljs-string">&quot;馥&quot;</span>, <span class="hljs-string">&quot;琦&quot;</span>, <span class="hljs-string">&quot;晶&quot;</span>, <span class="hljs-string">&quot;妍&quot;</span>, <span class="hljs-string">&quot;茜&quot;</span>, <span class="hljs-string">&quot;秋&quot;</span>, <span class="hljs-string">&quot;珊&quot;</span>, <span class="hljs-string">&quot;莎&quot;</span>, <span class="hljs-string">&quot;锦&quot;</span>, <span class="hljs-string">&quot;黛&quot;</span>, <span class="hljs-string">&quot;青&quot;</span>, <span class="hljs-string">&quot;倩&quot;</span>, <span class="hljs-string">&quot;婷&quot;</span>, <span class="hljs-string">&quot;宁&quot;</span>, <span class="hljs-string">&quot;蓓&quot;</span>, <span class="hljs-string">&quot;纨&quot;</span>, <span class="hljs-string">&quot;苑&quot;</span>, <span class="hljs-string">&quot;婕&quot;</span>, <span class="hljs-string">&quot;馨&quot;</span>, <span class="hljs-string">&quot;瑗&quot;</span>, <span class="hljs-string">&quot;琰&quot;</span>, <span class="hljs-string">&quot;韵&quot;</span>, <span class="hljs-string">&quot;融&quot;</span>, <span class="hljs-string">&quot;园&quot;</span>, <span class="hljs-string">&quot;艺&quot;</span>, <span class="hljs-string">&quot;咏&quot;</span>, <span class="hljs-string">&quot;卿&quot;</span>, <span class="hljs-string">&quot;聪&quot;</span>, <span class="hljs-string">&quot;澜&quot;</span>, <span class="hljs-string">&quot;纯&quot;</span>, <span class="hljs-string">&quot;毓&quot;</span>, <span class="hljs-string">&quot;悦&quot;</span>, <span class="hljs-string">&quot;昭&quot;</span>, <span class="hljs-string">&quot;冰&quot;</span>, <span class="hljs-string">&quot;爽&quot;</span>, <span class="hljs-string">&quot;琬&quot;</span>, <span class="hljs-string">&quot;茗&quot;</span>, <span class="hljs-string">&quot;羽&quot;</span>, <span class="hljs-string">&quot;希&quot;</span> &#125;;<br>	<span class="hljs-built_in">string</span> ME2f[<span class="hljs-number">165</span>] = &#123; <span class="hljs-string">&quot;秀&quot;</span>, <span class="hljs-string">&quot;娟&quot;</span>, <span class="hljs-string">&quot;英&quot;</span>, <span class="hljs-string">&quot;华&quot;</span>, <span class="hljs-string">&quot;慧&quot;</span>, <span class="hljs-string">&quot;巧&quot;</span>, <span class="hljs-string">&quot;美&quot;</span>, <span class="hljs-string">&quot;娜&quot;</span>, <span class="hljs-string">&quot;静&quot;</span>, <span class="hljs-string">&quot;淑&quot;</span>, <span class="hljs-string">&quot;惠&quot;</span>, <span class="hljs-string">&quot;珠&quot;</span>, <span class="hljs-string">&quot;翠&quot;</span>, <span class="hljs-string">&quot;雅&quot;</span>, <span class="hljs-string">&quot;芝&quot;</span>, <span class="hljs-string">&quot;玉&quot;</span>, <span class="hljs-string">&quot;萍&quot;</span>, <span class="hljs-string">&quot;红&quot;</span>, <span class="hljs-string">&quot;娥&quot;</span>, <span class="hljs-string">&quot;玲&quot;</span>, <span class="hljs-string">&quot;芬&quot;</span>, <span class="hljs-string">&quot;芳&quot;</span>, <span class="hljs-string">&quot;燕&quot;</span>, <span class="hljs-string">&quot;彩&quot;</span>, <span class="hljs-string">&quot;春&quot;</span>, <span class="hljs-string">&quot;菊&quot;</span>, <span class="hljs-string">&quot;兰&quot;</span>, <span class="hljs-string">&quot;凤&quot;</span>, <span class="hljs-string">&quot;洁&quot;</span>, <span class="hljs-string">&quot;梅&quot;</span>, <span class="hljs-string">&quot;琳&quot;</span>, <span class="hljs-string">&quot;素&quot;</span>, <span class="hljs-string">&quot;云&quot;</span>, <span class="hljs-string">&quot;莲&quot;</span>, <span class="hljs-string">&quot;真&quot;</span>, <span class="hljs-string">&quot;环&quot;</span>, <span class="hljs-string">&quot;雪&quot;</span>, <span class="hljs-string">&quot;荣&quot;</span>, <span class="hljs-string">&quot;爱&quot;</span>, <span class="hljs-string">&quot;妹&quot;</span>, <span class="hljs-string">&quot;霞&quot;</span>, <span class="hljs-string">&quot;香&quot;</span>, <span class="hljs-string">&quot;月&quot;</span>, <span class="hljs-string">&quot;莺&quot;</span>, <span class="hljs-string">&quot;媛&quot;</span>, <span class="hljs-string">&quot;艳&quot;</span>, <span class="hljs-string">&quot;瑞&quot;</span>, <span class="hljs-string">&quot;凡&quot;</span>, <span class="hljs-string">&quot;佳&quot;</span>, <span class="hljs-string">&quot;嘉&quot;</span>, <span class="hljs-string">&quot;琼&quot;</span>, <span class="hljs-string">&quot;勤&quot;</span>, <span class="hljs-string">&quot;珍&quot;</span>, <span class="hljs-string">&quot;贞&quot;</span>, <span class="hljs-string">&quot;莉&quot;</span>, <span class="hljs-string">&quot;桂&quot;</span>, <span class="hljs-string">&quot;娣&quot;</span>, <span class="hljs-string">&quot;叶&quot;</span>, <span class="hljs-string">&quot;璧&quot;</span>, <span class="hljs-string">&quot;璐&quot;</span>, <span class="hljs-string">&quot;娅&quot;</span>, <span class="hljs-string">&quot;琦&quot;</span>, <span class="hljs-string">&quot;晶&quot;</span>, <span class="hljs-string">&quot;妍&quot;</span>, <span class="hljs-string">&quot;茜&quot;</span>, <span class="hljs-string">&quot;秋&quot;</span>, <span class="hljs-string">&quot;珊&quot;</span>, <span class="hljs-string">&quot;莎&quot;</span>, <span class="hljs-string">&quot;锦&quot;</span>, <span class="hljs-string">&quot;黛&quot;</span>, <span class="hljs-string">&quot;青&quot;</span>, <span class="hljs-string">&quot;倩&quot;</span>, <span class="hljs-string">&quot;婷&quot;</span>, <span class="hljs-string">&quot;姣&quot;</span>, <span class="hljs-string">&quot;婉&quot;</span>, <span class="hljs-string">&quot;娴&quot;</span>, <span class="hljs-string">&quot;瑾&quot;</span>, <span class="hljs-string">&quot;颖&quot;</span>, <span class="hljs-string">&quot;露&quot;</span>, <span class="hljs-string">&quot;瑶&quot;</span>, <span class="hljs-string">&quot;怡&quot;</span>, <span class="hljs-string">&quot;婵&quot;</span>, <span class="hljs-string">&quot;雁&quot;</span>, <span class="hljs-string">&quot;蓓&quot;</span>, <span class="hljs-string">&quot;纨&quot;</span>, <span class="hljs-string">&quot;仪&quot;</span>, <span class="hljs-string">&quot;荷&quot;</span>, <span class="hljs-string">&quot;丹&quot;</span>, <span class="hljs-string">&quot;蓉&quot;</span>, <span class="hljs-string">&quot;眉&quot;</span>, <span class="hljs-string">&quot;君&quot;</span>, <span class="hljs-string">&quot;琴&quot;</span>, <span class="hljs-string">&quot;蕊&quot;</span>, <span class="hljs-string">&quot;薇&quot;</span>, <span class="hljs-string">&quot;菁&quot;</span>, <span class="hljs-string">&quot;梦&quot;</span>, <span class="hljs-string">&quot;岚&quot;</span>, <span class="hljs-string">&quot;苑&quot;</span>, <span class="hljs-string">&quot;筠&quot;</span>, <span class="hljs-string">&quot;柔&quot;</span>, <span class="hljs-string">&quot;竹&quot;</span>, <span class="hljs-string">&quot;霭&quot;</span>, <span class="hljs-string">&quot;凝&quot;</span>, <span class="hljs-string">&quot;晓&quot;</span>, <span class="hljs-string">&quot;欢&quot;</span>, <span class="hljs-string">&quot;霄&quot;</span>, <span class="hljs-string">&quot;枫&quot;</span>, <span class="hljs-string">&quot;芸&quot;</span>, <span class="hljs-string">&quot;菲&quot;</span>, <span class="hljs-string">&quot;寒&quot;</span>, <span class="hljs-string">&quot;欣&quot;</span>, <span class="hljs-string">&quot;滢&quot;</span>, <span class="hljs-string">&quot;伊&quot;</span>, <span class="hljs-string">&quot;亚&quot;</span>, <span class="hljs-string">&quot;宜&quot;</span>, <span class="hljs-string">&quot;可&quot;</span>, <span class="hljs-string">&quot;姬&quot;</span>, <span class="hljs-string">&quot;舒&quot;</span>, <span class="hljs-string">&quot;影&quot;</span>, <span class="hljs-string">&quot;荔&quot;</span>, <span class="hljs-string">&quot;枝&quot;</span>, <span class="hljs-string">&quot;思&quot;</span>, <span class="hljs-string">&quot;丽&quot;</span>, <span class="hljs-string">&quot;秀&quot;</span>, <span class="hljs-string">&quot;飘&quot;</span>, <span class="hljs-string">&quot;育&quot;</span>, <span class="hljs-string">&quot;馥&quot;</span>, <span class="hljs-string">&quot;琦&quot;</span>, <span class="hljs-string">&quot;晶&quot;</span>, <span class="hljs-string">&quot;妍&quot;</span>, <span class="hljs-string">&quot;茜&quot;</span>, <span class="hljs-string">&quot;秋&quot;</span>, <span class="hljs-string">&quot;珊&quot;</span>, <span class="hljs-string">&quot;莎&quot;</span>, <span class="hljs-string">&quot;锦&quot;</span>, <span class="hljs-string">&quot;黛&quot;</span>, <span class="hljs-string">&quot;青&quot;</span>, <span class="hljs-string">&quot;倩&quot;</span>, <span class="hljs-string">&quot;婷&quot;</span>, <span class="hljs-string">&quot;宁&quot;</span>, <span class="hljs-string">&quot;蓓&quot;</span>, <span class="hljs-string">&quot;纨&quot;</span>, <span class="hljs-string">&quot;苑&quot;</span>, <span class="hljs-string">&quot;婕&quot;</span>, <span class="hljs-string">&quot;馨&quot;</span>, <span class="hljs-string">&quot;瑗&quot;</span>, <span class="hljs-string">&quot;琰&quot;</span>, <span class="hljs-string">&quot;韵&quot;</span>, <span class="hljs-string">&quot;融&quot;</span>, <span class="hljs-string">&quot;园&quot;</span>, <span class="hljs-string">&quot;艺&quot;</span>, <span class="hljs-string">&quot;咏&quot;</span>, <span class="hljs-string">&quot;卿&quot;</span>, <span class="hljs-string">&quot;聪&quot;</span>, <span class="hljs-string">&quot;澜&quot;</span>, <span class="hljs-string">&quot;纯&quot;</span>, <span class="hljs-string">&quot;毓&quot;</span>, <span class="hljs-string">&quot;悦&quot;</span>, <span class="hljs-string">&quot;昭&quot;</span>, <span class="hljs-string">&quot;冰&quot;</span>, <span class="hljs-string">&quot;爽&quot;</span>, <span class="hljs-string">&quot;琬&quot;</span>, <span class="hljs-string">&quot;茗&quot;</span>, <span class="hljs-string">&quot;羽&quot;</span>, <span class="hljs-string">&quot;希&quot;</span> &#125;;<br><br>	<span class="hljs-keyword">int</span> NA1Roll = rnd() % <span class="hljs-number">444</span>;<span class="hljs-comment">//单姓</span><br>	<span class="hljs-keyword">int</span> NA2Roll = rnd() % <span class="hljs-number">59</span>;<span class="hljs-comment">//复姓</span><br>	<span class="hljs-keyword">int</span> ME1mRoll = rnd() % <span class="hljs-number">140</span>;<span class="hljs-comment">//男名</span><br>	<span class="hljs-keyword">int</span> ME2mRoll = rnd() % <span class="hljs-number">140</span>;<span class="hljs-comment">//男名</span><br>	<span class="hljs-keyword">int</span> ME1fRoll = rnd() % <span class="hljs-number">165</span>;<span class="hljs-comment">//女名</span><br>	<span class="hljs-keyword">int</span> ME2fRoll = rnd() % <span class="hljs-number">165</span>;<span class="hljs-comment">//女名</span><br><br>	<span class="hljs-comment">//单姓单名男</span><br>	<span class="hljs-built_in">cout</span> &lt;&lt; NA1[NA1Roll] &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; ME1m[ME1mRoll] &lt;&lt; <span class="hljs-string">&quot; 男&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>;<br><br>	NA1Roll = rnd() % <span class="hljs-number">444</span>;<span class="hljs-comment">//单姓</span><br>	ME1mRoll = rnd() % <span class="hljs-number">140</span>;<span class="hljs-comment">//男名</span><br>	<span class="hljs-comment">//单姓单名女</span><br>	<span class="hljs-built_in">cout</span> &lt;&lt; NA1[NA1Roll] &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; ME1f[ME1fRoll] &lt;&lt; <span class="hljs-string">&quot; 女&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>;<br><br>	NA1Roll = rnd() % <span class="hljs-number">444</span>;<span class="hljs-comment">//单姓</span><br>	ME1mRoll = rnd() % <span class="hljs-number">140</span>;<span class="hljs-comment">//男名</span><br>	ME2mRoll = rnd() % <span class="hljs-number">140</span>;<span class="hljs-comment">//男名</span><br>	<span class="hljs-comment">//单姓双名男</span><br>	<span class="hljs-built_in">cout</span> &lt;&lt; NA1[NA1Roll] &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; ME1m[ME1mRoll] &lt;&lt; ME1m[ME2mRoll] &lt;&lt; <span class="hljs-string">&quot; 男&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>;<br><br>	NA1Roll = rnd() % <span class="hljs-number">444</span>;<span class="hljs-comment">//单姓</span><br>	ME1fRoll = rnd() % <span class="hljs-number">165</span>;<span class="hljs-comment">//女名</span><br>	ME2fRoll = rnd() % <span class="hljs-number">165</span>;<span class="hljs-comment">//女名</span><br>	<span class="hljs-comment">//单姓双名女</span><br>	<span class="hljs-built_in">cout</span> &lt;&lt; NA1[NA1Roll] &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; ME1f[ME1fRoll] &lt;&lt; ME1f[ME2fRoll] &lt;&lt; <span class="hljs-string">&quot; 女&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>;<br><br>	<span class="hljs-keyword">if</span>(rnd() % <span class="hljs-number">2</span> == <span class="hljs-number">1</span>)<br>	&#123;<br>		<br>		NA2Roll = rnd() % <span class="hljs-number">59</span>;<span class="hljs-comment">//复姓</span><br>		ME1mRoll = rnd() % <span class="hljs-number">140</span>;<span class="hljs-comment">//男名</span><br>		<span class="hljs-comment">//复姓单名男</span><br>		<span class="hljs-built_in">cout</span> &lt;&lt; NA2[NA2Roll] &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; ME1m[ME1mRoll] &lt;&lt; <span class="hljs-string">&quot; 男&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>;<br>	&#125;<br>	<span class="hljs-keyword">else</span><br>	&#123;<br>		NA2Roll = rnd() % <span class="hljs-number">59</span>;<span class="hljs-comment">//复姓</span><br>		ME1fRoll = rnd() % <span class="hljs-number">165</span>;<span class="hljs-comment">//女名</span><br>		<span class="hljs-comment">//复姓单名女</span><br>		<span class="hljs-built_in">cout</span> &lt;&lt; NA2[NA2Roll] &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; ME1f[ME1fRoll] &lt;&lt; <span class="hljs-string">&quot; 女&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>;<br>	&#125;<br>	<span class="hljs-keyword">if</span>(rnd() % <span class="hljs-number">2</span> == <span class="hljs-number">1</span>)<br>	&#123;<br>		NA2Roll = rnd() % <span class="hljs-number">59</span>;<span class="hljs-comment">//复姓</span><br>		ME1mRoll = rnd() % <span class="hljs-number">140</span>;<span class="hljs-comment">//男名</span><br>		ME2mRoll = rnd() % <span class="hljs-number">140</span>;<span class="hljs-comment">//男名</span><br>		<span class="hljs-comment">//复姓双名男</span><br>		<span class="hljs-built_in">cout</span> &lt;&lt; NA2[NA2Roll] &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; ME1m[ME1mRoll] &lt;&lt; ME2m[ME2mRoll] &lt;&lt; <span class="hljs-string">&quot; 男&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>;<br>	&#125;<br>	<span class="hljs-keyword">else</span><br>	&#123;<br>		<br>		NA2Roll = rnd() % <span class="hljs-number">59</span>;<span class="hljs-comment">//复姓</span><br>		ME1fRoll = rnd() % <span class="hljs-number">165</span>;<span class="hljs-comment">//女名</span><br>		ME2fRoll = rnd() % <span class="hljs-number">165</span>;<span class="hljs-comment">//女名</span><br>		<span class="hljs-comment">//复姓双名女</span><br>		<span class="hljs-built_in">cout</span> &lt;&lt; NA2[NA2Roll] &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; ME1f[ME1fRoll] &lt;&lt; ME2f[ME2fRoll] &lt;&lt; <span class="hljs-string">&quot; 女&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>;<br>	&#125;<br>	<span class="hljs-comment">// cout &lt;&lt; &quot;\n&quot; &lt;&lt; endl;</span><br><br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	freopen(<span class="hljs-string">&quot;name.txt&quot;</span>, <span class="hljs-string">&quot;w&quot;</span>, <span class="hljs-built_in">stdout</span>);<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">10</span>; ++i)NAME();<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>最后生成的姓名，姓、名是分开的以及对应的性别，，</p>
+<p>类似这样，，，</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs text">包 梁 男<br>伊 苑 女<br>芮 光功 男<br>从 菊茜 女<br>澹台 纯 女<br>宗政 超德 男<br>钮 生 男<br>湛 竹 女<br>叶 泰固 男<br>仰 彩秋 女<br>太叔 芝 女<br>呼延 俊进 男<br>经 谦 男<br>宓 娥 女<br>韩 贵有 男<br></code></pre></td></tr></table></figure>
+<p>(end)</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%B0%8F%E5%B7%A5%E5%85%B7/">小工具</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%B7%A5%E7%A8%8B/">工程</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/09/28/Educational-Codeforces-Round-72-Rated-for-Div-2/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Educational Codeforces Round 72 (Rated for Div. 2)</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/09/19/Codeforces-Round-585-Div-2/">
+                        <span class="hidden-mobile">Codeforces Round #585 (Div. 2)</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_config = function() {
+        this.page.url = 'http://blog.31415x.cf/2019/09/25/%E9%9A%8F%E6%9C%BA%E7%94%9F%E6%88%90%E4%B8%AD%E6%96%87%E5%A7%93%E5%90%8D/';
+        this.page.identifier = '/2019/09/25/%E9%9A%8F%E6%9C%BA%E7%94%9F%E6%88%90%E4%B8%AD%E6%96%87%E5%A7%93%E5%90%8D/';
+      };
+      Fluid.utils.waitElementVisible('disqus_thread', function () {
+        var d = document, s = d.createElement('script');
+        s.src = '//' + 'www-31415-cf' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', new Date());
+        (d.head || d.body).appendChild(s);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the
+      <a target="_blank" href="https://disqus.com/?ref_noscript" rel="nofollow noopener noopener">comments powered by Disqus.</a>
+    </noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
 
 
     
 
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-<section class="comments" id="comments">
-    <div id="disqus_thread"></div>
-    <script>
-    var disqus_shortname = 'www-31415-cf';
-    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</article>
-
-
-
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
 </div>
+    
 
-        <footer class="footer">
-    <div class="top">
-        
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
+    
+  </main>
 
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br> <a>不忘初心 <strong><span style="color: red">☭</span></strong> 方得始终</a> 
+  </div>
+  
 
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p><span>31415926535x &copy; 2018 - 2021</span>
-            <span>
-                
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
-	
-	
-	<div id="aplayer">
-		<!-- 音乐播放器 -->
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.css">
-		<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.js"></script>
-		<div id="aplayer" class="aplayer" data-id="2254014329" data-lrctype="0" data-server="netease" data-type="playlist" data-fixed="true" data-listfolded="true"></div>
-		<script src="https://unpkg.com/meting@1.2/dist/Meting.min.js"></script>
-	</div>
+  
+
+  
 </footer>
 
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
 
 
 
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.31415x.cf/2019/09/25/随机生成中文姓名/&title=《随机生成中文姓名》 — 31415926535x&pic=http://blog.31415x.cf/img/misaka.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.31415x.cf/2019/09/25/随机生成中文姓名/&title=《随机生成中文姓名》 — 31415926535x&source=做项目的时候有时会用到自己造一个数据库，数值信息都可以随便rand出来，，但是中文姓名不太好处理，，最后借鉴了这篇博客 ，， 把他的一些东西改了改，够用了，，" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.31415x.cf/2019/09/25/随机生成中文姓名/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《随机生成中文姓名》 — 31415926535x&url=http://blog.31415x.cf/2019/09/25/随机生成中文姓名/&via=http://blog.31415x.cf" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.31415x.cf/2019/09/25/随机生成中文姓名/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://blog.31415x.cf/2019/09/25/随机生成中文姓名/" alt="微信分享二维码">
-</div>
+  
 
 
 
-
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
-
-
-</script>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
 
 
 
-<!-- mathjax config similar to math.stackexchange -->
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
 
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
 
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
 
 
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
 
 
 
-<script>
-(function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = '(つェ⊂)';
-            clearTimeout(titleTime);
-        } else {
-            document.title = '(๑•̀ㅂ•́)و✧';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
         }
-    });
-})();
-</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
-</script>
+      };
+    </script>
 
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
     }
-  });
-</script>
+  </script>
 
-<script type="text/javascript" src="custom_mathjax_source">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-114656515-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 

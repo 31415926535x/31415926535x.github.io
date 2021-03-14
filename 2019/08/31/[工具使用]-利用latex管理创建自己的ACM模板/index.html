@@ -1,589 +1,577 @@
+
+
 <!DOCTYPE html>
-<html>
-<head><meta name="generator" content="Hexo 3.9.0">
-    
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Google Analytics -->
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-114656515-1', 'auto');
-ga('send', 'pageview');
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-<!-- End Google Analytics -->
-
-
-    
-
-    
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
-    <meta charset="utf-8">
-    
-    
-    
-    <link rel="canonical" href="https://31415926535x.github.io/2019/08/31/[工具使用]-利用latex管理创建自己的ACM模板/">
-    
-    
-    <title>[工具使用]-利用latex管理创建自己的ACM模板 | 31415926535x</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#40c4ff">
-    
-    
-    <meta name="keywords" content="ACM,工具使用,latex">
-    <meta name="description" content="从很早入坑ACM开始，便和各种算法的模板打着交道，虽然kaungbin的模板已经足够强大，但是自己在平常做题中也逐渐有着自己的一些模板，也有一些kuangbin模板中没有的更快的板子，虽然不确定时候以后会用到，但是能够记录下来形成自己的模板是最好的，，这样也对自己所学有个大致的总结，所以在搜寻网络上各种解决思路后，选择一位博主的解决方法： 利用python管理文件夹形式的模板库，生成 latex">
-<meta name="keywords" content="ACM,工具使用,latex">
-<meta property="og:type" content="article">
-<meta property="og:title" content="[工具使用]-利用latex管理创建自己的ACM模板">
-<meta property="og:url" content="http://blog.31415x.cf/2019/08/31/[工具使用]-利用latex管理创建自己的ACM模板/index.html">
-<meta property="og:site_name" content="31415926535x">
-<meta property="og:description" content="从很早入坑ACM开始，便和各种算法的模板打着交道，虽然kaungbin的模板已经足够强大，但是自己在平常做题中也逐渐有着自己的一些模板，也有一些kuangbin模板中没有的更快的板子，虽然不确定时候以后会用到，但是能够记录下来形成自己的模板是最好的，，这样也对自己所学有个大致的总结，所以在搜寻网络上各种解决思路后，选择一位博主的解决方法： 利用python管理文件夹形式的模板库，生成 latex">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://img2018.cnblogs.com/blog/1028485/201908/1028485-20190831213235111-1169445063.png">
-<meta property="og:updated_time" content="2019-09-02T09:53:36.793Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[工具使用]-利用latex管理创建自己的ACM模板">
-<meta name="twitter:description" content="从很早入坑ACM开始，便和各种算法的模板打着交道，虽然kaungbin的模板已经足够强大，但是自己在平常做题中也逐渐有着自己的一些模板，也有一些kuangbin模板中没有的更快的板子，虽然不确定时候以后会用到，但是能够记录下来形成自己的模板是最好的，，这样也对自己所学有个大致的总结，所以在搜寻网络上各种解决思路后，选择一位博主的解决方法： 利用python管理文件夹形式的模板库，生成 latex">
-<meta name="twitter:image" content="https://img2018.cnblogs.com/blog/1028485/201908/1028485-20190831213235111-1169445063.png">
-    
-        <link rel="alternate" type="application/atom+xml" title="31415926535x" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/misaka.jpg">
+  <link rel="icon" href="/img/misaka.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  
+    <meta name="description" content="从很早入坑ACM开始，便和各种算法的模板打着交道，虽然kaungbin的模板已经足够强大，但是自己在平常做题中也逐渐有着自己的一些模板，也有一些kuangbin模板中没有的更快的板子，虽然不确定时候以后会用到，但是能够记录下来形成自己的模板是最好的，，这样也对自己所学有个大致的总结，所以在搜寻网络上各种解决思路后，选择一位博主的解决方法： 利用python管理文件夹形式的模板库，生成 latex ">
+  
+  <meta name="author" content="31415926535x">
+  <meta name="keywords" content="">
+  
+  <title>[工具使用]-利用latex管理创建自己的ACM模板 - 31415926535x</title>
 
-    <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-    
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/monokai.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"blog.31415x.cf","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":null,"google":"UA-114656515-1","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="31415926535x" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
-<body>
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide" >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/misaka.jpg">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">31415926535x</h5>
-          <a href="mailto:2509437152wx@gmail.com" title="2509437152wx@gmail.com" class="mail">2509437152wx@gmail.com</a>
-        </hgroup>
-      </div>
-    </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>31415926535x</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                Archives
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                标签
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/31415926535x" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="https://plus.google.com/106114719135977350421" target="_blank" >
-                <i class="icon icon-lg icon-google"></i>
-                Google+
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="https://instagram.com/314159265358x" target="_blank" >
-                <i class="icon icon-lg icon-instagram"></i>
-                Instagram
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="https://cnblogs.com/31415926535x" target="_blank" >
-                <i class="icon icon-lg icon-th-large"></i>
-                cnblogs
-              </a>
-            </li>
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
         
-            <li class="waves-block waves-effect">
-              <a href="https://blog.csdn.net/pi31415926535x" target="_blank" >
-                <i class="icon icon-lg icon-cubes"></i>
-                csdn
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/timeline"  >
-                <i class="icon icon-lg icon-calendar"></i>
-                timeline
-              </a>
-            </li>
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
         
       </ul>
     </div>
   </div>
-</aside>
+</nav>
 
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">[工具使用]-利用latex管理创建自己的ACM模板</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
-        
-    </div>
-</header>
-<header class="content-header post-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">[工具使用]-利用latex管理创建自己的ACM模板</h1>
-        <h5 class="subtitle">
-            
-                <time datetime="2019-08-31T12:50:33.000Z" itemprop="datePublished" class="page-time">
-  2019-08-31
-</time>
-
-
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ACM-整理/">ACM-整理</a></li></ul>
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="[工具使用]-利用latex管理创建自己的ACM模板">
+              
+            </span>
 
             
-        </h5>
-    </div>
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      31415926535x
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-08-31 20:50" pubdate>
+        2019年8月31日 晚上
+      </time>
+    </span>
+  
+</div>
 
+<div class="mt-1">
+  
     
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.1k 字
+    </span>
+  
 
-
-</header>
-
-
-<div class="container body-wrap">
+  
     
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#准备工作"><span class="post-toc-number">1.</span> <span class="post-toc-text">准备工作</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#脚本"><span class="post-toc-number">2.</span> <span class="post-toc-text">脚本</span></a></li></ol>
-        </nav>
-    </aside>
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      31
+       分钟
+    </span>
+  
 
-
-<article id="post-[工具使用]-利用latex管理创建自己的ACM模板"
-  class="post-article article-type-post fade" itemprop="blogPost">
-
-    <div class="post-card">
-        <h1 class="post-card-title">[工具使用]-利用latex管理创建自己的ACM模板</h1>
-        <div class="post-meta">
-            <time class="post-time" title="2019-08-31 20:50:33" datetime="2019-08-31T12:50:33.000Z"  itemprop="datePublished">2019-08-31</time>
+  
+  
+</div>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ACM-整理/">ACM-整理</a></li></ul>
+          </div>
 
-
-
-            
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
-
-
+          
         </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            <p>从很早入坑ACM开始，便和各种算法的模板打着交道，虽然kaungbin的模板已经足够强大，但是自己在平常做题中也逐渐有着自己的一些模板，也有一些kuangbin模板中没有的更快的板子，虽然不确定时候以后会用到，但是能够记录下来形成自己的模板是最好的，，这样也对自己所学有个大致的总结，所以在搜寻网络上各种解决思路后，选择一位博主的解决方法： 利用python管理文件夹形式的模板库，生成 <code>latex</code> 的 <code>.tex</code> 文件，然后通过两次编译后得到 <code>.pdf</code> 的模板文件，，这样的好处是显而易见的，首先是代码的管理十分的方便，只需将整理的板子扔到对应的分类文件夹下，然后在需要打印 <code>.pdf</code> 的板子时运行一下py脚本就行了，同时用 <code>latex</code> 生成的文件的样式也很个性化，可以根据自己的喜好来改变，，我也从中加深了对 <code>latex</code> 语言的了解。</p>
-<a id="more"></a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">[工具使用]-利用latex管理创建自己的ACM模板</h1>
+            
+            <div class="markdown-body">
+              <p>从很早入坑ACM开始，便和各种算法的模板打着交道，虽然kaungbin的模板已经足够强大，但是自己在平常做题中也逐渐有着自己的一些模板，也有一些kuangbin模板中没有的更快的板子，虽然不确定时候以后会用到，但是能够记录下来形成自己的模板是最好的，，这样也对自己所学有个大致的总结，所以在搜寻网络上各种解决思路后，选择一位博主的解决方法： 利用python管理文件夹形式的模板库，生成 <code>latex</code> 的 <code>.tex</code> 文件，然后通过两次编译后得到 <code>.pdf</code> 的模板文件，，这样的好处是显而易见的，首先是代码的管理十分的方便，只需将整理的板子扔到对应的分类文件夹下，然后在需要打印 <code>.pdf</code> 的板子时运行一下py脚本就行了，同时用 <code>latex</code> 生成的文件的样式也很个性化，可以根据自己的喜好来改变，，我也从中加深了对 <code>latex</code> 语言的了解。</p>
+<span id="more"></span>
 <h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>为了能够最后能正常的生成板子，，首先要保证一些软件能够正常的使用： <code>python3</code>, <code>tex</code> 等等</p>
 <p>这个 <code>Tex Live</code> 我很早之前就安装了，所以也忘记具体的安装过程了，，只记得这玩意的下载文件多而大，，安装也费事，，不过具体的安装步骤网上有很多教程（注意要保证xecjk使用，，支持中文的包</p>
 <p>最后的板子的管理文件夹大致是这样的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">卷 文件 的文件夹 PATH 列表</span><br><span class="line">卷序列号为 D0B1-CFE7</span><br><span class="line">G:.</span><br><span class="line">│  1.pdf                //生成的pdf文件</span><br><span class="line">│  1.tex                //生成的tex文件</span><br><span class="line">│  logo.jpg             //板子的封面</span><br><span class="line">│  README.md            </span><br><span class="line">│  setting.dat          //保存的配置，名字啊等等</span><br><span class="line">│  template.py          //我们的脚本</span><br><span class="line">│  tree.txt             //这个目录的大致结构</span><br><span class="line">│  </span><br><span class="line">├─dp</span><br><span class="line">│      线性dp.cpp</span><br><span class="line">│      </span><br><span class="line">├─_MyTemplate</span><br><span class="line">│      init.cpp</span><br><span class="line">│      </span><br><span class="line">├─博弈论</span><br><span class="line">│      sg函数.cpp</span><br><span class="line">│      </span><br><span class="line">├─图论</span><br><span class="line">│  ├─2-sat</span><br><span class="line">│  │      输出字典序最小的解.cpp</span><br><span class="line">│  │      </span><br><span class="line">│  ├─二分图</span><br><span class="line">│  │      匈牙利算法_邻接矩阵实现.cpp</span><br><span class="line">│  │      </span><br><span class="line">│  ├─割点、桥、连通分支</span><br><span class="line">│  │      基本内容.cpp</span><br><span class="line">│  │      </span><br><span class="line">│  ├─差分约束</span><br><span class="line">│  │      差分约束.cpp</span><br><span class="line">│  │      </span><br><span class="line">│  ├─强连通分量</span><br><span class="line">│  │      Kosaraju.cpp</span><br><span class="line">│  │      Tarjan_kuangbin.cpp</span><br><span class="line">│  │      Tarjan_red_bool.cpp</span><br><span class="line">│  │      </span><br><span class="line">│  ├─拓扑排序</span><br><span class="line">│  │      拓扑排序.cpp</span><br><span class="line">│  │      </span><br><span class="line">│  ├─最短路</span><br><span class="line">│  │  └─spfa</span><br><span class="line">│  │          spfa_1_前向星.cpp</span><br><span class="line">│  │          spfa_2_邻接表_good.cpp</span><br><span class="line">│  │          spfa_栈优化.cpp</span><br><span class="line">│  │          </span><br><span class="line">│  └─网络流</span><br><span class="line">│      └─最大流</span><br><span class="line">│              dinic.cpp</span><br><span class="line">│              hlpp.cpp</span><br><span class="line">│              </span><br><span class="line">├─字符串</span><br><span class="line">│      hash.cpp</span><br><span class="line">│      序列自动机.cpp</span><br><span class="line">│      </span><br><span class="line">├─数据结构</span><br><span class="line">│  └─并查集</span><br><span class="line">│          并查集.cpp</span><br><span class="line">│          </span><br><span class="line">├─数论</span><br><span class="line">│  │  常用数论板子.cpp</span><br><span class="line">│  │  </span><br><span class="line">│  ├─中国剩余定理</span><br><span class="line">│  │      中国剩余定理_扩展欧几里得.cpp</span><br><span class="line">│  │      中国剩余定理_模数不保证互质.cpp</span><br><span class="line">│  │      中国剩余定理_逆元.cpp</span><br><span class="line">│  │      </span><br><span class="line">│  ├─大整数_java</span><br><span class="line">│  │      java.cpp</span><br><span class="line">│  │      </span><br><span class="line">│  └─快速幂</span><br><span class="line">│          杜教板子.cpp</span><br><span class="line">│          矩阵快速幂.cpp</span><br><span class="line">│          </span><br><span class="line">├─树</span><br><span class="line">│      线段树.cpp</span><br><span class="line">│      </span><br><span class="line">└─线性基</span><br><span class="line">        线性基.cpp</span><br></pre></td></tr></table></figure>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><code class="hljs txt">卷 文件 的文件夹 PATH 列表<br>卷序列号为 D0B1-CFE7<br>G:.<br>│  1.pdf                //生成的pdf文件<br>│  1.tex                //生成的tex文件<br>│  logo.jpg             //板子的封面<br>│  README.md            <br>│  setting.dat          //保存的配置，名字啊等等<br>│  template.py          //我们的脚本<br>│  tree.txt             //这个目录的大致结构<br>│  <br>├─dp<br>│      线性dp.cpp<br>│      <br>├─_MyTemplate<br>│      init.cpp<br>│      <br>├─博弈论<br>│      sg函数.cpp<br>│      <br>├─图论<br>│  ├─2-sat<br>│  │      输出字典序最小的解.cpp<br>│  │      <br>│  ├─二分图<br>│  │      匈牙利算法_邻接矩阵实现.cpp<br>│  │      <br>│  ├─割点、桥、连通分支<br>│  │      基本内容.cpp<br>│  │      <br>│  ├─差分约束<br>│  │      差分约束.cpp<br>│  │      <br>│  ├─强连通分量<br>│  │      Kosaraju.cpp<br>│  │      Tarjan_kuangbin.cpp<br>│  │      Tarjan_red_bool.cpp<br>│  │      <br>│  ├─拓扑排序<br>│  │      拓扑排序.cpp<br>│  │      <br>│  ├─最短路<br>│  │  └─spfa<br>│  │          spfa_1_前向星.cpp<br>│  │          spfa_2_邻接表_good.cpp<br>│  │          spfa_栈优化.cpp<br>│  │          <br>│  └─网络流<br>│      └─最大流<br>│              dinic.cpp<br>│              hlpp.cpp<br>│              <br>├─字符串<br>│      hash.cpp<br>│      序列自动机.cpp<br>│      <br>├─数据结构<br>│  └─并查集<br>│          并查集.cpp<br>│          <br>├─数论<br>│  │  常用数论板子.cpp<br>│  │  <br>│  ├─中国剩余定理<br>│  │      中国剩余定理_扩展欧几里得.cpp<br>│  │      中国剩余定理_模数不保证互质.cpp<br>│  │      中国剩余定理_逆元.cpp<br>│  │      <br>│  ├─大整数_java<br>│  │      java.cpp<br>│  │      <br>│  └─快速幂<br>│          杜教板子.cpp<br>│          矩阵快速幂.cpp<br>│          <br>├─树<br>│      线段树.cpp<br>│      <br>└─线性基<br>        线性基.cpp<br>        <br></code></pre></td></tr></table></figure>
 <p>可以看到我们需要在一个文件夹下放置脚本程序，板子的封面，以及最重要的就是我们的板子，每一个板子都是 <code>.cpp</code> 文件，直接将板子扔进去就行了，，</p>
-<h1 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h1><p>总的脚本是这样的，直接运行就行了，，<a href="https://blog.csdn.net/Gipsy_Danger/article/details/83311815" target="_blank" rel="noopener">原博主</a> 的这个程序貌似只能在 Linux下的python2使用，，所以我做了一些更改，在我的环境下（win10+python3.7）是可以正常使用的，，具体的内容可以看注释</p>
+<h1 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h1><p>总的脚本是这样的，直接运行就行了，，<a target="_blank" rel="noopener" href="https://blog.csdn.net/Gipsy_Danger/article/details/83311815">原博主</a> 的这个程序貌似只能在 Linux下的python2使用，，所以我做了一些更改，在我的环境下（win10+python3.7）是可以正常使用的，，具体的内容可以看注释</p>
 <p>有一个小bug：目录貌似不能显示很多，，，emmmm有时间再改吧，，，</p>
 <p>还有编译中间会有一些warning 得手动按回车才能进行下一步</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="comment"># tex的头文件，lstset就是板子的样式</span></span><br><span class="line">TexHead = <span class="string">r"""</span></span><br><span class="line"><span class="string">\documentclass[twocolumn, a4]&#123;article&#125;</span></span><br><span class="line"><span class="string">\usepackage[colorlinks,linkcolor=black]&#123;hyperref&#125;</span></span><br><span class="line"><span class="string">\usepackage&#123;xeCJK&#125;</span></span><br><span class="line"><span class="string">\usepackage&#123;fancyhdr&#125;</span></span><br><span class="line"><span class="string">\usepackage&#123;amsmath, amsthm&#125;</span></span><br><span class="line"><span class="string">\usepackage&#123;listings,xcolor&#125;</span></span><br><span class="line"><span class="string">\usepackage&#123;geometry&#125;</span></span><br><span class="line"><span class="string">\usepackage&#123;fontspec&#125; </span></span><br><span class="line"><span class="string">\usepackage&#123;graphicx&#125;</span></span><br><span class="line"><span class="string">\setsansfont&#123;Consolas&#125;</span></span><br><span class="line"><span class="string">\setmonofont[Mapping=&#123;&#125;]&#123;Consolas&#125;</span></span><br><span class="line"><span class="string">\newcommand&#123;\HRule&#125;&#123;\rule&#123;\linewidth&#125;&#123;0.5mm&#125;&#125;</span></span><br><span class="line"><span class="string">\geometry&#123;left=2.5cm,right=2.5cm,top=1cm,bottom=1cm&#125;</span></span><br><span class="line"><span class="string">\lstset&#123;</span></span><br><span class="line"><span class="string">    language    = c++,</span></span><br><span class="line"><span class="string">    numbers     = left,</span></span><br><span class="line"><span class="string">    numberstyle = \tiny,</span></span><br><span class="line"><span class="string">    breaklines  = true,</span></span><br><span class="line"><span class="string">    captionpos  = b,</span></span><br><span class="line"><span class="string">    tabsize     = 4,</span></span><br><span class="line"><span class="string">    frame       = shadowbox,</span></span><br><span class="line"><span class="string">    columns     = fullflexible,</span></span><br><span class="line"><span class="string">    commentstyle = \color[RGB]&#123;0,128,0&#125;,</span></span><br><span class="line"><span class="string">    keywordstyle = \color[RGB]&#123;0,0,255&#125;,</span></span><br><span class="line"><span class="string">    basicstyle   = \normalsize\ttfamily,</span></span><br><span class="line"><span class="string">    stringstyle  = \color[RGB]&#123;148,0,209&#125;\ttfamily,</span></span><br><span class="line"><span class="string">    rulesepcolor = \color&#123;red!20!green!20!blue!20&#125;,</span></span><br><span class="line"><span class="string">    showstringspaces = true,</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 初始化设置，主要是板子的名字等等</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">InitSetting</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        SettingFile = open(<span class="string">'setting.dat'</span>)</span><br><span class="line">        SettingData = json.load(SettingFile)</span><br><span class="line">        <span class="keyword">print</span> (<span class="string">u'读取到保存的设置: '</span>)</span><br><span class="line">        <span class="keyword">for</span> key <span class="keyword">in</span> SettingData:</span><br><span class="line">            <span class="keyword">print</span> (<span class="string">'[%s] %s'</span> % (key, SettingData[key]))</span><br><span class="line">        op = input(<span class="string">'是否使用已保存的设置？[Y/n]'</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> op <span class="keyword">in</span> [<span class="string">'n'</span>, <span class="string">'N'</span>, <span class="string">'no'</span>, <span class="string">'No'</span>, <span class="string">'NO'</span>]:</span><br><span class="line">            <span class="keyword">global</span> TITLE, SCHOOL, TEAM, FILE</span><br><span class="line">            <span class="keyword">for</span> key <span class="keyword">in</span> [<span class="string">'TITLE'</span>, <span class="string">'SCHOOL'</span>, <span class="string">'TEAM'</span>, <span class="string">'FILE'</span>]:</span><br><span class="line">                globals()[key] = SettingData[key]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            NewSetting()</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">print</span> (<span class="string">u'读取设置失败'</span>)</span><br><span class="line">        NewSetting()</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="comment"># 输入信息，保存到本地</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">NewSetting</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> TITLE, SCHOOL, TEAM, FILE</span><br><span class="line">    TITLE = input(<span class="string">'请输入标题: '</span>)</span><br><span class="line">    SCHOOL = input(<span class="string">'请输入学校: '</span>)</span><br><span class="line">    TEAM = input(<span class="string">'请输入队名: '</span>)</span><br><span class="line">    FILE = input(<span class="string">'请输入文件名: '</span>)</span><br><span class="line">    Data = dict()</span><br><span class="line">    <span class="keyword">for</span> key <span class="keyword">in</span> [<span class="string">'TITLE'</span>, <span class="string">'SCHOOL'</span>, <span class="string">'TEAM'</span>, <span class="string">'FILE'</span>]:</span><br><span class="line">        Data[key] = globals()[key]</span><br><span class="line">    json.dump(Data, open(<span class="string">'setting.dat'</span>, <span class="string">'w'</span>))</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 删除当前目录下的所有中间临时文件</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Clear</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> suffix <span class="keyword">in</span> [<span class="string">'aux'</span>, <span class="string">'log'</span>, <span class="string">'toc'</span>, <span class="string">'out'</span>]:</span><br><span class="line">        filename = <span class="string">'%s.%s'</span> % (FILE, suffix)</span><br><span class="line">        <span class="keyword">if</span> os.path.exists(filename):</span><br><span class="line">            os.remove(filename)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 调用两次生成模板来使 .tex 转为 .pdf</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Generate</span><span class="params">()</span>:</span></span><br><span class="line">    Clear()</span><br><span class="line">    os.system(<span class="string">'xelatex %s.tex -quiet'</span> % FILE)</span><br><span class="line">    os.system(<span class="string">'xelatex %s.tex -quiet'</span> % FILE)			<span class="comment"># 两到三次的生成才能生成目录https://zhidao.baidu.com/question/1541025230634017307.html</span></span><br><span class="line">    Clear()</span><br><span class="line">    os.system(<span class="string">'open %s.pdf'</span> % FILE)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 对每个板子文件进行读取写入</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ReadCpp</span><span class="params">(file)</span>:</span></span><br><span class="line">    f = open(file, <span class="string">'r'</span>, encoding=<span class="string">'UTF-8'</span>)</span><br><span class="line">    <span class="keyword">print</span> (file + <span class="string">' 2333333333333333333333333333'</span>)</span><br><span class="line">    Tex = <span class="number">0</span></span><br><span class="line">    TargetFile.write(<span class="string">'\\begin&#123;lstlisting&#125;\n'</span>)</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">        <span class="keyword">if</span> line[:<span class="number">-1</span>] == <span class="string">'// ---'</span>:</span><br><span class="line">            Tex = <span class="keyword">not</span> Tex</span><br><span class="line">            ToWrite = <span class="string">'\\%s&#123;lstlisting&#125;\n'</span> % (<span class="string">'begin'</span>, <span class="string">'end'</span>)[Tex]</span><br><span class="line">            TargetFile.write(ToWrite)</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        TargetFile.write(line[(<span class="number">0</span>, <span class="number">3</span>)[Tex]:])</span><br><span class="line">    TargetFile.write(<span class="string">'\\end&#123;lstlisting&#125;\n'</span>)</span><br><span class="line">    f.close()</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 读入tex文件</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ReadTex</span><span class="params">(file)</span>:</span></span><br><span class="line">    f = open(file, <span class="string">'r'</span>)</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">        TargetFile.write(line)</span><br><span class="line">    f.close()</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 递归遍历当前文件夹下的所有文件</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Search</span><span class="params">(level, pwd, folder=<span class="string">''</span>)</span>:</span></span><br><span class="line">    ls = os.popen(<span class="string">'dir /b "%s"'</span> % pwd).read().split(<span class="string">'\n'</span>)[:<span class="number">-1</span>]</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> ls:</span><br><span class="line">        <span class="keyword">print</span> (item)</span><br><span class="line">    <span class="keyword">if</span> folder:</span><br><span class="line">        <span class="keyword">print</span> (level)</span><br><span class="line">        TargetFile.write(SECTION[level] % folder[<span class="number">0</span>:])</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> ls:</span><br><span class="line">        <span class="keyword">print</span> (item + <span class="string">'2333'</span> + item[:<span class="number">-3</span>])</span><br><span class="line">        item.replace(<span class="string">' '</span>, <span class="string">'\\ '</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">'.cpp'</span> <span class="keyword">in</span> item:</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> item[:<span class="number">2</span>] == <span class="string">'00'</span>:</span><br><span class="line">                TargetFile.write(SECTION[level + <span class="number">1</span>] % item[:<span class="number">-4</span>])</span><br><span class="line">            ReadCpp(pwd + item)</span><br><span class="line">        <span class="keyword">elif</span> <span class="string">'.tex'</span> <span class="keyword">in</span> item:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> item[:<span class="number">2</span>] == <span class="string">'00'</span>:</span><br><span class="line">                TargetFile.write(SECTION[level + <span class="number">1</span>] % item[:<span class="number">-4</span>])</span><br><span class="line">            ReadTex(pwd + item)</span><br><span class="line">        <span class="keyword">elif</span> <span class="string">'jpg'</span> <span class="keyword">in</span> item:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">elif</span> <span class="string">'md'</span> <span class="keyword">in</span> item:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">elif</span> <span class="string">'dat'</span> <span class="keyword">in</span> item:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">elif</span> <span class="string">'py'</span> <span class="keyword">in</span> item:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">elif</span> <span class="string">'txt'</span> <span class="keyword">in</span> item:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">elif</span> <span class="string">'pdf'</span> <span class="keyword">in</span> item:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            cd = os.popen(<span class="string">'cd "%s%s/"'</span> % (pwd, item)).read()</span><br><span class="line">            <span class="keyword">if</span> <span class="string">'Not a directory'</span> <span class="keyword">in</span> cd <span class="keyword">or</span> <span class="string">'No such file or directory'</span> <span class="keyword">in</span> cd:</span><br><span class="line">                <span class="keyword">print</span> (<span class="string">'[Unknown File] %s/%s'</span> % (pwd, item))</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                Search(level + <span class="number">1</span>, pwd + item + <span class="string">'/'</span>, item)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="comment"># 全局设置</span></span><br><span class="line">    TITLE, SCHOOL, TEAM, FILE = <span class="string">''</span>, <span class="string">''</span>, <span class="string">''</span>, <span class="string">''</span></span><br><span class="line">    SECTION = [<span class="string">''</span>, <span class="string">'\\clearpage\\section&#123;%s&#125;\n'</span>,</span><br><span class="line">               <span class="string">'\\subsection&#123;%s&#125;\n'</span>, <span class="string">'\\subsubsection&#123;%s&#125;\n'</span>, <span class="string">'\\paragraph&#123;%s&#125;\n'</span>, <span class="string">'\\subparagraph&#123;%s&#125;\n'</span>]</span><br><span class="line"> </span><br><span class="line">    InitSetting()</span><br><span class="line">    Clear()</span><br><span class="line"></span><br><span class="line">    TargetFile = open(<span class="string">'%s.tex'</span> % FILE, <span class="string">'w'</span>, encoding=<span class="string">'utf-8'</span>)</span><br><span class="line"> </span><br><span class="line">    <span class="comment"># Output Head File</span></span><br><span class="line">    TargetFile.write(TexHead)</span><br><span class="line">    TargetFile.write(<span class="string">'\\title&#123;%s&#125;\n'</span> % TITLE)</span><br><span class="line">    TargetFile.write(<span class="string">'\\author&#123;%s&#125;\n'</span> % TEAM)</span><br><span class="line">    TargetFile.write(<span class="string">'\\pagestyle&#123;fancy&#125;\n\\fancyhf&#123;&#125;\n\\fancyhead[C]&#123;%s&#125;\n'</span> % (TITLE))</span><br><span class="line">    TargetFile.write(<span class="string">'\\begin&#123;document&#125;\\small\n'</span>)</span><br><span class="line">    TargetFile.write(<span class="string">'\\begin&#123;titlepage&#125;\n\\begin&#123;center&#125;\n\\vspace*&#123;0.5cm&#125;\\includegraphics[width=0.75\\textwidth]&#123;logo.jpg&#125; \\\\ [2cm]\n'</span>)</span><br><span class="line">    TargetFile.write(<span class="string">'\\HRule \\\\ [1cm]\n'</span>)</span><br><span class="line">    TargetFile.write(<span class="string">'\\textbf&#123;\\Huge&#123;%s&#125;&#125; \\\\ [0.5cm]\n'</span> % TITLE)</span><br><span class="line">    TargetFile.write(<span class="string">'\\HRule \\\\ [4cm]\n'</span>)</span><br><span class="line">    TargetFile.write(<span class="string">'\\textbf&#123;\\Huge&#123;%s&#125;&#125; \\\\ [1cm]\n\\LARGE&#123;%s&#125;\n'</span> % (SCHOOL, TEAM))</span><br><span class="line">    TargetFile.write(<span class="string">'\\vfill\n\\Large&#123;\\today&#125;\n\\end&#123;center&#125;\n'</span>)</span><br><span class="line">    TargetFile.write(<span class="string">'\\clearpage\n\end&#123;titlepage&#125;\n'</span>)</span><br><span class="line">    TargetFile.write(<span class="string">'\\tableofcontents\\clearpage\n'</span>)</span><br><span class="line">    TargetFile.write(<span class="string">'\\pagestyle&#123;fancy&#125;\n\\lfoot&#123;&#125;\n\\cfoot&#123;\\thepage&#125;\\rfoot&#123;&#125;\n'</span>)</span><br><span class="line">    TargetFile.write(<span class="string">'\\setcounter&#123;section&#125;&#123;-1&#125;\n\\setcounter&#123;page&#125;&#123;1&#125;\n'</span>)</span><br><span class="line"> </span><br><span class="line">    <span class="comment"># Search Files</span></span><br><span class="line">    Search(<span class="number">0</span>, <span class="string">'./'</span>)</span><br><span class="line"> </span><br><span class="line">    <span class="comment"># End Output</span></span><br><span class="line">    TargetFile.write(<span class="string">'\n\\end&#123;document&#125;\n'</span>)</span><br><span class="line">    TargetFile.close()</span><br><span class="line"> </span><br><span class="line">    <span class="comment"># Gen</span></span><br><span class="line">    Generate()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># coding=utf-8</span><br><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">import</span> sys<br><span class="hljs-keyword">import</span> json<br><br><span class="hljs-comment"># tex的头文件，lstset就是板子的样式</span><br>TexHead = <span class="hljs-string">r&quot;&quot;&quot;</span><br><span class="hljs-string">\documentclass[twocolumn, a4]&#123;article&#125;</span><br><span class="hljs-string">\usepackage[colorlinks,linkcolor=black]&#123;hyperref&#125;</span><br><span class="hljs-string">\usepackage&#123;xeCJK&#125;</span><br><span class="hljs-string">\usepackage&#123;fancyhdr&#125;</span><br><span class="hljs-string">\usepackage&#123;amsmath, amsthm&#125;</span><br><span class="hljs-string">\usepackage&#123;listings,xcolor&#125;</span><br><span class="hljs-string">\usepackage&#123;geometry&#125;</span><br><span class="hljs-string">\usepackage&#123;fontspec&#125; </span><br><span class="hljs-string">\usepackage&#123;graphicx&#125;</span><br><span class="hljs-string">\setsansfont&#123;Consolas&#125;</span><br><span class="hljs-string">\setmonofont[Mapping=&#123;&#125;]&#123;Consolas&#125;</span><br><span class="hljs-string">\newcommand&#123;\HRule&#125;&#123;\rule&#123;\linewidth&#125;&#123;0.5mm&#125;&#125;</span><br><span class="hljs-string">\geometry&#123;left=2.5cm,right=2.5cm,top=1cm,bottom=1cm&#125;</span><br><span class="hljs-string">\lstset&#123;</span><br><span class="hljs-string">    language    = c++,</span><br><span class="hljs-string">    numbers     = left,</span><br><span class="hljs-string">    numberstyle = \tiny,</span><br><span class="hljs-string">    breaklines  = true,</span><br><span class="hljs-string">    captionpos  = b,</span><br><span class="hljs-string">    tabsize     = 4,</span><br><span class="hljs-string">    frame       = shadowbox,</span><br><span class="hljs-string">    columns     = fullflexible,</span><br><span class="hljs-string">    commentstyle = \color[RGB]&#123;0,128,0&#125;,</span><br><span class="hljs-string">    keywordstyle = \color[RGB]&#123;0,0,255&#125;,</span><br><span class="hljs-string">    basicstyle   = \normalsize\ttfamily,</span><br><span class="hljs-string">    stringstyle  = \color[RGB]&#123;148,0,209&#125;\ttfamily,</span><br><span class="hljs-string">    rulesepcolor = \color&#123;red!20!green!20!blue!20&#125;,</span><br><span class="hljs-string">    showstringspaces = true,</span><br><span class="hljs-string">&#125;</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br> <br><span class="hljs-comment"># 初始化设置，主要是板子的名字等等</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">InitSetting</span>():</span><br>    <span class="hljs-keyword">try</span>:<br>        SettingFile = <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;setting.dat&#x27;</span>)<br>        SettingData = json.load(SettingFile)<br>        <span class="hljs-built_in">print</span> (<span class="hljs-string">u&#x27;读取到保存的设置: &#x27;</span>)<br>        <span class="hljs-keyword">for</span> key <span class="hljs-keyword">in</span> SettingData:<br>            <span class="hljs-built_in">print</span> (<span class="hljs-string">&#x27;[%s] %s&#x27;</span> % (key, SettingData[key]))<br>        op = <span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;是否使用已保存的设置？[Y/n]&#x27;</span>)<br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> op <span class="hljs-keyword">in</span> [<span class="hljs-string">&#x27;n&#x27;</span>, <span class="hljs-string">&#x27;N&#x27;</span>, <span class="hljs-string">&#x27;no&#x27;</span>, <span class="hljs-string">&#x27;No&#x27;</span>, <span class="hljs-string">&#x27;NO&#x27;</span>]:<br>            <span class="hljs-keyword">global</span> TITLE, SCHOOL, TEAM, FILE<br>            <span class="hljs-keyword">for</span> key <span class="hljs-keyword">in</span> [<span class="hljs-string">&#x27;TITLE&#x27;</span>, <span class="hljs-string">&#x27;SCHOOL&#x27;</span>, <span class="hljs-string">&#x27;TEAM&#x27;</span>, <span class="hljs-string">&#x27;FILE&#x27;</span>]:<br>                <span class="hljs-built_in">globals</span>()[key] = SettingData[key]<br>        <span class="hljs-keyword">else</span>:<br>            NewSetting()<br>    <span class="hljs-keyword">except</span>:<br>        <span class="hljs-built_in">print</span> (<span class="hljs-string">u&#x27;读取设置失败&#x27;</span>)<br>        NewSetting()<br> <br> <br><span class="hljs-comment"># 输入信息，保存到本地</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">NewSetting</span>():</span><br>    <span class="hljs-keyword">global</span> TITLE, SCHOOL, TEAM, FILE<br>    TITLE = <span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;请输入标题: &#x27;</span>)<br>    SCHOOL = <span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;请输入学校: &#x27;</span>)<br>    TEAM = <span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;请输入队名: &#x27;</span>)<br>    FILE = <span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;请输入文件名: &#x27;</span>)<br>    Data = <span class="hljs-built_in">dict</span>()<br>    <span class="hljs-keyword">for</span> key <span class="hljs-keyword">in</span> [<span class="hljs-string">&#x27;TITLE&#x27;</span>, <span class="hljs-string">&#x27;SCHOOL&#x27;</span>, <span class="hljs-string">&#x27;TEAM&#x27;</span>, <span class="hljs-string">&#x27;FILE&#x27;</span>]:<br>        Data[key] = <span class="hljs-built_in">globals</span>()[key]<br>    json.dump(Data, <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;setting.dat&#x27;</span>, <span class="hljs-string">&#x27;w&#x27;</span>))<br> <br><span class="hljs-comment"># 删除当前目录下的所有中间临时文件</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">Clear</span>():</span><br>    <span class="hljs-keyword">for</span> suffix <span class="hljs-keyword">in</span> [<span class="hljs-string">&#x27;aux&#x27;</span>, <span class="hljs-string">&#x27;log&#x27;</span>, <span class="hljs-string">&#x27;toc&#x27;</span>, <span class="hljs-string">&#x27;out&#x27;</span>]:<br>        filename = <span class="hljs-string">&#x27;%s.%s&#x27;</span> % (FILE, suffix)<br>        <span class="hljs-keyword">if</span> os.path.exists(filename):<br>            os.remove(filename)<br> <br><span class="hljs-comment"># 调用两次生成模板来使 .tex 转为 .pdf</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">Generate</span>():</span><br>    Clear()<br>    os.system(<span class="hljs-string">&#x27;xelatex %s.tex -quiet&#x27;</span> % FILE)<br>    os.system(<span class="hljs-string">&#x27;xelatex %s.tex -quiet&#x27;</span> % FILE)			<span class="hljs-comment"># 两到三次的生成才能生成目录https://zhidao.baidu.com/question/1541025230634017307.html</span><br>    Clear()<br>    os.system(<span class="hljs-string">&#x27;open %s.pdf&#x27;</span> % FILE)<br> <br><span class="hljs-comment"># 对每个板子文件进行读取写入</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">ReadCpp</span>(<span class="hljs-params">file</span>):</span><br>    f = <span class="hljs-built_in">open</span>(file, <span class="hljs-string">&#x27;r&#x27;</span>, encoding=<span class="hljs-string">&#x27;UTF-8&#x27;</span>)<br>    <span class="hljs-built_in">print</span> (file + <span class="hljs-string">&#x27; 2333333333333333333333333333&#x27;</span>)<br>    Tex = <span class="hljs-number">0</span><br>    TargetFile.write(<span class="hljs-string">&#x27;\\begin&#123;lstlisting&#125;\n&#x27;</span>)<br>    <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> f:<br>        <span class="hljs-keyword">if</span> line[:-<span class="hljs-number">1</span>] == <span class="hljs-string">&#x27;// ---&#x27;</span>:<br>            Tex = <span class="hljs-keyword">not</span> Tex<br>            ToWrite = <span class="hljs-string">&#x27;\\%s&#123;lstlisting&#125;\n&#x27;</span> % (<span class="hljs-string">&#x27;begin&#x27;</span>, <span class="hljs-string">&#x27;end&#x27;</span>)[Tex]<br>            TargetFile.write(ToWrite)<br>            <span class="hljs-keyword">continue</span><br>        TargetFile.write(line[(<span class="hljs-number">0</span>, <span class="hljs-number">3</span>)[Tex]:])<br>    TargetFile.write(<span class="hljs-string">&#x27;\\end&#123;lstlisting&#125;\n&#x27;</span>)<br>    f.close()<br> <br><span class="hljs-comment"># 读入tex文件</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">ReadTex</span>(<span class="hljs-params">file</span>):</span><br>    f = <span class="hljs-built_in">open</span>(file, <span class="hljs-string">&#x27;r&#x27;</span>)<br>    <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> f:<br>        TargetFile.write(line)<br>    f.close()<br> <br><span class="hljs-comment"># 递归遍历当前文件夹下的所有文件</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">Search</span>(<span class="hljs-params">level, pwd, folder=<span class="hljs-string">&#x27;&#x27;</span></span>):</span><br>    ls = os.popen(<span class="hljs-string">&#x27;dir /b &quot;%s&quot;&#x27;</span> % pwd).read().split(<span class="hljs-string">&#x27;\n&#x27;</span>)[:-<span class="hljs-number">1</span>]<br>    <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> ls:<br>        <span class="hljs-built_in">print</span> (item)<br>    <span class="hljs-keyword">if</span> folder:<br>        <span class="hljs-built_in">print</span> (level)<br>        TargetFile.write(SECTION[level] % folder[<span class="hljs-number">0</span>:])<br>    <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> ls:<br>        <span class="hljs-built_in">print</span> (item + <span class="hljs-string">&#x27;2333&#x27;</span> + item[:-<span class="hljs-number">3</span>])<br>        item.replace(<span class="hljs-string">&#x27; &#x27;</span>, <span class="hljs-string">&#x27;\\ &#x27;</span>)<br>        <span class="hljs-keyword">if</span> <span class="hljs-string">&#x27;.cpp&#x27;</span> <span class="hljs-keyword">in</span> item:<br>            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> item[:<span class="hljs-number">2</span>] == <span class="hljs-string">&#x27;00&#x27;</span>:<br>                TargetFile.write(SECTION[level + <span class="hljs-number">1</span>] % item[:-<span class="hljs-number">4</span>])<br>            ReadCpp(pwd + item)<br>        <span class="hljs-keyword">elif</span> <span class="hljs-string">&#x27;.tex&#x27;</span> <span class="hljs-keyword">in</span> item:<br>            <span class="hljs-keyword">continue</span><br>            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> item[:<span class="hljs-number">2</span>] == <span class="hljs-string">&#x27;00&#x27;</span>:<br>                TargetFile.write(SECTION[level + <span class="hljs-number">1</span>] % item[:-<span class="hljs-number">4</span>])<br>            ReadTex(pwd + item)<br>        <span class="hljs-keyword">elif</span> <span class="hljs-string">&#x27;jpg&#x27;</span> <span class="hljs-keyword">in</span> item:<br>            <span class="hljs-keyword">continue</span><br>        <span class="hljs-keyword">elif</span> <span class="hljs-string">&#x27;md&#x27;</span> <span class="hljs-keyword">in</span> item:<br>            <span class="hljs-keyword">continue</span><br>        <span class="hljs-keyword">elif</span> <span class="hljs-string">&#x27;dat&#x27;</span> <span class="hljs-keyword">in</span> item:<br>            <span class="hljs-keyword">continue</span><br>        <span class="hljs-keyword">elif</span> <span class="hljs-string">&#x27;py&#x27;</span> <span class="hljs-keyword">in</span> item:<br>            <span class="hljs-keyword">continue</span><br>        <span class="hljs-keyword">elif</span> <span class="hljs-string">&#x27;txt&#x27;</span> <span class="hljs-keyword">in</span> item:<br>            <span class="hljs-keyword">continue</span><br>        <span class="hljs-keyword">elif</span> <span class="hljs-string">&#x27;pdf&#x27;</span> <span class="hljs-keyword">in</span> item:<br>            <span class="hljs-keyword">continue</span><br>        <span class="hljs-keyword">else</span>:<br>            cd = os.popen(<span class="hljs-string">&#x27;cd &quot;%s%s/&quot;&#x27;</span> % (pwd, item)).read()<br>            <span class="hljs-keyword">if</span> <span class="hljs-string">&#x27;Not a directory&#x27;</span> <span class="hljs-keyword">in</span> cd <span class="hljs-keyword">or</span> <span class="hljs-string">&#x27;No such file or directory&#x27;</span> <span class="hljs-keyword">in</span> cd:<br>                <span class="hljs-built_in">print</span> (<span class="hljs-string">&#x27;[Unknown File] %s/%s&#x27;</span> % (pwd, item))<br>            <span class="hljs-keyword">else</span>:<br>                Search(level + <span class="hljs-number">1</span>, pwd + item + <span class="hljs-string">&#x27;/&#x27;</span>, item)<br> <br> <br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    <span class="hljs-comment"># 全局设置</span><br>    TITLE, SCHOOL, TEAM, FILE = <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span><br>    SECTION = [<span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;\\clearpage\\section&#123;%s&#125;\n&#x27;</span>,<br>               <span class="hljs-string">&#x27;\\subsection&#123;%s&#125;\n&#x27;</span>, <span class="hljs-string">&#x27;\\subsubsection&#123;%s&#125;\n&#x27;</span>, <span class="hljs-string">&#x27;\\paragraph&#123;%s&#125;\n&#x27;</span>, <span class="hljs-string">&#x27;\\subparagraph&#123;%s&#125;\n&#x27;</span>]<br> <br>    InitSetting()<br>    Clear()<br><br>    TargetFile = <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;%s.tex&#x27;</span> % FILE, <span class="hljs-string">&#x27;w&#x27;</span>, encoding=<span class="hljs-string">&#x27;utf-8&#x27;</span>)<br> <br>    <span class="hljs-comment"># Output Head File</span><br>    TargetFile.write(TexHead)<br>    TargetFile.write(<span class="hljs-string">&#x27;\\title&#123;%s&#125;\n&#x27;</span> % TITLE)<br>    TargetFile.write(<span class="hljs-string">&#x27;\\author&#123;%s&#125;\n&#x27;</span> % TEAM)<br>    TargetFile.write(<span class="hljs-string">&#x27;\\pagestyle&#123;fancy&#125;\n\\fancyhf&#123;&#125;\n\\fancyhead[C]&#123;%s&#125;\n&#x27;</span> % (TITLE))<br>    TargetFile.write(<span class="hljs-string">&#x27;\\begin&#123;document&#125;\\small\n&#x27;</span>)<br>    TargetFile.write(<span class="hljs-string">&#x27;\\begin&#123;titlepage&#125;\n\\begin&#123;center&#125;\n\\vspace*&#123;0.5cm&#125;\\includegraphics[width=0.75\\textwidth]&#123;logo.jpg&#125; \\\\ [2cm]\n&#x27;</span>)<br>    TargetFile.write(<span class="hljs-string">&#x27;\\HRule \\\\ [1cm]\n&#x27;</span>)<br>    TargetFile.write(<span class="hljs-string">&#x27;\\textbf&#123;\\Huge&#123;%s&#125;&#125; \\\\ [0.5cm]\n&#x27;</span> % TITLE)<br>    TargetFile.write(<span class="hljs-string">&#x27;\\HRule \\\\ [4cm]\n&#x27;</span>)<br>    TargetFile.write(<span class="hljs-string">&#x27;\\textbf&#123;\\Huge&#123;%s&#125;&#125; \\\\ [1cm]\n\\LARGE&#123;%s&#125;\n&#x27;</span> % (SCHOOL, TEAM))<br>    TargetFile.write(<span class="hljs-string">&#x27;\\vfill\n\\Large&#123;\\today&#125;\n\\end&#123;center&#125;\n&#x27;</span>)<br>    TargetFile.write(<span class="hljs-string">&#x27;\\clearpage\n\end&#123;titlepage&#125;\n&#x27;</span>)<br>    TargetFile.write(<span class="hljs-string">&#x27;\\tableofcontents\\clearpage\n&#x27;</span>)<br>    TargetFile.write(<span class="hljs-string">&#x27;\\pagestyle&#123;fancy&#125;\n\\lfoot&#123;&#125;\n\\cfoot&#123;\\thepage&#125;\\rfoot&#123;&#125;\n&#x27;</span>)<br>    TargetFile.write(<span class="hljs-string">&#x27;\\setcounter&#123;section&#125;&#123;-1&#125;\n\\setcounter&#123;page&#125;&#123;1&#125;\n&#x27;</span>)<br> <br>    <span class="hljs-comment"># Search Files</span><br>    Search(<span class="hljs-number">0</span>, <span class="hljs-string">&#x27;./&#x27;</span>)<br> <br>    <span class="hljs-comment"># End Output</span><br>    TargetFile.write(<span class="hljs-string">&#x27;\n\\end&#123;document&#125;\n&#x27;</span>)<br>    TargetFile.close()<br> <br>    <span class="hljs-comment"># Gen</span><br>    Generate()<br></code></pre></td></tr></table></figure>
 <p>最后的效果如下；</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://img2018.cnblogs.com/blog/1028485/201908/1028485-20190831213235111-1169445063.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="https://img2018.cnblogs.com/blog/1028485/201908/1028485-20190831213235111-1169445063.png" srcset="/img/loading.gif" alt=""></p>
 <p>参考的博客：</p>
-<p><a href="https://blog.csdn.net/Gipsy_Danger/article/details/83311815" target="_blank" rel="noopener">主程序</a></p>
-<p><a href="https://www.jianshu.com/p/28552706e811" target="_blank" rel="noopener">latex语法的介绍</a></p>
-<p><a href="https://www.overleaf.com/learn/latex/Code_listing#" target="_blank" rel="noopener">latex官网</a></p>
-<p><a href="http://dralpha.altervista.org/zh/tech/tech.htm" target="_blank" rel="noopener">latex的某个大佬的笔记</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Gipsy_Danger/article/details/83311815">主程序</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/28552706e811">latex语法的介绍</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.overleaf.com/learn/latex/Code_listing#">latex官网</a></p>
+<p><a target="_blank" rel="noopener" href="http://dralpha.altervista.org/zh/tech/tech.htm">latex的某个大佬的笔记</a></p>
 <p>（应该没了吧，，，，end</p>
 
-        </div>
-
-        <blockquote class="post-copyright">
-    
-    <div class="content">
-        
-<span class="post-time">
-    最后更新时间：<time datetime="2019-09-02T09:53:36.793Z" itemprop="dateUpdated">2019-09-02 17:53:36</time>
-</span><br>
-
-
-        
-        <a href="/2019/08/31/[工具使用]-利用latex管理创建自己的ACM模板/" target="_blank" rel="external">http://blog.31415x.cf/2019/08/31/[工具使用]-利用latex管理创建自己的ACM模板/</a>
-        
-    </div>
-    
-    <footer>
-        <a href="http://blog.31415x.cf">
-            <img src="/img/misaka.jpg" alt="31415926535x">
-            31415926535x
-        </a>
-    </footer>
-</blockquote>
-
-        
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/latex/">latex</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具使用/">工具使用</a></li></ul>
-
-
-            
-<div class="page-share-wrap">
-    
-
-<div class="page-share" id="pageShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.31415x.cf/2019/08/31/[工具使用]-利用latex管理创建自己的ACM模板/&title=《[工具使用]-利用latex管理创建自己的ACM模板》 — 31415926535x&pic=http://blog.31415x.cf/img/misaka.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.31415x.cf/2019/08/31/[工具使用]-利用latex管理创建自己的ACM模板/&title=《[工具使用]-利用latex管理创建自己的ACM模板》 — 31415926535x&source=从很早入坑ACM开始，便和各种算法的模板打着交道，虽然kaungbin的模板已经足够强大，但是自己在平常做题中也逐渐有着自己的一些模板，也有一些kuang..." data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.31415x.cf/2019/08/31/[工具使用]-利用latex管理创建自己的ACM模板/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《[工具使用]-利用latex管理创建自己的ACM模板》 — 31415926535x&url=http://blog.31415x.cf/2019/08/31/[工具使用]-利用latex管理创建自己的ACM模板/&via=http://blog.31415x.cf" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.31415x.cf/2019/08/31/[工具使用]-利用latex管理创建自己的ACM模板/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
-        <i class="icon icon-share-alt icon-lg"></i>
-    </a>
-</div>
-
-
-
-        </div>
-    </div>
-
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2019/09/02/ACM-数论-广义欧拉降幂/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">ACM-数论-广义欧拉降幂</h4>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/2019/08/31/宁夏网络赛-F-Moving-On/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">宁夏网络赛-F-Moving On</h4>
-      </a>
-    </div>
-  
-</nav>
-
-
-
-    
-
-
-<section class="comments" id="comments">
-    <div id="disqus_thread"></div>
-    <script>
-    var disqus_shortname = 'www-31415-cf';
-    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</article>
-
-
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
-        
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p><span>31415926535x &copy; 2018 - 2021</span>
-            <span>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
                 
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/ACM-%E6%95%B4%E7%90%86/">ACM-整理</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/ACM/">ACM</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/">工具使用</a>
+                    
+                      <a class="hover-with-bg" href="/tags/latex/">latex</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/09/02/ACM-%E6%95%B0%E8%AE%BA-%E5%B9%BF%E4%B9%89%E6%AC%A7%E6%8B%89%E9%99%8D%E5%B9%82/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">ACM-数论-广义欧拉降幂</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/08/31/%E5%AE%81%E5%A4%8F%E7%BD%91%E7%BB%9C%E8%B5%9B-F-Moving-On/">
+                        <span class="hidden-mobile">宁夏网络赛-F-Moving On</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_config = function() {
+        this.page.url = 'http://blog.31415x.cf/2019/08/31/[%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8]-%E5%88%A9%E7%94%A8latex%E7%AE%A1%E7%90%86%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84ACM%E6%A8%A1%E6%9D%BF/';
+        this.page.identifier = '/2019/08/31/%5B%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%5D-%E5%88%A9%E7%94%A8latex%E7%AE%A1%E7%90%86%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84ACM%E6%A8%A1%E6%9D%BF/';
+      };
+      Fluid.utils.waitElementVisible('disqus_thread', function () {
+        var d = document, s = d.createElement('script');
+        s.src = '//' + 'www-31415-cf' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', new Date());
+        (d.head || d.body).appendChild(s);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the
+      <a target="_blank" href="https://disqus.com/?ref_noscript" rel="nofollow noopener noopener">comments powered by Disqus.</a>
+    </noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
     </div>
-	
-	
-	<div id="aplayer">
-		<!-- 音乐播放器 -->
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.css">
-		<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.js"></script>
-		<div id="aplayer" class="aplayer" data-id="2254014329" data-lrctype="0" data-server="netease" data-type="playlist" data-fixed="true" data-listfolded="true"></div>
-		<script src="https://unpkg.com/meting@1.2/dist/Meting.min.js"></script>
-	</div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br> <a>不忘初心 <strong><span style="color: red">☭</span></strong> 方得始终</a> 
+  </div>
+  
+
+  
+
+  
 </footer>
 
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
 
 
 
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.31415x.cf/2019/08/31/[工具使用]-利用latex管理创建自己的ACM模板/&title=《[工具使用]-利用latex管理创建自己的ACM模板》 — 31415926535x&pic=http://blog.31415x.cf/img/misaka.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.31415x.cf/2019/08/31/[工具使用]-利用latex管理创建自己的ACM模板/&title=《[工具使用]-利用latex管理创建自己的ACM模板》 — 31415926535x&source=从很早入坑ACM开始，便和各种算法的模板打着交道，虽然kaungbin的模板已经足够强大，但是自己在平常做题中也逐渐有着自己的一些模板，也有一些kuang..." data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.31415x.cf/2019/08/31/[工具使用]-利用latex管理创建自己的ACM模板/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《[工具使用]-利用latex管理创建自己的ACM模板》 — 31415926535x&url=http://blog.31415x.cf/2019/08/31/[工具使用]-利用latex管理创建自己的ACM模板/&via=http://blog.31415x.cf" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.31415x.cf/2019/08/31/[工具使用]-利用latex管理创建自己的ACM模板/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://blog.31415x.cf/2019/08/31/[工具使用]-利用latex管理创建自己的ACM模板/" alt="微信分享二维码">
-</div>
+  
 
 
 
-
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
-
-
-</script>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
 
 
 
-<!-- mathjax config similar to math.stackexchange -->
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
 
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
 
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
 
 
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
 
 
 
-<script>
-(function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = '(つェ⊂)';
-            clearTimeout(titleTime);
-        } else {
-            document.title = '(๑•̀ㅂ•́)و✧';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
         }
-    });
-})();
-</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
-</script>
+      };
+    </script>
 
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
     }
-  });
-</script>
+  </script>
 
-<script type="text/javascript" src="custom_mathjax_source">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-114656515-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 

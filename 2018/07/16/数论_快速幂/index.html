@@ -1,632 +1,602 @@
+
+
 <!DOCTYPE html>
-<html>
-<head><meta name="generator" content="Hexo 3.9.0">
-    
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Google Analytics -->
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-114656515-1', 'auto');
-ga('send', 'pageview');
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-<!-- End Google Analytics -->
-
-
-    
-
-    
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
-    <meta charset="utf-8">
-    
-    
-    
-    <link rel="canonical" href="https://31415926535x.github.io/2018/07/16/数论_快速幂/">
-    
-    
-    <title>数论_快速幂 | 31415926535x</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#40c4ff">
-    
-    
-    <meta name="keywords" content="acm,算法">
-    <meta name="description" content="2018.7.16 这篇主要是关于数论里的快速幂和矩阵的快速乘法，，， 快速幂和快速乘对于a^n这样的计算，，最简单的方法就是一个for循环连乘下去，， 12345678typedef long long ll;ll pow (ll a , ll b)&amp;#123;    ll ans = 1;    for (int i = 1; i &amp;lt;= b; i++)        ans *= a;">
-<meta name="keywords" content="acm,算法">
-<meta property="og:type" content="article">
-<meta property="og:title" content="数论_快速幂">
-<meta property="og:url" content="http://blog.31415x.cf/2018/07/16/数论_快速幂/index.html">
-<meta property="og:site_name" content="31415926535x">
-<meta property="og:description" content="2018.7.16 这篇主要是关于数论里的快速幂和矩阵的快速乘法，，， 快速幂和快速乘对于a^n这样的计算，，最简单的方法就是一个for循环连乘下去，， 12345678typedef long long ll;ll pow (ll a , ll b)&amp;#123;    ll ans = 1;    for (int i = 1; i &amp;lt;= b; i++)        ans *= a;">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-23T03:35:00.678Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数论_快速幂">
-<meta name="twitter:description" content="2018.7.16 这篇主要是关于数论里的快速幂和矩阵的快速乘法，，， 快速幂和快速乘对于a^n这样的计算，，最简单的方法就是一个for循环连乘下去，， 12345678typedef long long ll;ll pow (ll a , ll b)&amp;#123;    ll ans = 1;    for (int i = 1; i &amp;lt;= b; i++)        ans *= a;">
-    
-        <link rel="alternate" type="application/atom+xml" title="31415926535x" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/misaka.jpg">
+  <link rel="icon" href="/img/misaka.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  
+    <meta name="description" content="2018.7.16
+这篇主要是关于数论里的快速幂和矩阵的快速乘法，，，
+快速幂和快速乘对于a^n这样的计算，，最简单的方法就是一个for循环连乘下去，，
+12345678typedef long long ll;ll pow (ll a , ll b)&amp;#123;    ll ans = 1;    for (int i = 1; i &amp;lt;= b; i++)        ans *= a; ">
+  
+  <meta name="author" content="31415926535x">
+  <meta name="keywords" content="">
+  
+  <title>数论_快速幂 - 31415926535x</title>
 
-    <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-    
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/monokai.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"blog.31415x.cf","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":null,"google":"UA-114656515-1","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="31415926535x" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
-<body>
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide" >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/misaka.jpg">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">31415926535x</h5>
-          <a href="mailto:2509437152wx@gmail.com" title="2509437152wx@gmail.com" class="mail">2509437152wx@gmail.com</a>
-        </hgroup>
-      </div>
-    </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>31415926535x</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                Archives
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                标签
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/31415926535x" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="https://plus.google.com/106114719135977350421" target="_blank" >
-                <i class="icon icon-lg icon-google"></i>
-                Google+
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="https://instagram.com/314159265358x" target="_blank" >
-                <i class="icon icon-lg icon-instagram"></i>
-                Instagram
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="https://cnblogs.com/31415926535x" target="_blank" >
-                <i class="icon icon-lg icon-th-large"></i>
-                cnblogs
-              </a>
-            </li>
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
         
-            <li class="waves-block waves-effect">
-              <a href="https://blog.csdn.net/pi31415926535x" target="_blank" >
-                <i class="icon icon-lg icon-cubes"></i>
-                csdn
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/timeline"  >
-                <i class="icon icon-lg icon-calendar"></i>
-                timeline
-              </a>
-            </li>
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
         
       </ul>
     </div>
   </div>
-</aside>
+</nav>
 
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">数论_快速幂</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
-        
-    </div>
-</header>
-<header class="content-header post-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">数论_快速幂</h1>
-        <h5 class="subtitle">
-            
-                <time datetime="2018-07-16T10:39:39.000Z" itemprop="datePublished" class="page-time">
-  2018-07-16
-</time>
-
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="数论_快速幂">
+              
+            </span>
 
             
-        </h5>
-    </div>
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      31415926535x
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2018-07-16 18:39" pubdate>
+        2018年7月16日 晚上
+      </time>
+    </span>
+  
+</div>
 
+<div class="mt-1">
+  
     
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.5k 字
+    </span>
+  
 
-
-</header>
-
-
-<div class="container body-wrap">
+  
     
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#快速幂和快速乘"><span class="post-toc-number">1.</span> <span class="post-toc-text">快速幂和快速乘</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#快速幂的模板："><span class="post-toc-number">2.</span> <span class="post-toc-text">快速幂的模板：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#递推的写法（用循环解决）"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">递推的写法（用循环解决）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#递归的写法（用函数递归解决）"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">递归的写法（用函数递归解决）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#用位操作的写法"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">用位操作的写法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#快速乘"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">快速乘</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#矩阵快速幂："><span class="post-toc-number">3.</span> <span class="post-toc-text">矩阵快速幂：</span></a></li></ol>
-        </nav>
-    </aside>
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      21
+       分钟
+    </span>
+  
 
-
-<article id="post-数论_快速幂"
-  class="post-article article-type-post fade" itemprop="blogPost">
-
-    <div class="post-card">
-        <h1 class="post-card-title">数论_快速幂</h1>
-        <div class="post-meta">
-            <time class="post-time" title="2018-07-16 18:39:39" datetime="2018-07-16T10:39:39.000Z"  itemprop="datePublished">2018-07-16</time>
+  
+  
+</div>
 
             
+          </div>
 
-
-            
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
-
-
+          
         </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            <p>2018.7.16</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">数论_快速幂</h1>
+            
+            <div class="markdown-body">
+              <p>2018.7.16</p>
 <p>这篇主要是关于数论里的快速幂和矩阵的快速乘法，，，</p>
 <h2 id="快速幂和快速乘"><a href="#快速幂和快速乘" class="headerlink" title="快速幂和快速乘"></a>快速幂和快速乘</h2><p>对于a^n这样的计算，，最简单的方法就是一个for循环连乘下去，，</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="function">ll <span class="title">pow</span> <span class="params">(ll a , ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= b; i++)</span><br><span class="line">        ans *= a;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ll;<br><span class="hljs-function">ll <span class="hljs-title">pow</span> <span class="hljs-params">(ll a , ll b)</span></span><br><span class="hljs-function"></span>&#123;<br>    ll ans = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= b; i++)<br>        ans *= a;<br>    <span class="hljs-keyword">return</span> ans;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>但是如果a,n都很大，，尤其是某些题，，，超时，，妥妥的，，(^_っ^)</p>
-<a id="more"></a>
+<span id="more"></span>
 <ul>
 <li>所以，对于这种情况可以使用快速幂的方法来计算，，，</li>
 <li>首先，快速幂的主要思想是将多个a合并，，比如：</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">2^11 </span><br><span class="line">== 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 </span><br><span class="line">== (2 * 2) * (2 * 2) * (2 * 2) * (2 * 2) * (2 * 2) * 2 </span><br><span class="line">== 4 * 4 * 4 * 4 * 4 * 2 </span><br><span class="line">== (4 * 4) * (4 * 4) * 4 * 2 </span><br><span class="line">== 16 * 16 * 4 * 2 ...</span><br></pre></td></tr></table></figure>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc">2^11 <br><span class="hljs-section">== 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 </span><br><span class="hljs-section">== (2 * 2) * (2 * 2) * (2 * 2) * (2 * 2) * (2 * 2) * 2 </span><br><span class="hljs-section">== 4 * 4 * 4 * 4 * 4 * 2 </span><br><span class="hljs-section">== (4 * 4) * (4 * 4) * 4 * 2 </span><br><span class="hljs-section">== 16 * 16 * 4 * 2 ...</span><br></code></pre></td></tr></table></figure>
 <p>这样就就把10次的乘法操作减少到了5次，，，这样就减少的运算的时间，，，就 <strong>有可能</strong>不会TLE，， (因为有的题的数据可能快速幂也会超时，，，<em>(:3 」∠ )</em>)</p>
-<h2 id="快速幂的模板："><a href="#快速幂的模板：" class="headerlink" title="快速幂的模板："></a><strong>快速幂的模板：</strong></h2><h3 id="递推的写法（用循环解决）"><a href="#递推的写法（用循环解决）" class="headerlink" title="递推的写法（用循环解决）"></a><strong>递推的写法（用循环解决）</strong></h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD = <span class="number">1e9</span>;</span><br><span class="line"><span class="function">ll <span class="title">pow</span> <span class="params">(ll a , ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll ans = <span class="number">1</span>;     <span class="comment">//注意是1，，，下面的快乘是0，，</span></span><br><span class="line">    <span class="keyword">while</span> (b)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (b &amp; <span class="number">1</span>)  ans = ans * a % MOD;    <span class="comment">//如果b,也就是当前指数是奇数时，要给ans补一个a，，因为下面b会减半</span></span><br><span class="line">        a = a * a % MOD;                    <span class="comment">//合并两个a，变成a^2</span></span><br><span class="line">        b /= <span class="number">2</span>;                             <span class="comment">//b减半</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="递归的写法（用函数递归解决）"><a href="#递归的写法（用函数递归解决）" class="headerlink" title="递归的写法（用函数递归解决）"></a><strong>递归的写法（用函数递归解决）</strong></h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD = <span class="number">1e9</span>;</span><br><span class="line"><span class="function">ll <span class="title">pow</span> <span class="params">(ll a , ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (b == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    ll ans = <span class="built_in">pow</span> (a , b / <span class="number">2</span>);</span><br><span class="line">    ans = ans * ans % MOD;</span><br><span class="line">    <span class="keyword">if</span> (b &amp; <span class="number">1</span>)  ans = ans * a % MOD;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="用位操作的写法"><a href="#用位操作的写法" class="headerlink" title="用位操作的写法"></a><strong>用位操作的写法</strong></h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD = <span class="number">1e9</span>;</span><br><span class="line"><span class="function">ll <span class="title">pow</span> <span class="params">(ll a , ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (b)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (b &amp; <span class="number">1</span>)  ans = ans * a % MOD;</span><br><span class="line">         a = a * a % MOD;</span><br><span class="line">         b &gt;&gt;= <span class="number">1</span>;                           <span class="comment">//b右移相当于除以二</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="快速幂的模板："><a href="#快速幂的模板：" class="headerlink" title="快速幂的模板："></a><strong>快速幂的模板：</strong></h2><h3 id="递推的写法（用循环解决）"><a href="#递推的写法（用循环解决）" class="headerlink" title="递推的写法（用循环解决）"></a><strong>递推的写法（用循环解决）</strong></h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ll;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> MOD = <span class="hljs-number">1e9</span>;<br><span class="hljs-function">ll <span class="hljs-title">pow</span> <span class="hljs-params">(ll a , ll b)</span></span><br><span class="hljs-function"></span>&#123;<br>    ll ans = <span class="hljs-number">1</span>;     <span class="hljs-comment">//注意是1，，，下面的快乘是0，，</span><br>    <span class="hljs-keyword">while</span> (b)<br>    &#123;<br>        <span class="hljs-keyword">if</span> (b &amp; <span class="hljs-number">1</span>)  ans = ans * a % MOD;    <span class="hljs-comment">//如果b,也就是当前指数是奇数时，要给ans补一个a，，因为下面b会减半</span><br>        a = a * a % MOD;                    <span class="hljs-comment">//合并两个a，变成a^2</span><br>        b /= <span class="hljs-number">2</span>;                             <span class="hljs-comment">//b减半</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="递归的写法（用函数递归解决）"><a href="#递归的写法（用函数递归解决）" class="headerlink" title="递归的写法（用函数递归解决）"></a><strong>递归的写法（用函数递归解决）</strong></h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ll;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> MOD = <span class="hljs-number">1e9</span>;<br><span class="hljs-function">ll <span class="hljs-title">pow</span> <span class="hljs-params">(ll a , ll b)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (b == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>    ll ans = <span class="hljs-built_in">pow</span> (a , b / <span class="hljs-number">2</span>);<br>    ans = ans * ans % MOD;<br>    <span class="hljs-keyword">if</span> (b &amp; <span class="hljs-number">1</span>)  ans = ans * a % MOD;<br>    <span class="hljs-keyword">return</span> ans;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="用位操作的写法"><a href="#用位操作的写法" class="headerlink" title="用位操作的写法"></a><strong>用位操作的写法</strong></h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ll;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> MOD = <span class="hljs-number">1e9</span>;<br><span class="hljs-function">ll <span class="hljs-title">pow</span> <span class="hljs-params">(ll a , ll b)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">while</span> (b)<br>    &#123;<br>        <span class="hljs-keyword">if</span> (b &amp; <span class="hljs-number">1</span>)  ans = ans * a % MOD;<br>         a = a * a % MOD;<br>         b &gt;&gt;= <span class="hljs-number">1</span>;                           <span class="hljs-comment">//b右移相当于除以二</span><br>    &#125;<br>    <span class="hljs-keyword">return</span> ans;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>在某些模板里a用的res,,b用的n</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD = <span class="number">1e9</span>;</span><br><span class="line"><span class="function">ll <span class="title">pow</span> <span class="params">(ll x , ll n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll res = x;</span><br><span class="line">    ll ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (n &amp; <span class="number">1</span>)  ans = ans * res % MOD;</span><br><span class="line">         res = res * res % MOD;</span><br><span class="line">         n &gt;&gt;= <span class="number">1</span>;                           <span class="comment">//b右移相当于除以二</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="快速乘"><a href="#快速乘" class="headerlink" title="快速乘"></a><strong>快速乘</strong></h3><p> 有了快速幂就有了 <strong>快速乘</strong>，只要把乘该成加就OK啦，，，(ゝ∀･)<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD = <span class="number">1e9</span>;</span><br><span class="line"><span class="function">ll <span class="title">mul</span> <span class="params">(ll x , ll n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll res = x;</span><br><span class="line">    ll ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (n &amp; <span class="number">1</span>)  ans = (ans + res) % MOD;</span><br><span class="line">         res = (res + res) % MOD;</span><br><span class="line">         n &gt;&gt;= <span class="number">1</span>;                           <span class="comment">//b右移相当于除以二</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>对了，，，快速幂里的乘法运算也可以换成快速乘，，，</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line">ll MOD;</span><br><span class="line"><span class="function">ll <span class="title">mul</span> <span class="params">(ll a , ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (b)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (b &amp; <span class="number">1</span>)  ans = (ans + a) % MOD;</span><br><span class="line">        a = (a + a) % MOD;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">pow</span> <span class="params">(ll a , ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (b)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (b &amp; <span class="number">1</span>)  ans = mul(ans , a);</span><br><span class="line">        a = mul(a , a);</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="矩阵快速幂："><a href="#矩阵快速幂：" class="headerlink" title="矩阵快速幂："></a>矩阵快速幂：</h2><p>好了，，，(」・ω・)」うー！(／・ω・)／にゃー！快速幂和快速乘都清楚了，，这时来看另一个东西，，<strong>矩阵快速幂</strong>(σ′▽‵)′▽‵)σ<br>首先，，，我们先实现一个矩阵结构体，，，<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Matrix</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    ll m[N][N];</span><br><span class="line">&#125;ans , res;                                 <span class="comment">//ans是最终的结果，，res是中间合并操作的变量，类似a*a等等</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ll;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> MOD = <span class="hljs-number">1e9</span>;<br><span class="hljs-function">ll <span class="hljs-title">pow</span> <span class="hljs-params">(ll x , ll n)</span></span><br><span class="hljs-function"></span>&#123;<br>    ll res = x;<br>    ll ans = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span> (n)<br>    &#123;<br>        <span class="hljs-keyword">if</span> (n &amp; <span class="hljs-number">1</span>)  ans = ans * res % MOD;<br>         res = res * res % MOD;<br>         n &gt;&gt;= <span class="hljs-number">1</span>;                           <span class="hljs-comment">//b右移相当于除以二</span><br>    &#125;<br>    <span class="hljs-keyword">return</span> ans;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="快速乘"><a href="#快速乘" class="headerlink" title="快速乘"></a><strong>快速乘</strong></h3><p> 有了快速幂就有了 <strong>快速乘</strong>，只要把乘该成加就OK啦，，，(ゝ∀･)<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ll;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> MOD = <span class="hljs-number">1e9</span>;<br><span class="hljs-function">ll <span class="hljs-title">mul</span> <span class="hljs-params">(ll x , ll n)</span></span><br><span class="hljs-function"></span>&#123;<br>    ll res = x;<br>    ll ans = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span> (n)<br>    &#123;<br>        <span class="hljs-keyword">if</span> (n &amp; <span class="hljs-number">1</span>)  ans = (ans + res) % MOD;<br>         res = (res + res) % MOD;<br>         n &gt;&gt;= <span class="hljs-number">1</span>;                           <span class="hljs-comment">//b右移相当于除以二</span><br>    &#125;<br>    <span class="hljs-keyword">return</span> ans;<br>&#125;<br></code></pre></td></tr></table></figure><br>对了，，，快速幂里的乘法运算也可以换成快速乘，，，</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ll;<br>ll MOD;<br><span class="hljs-function">ll <span class="hljs-title">mul</span> <span class="hljs-params">(ll a , ll b)</span></span><br><span class="hljs-function"></span>&#123;<br>    ll ans = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">while</span> (b)<br>    &#123;<br>        <span class="hljs-keyword">if</span> (b &amp; <span class="hljs-number">1</span>)  ans = (ans + a) % MOD;<br>        a = (a + a) % MOD;<br>        b &gt;&gt;= <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> ans;<br>&#125;<br><span class="hljs-function">ll <span class="hljs-title">pow</span> <span class="hljs-params">(ll a , ll b)</span></span><br><span class="hljs-function"></span>&#123;<br>    ll ans = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span> (b)<br>    &#123;<br>        <span class="hljs-keyword">if</span> (b &amp; <span class="hljs-number">1</span>)  ans = mul(ans , a);<br>        a = mul(a , a);<br>        b &gt;&gt;= <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> ans;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="矩阵快速幂："><a href="#矩阵快速幂：" class="headerlink" title="矩阵快速幂："></a>矩阵快速幂：</h2><p>好了，，，(」・ω・)」うー！(／・ω・)／にゃー！快速幂和快速乘都清楚了，，这时来看另一个东西，，<strong>矩阵快速幂</strong>(σ′▽‵)′▽‵)σ<br>首先，，，我们先实现一个矩阵结构体，，，<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ll;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> N = <span class="hljs-number">100</span>;<br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Matrix</span></span><br><span class="hljs-class">&#123;</span><br>    ll m[N][N];<br>&#125;ans , res;                                 <span class="hljs-comment">//ans是最终的结果，，res是中间合并操作的变量，类似a*a等等</span><br></code></pre></td></tr></table></figure></p>
 <p><del>然后，，emmmm先鸽了，，，碎觉ｷﾀ━━━━(ﾟ∀ﾟ)━━━━!!</del></p>
 <p>然后，，实现两矩阵的相乘，，，(ﾉ&gt;ω&lt;)ﾉ</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Matrix <span class="title">mul</span> <span class="params">(Matrix a , Matrix b , <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Matrix t;                               <span class="comment">//临时矩阵</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)             <span class="comment">//初始化为0</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++)</span><br><span class="line">            t.m[i][j] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)             <span class="comment">//矩阵的相乘</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; n; k++)</span><br><span class="line">            &#123;</span><br><span class="line">                t.m[i][j] = (t.m[i][j] + (a.m[i][k] * b.m[k][j]) % MOD) % MOD;  <span class="comment">//对每一个数取模</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> t;                               <span class="comment">//返回结果</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">Matrix <span class="hljs-title">mul</span> <span class="hljs-params">(Matrix a , Matrix b , <span class="hljs-keyword">int</span> n)</span></span><br><span class="hljs-function"></span>&#123;<br>    Matrix t;                               <span class="hljs-comment">//临时矩阵</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)             <span class="hljs-comment">//初始化为0</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++)<br>            t.m[i][j] = <span class="hljs-number">0</span>;<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)             <span class="hljs-comment">//矩阵的相乘</span><br>    &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++)<br>        &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> k = <span class="hljs-number">0</span>; k &lt; n; k++)<br>            &#123;<br>                t.m[i][j] = (t.m[i][j] + (a.m[i][k] * b.m[k][j]) % MOD) % MOD;  <span class="hljs-comment">//对每一个数取模</span><br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> t;                               <span class="hljs-comment">//返回结果</span><br>&#125;<br></code></pre></td></tr></table></figure>
 <p>然后就是最重要的，，，<strong>矩阵的快速幂</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">matrixmul</span> <span class="params">(<span class="keyword">int</span> nn , <span class="keyword">int</span> n)</span>             <span class="comment">//nn是指数，，，n是阶数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)             <span class="comment">//先将ans矩阵初始化为单位矩阵</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++)</span><br><span class="line">            <span class="keyword">if</span> (i == j)</span><br><span class="line">                ans.m[i][j] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                ans.m[i][j] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (nn)                              <span class="comment">//矩阵的快速幂，，把以前的乘号改成上面的mul函数就可以了，，，</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (nn &amp; <span class="number">1</span>)  ans = mul (ans , res , n);</span><br><span class="line">        res = mul (res , res , n);</span><br><span class="line">        nn &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">matrixmul</span> <span class="hljs-params">(<span class="hljs-keyword">int</span> nn , <span class="hljs-keyword">int</span> n)</span>             <span class="hljs-comment">//nn是指数，，，n是阶数</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)             <span class="hljs-comment">//先将ans矩阵初始化为单位矩阵</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++)<br>            <span class="hljs-keyword">if</span> (i == j)<br>                ans.m[i][j] = <span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">else</span><br>                ans.m[i][j] = <span class="hljs-number">0</span>;<br><br>    <span class="hljs-keyword">while</span> (nn)                              <span class="hljs-comment">//矩阵的快速幂，，把以前的乘号改成上面的mul函数就可以了，，，</span><br>    &#123;<br>        <span class="hljs-keyword">if</span> (nn &amp; <span class="hljs-number">1</span>)  ans = mul (ans , res , n);<br>        res = mul (res , res , n);<br>        nn &gt;&gt;= <span class="hljs-number">1</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>好了，，，这样主题的框架就有了，，，</p>
 <p>接下来就是根据递推式来转化成矩阵的运算，，，</p>
 <p>利用矩阵快速幂的题一般会根据题意来得到一个关于f(n)的递推式，，</p>
 <p>如果只是简单的用循环递归来实现，，在有些题里n很大时会tle ，，，如果在开始时预先算出来f(n)储存，有可能mle，，，所以这种情况下可以试试矩阵的快速幂来解体，，，</p>
 <p>我们的任务就是根据这个递推式来转化为一个矩阵的递推式，，这个矩阵一般是一个含有f(n)的矩阵等于一个f(n-1)*A的形式，，然后根据递推式就可以将这个新的矩阵递推式转化成一个含有f(n)的矩阵等于一个含有f(a)等常数的矩阵乘一个常数矩阵A的n-m次幂，，，（这里的a、m都是一个不定的常数，，）</p>
-<p>例如，斐波那契数列f(n) = f(n - 1) + f(n - 2)写成矩阵的形式就是<br>$<br><span>$$\left[
-\begin{matrix}
-f(n) &amp; f(n - 1)
-\end{matrix}
-\right]$$</span><!-- Has MathJax --> == <span>$$\left[
-\begin{matrix}
-f(n - 1) &amp; f(n - 2)
-\end{matrix}
-\right]$$</span><!-- Has MathJax --></p>
-<p>*<br><span>$$\left[
-\begin{matrix}
-1 &amp; 1\\
-1 &amp; 0
-\end{matrix}
-\right]$$</span><!-- Has MathJax --><br>$<br>然后，，， 把$<br><span>$$\left[
-\begin{matrix}
-f(n - 1) &amp; f(n - 2)
-\end{matrix}
-\right]$$</span><!-- Has MathJax --><br>再展开，，，就可以得到很多的A(<span>$$\left[
-\begin{matrix}
-1 &amp; 1\\
-1 &amp; 0
-\end{matrix}
-\right]$$</span><!-- Has MathJax -->)$相乘，，，</p>
-<p>也就是$<br><span>$$\left[
-\begin{matrix}
-f(n) &amp; f(n - 1)
-\end{matrix}
-\right]$$</span><!-- Has MathJax --><br>\==<br><span>$$\left[
-\begin{matrix}
-f(2) &amp; f(1)
-\end{matrix}
-\right]$$</span><!-- Has MathJax --> * $A^n$$</p>
+<p>例如，斐波那契数列f(n) = f(n - 1) + f(n - 2)写成矩阵的形式就是</p>
+<p>$</p>
+<p>\left[<br>\begin{matrix}<br>f(n) &amp; f(n - 1)<br>\end{matrix}</p>
+<h1 id="right"><a href="#right" class="headerlink" title="\right]"></a>\right]</h1><p>\left[<br>\begin{matrix}<br>f(n - 1) &amp; f(n - 2)<br>\end{matrix}<br>\right]</p>
+<p>*</p>
+<p>\left[<br>\begin{matrix}<br>1 &amp; 1\<br>1 &amp; 0<br>\end{matrix}<br>\right]</p>
+<p>$<br>然后，，， 把$</p>
+<p>\left[<br>\begin{matrix}<br>f(n - 1) &amp; f(n - 2)<br>\end{matrix}<br>\right]</p>
+<p>再展开，，，就可以得到很多的A(<br>\left[<br>\begin{matrix}<br>1 &amp; 1\<br>1 &amp; 0<br>\end{matrix}<br>\right]<br>)$相乘，，，</p>
+<p>也就是$</p>
+<p>\left[<br>\begin{matrix}<br>f(n) &amp; f(n - 1)<br>\end{matrix}<br>\right]</p>
+<p>\== </p>
+<p>\left[<br>\begin{matrix}<br>f(2) &amp; f(1)<br>\end{matrix}<br>\right]</p>
+<ul>
+<li>$A^n$$</li>
+</ul>
 <p>m阶矩阵A的相乘的时间复杂度是O($m^3$)，，矩阵快速幂为O(logn)</p>
-<p>所以这个的时间复杂度是 8*log1000 &lt; 1000这样就减小了运算时间，，，<a href="https://www.cnblogs.com/chsobin/p/8417356.html" target="_blank" rel="noopener">参考</a></p>
-<p>还有一些其他的递推公式的推导，，，看<a href="https://blog.csdn.net/wust_zzwh/article/details/52058209" target="_blank" rel="noopener">这里，，，</a>，，，</p>
-<p>然后是一些<a href="https://blog.csdn.net/chenguolinblog/article/details/10309423" target="_blank" rel="noopener">练习题</a>，，，</p>
+<p>所以这个的时间复杂度是 8*log1000 &lt; 1000这样就减小了运算时间，，，<a target="_blank" rel="noopener" href="https://www.cnblogs.com/chsobin/p/8417356.html">参考</a></p>
+<p>还有一些其他的递推公式的推导，，，看<a target="_blank" rel="noopener" href="https://blog.csdn.net/wust_zzwh/article/details/52058209">这里，，，</a>，，，</p>
+<p>然后是一些<a target="_blank" rel="noopener" href="https://blog.csdn.net/chenguolinblog/article/details/10309423">练习题</a>，，，</p>
 
-        </div>
-
-        <blockquote class="post-copyright">
-    
-    <div class="content">
-        
-<span class="post-time">
-    最后更新时间：<time datetime="2018-07-23T03:35:00.678Z" itemprop="dateUpdated">2018-07-23 11:35:00</time>
-</span><br>
-
-
-        
-        <a href="/2018/07/16/数论_快速幂/" target="_blank" rel="external">http://blog.31415x.cf/2018/07/16/数论_快速幂/</a>
-        
-    </div>
-    
-    <footer>
-        <a href="http://blog.31415x.cf">
-            <img src="/img/misaka.jpg" alt="31415926535x">
-            31415926535x
-        </a>
-    </footer>
-</blockquote>
-
-        
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/acm/">acm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-
-            
-<div class="page-share-wrap">
-    
-
-<div class="page-share" id="pageShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.31415x.cf/2018/07/16/数论_快速幂/&title=《数论_快速幂》 — 31415926535x&pic=http://blog.31415x.cf/img/misaka.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.31415x.cf/2018/07/16/数论_快速幂/&title=《数论_快速幂》 — 31415926535x&source=2018.7.16
-这篇主要是关于数论里的快速幂和矩阵的快速乘法，，，
-快速幂和快速乘对于a^n这样的计算，，最简单的方法就是一个for循环连乘下去，，
-..." data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.31415x.cf/2018/07/16/数论_快速幂/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数论_快速幂》 — 31415926535x&url=http://blog.31415x.cf/2018/07/16/数论_快速幂/&via=http://blog.31415x.cf" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.31415x.cf/2018/07/16/数论_快速幂/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
-        <i class="icon icon-share-alt icon-lg"></i>
-    </a>
-</div>
-
-
-
-        </div>
-    </div>
-
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2018/07/17/线段树/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">线段树</h4>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/2018/05/21/继承与派生/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">继承与派生</h4>
-      </a>
-    </div>
-  
-</nav>
-
-
-
-    
-
-
-<section class="comments" id="comments">
-    <div id="disqus_thread"></div>
-    <script>
-    var disqus_shortname = 'www-31415-cf';
-    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</article>
-
-
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
-        
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p><span>31415926535x &copy; 2018 - 2021</span>
-            <span>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
                 
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/acm/">acm</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2018/07/17/%E7%BA%BF%E6%AE%B5%E6%A0%91/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">线段树</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2018/05/21/%E7%BB%A7%E6%89%BF%E4%B8%8E%E6%B4%BE%E7%94%9F/">
+                        <span class="hidden-mobile">继承与派生</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_config = function() {
+        this.page.url = 'http://blog.31415x.cf/2018/07/16/%E6%95%B0%E8%AE%BA_%E5%BF%AB%E9%80%9F%E5%B9%82/';
+        this.page.identifier = '/2018/07/16/%E6%95%B0%E8%AE%BA_%E5%BF%AB%E9%80%9F%E5%B9%82/';
+      };
+      Fluid.utils.waitElementVisible('disqus_thread', function () {
+        var d = document, s = d.createElement('script');
+        s.src = '//' + 'www-31415-cf' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', new Date());
+        (d.head || d.body).appendChild(s);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the
+      <a target="_blank" href="https://disqus.com/?ref_noscript" rel="nofollow noopener noopener">comments powered by Disqus.</a>
+    </noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
     </div>
-	
-	
-	<div id="aplayer">
-		<!-- 音乐播放器 -->
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.css">
-		<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.js"></script>
-		<div id="aplayer" class="aplayer" data-id="2254014329" data-lrctype="0" data-server="netease" data-type="playlist" data-fixed="true" data-listfolded="true"></div>
-		<script src="https://unpkg.com/meting@1.2/dist/Meting.min.js"></script>
-	</div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br> <a>不忘初心 <strong><span style="color: red">☭</span></strong> 方得始终</a> 
+  </div>
+  
+
+  
+
+  
 </footer>
 
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
 
 
 
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.31415x.cf/2018/07/16/数论_快速幂/&title=《数论_快速幂》 — 31415926535x&pic=http://blog.31415x.cf/img/misaka.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.31415x.cf/2018/07/16/数论_快速幂/&title=《数论_快速幂》 — 31415926535x&source=2018.7.16
-这篇主要是关于数论里的快速幂和矩阵的快速乘法，，，
-快速幂和快速乘对于a^n这样的计算，，最简单的方法就是一个for循环连乘下去，，
-..." data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.31415x.cf/2018/07/16/数论_快速幂/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数论_快速幂》 — 31415926535x&url=http://blog.31415x.cf/2018/07/16/数论_快速幂/&via=http://blog.31415x.cf" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.31415x.cf/2018/07/16/数论_快速幂/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
+  
 
 
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://blog.31415x.cf/2018/07/16/数论_快速幂/" alt="微信分享二维码">
-</div>
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
 
 
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
-</script>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
 
 
 
-<!-- mathjax config similar to math.stackexchange -->
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
-
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
-
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
 
 
 
 
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+  
 
-
-<script>
-(function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = '(つェ⊂)';
-            clearTimeout(titleTime);
-        } else {
-            document.title = '(๑•̀ㅂ•́)و✧';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
         }
-    });
-})();
-</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
-</script>
+      };
+    </script>
 
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
     }
-  });
-</script>
+  </script>
 
-<script type="text/javascript" src="custom_mathjax_source">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-114656515-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 

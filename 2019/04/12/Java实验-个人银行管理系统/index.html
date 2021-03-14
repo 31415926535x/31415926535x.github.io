@@ -1,269 +1,269 @@
+
+
 <!DOCTYPE html>
-<html>
-<head><meta name="generator" content="Hexo 3.9.0">
-    
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Google Analytics -->
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-114656515-1', 'auto');
-ga('send', 'pageview');
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-<!-- End Google Analytics -->
-
-
-    
-
-    
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
-    <meta charset="utf-8">
-    
-    
-    
-    <link rel="canonical" href="https://31415926535x.github.io/2019/04/12/Java实验-个人银行管理系统/">
-    
-    
-    <title>课程设计报告一：个人银行账户管理系统 此文档及源码仅供参考 不得直接复制使用 | 31415926535x</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#40c4ff">
-    
-    
-    <meta name="keywords" content="笔记,Java">
-    <meta name="description" content="作　　者：31415926535x 出　　处：https://www.cnblogs.com/31415926535x/p/10697659.html 版权声明：署名 - 非商业性使用 - 禁止演绎，协议普通文本 | 协议法律文本。 不建议直接复制文档、源码，没意义，这东西还是自己手敲一下才能涨经验 项目所有的内容都已上传至本人github，有需自取😀 一、    课程设计要求与目的 1、 模仿">
-<meta name="keywords" content="笔记,Java">
-<meta property="og:type" content="article">
-<meta property="og:title" content="课程设计报告一：个人银行账户管理系统 此文档及源码仅供参考 不得直接复制使用">
-<meta property="og:url" content="http://blog.31415x.cf/2019/04/12/Java实验-个人银行管理系统/index.html">
-<meta property="og:site_name" content="31415926535x">
-<meta property="og:description" content="作　　者：31415926535x 出　　处：https://www.cnblogs.com/31415926535x/p/10697659.html 版权声明：署名 - 非商业性使用 - 禁止演绎，协议普通文本 | 协议法律文本。 不建议直接复制文档、源码，没意义，这东西还是自己手敲一下才能涨经验 项目所有的内容都已上传至本人github，有需自取😀 一、    课程设计要求与目的 1、 模仿">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/31415926535x/CollegeProjectBackup/master/java_shiyan/PersonBankAccountManageSystem/doc/uml/v4_9/uml/uml.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/31415926535x/CollegeProjectBackup/master/java_shiyan/PersonBankAccountManageSystem/doc/uml/v5_11/uml/uml.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/31415926535x/CollegeProjectBackup/master/java_shiyan/PersonBankAccountManageSystem/doc/uml/v6_25/uml/uml.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/31415926535x/CollegeProjectBackup/master/java_shiyan/PersonBankAccountManageSystem/doc/uml/v7_10/uml/uml.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/31415926535x/CollegeProjectBackup/master/java_shiyan/PersonBankAccountManageSystem/doc/uml/v8_8/uml/uml.png">
-<meta property="og:updated_time" content="2019-08-02T03:00:37.927Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="课程设计报告一：个人银行账户管理系统 此文档及源码仅供参考 不得直接复制使用">
-<meta name="twitter:description" content="作　　者：31415926535x 出　　处：https://www.cnblogs.com/31415926535x/p/10697659.html 版权声明：署名 - 非商业性使用 - 禁止演绎，协议普通文本 | 协议法律文本。 不建议直接复制文档、源码，没意义，这东西还是自己手敲一下才能涨经验 项目所有的内容都已上传至本人github，有需自取😀 一、    课程设计要求与目的 1、 模仿">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/31415926535x/CollegeProjectBackup/master/java_shiyan/PersonBankAccountManageSystem/doc/uml/v4_9/uml/uml.png">
-    
-        <link rel="alternate" type="application/atom+xml" title="31415926535x" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/misaka.jpg">
+  <link rel="icon" href="/img/misaka.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  
+    <meta name="description" content="作　　者：31415926535x
+出　　处：https://www.cnblogs.com/31415926535x/p/10697659.html
+版权声明：署名 - 非商业性使用 - 禁止演绎，协议普通文本 | 协议法律文本。
+不建议直接复制文档、源码，没意义，这东西还是自己手敲一下才能涨经验
+项目所有的内容都已上传至本人github，有需自取😀
+一、    课程设计要求与目的
+1、 模仿">
+  
+  <meta name="author" content="31415926535x">
+  <meta name="keywords" content="">
+  
+  <title>课程设计报告一：个人银行账户管理系统 此文档及源码仅供参考 不得直接复制使用 - 31415926535x</title>
 
-    <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-    
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/monokai.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"blog.31415x.cf","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":null,"google":"UA-114656515-1","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="31415926535x" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
-<body>
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide" >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/misaka.jpg">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">31415926535x</h5>
-          <a href="mailto:2509437152wx@gmail.com" title="2509437152wx@gmail.com" class="mail">2509437152wx@gmail.com</a>
-        </hgroup>
-      </div>
-    </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>31415926535x</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                Archives
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                标签
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/31415926535x" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="https://plus.google.com/106114719135977350421" target="_blank" >
-                <i class="icon icon-lg icon-google"></i>
-                Google+
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="https://instagram.com/314159265358x" target="_blank" >
-                <i class="icon icon-lg icon-instagram"></i>
-                Instagram
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="https://cnblogs.com/31415926535x" target="_blank" >
-                <i class="icon icon-lg icon-th-large"></i>
-                cnblogs
-              </a>
-            </li>
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
         
-            <li class="waves-block waves-effect">
-              <a href="https://blog.csdn.net/pi31415926535x" target="_blank" >
-                <i class="icon icon-lg icon-cubes"></i>
-                csdn
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/timeline"  >
-                <i class="icon icon-lg icon-calendar"></i>
-                timeline
-              </a>
-            </li>
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
         
       </ul>
     </div>
   </div>
-</aside>
+</nav>
 
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">课程设计报告一：个人银行账户管理系统 此文档及源码仅供参考 不得直接复制使用</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
-        
-    </div>
-</header>
-<header class="content-header post-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">课程设计报告一：个人银行账户管理系统 此文档及源码仅供参考 不得直接复制使用</h1>
-        <h5 class="subtitle">
-            
-                <time datetime="2019-04-12T10:54:45.934Z" itemprop="datePublished" class="page-time">
-  2019-04-12
-</time>
-
-
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Java/">Java</a></li></ul>
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="课程设计报告一：个人银行账户管理系统 此文档及源码仅供参考 不得直接复制使用">
+              
+            </span>
 
             
-        </h5>
-    </div>
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      31415926535x
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-04-12 18:54" pubdate>
+        2019年4月12日 晚上
+      </time>
+    </span>
+  
+</div>
 
+<div class="mt-1">
+  
     
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      8.6k 字
+    </span>
+  
 
-
-</header>
-
-
-<div class="container body-wrap">
+  
     
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、-课程设计要求与目的"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、    课程设计要求与目的</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、课程设计进展记录"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、课程设计进展记录</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、-个人银行管理系统版本0-1（对应第4章记录）"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">1、 个人银行管理系统版本0.1（对应第4章记录）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-1-系统需求"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">1.1    系统需求</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2-系统设计"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">1.2    系统设计</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-3-系统实现"><span class="post-toc-number">2.1.3.</span> <span class="post-toc-text">1.3    系统实现</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#SavingAccount-类的定义："><span class="post-toc-number">2.1.3.1.</span> <span class="post-toc-text">SavingAccount() 类的定义：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#数据成员"><span class="post-toc-number">2.1.3.1.1.</span> <span class="post-toc-text">数据成员</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#类中方法"><span class="post-toc-number">2.1.3.1.2.</span> <span class="post-toc-text">类中方法</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-4-系统测试"><span class="post-toc-number">2.1.4.</span> <span class="post-toc-text">1.4    系统测试</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-5-体会心得"><span class="post-toc-number">2.1.5.</span> <span class="post-toc-text">1.5    体会心得</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、-个人银行管理系统版本0-2（对应第5章记录）"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2、 个人银行管理系统版本0.2（对应第5章记录）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-系统需求"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">2.1    系统需求</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-系统设计"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">2.2    系统设计</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-系统实现"><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">2.3    系统实现</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-4-系统测试"><span class="post-toc-number">2.2.4.</span> <span class="post-toc-text">2.4    系统测试</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-5-体会心得"><span class="post-toc-number">2.2.5.</span> <span class="post-toc-text">2.5    体会心得</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3、-个人银行管理系统版本0-3（对应第6章记录）"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">3、 个人银行管理系统版本0.3（对应第6章记录）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-1-系统需求"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">3.1    系统需求</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-2-系统设计"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">3.2    系统设计</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-3-系统实现"><span class="post-toc-number">2.3.3.</span> <span class="post-toc-text">3.3    系统实现</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Date类的实现"><span class="post-toc-number">2.3.3.1.</span> <span class="post-toc-text">Date类的实现</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#SavingsAccount类的改动"><span class="post-toc-number">2.3.3.2.</span> <span class="post-toc-text">SavingsAccount类的改动</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-4-系统测试"><span class="post-toc-number">2.3.4.</span> <span class="post-toc-text">3.4    系统测试</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-5-体会心得"><span class="post-toc-number">2.3.5.</span> <span class="post-toc-text">3.5    体会心得</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4、-个人银行管理系统版本0-4（对应第7章记录）"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">4、 个人银行管理系统版本0.4（对应第7章记录）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-1-系统需求"><span class="post-toc-number">2.4.1.</span> <span class="post-toc-text">4.1    系统需求</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-2-系统设计"><span class="post-toc-number">2.4.2.</span> <span class="post-toc-text">4.2    系统设计</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-3-系统实现"><span class="post-toc-number">2.4.3.</span> <span class="post-toc-text">4.3    系统实现</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Account类实现"><span class="post-toc-number">2.4.3.1.</span> <span class="post-toc-text">Account类实现</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Accumulator类"><span class="post-toc-number">2.4.3.2.</span> <span class="post-toc-text">Accumulator类</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#SavingsAccount类"><span class="post-toc-number">2.4.3.3.</span> <span class="post-toc-text">SavingsAccount类</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#CreditAccount类"><span class="post-toc-number">2.4.3.4.</span> <span class="post-toc-text">CreditAccount类</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Date类"><span class="post-toc-number">2.4.3.5.</span> <span class="post-toc-text">Date类</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-4-系统测试"><span class="post-toc-number">2.4.4.</span> <span class="post-toc-text">4.4    系统测试</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-5-体会心得"><span class="post-toc-number">2.4.5.</span> <span class="post-toc-text">4.5    体会心得</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5、-个人银行管理系统版本0-5（对应第8章记录）"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">5、 个人银行管理系统版本0.5（对应第8章记录）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-1-系统需求"><span class="post-toc-number">2.5.1.</span> <span class="post-toc-text">5.1    系统需求</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-2-系统设计"><span class="post-toc-number">2.5.2.</span> <span class="post-toc-text">5.2    系统设计</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Account类的改进"><span class="post-toc-number">2.5.2.1.</span> <span class="post-toc-text">Account类的改进</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Date类的改进"><span class="post-toc-number">2.5.2.2.</span> <span class="post-toc-text">Date类的改进</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-3-系统实现"><span class="post-toc-number">2.5.3.</span> <span class="post-toc-text">5.3    系统实现</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Account类"><span class="post-toc-number">2.5.3.1.</span> <span class="post-toc-text">Account类</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#CreditAccount类-1"><span class="post-toc-number">2.5.3.2.</span> <span class="post-toc-text">CreditAccount类</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Date类-1"><span class="post-toc-number">2.5.3.3.</span> <span class="post-toc-text">Date类</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-4-系统测试"><span class="post-toc-number">2.5.4.</span> <span class="post-toc-text">5.4    系统测试</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-5-体会心得"><span class="post-toc-number">2.5.5.</span> <span class="post-toc-text">5.5    体会心得</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6、-个人银行管理系统版本0-6（对应第9章记录）"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">6、 个人银行管理系统版本0.6（对应第9章记录）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-1-系统需求"><span class="post-toc-number">2.6.1.</span> <span class="post-toc-text">6.1    系统需求</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-2-系统设计"><span class="post-toc-number">2.6.2.</span> <span class="post-toc-text">6.2    系统设计</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-3-系统实现"><span class="post-toc-number">2.6.3.</span> <span class="post-toc-text">6.3    系统实现</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Main类"><span class="post-toc-number">2.6.3.1.</span> <span class="post-toc-text">Main类</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-4-系统测试"><span class="post-toc-number">2.6.4.</span> <span class="post-toc-text">6.4    系统测试</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-5-体会心得"><span class="post-toc-number">2.6.5.</span> <span class="post-toc-text">6.5    体会心得</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、-课程设计总结"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、    课程设计总结</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#最终实现的系统功能"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">最终实现的系统功能</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#面向对象的基本设计思想"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">面向对象的基本设计思想</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#封装性"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">封装性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#继承性"><span class="post-toc-number">3.2.2.</span> <span class="post-toc-text">继承性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#多态性"><span class="post-toc-number">3.2.3.</span> <span class="post-toc-text">多态性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#类的组合"><span class="post-toc-number">3.2.4.</span> <span class="post-toc-text">类的组合</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#遇到的问题及解决"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">遇到的问题及解决</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#收获"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">收获</span></a></li></ol></li></ol>
-        </nav>
-    </aside>
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      107
+       分钟
+    </span>
+  
 
-
-<article id="post-Java实验-个人银行管理系统"
-  class="post-article article-type-post fade" itemprop="blogPost">
-
-    <div class="post-card">
-        <h1 class="post-card-title">课程设计报告一：个人银行账户管理系统 此文档及源码仅供参考 不得直接复制使用</h1>
-        <div class="post-meta">
-            <time class="post-time" title="2019-04-12 18:54:45" datetime="2019-04-12T10:54:45.934Z"  itemprop="datePublished">2019-04-12</time>
+  
+  
+</div>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Java/">Java</a></li></ul>
+          </div>
 
-
-
-            
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
-
-
+          
         </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            <p><strong>作　　者：31415926535x</strong></p>
-<p><strong>出　　处：<a href="https://www.cnblogs.com/31415926535x/p/10697659.html" target="_blank" rel="noopener">https://www.cnblogs.com/31415926535x/p/10697659.html</a></strong></p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">课程设计报告一：个人银行账户管理系统 此文档及源码仅供参考 不得直接复制使用</h1>
+            
+            <div class="markdown-body">
+              <p><strong>作　　者：31415926535x</strong></p>
+<p><strong>出　　处：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/31415926535x/p/10697659.html">https://www.cnblogs.com/31415926535x/p/10697659.html</a></strong></p>
 <p><strong>版权声明：署名 - 非商业性使用 - 禁止演绎，协议普通文本 | 协议法律文本。</strong></p>
 <p><strong>不建议直接复制文档、源码，没意义，这东西还是自己手敲一下才能涨经验</strong></p>
-<p><strong>项目所有的内容都已上传至本人<a href="https://github.com/31415926535x/CollegeProjectBackup/tree/master/java_shiyan" target="_blank" rel="noopener">github</a>，有需自取😀</strong></p>
+<p><strong>项目所有的内容都已上传至本人<a target="_blank" rel="noopener" href="https://github.com/31415926535x/CollegeProjectBackup/tree/master/java_shiyan">github</a>，有需自取😀</strong></p>
 <h1 id="一、-课程设计要求与目的"><a href="#一、-课程设计要求与目的" class="headerlink" title="一、    课程设计要求与目的"></a>一、    课程设计要求与目的</h1><ul>
 <li>1、 模仿个人银行账户管理系统的C++版本（第4章-第8章），使用Java语言重新实现该系统，比较C++与Java在实现上的异同，熟练掌握Java基础及语法。</li>
 <li>2、 根据系统需求的演化，逐步完善个人银行账户管理系统的功能，改进代码，体会面向对象思想的封装、继承、多态特性在实际系统中的应用，初步掌握使用Java编写可复用、可扩展、可维护代码的基本技能。</li>
 </ul>
-<a id="more"></a>
+<span id="more"></span>
 <h1 id="二、课程设计进展记录"><a href="#二、课程设计进展记录" class="headerlink" title="二、课程设计进展记录"></a>二、课程设计进展记录</h1><h2 id="1、-个人银行管理系统版本0-1（对应第4章记录）"><a href="#1、-个人银行管理系统版本0-1（对应第4章记录）" class="headerlink" title="1、 个人银行管理系统版本0.1（对应第4章记录）"></a>1、 个人银行管理系统版本0.1（对应第4章记录）</h2><h3 id="1-1-系统需求"><a href="#1-1-系统需求" class="headerlink" title="1.1    系统需求"></a>1.1    系统需求</h3><p>一个人可以有多个活期账户，一个活期储蓄账户包括 <strong>账号（id）</strong> 、 <strong>余额（balance）</strong> 、 <strong>年利率（rate）</strong> 等信息，还包括 <strong>显示账户信息（show）</strong> 、 <strong>存款（deposit）</strong> 、<strong>取款（withdraw）</strong> 、 <strong>结算利息（settle）</strong> 等操作。</p>
 <h3 id="1-2-系统设计"><a href="#1-2-系统设计" class="headerlink" title="1.2    系统设计"></a>1.2    系统设计</h3><p>设计一个 <strong>类 SavingAccount</strong> , 其数据成员为 <strong>id, balance, rate</strong> ， 类的方法有 <strong>show(), deposit(), withdraw(), settle()</strong></p>
 <p>UML:</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://raw.githubusercontent.com/31415926535x/CollegeProjectBackup/master/java_shiyan/PersonBankAccountManageSystem/doc/uml/v4_9/uml/uml.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="https://raw.githubusercontent.com/31415926535x/CollegeProjectBackup/master/java_shiyan/PersonBankAccountManageSystem/doc/uml/v4_9/uml/uml.png" srcset="/img/loading.gif" alt=""></p>
 <p>无论是存款、取款还是结算利息，都需要修改当前的余额并且将余额的变动输出，这些公共操作由 <strong>私有成员方法 record</strong> 来执行。</p>
 <p>利息的计算： 由于账户的余额是不断变化的，因此不能通过余额与年利率相乘的方法来计算年利，而是需要将一年当中每天的余额累计起来再除以一年的总天数，得到一个日均余额，再乘以年利率。为了计算余额的按日累计值，SavingAccount 类引入了一个 <strong>私有数据成员lastDate</strong> ， accumulation 和私有成员函数 accumulate。 lastDate 用来存储上一次viyue变动的日期，accumulation 用来存储上次计算利息以后直到最近一次余额变动时余额按日累加的值，accumulate 成员函数用来计算截止指定日期的账户余额按日累加值。当余额变动时，需要做的事将变动前的余额与该余额所持续的天数相乘，累加到 accumulation 中，再修改 lastDate。</p>
 <p>为了简便，该类中的所有日期均用一个整数来表示，该整数是一个以日为单位的相对日期，例如如果以开户日为1，那么开户日后的第3天就用4来表示， 这样哦他难过将两个日期相减就可以得到两个日期相差的天数。</p>
-<h3 id="1-3-系统实现"><a href="#1-3-系统实现" class="headerlink" title="1.3    系统实现"></a>1.3    系统实现</h3><h4 id="SavingAccount-类的定义："><a href="#SavingAccount-类的定义：" class="headerlink" title="SavingAccount() 类的定义："></a><code>SavingAccount()</code> 类的定义：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SavingsAccount</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="数据成员"><a href="#数据成员" class="headerlink" title="数据成员"></a>数据成员</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> id;				<span class="comment">//账号</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">double</span> balance;			<span class="comment">//余额</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">double</span> rate;			<span class="comment">//存款的年利率</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> lastDate;			<span class="comment">//上次变更余额的时期</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">double</span> accumulation;	        <span class="comment">//余额按日累加之和</span></span><br></pre></td></tr></table></figure>
-<h5 id="类中方法"><a href="#类中方法" class="headerlink" title="类中方法"></a>类中方法</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">SavingsAccount</span><span class="params">(<span class="keyword">int</span> date, <span class="keyword">int</span> id, <span class="keyword">double</span> rate)</span> </span>&#123;&#125; <span class="comment">//构造方法</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">record</span><span class="params">(<span class="keyword">int</span> date, <span class="keyword">double</span> amount)</span> </span>&#123;&#125; <span class="comment">//记录一笔账</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">double</span> <span class="title">accumulate</span><span class="params">(<span class="keyword">int</span> date)</span> </span>&#123;&#125;  <span class="comment">//获得到指定日期为止的存款金额按日累积值</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span><span class="params">()</span> </span>&#123;&#125; <span class="comment">//返回编号</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getBalance</span><span class="params">()</span> </span>&#123;&#125; <span class="comment">//返回余额</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getRate</span><span class="params">()</span> </span>&#123;&#125; <span class="comment">//返回存款的年利率</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deposit</span><span class="params">(<span class="keyword">int</span> date, <span class="keyword">double</span> amount)</span> </span>&#123;&#125; <span class="comment">//存入现金</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">withdraw</span><span class="params">(<span class="keyword">int</span> date, <span class="keyword">double</span> amount)</span> </span>&#123;&#125; <span class="comment">//取出现金</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">settle</span><span class="params">(<span class="keyword">int</span> date)</span> </span>&#123;&#125; <span class="comment">//结算利息，每年1月1日调用一次该函数</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;&#125; <span class="comment">//显示账户信息</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;&#125; <span class="comment">//主函数，呈现所实现的功能</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-3-系统实现"><a href="#1-3-系统实现" class="headerlink" title="1.3    系统实现"></a>1.3    系统实现</h3><h4 id="SavingAccount-类的定义："><a href="#SavingAccount-类的定义：" class="headerlink" title="SavingAccount() 类的定义："></a><code>SavingAccount()</code> 类的定义：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SavingsAccount</span> </span>&#123;&#125;<br></code></pre></td></tr></table></figure>
+<h5 id="数据成员"><a href="#数据成员" class="headerlink" title="数据成员"></a>数据成员</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> id;				<span class="hljs-comment">//账号</span><br><span class="hljs-keyword">private</span> <span class="hljs-keyword">double</span> balance;			<span class="hljs-comment">//余额</span><br><span class="hljs-keyword">private</span> <span class="hljs-keyword">double</span> rate;			<span class="hljs-comment">//存款的年利率</span><br><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> lastDate;			<span class="hljs-comment">//上次变更余额的时期</span><br><span class="hljs-keyword">private</span> <span class="hljs-keyword">double</span> accumulation;	        <span class="hljs-comment">//余额按日累加之和</span><br></code></pre></td></tr></table></figure>
+<h5 id="类中方法"><a href="#类中方法" class="headerlink" title="类中方法"></a>类中方法</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">SavingsAccount</span><span class="hljs-params">(<span class="hljs-keyword">int</span> date, <span class="hljs-keyword">int</span> id, <span class="hljs-keyword">double</span> rate)</span> </span>&#123;&#125; <span class="hljs-comment">//构造方法</span><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">record</span><span class="hljs-params">(<span class="hljs-keyword">int</span> date, <span class="hljs-keyword">double</span> amount)</span> </span>&#123;&#125; <span class="hljs-comment">//记录一笔账</span><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">double</span> <span class="hljs-title">accumulate</span><span class="hljs-params">(<span class="hljs-keyword">int</span> date)</span> </span>&#123;&#125;  <span class="hljs-comment">//获得到指定日期为止的存款金额按日累积值</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getId</span><span class="hljs-params">()</span> </span>&#123;&#125; <span class="hljs-comment">//返回编号</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">double</span> <span class="hljs-title">getBalance</span><span class="hljs-params">()</span> </span>&#123;&#125; <span class="hljs-comment">//返回余额</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">double</span> <span class="hljs-title">getRate</span><span class="hljs-params">()</span> </span>&#123;&#125; <span class="hljs-comment">//返回存款的年利率</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">deposit</span><span class="hljs-params">(<span class="hljs-keyword">int</span> date, <span class="hljs-keyword">double</span> amount)</span> </span>&#123;&#125; <span class="hljs-comment">//存入现金</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">withdraw</span><span class="hljs-params">(<span class="hljs-keyword">int</span> date, <span class="hljs-keyword">double</span> amount)</span> </span>&#123;&#125; <span class="hljs-comment">//取出现金</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">settle</span><span class="hljs-params">(<span class="hljs-keyword">int</span> date)</span> </span>&#123;&#125; <span class="hljs-comment">//结算利息，每年1月1日调用一次该函数</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">show</span><span class="hljs-params">()</span> </span>&#123;&#125; <span class="hljs-comment">//显示账户信息</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;&#125; <span class="hljs-comment">//主函数，呈现所实现的功能</span><br></code></pre></td></tr></table></figure>
 <h3 id="1-4-系统测试"><a href="#1-4-系统测试" class="headerlink" title="1.4    系统测试"></a>1.4    系统测试</h3><p>目的：</p>
 <ul>
 <li>新建两个账户，此时会显示 <code>#xxxxxx is created</code>;</li>
@@ -272,7 +272,7 @@ ga('send', 'pageview');
 <li>显示所有账户的信息，此时会显示： <code>#xxxxx Balance: xxxx</code></li>
 </ul>
 <p>无实际输入内容，输出结果为：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">1	#21325302 is created</span><br><span class="line">1	#58320212 is created</span><br><span class="line">5	#21325302	5000	5000</span><br><span class="line">25	#58320212	10000	10000</span><br><span class="line">45	#21325302	5500	10500</span><br><span class="line">60	#58320212	-4000	6000</span><br><span class="line">90	#21325302	27.64	10527.64</span><br><span class="line">90	#58320212	21.78	6021.78</span><br><span class="line">#21325302	Balance: 10527.64#21325302   Balance: 10527.64</span><br><span class="line"></span><br><span class="line">--------<span class="number">10527.64</span></span><br><span class="line"></span><br><span class="line">#58320212	Balance: 6021.78#58320212   Balance: 6021.78</span><br><span class="line"></span><br><span class="line">--------<span class="number">6021.78</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java">1	#21325302 is created<br>1	#58320212 is created<br>5	#21325302	5000	5000<br>25	#58320212	10000	10000<br>45	#21325302	5500	10500<br>60	#58320212	-4000	6000<br>90	#21325302	27.64	10527.64<br>90	#58320212	21.78	6021.78<br>#21325302	Balance: 10527.64#21325302   Balance: 10527.64<br><br>--------<span class="hljs-number">10527.64</span><br><br>#58320212	Balance: 6021.78#58320212   Balance: 6021.78<br><br>--------<span class="hljs-number">6021.78</span><br></code></pre></td></tr></table></figure>
 <p>程序在计算年息时通过四舍五入的方法以及去除整数小数点后的零使得最后的输出结果符合实验预期，同 c++ 实现的输出结果相同。</p>
 <h3 id="1-5-体会心得"><a href="#1-5-体会心得" class="headerlink" title="1.5    体会心得"></a>1.5    体会心得</h3><p>与 c++ 实现相比，java 的项目实现更加的严谨，同时也有一些不同的语言特性，例如 java 在输出浮点数时，整数不经过处理时会输出小数点后一位的零，而 c++ 的输出会舍弃。</p>
 <p>java 在实例化对象时的语法与 c++ 相比有些不同，例如 <code>className c;</code> 在 c++ 中即表示实例化一个对象，而在 java 中虽然表达相同，但实际仅仅是对象的声明，此时并没有实例化真正的对象，同时 java 实例化对象时需要使用关键字 <code>new</code>。</p>
@@ -285,15 +285,15 @@ ga('send', 'pageview');
 <li>将 <code>SavingAccount</code> 类中的例如 <code>getBalance()</code> , <code>accumulate()</code> 这些不需要改变对象状态的成员方法声明为 <strong>常成员方法</strong>。</li>
 </ul>
 <p>SavingAccount 的UML图为：</p>
-<p><img src="https://raw.githubusercontent.com/31415926535x/CollegeProjectBackup/master/java_shiyan/PersonBankAccountManageSystem/doc/uml/v5_11/uml/uml.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/31415926535x/CollegeProjectBackup/master/java_shiyan/PersonBankAccountManageSystem/doc/uml/v5_11/uml/uml.png" srcset="/img/loading.gif" alt=""></p>
 <h3 id="2-3-系统实现"><a href="#2-3-系统实现" class="headerlink" title="2.3    系统实现"></a>2.3    系统实现</h3><p>除上版本的数据成员和成员方法外，增加：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">double</span> total = <span class="number">0</span>;        <span class="comment">//所有账户的金额</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">static</span> <span class="hljs-keyword">double</span> total = <span class="hljs-number">0</span>;        <span class="hljs-comment">//所有账户的金额</span><br></code></pre></td></tr></table></figure>
 <p>同时在 <code>record()</code> 方法中增加 <code>total += amount;</code> 来实现 各个账户的总金额的计算</p>
 <p>增加获取总金额的静态方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">getTotal</span><span class="params">()</span> </span>&#123;&#125; <span class="comment">//显示总金额</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">double</span> <span class="hljs-title">getTotal</span><span class="hljs-params">()</span> </span>&#123;&#125; <span class="hljs-comment">//显示总金额</span><br></code></pre></td></tr></table></figure>
 <h3 id="2-4-系统测试"><a href="#2-4-系统测试" class="headerlink" title="2.4    系统测试"></a>2.4    系统测试</h3><p>除了和上一版本的测试用例以外，添加一个显示总金额的测试，预期输出为： <code>Total: xxxx</code>;</p>
 <p>程序仍无输入操作，最后的输出结果为：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1	#21325302 is created</span><br><span class="line">1	#58320212 is created</span><br><span class="line">5	#21325302	5000	5000</span><br><span class="line">25	#58320212	10000	10000</span><br><span class="line">45	#21325302	5500	10500</span><br><span class="line">60	#58320212	-4000	6000</span><br><span class="line">90	#21325302	27.64	10527.64</span><br><span class="line">90	#58320212	21.78	6021.78</span><br><span class="line">#21325302	Balance: 10527.64</span><br><span class="line">#58320212	Balance: 6021.78</span><br><span class="line">Total: <span class="number">16549.42</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java">1	#21325302 is created<br>1	#58320212 is created<br>5	#21325302	5000	5000<br>25	#58320212	10000	10000<br>45	#21325302	5500	10500<br>60	#58320212	-4000	6000<br>90	#21325302	27.64	10527.64<br>90	#58320212	21.78	6021.78<br>#21325302	Balance: 10527.64<br>#58320212	Balance: 6021.78<br>Total: <span class="hljs-number">16549.42</span><br></code></pre></td></tr></table></figure>
 <p>除 <code>Total: 16549.42</code> 外，其他的输出结果与 0.1版本 的输出一致。</p>
 <h3 id="2-5-体会心得"><a href="#2-5-体会心得" class="headerlink" title="2.5    体会心得"></a>2.5    体会心得</h3><ul>
 <li><p>同 c++ 一样，类中的静态变量只占用该类的一个空间，可以当作本类的一个计数器。</p>
@@ -316,13 +316,7 @@ ga('send', 'pageview');
 <li>前几个版本中，日期都是用一个整数表示的，这样计算两个日期距离的天数非常方便，到那时这种表示很不直观，对用户很不友好，所以用一个类来表示日期。</li>
 </ul>
 <p>UML图为：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://raw.githubusercontent.com/31415926535x/CollegeProjectBackup/master/java_shiyan/PersonBankAccountManageSystem/doc/uml/v6_25/uml/uml.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="https://raw.githubusercontent.com/31415926535x/CollegeProjectBackup/master/java_shiyan/PersonBankAccountManageSystem/doc/uml/v6_25/uml/uml.png" srcset="/img/loading.gif" alt=""></p>
 <h3 id="3-3-系统实现"><a href="#3-3-系统实现" class="headerlink" title="3.3    系统实现"></a>3.3    系统实现</h3><h4 id="Date类的实现"><a href="#Date类的实现" class="headerlink" title="Date类的实现"></a>Date类的实现</h4><p>为了计算两个日期相差天数，可以先选取一个比较规整的 <strong>基准日期</strong>，在构造日期对象时将该日期到基准日期的相对天数计算出来，（称这个相对天数为 “相对日期”），这样计算两个日期相差的天数时，只需将二者的相对日期相减即可。</p>
 <p>假设将公元元年1月1日作为基准日期，将y年m月d日相距这一天的天数记为 $f(y/m/d,1/1/1)$，可以将其分解为3个部分：</p>
 <script type="math/tex; mode=display">
@@ -350,14 +344,14 @@ ga('send', 'pageview');
         \lfloor{\frac{y+1}{400}} \rfloor + 
         g(m, y) + d</script><p>两个日期的天数的差便可以简单的计算出来。</p>
 <p>Date类的数据成员包括 <code>year</code> , <code>month</code> , <code>day</code> 和 <code>totalDays</code> （相对日期）； 成员函数有：<code>getMaxDay</code> 获取当月的天数， <code>isLeapYear</code> 判断当前年是否为闰年， <code>show</code> 输出当前日期， <code>distance</code> 判断当前日期与指定日期相差的天数；</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//数据成员：</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> year;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> month;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> day;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> totalDays;</span><br><span class="line"><span class="keyword">final</span> <span class="keyword">int</span> DAYS_BEFORE_MONTH[] = &#123; <span class="number">0</span>, <span class="number">31</span>, <span class="number">59</span>, <span class="number">90</span>, <span class="number">120</span>, <span class="number">151</span>, <span class="number">181</span>, <span class="number">212</span>, <span class="number">243</span>, <span class="number">273</span>, <span class="number">304</span>, <span class="number">334</span>, <span class="number">365</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//方法：</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Date</span><span class="params">(<span class="keyword">int</span> year, <span class="keyword">int</span> month, <span class="keyword">int</span> day)</span></span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">getYear</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">getMonth</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">getDay</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">getMaxDay</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">isLeapYear</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">distance</span><span class="params">(<span class="keyword">final</span> Date date)</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//数据成员：</span><br><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> year;<br><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> month;<br><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> day;<br><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> totalDays;<br><span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> DAYS_BEFORE_MONTH[] = &#123; <span class="hljs-number">0</span>, <span class="hljs-number">31</span>, <span class="hljs-number">59</span>, <span class="hljs-number">90</span>, <span class="hljs-number">120</span>, <span class="hljs-number">151</span>, <span class="hljs-number">181</span>, <span class="hljs-number">212</span>, <span class="hljs-number">243</span>, <span class="hljs-number">273</span>, <span class="hljs-number">304</span>, <span class="hljs-number">334</span>, <span class="hljs-number">365</span> &#125;;<br><br><span class="hljs-comment">//方法：</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Date</span><span class="hljs-params">(<span class="hljs-keyword">int</span> year, <span class="hljs-keyword">int</span> month, <span class="hljs-keyword">int</span> day)</span></span>&#123;&#125;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getYear</span><span class="hljs-params">()</span></span>&#123;&#125;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getMonth</span><span class="hljs-params">()</span></span>&#123;&#125;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getDay</span><span class="hljs-params">()</span></span>&#123;&#125;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getMaxDay</span><span class="hljs-params">()</span></span>&#123;&#125;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isLeapYear</span><span class="hljs-params">()</span></span>&#123;&#125;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title">show</span><span class="hljs-params">()</span></span>&#123;&#125;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> <span class="hljs-title">distance</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Date date)</span></span>&#123;&#125;<br></code></pre></td></tr></table></figure>
 <h4 id="SavingsAccount类的改动"><a href="#SavingsAccount类的改动" class="headerlink" title="SavingsAccount类的改动"></a>SavingsAccount类的改动</h4><p>在上一版本的基础上，有如下改动：</p>
 <ul>
 <li>描述账号的数据类型由 <code>int</code> 改为 <code>string</code>;</li>
 <li>描述日期的数据类型由 <code>int</code> 改为 <code>Date</code> 类，并为 <code>deposit</code>, <code>withdraw</code> 和 <code>settle</code> 增加了一个用来存储该笔账目信息的 <code>string</code> 型的 <code>desc</code> 参数;</li>
 <li>增加一个专用于输出错误信息的 <code>error</code> 方法;</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> String id;				<span class="comment">//账号</span></span><br><span class="line"><span class="keyword">private</span> Date lastDate;			<span class="comment">//上次变更余额的时期</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">record</span><span class="params">(<span class="keyword">final</span> Date date, <span class="keyword">double</span> amount, <span class="keyword">final</span> String desc)</span></span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">error</span><span class="params">(<span class="keyword">final</span> String msg)</span></span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deposit</span><span class="params">(<span class="keyword">final</span> Date date, <span class="keyword">double</span> amount, <span class="keyword">final</span> String desc)</span></span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">withdraw</span><span class="params">(<span class="keyword">final</span> Date date, <span class="keyword">double</span> amount, <span class="keyword">final</span> String desc)</span></span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">settle</span><span class="params">(<span class="keyword">final</span> Date date)</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> String id;				<span class="hljs-comment">//账号</span><br><span class="hljs-keyword">private</span> Date lastDate;			<span class="hljs-comment">//上次变更余额的时期</span><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">record</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Date date, <span class="hljs-keyword">double</span> amount, <span class="hljs-keyword">final</span> String desc)</span></span>&#123;&#125;<br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title">error</span><span class="hljs-params">(<span class="hljs-keyword">final</span> String msg)</span></span>&#123;&#125;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">deposit</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Date date, <span class="hljs-keyword">double</span> amount, <span class="hljs-keyword">final</span> String desc)</span></span>&#123;&#125;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">withdraw</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Date date, <span class="hljs-keyword">double</span> amount, <span class="hljs-keyword">final</span> String desc)</span></span>&#123;&#125;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">settle</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Date date)</span></span>&#123;&#125;<br></code></pre></td></tr></table></figure>
 <h3 id="3-4-系统测试"><a href="#3-4-系统测试" class="headerlink" title="3.4    系统测试"></a>3.4    系统测试</h3><p>目的：</p>
 <ul>
 <li>实例化一个日期对象作为一个基准日期，此时无输出；</li>
@@ -367,7 +361,7 @@ ga('send', 'pageview');
 <li>显示所有账户的总金额： <code>Total: xxxx</code>;</li>
 </ul>
 <p>程序无输入操作，输出的结果为：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">2008-11-1	#S3755217 is created</span><br><span class="line">2008-11-1	#02342342 is created</span><br><span class="line">2008-11-5	#S3755217	5000	5000	salary</span><br><span class="line">2008-11-25	#02342342	10000	10000	sell stock 0323</span><br><span class="line">2008-12-5	#S3755217	5500	10500	salary</span><br><span class="line">2008-12-20	#02342342	-4000	6000	buy a laptop</span><br><span class="line"></span><br><span class="line">2009-1-1	#S3755217	17.77	10517.77	interest</span><br><span class="line">S3755217	Balance: <span class="number">10517.77</span></span><br><span class="line">2009-1-1	#02342342	13.2	6013.2	interest</span><br><span class="line"><span class="number">02342342</span>	Balance: <span class="number">6013.2</span></span><br><span class="line">Total: <span class="number">16530.97</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java">2008-11-1	#S3755217 is created<br>2008-11-1	#02342342 is created<br>2008-11-5	#S3755217	5000	5000	salary<br>2008-11-25	#02342342	10000	10000	sell stock 0323<br>2008-12-5	#S3755217	5500	10500	salary<br>2008-12-20	#02342342	-4000	6000	buy a laptop<br><br>2009-1-1	#S3755217	17.77	10517.77	interest<br>S3755217	Balance: <span class="hljs-number">10517.77</span><br>2009-1-1	#02342342	13.2	6013.2	interest<br><span class="hljs-number">02342342</span>	Balance: <span class="hljs-number">6013.2</span><br>Total: <span class="hljs-number">16530.97</span><br></code></pre></td></tr></table></figure>
 <p>最后的输出与实验预期相一致。</p>
 <h3 id="3-5-体会心得"><a href="#3-5-体会心得" class="headerlink" title="3.5    体会心得"></a>3.5    体会心得</h3><ul>
 <li>类的组合可以使一些功能实现更加的容易以及管理，本版本中利用Date类（类的组合）使得有关日期的操作可以和SavingsAccount类的实现相互独立，无需关心Date类的具体实现，同时一些操作的实现也可以直接调用方法来实现；</li>
@@ -389,17 +383,11 @@ ga('send', 'pageview');
 <p>该类包括3个数据成员： <code>lastDate被累加数值上次变更日期</code> 、 <code>value被累加数值的当前值</code> 、 <code>sum到上次变更被累加数值位置的按日累加总和</code>；</p>
 <p>该类包括4个成员方法： 构造方法、 <code>getSum计算到指定日期的累加结果</code> 、 <code>change指定日期更改数值</code> 、 <code>reset将累加器清零并重新设定初始日期和数值</code>;</p>
 <p>UML图：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://raw.githubusercontent.com/31415926535x/CollegeProjectBackup/master/java_shiyan/PersonBankAccountManageSystem/doc/uml/v7_10/uml/uml.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<h3 id="4-3-系统实现"><a href="#4-3-系统实现" class="headerlink" title="4.3    系统实现"></a>4.3    系统实现</h3><h4 id="Account类实现"><a href="#Account类实现" class="headerlink" title="Account类实现"></a>Account类实现</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> String id;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">double</span> balance;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">double</span> total = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="title">Account</span><span class="params">(<span class="keyword">final</span> Date date, <span class="keyword">final</span> String id)</span></span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">record</span><span class="params">(<span class="keyword">final</span> Date date, <span class="keyword">double</span> amount, <span class="keyword">final</span> String desc)</span></span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">error</span><span class="params">(<span class="keyword">final</span> String msg)</span></span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> String <span class="title">getId</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">double</span> <span class="title">getBalance</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">getTotal</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="Accumulator类"><a href="#Accumulator类" class="headerlink" title="Accumulator类"></a>Accumulator类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> Date lastDate;</span><br><span class="line"><span class="keyword">double</span> value;</span><br><span class="line"><span class="keyword">double</span> sum;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Accumulator</span><span class="params">(<span class="keyword">final</span> Date date, <span class="keyword">double</span> value)</span></span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">double</span> <span class="title">getSum</span><span class="params">(<span class="keyword">final</span> Date date)</span></span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">change</span><span class="params">(<span class="keyword">final</span> Date date, <span class="keyword">double</span> value)</span></span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reset</span><span class="params">(<span class="keyword">final</span> Date date, <span class="keyword">double</span> value)</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="SavingsAccount类"><a href="#SavingsAccount类" class="headerlink" title="SavingsAccount类"></a>SavingsAccount类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SavingsAccount</span> <span class="keyword">extends</span> <span class="title">Account</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Accumulator acc;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> rate;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SavingsAccount</span><span class="params">(<span class="keyword">final</span> Date date, <span class="keyword">final</span> String id, <span class="keyword">double</span> rate)</span></span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">double</span> <span class="title">getRate</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deposit</span><span class="params">(<span class="keyword">final</span> Date date, <span class="keyword">double</span> amount, <span class="keyword">final</span> String desc)</span></span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">withdraw</span><span class="params">(<span class="keyword">final</span> Date date, <span class="keyword">double</span> amount, <span class="keyword">final</span> String desc)</span></span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">settle</span><span class="params">(<span class="keyword">final</span> Date date)</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="CreditAccount类"><a href="#CreditAccount类" class="headerlink" title="CreditAccount类"></a>CreditAccount类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CreditAccount</span> <span class="keyword">extends</span> <span class="title">Account</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Accumulator acc;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> cred`it;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> rate;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> fee;`</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">double</span> <span class="title">getDebt</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CreditAccount</span><span class="params">(<span class="keyword">final</span> Date date, <span class="keyword">final</span> String id, <span class="keyword">double</span> credit, <span class="keyword">double</span> rate, <span class="keyword">double</span> fee)</span> </span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">double</span> <span class="title">getCredit</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">double</span> <span class="title">getRate</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">double</span> <span class="title">getFee</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">double</span> <span class="title">getAvailableCredit</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deposit</span><span class="params">(<span class="keyword">final</span> Date date, <span class="keyword">double</span> amount, <span class="keyword">final</span> String desc)</span></span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">withdraw</span><span class="params">(<span class="keyword">final</span> Date date, <span class="keyword">double</span> amount, <span class="keyword">final</span> String desc)</span></span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">settle</span><span class="params">(<span class="keyword">final</span> Date date)</span></span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/31415926535x/CollegeProjectBackup/master/java_shiyan/PersonBankAccountManageSystem/doc/uml/v7_10/uml/uml.png" srcset="/img/loading.gif" alt=""></p>
+<h3 id="4-3-系统实现"><a href="#4-3-系统实现" class="headerlink" title="4.3    系统实现"></a>4.3    系统实现</h3><h4 id="Account类实现"><a href="#Account类实现" class="headerlink" title="Account类实现"></a>Account类实现</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> String id;<br><span class="hljs-keyword">private</span> <span class="hljs-keyword">double</span> balance;<br><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">double</span> total = <span class="hljs-number">0</span>;<br><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-title">Account</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Date date, <span class="hljs-keyword">final</span> String id)</span></span>&#123;&#125;<br><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">record</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Date date, <span class="hljs-keyword">double</span> amount, <span class="hljs-keyword">final</span> String desc)</span></span>&#123;&#125;<br><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title">error</span><span class="hljs-params">(<span class="hljs-keyword">final</span> String msg)</span></span>&#123;&#125;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> String <span class="hljs-title">getId</span><span class="hljs-params">()</span></span>&#123;&#125;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">double</span> <span class="hljs-title">getBalance</span><span class="hljs-params">()</span></span>&#123;&#125;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">double</span> <span class="hljs-title">getTotal</span><span class="hljs-params">()</span></span>&#123;&#125;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">show</span><span class="hljs-params">()</span></span>&#123;&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="Accumulator类"><a href="#Accumulator类" class="headerlink" title="Accumulator类"></a>Accumulator类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> Date lastDate;<br><span class="hljs-keyword">double</span> value;<br><span class="hljs-keyword">double</span> sum;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Accumulator</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Date date, <span class="hljs-keyword">double</span> value)</span></span>&#123;&#125;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">double</span> <span class="hljs-title">getSum</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Date date)</span></span>&#123;&#125;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">change</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Date date, <span class="hljs-keyword">double</span> value)</span></span>&#123;&#125;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">reset</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Date date, <span class="hljs-keyword">double</span> value)</span></span>&#123;&#125;<br><br></code></pre></td></tr></table></figure>
+<h4 id="SavingsAccount类"><a href="#SavingsAccount类" class="headerlink" title="SavingsAccount类"></a>SavingsAccount类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SavingsAccount</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Account</span></span>&#123;<br><br>    <span class="hljs-keyword">private</span> Accumulator acc;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">double</span> rate;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">SavingsAccount</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Date date, <span class="hljs-keyword">final</span> String id, <span class="hljs-keyword">double</span> rate)</span></span>&#123;&#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">double</span> <span class="hljs-title">getRate</span><span class="hljs-params">()</span></span>&#123;&#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">deposit</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Date date, <span class="hljs-keyword">double</span> amount, <span class="hljs-keyword">final</span> String desc)</span></span>&#123;&#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">withdraw</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Date date, <span class="hljs-keyword">double</span> amount, <span class="hljs-keyword">final</span> String desc)</span></span>&#123;&#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">settle</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Date date)</span></span>&#123;&#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="CreditAccount类"><a href="#CreditAccount类" class="headerlink" title="CreditAccount类"></a>CreditAccount类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CreditAccount</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Account</span></span>&#123;<br>    <span class="hljs-keyword">private</span> Accumulator acc;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">double</span> cred`it;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">double</span> rate;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">double</span> fee;`<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">double</span> <span class="hljs-title">getDebt</span><span class="hljs-params">()</span></span>&#123;&#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">CreditAccount</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Date date, <span class="hljs-keyword">final</span> String id, <span class="hljs-keyword">double</span> credit, <span class="hljs-keyword">double</span> rate, <span class="hljs-keyword">double</span> fee)</span> </span>&#123;&#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">double</span> <span class="hljs-title">getCredit</span><span class="hljs-params">()</span></span>&#123;&#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">double</span> <span class="hljs-title">getRate</span><span class="hljs-params">()</span></span>&#123;&#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">double</span> <span class="hljs-title">getFee</span><span class="hljs-params">()</span></span>&#123;&#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">double</span> <span class="hljs-title">getAvailableCredit</span><span class="hljs-params">()</span></span>&#123;&#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">deposit</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Date date, <span class="hljs-keyword">double</span> amount, <span class="hljs-keyword">final</span> String desc)</span></span>&#123;&#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">withdraw</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Date date, <span class="hljs-keyword">double</span> amount, <span class="hljs-keyword">final</span> String desc)</span></span>&#123;&#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">settle</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Date date)</span></span>&#123;&#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title">show</span><span class="hljs-params">()</span></span>&#123;&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <h4 id="Date类"><a href="#Date类" class="headerlink" title="Date类"></a>Date类</h4><p>Date类与上一版本保持不变</p>
 <h3 id="4-4-系统测试"><a href="#4-4-系统测试" class="headerlink" title="4.4    系统测试"></a>4.4    系统测试</h3><p>目的：</p>
 <ul>
@@ -413,7 +401,7 @@ ga('send', 'pageview');
 <li>显示总金额，此时应该显示： <code>Total: xxxx</code>;</li>
 </ul>
 <p>这一版本仍无输入，所以输出为：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">2008-11-1	#S3755217 created</span><br><span class="line">2008-11-1	#02342342 created</span><br><span class="line">2008-11-1	#C5392394 created</span><br><span class="line">2008-11-5	#S3755217	5000	5000	salary</span><br><span class="line">2008-11-15	#C5392394	-2000	-2000	buy a cell</span><br><span class="line">2008-11-25	#02342342	10000	10000	sell stock 0323</span><br><span class="line">2008-12-1	#C5392394	-16	-2016	interest</span><br><span class="line">2008-12-1	#C5392394	2016	0	repay the creadit</span><br><span class="line">2008-12-5	#S3755217	5500	10500	salary</span><br><span class="line">2009-1-1	#S3755217	17.77	10517.77	interest</span><br><span class="line">2009-1-1	#02342342	15.16	10015.16	interest</span><br><span class="line">2009-1-1	#C5392394	-50	-50	annual fee</span><br><span class="line"></span><br><span class="line">S3755217	Balance: <span class="number">10517.77</span></span><br><span class="line"><span class="number">02342342</span>	Balance: <span class="number">10015.16</span></span><br><span class="line">C5392394	Balance: -<span class="number">50</span>	Available credit:<span class="number">9950</span></span><br><span class="line">Total: <span class="number">20482.93</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java">2008-11-1	#S3755217 created<br>2008-11-1	#02342342 created<br>2008-11-1	#C5392394 created<br>2008-11-5	#S3755217	5000	5000	salary<br>2008-11-15	#C5392394	-2000	-2000	buy a cell<br>2008-11-25	#02342342	10000	10000	sell stock 0323<br>2008-12-1	#C5392394	-16	-2016	interest<br>2008-12-1	#C5392394	2016	0	repay the creadit<br>2008-12-5	#S3755217	5500	10500	salary<br>2009-1-1	#S3755217	17.77	10517.77	interest<br>2009-1-1	#02342342	15.16	10015.16	interest<br>2009-1-1	#C5392394	-50	-50	annual fee<br><br>S3755217	Balance: <span class="hljs-number">10517.77</span><br><span class="hljs-number">02342342</span>	Balance: <span class="hljs-number">10015.16</span><br>C5392394	Balance: -<span class="hljs-number">50</span>	Available credit:<span class="hljs-number">9950</span><br>Total: <span class="hljs-number">20482.93</span><br></code></pre></td></tr></table></figure>
 <p>输出与预期内容相同。</p>
 <h3 id="4-5-体会心得"><a href="#4-5-体会心得" class="headerlink" title="4.5    体会心得"></a>4.5    体会心得</h3><ul>
 <li>这一版本因为增加了一个与 储蓄账户 类似的 信用账户类的需求，所以为了简化实现，同时减少代码量，设计一个共同的父类 Account 类来派生出需要的两个子类；</li>
@@ -436,16 +424,10 @@ ga('send', 'pageview');
 <li>通过以上修改之后便可以通过同一个父类的声明来引用不同的子类，这样可以通过一个父类的数组来实现不同的账户的存储操作。</li>
 </ul>
 <h4 id="Date类的改进"><a href="#Date类的改进" class="headerlink" title="Date类的改进"></a>Date类的改进</h4><p>原来的Date类中的 <code>distance1</code> 函数在c++中改为 <strong>“-“</strong> 运算符重载可以使程序更加的直观，在Java中的解决方法是增加一个 <code>sub</code> 方法来实现两日期相差天数的功能。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://raw.githubusercontent.com/31415926535x/CollegeProjectBackup/master/java_shiyan/PersonBankAccountManageSystem/doc/uml/v8_8/uml/uml.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<h3 id="5-3-系统实现"><a href="#5-3-系统实现" class="headerlink" title="5.3    系统实现"></a>5.3    系统实现</h3><h4 id="Account类"><a href="#Account类" class="headerlink" title="Account类"></a>Account类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Account</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">abstract</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deposit</span><span class="params">(<span class="keyword">final</span> Date date, <span class="keyword">double</span> amount, <span class="keyword">final</span> String desc)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">abstract</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">withdraw</span><span class="params">(<span class="keyword">final</span> Date date, <span class="keyword">double</span> amount, <span class="keyword">final</span> String desc)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">abstract</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">settle</span><span class="params">(<span class="keyword">final</span> Date date)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;   </span><br><span class="line">        NumberFormat nf = <span class="keyword">new</span> DecimalFormat(<span class="string">"0.##"</span>);</span><br><span class="line">        System.out.print(id + <span class="string">"\tBalance: "</span> + nf.format(balance));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="CreditAccount类-1"><a href="#CreditAccount类-1" class="headerlink" title="CreditAccount类"></a>CreditAccount类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.show();</span><br><span class="line">    NumberFormat nf = <span class="keyword">new</span> DecimalFormat(<span class="string">"0.##"</span>);</span><br><span class="line">    System.out.print(<span class="string">"\tAvailable credit:"</span> + nf.format(getAvailableCredit()));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="Date类-1"><a href="#Date类-1" class="headerlink" title="Date类"></a>Date类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">sub</span><span class="params">(<span class="keyword">final</span> Date date)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.totalDays - date.totalDays;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/31415926535x/CollegeProjectBackup/master/java_shiyan/PersonBankAccountManageSystem/doc/uml/v8_8/uml/uml.png" srcset="/img/loading.gif" alt=""></p>
+<h3 id="5-3-系统实现"><a href="#5-3-系统实现" class="headerlink" title="5.3    系统实现"></a>5.3    系统实现</h3><h4 id="Account类"><a href="#Account类" class="headerlink" title="Account类"></a>Account类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Account</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">deposit</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Date date, <span class="hljs-keyword">double</span> amount, <span class="hljs-keyword">final</span> String desc)</span></span>;<br>    <span class="hljs-function"><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">withdraw</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Date date, <span class="hljs-keyword">double</span> amount, <span class="hljs-keyword">final</span> String desc)</span></span>;<br>    <span class="hljs-function"><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">settle</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Date date)</span></span>;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">show</span><span class="hljs-params">()</span> </span>&#123;   <br>        NumberFormat nf = <span class="hljs-keyword">new</span> DecimalFormat(<span class="hljs-string">&quot;0.##&quot;</span>);<br>        System.out.print(id + <span class="hljs-string">&quot;\tBalance: &quot;</span> + nf.format(balance));<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="CreditAccount类-1"><a href="#CreditAccount类-1" class="headerlink" title="CreditAccount类"></a>CreditAccount类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title">show</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">super</span>.show();<br>    NumberFormat nf = <span class="hljs-keyword">new</span> DecimalFormat(<span class="hljs-string">&quot;0.##&quot;</span>);<br>    System.out.print(<span class="hljs-string">&quot;\tAvailable credit:&quot;</span> + nf.format(getAvailableCredit()));<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="Date类-1"><a href="#Date类-1" class="headerlink" title="Date类"></a>Date类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> <span class="hljs-title">sub</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Date date)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.totalDays - date.totalDays;<br>&#125;<br></code></pre></td></tr></table></figure>
 <h3 id="5-4-系统测试"><a href="#5-4-系统测试" class="headerlink" title="5.4    系统测试"></a>5.4    系统测试</h3><p>目的：</p>
 <ul>
 <li>实例化一个日期，作为初始日期，此时无输出；</li>
@@ -462,16 +444,13 @@ ga('send', 'pageview');
 <li>向0号账户存入一笔5500的现金，说明信息为 <em>salary</em> ，输入为： <code>d 0 5500 salary</code> ， 此时的输出应该为： <code>2008-12-5    #S3755217    5500    10500     salary</code>；</li>
 <li>进入下一月，输入 <code>n</code> ， 此时输出为:</li>
 </ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2009-1-1	#S3755217	17.77	10517.77	interest</span><br><span class="line">2009-1-1	#02342342	15.16	10015.16	interest</span><br><span class="line">2009-1-1	#C5392394	-50	-50	annual fee</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java">2009-1-1	#S3755217	17.77	10517.77	interest<br>2009-1-1	#02342342	15.16	10015.16	interest<br>2009-1-1	#C5392394	-50	-50	annual fee<br></code></pre></td></tr></table></figure>
 <ul>
-<li><p>显示所有账户的信息， 输入 <code>s</code> ， 此时应该输出：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">0</span>] S3755217	Balance: <span class="number">10517.77</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">02342342</span>	Balance: <span class="number">10015.16</span></span><br><span class="line">[<span class="number">2</span>] C5392394	Balance: -<span class="number">50</span>	Available credit:<span class="number">9950</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>终止测试，输入 <code>e</code> ， 此时将退出测试程序；</p>
-</li>
+<li>显示所有账户的信息， 输入 <code>s</code> ， 此时应该输出：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java">[<span class="hljs-number">0</span>] S3755217	Balance: <span class="hljs-number">10517.77</span><br>[<span class="hljs-number">1</span>] <span class="hljs-number">02342342</span>	Balance: <span class="hljs-number">10015.16</span><br>[<span class="hljs-number">2</span>] C5392394	Balance: -<span class="hljs-number">50</span>	Available credit:<span class="hljs-number">9950</span><br></code></pre></td></tr></table></figure></li>
+<li>终止测试，输入 <code>e</code> ， 此时将退出测试程序；</li>
 </ul>
 <p>这一版本的系统增加了具体的输入的操作，使得用户能够自行进行一些对各账户的操作，最终的输出与预期的输出相同。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">2008-11-1	#S3755217 created</span><br><span class="line">2008-11-1	#02342342 created</span><br><span class="line">2008-11-1	#C5392394 created</span><br><span class="line">(d)deposit (w)withdraw (s)show (c)<span class="function">change <span class="title">day</span> <span class="params">(n)</span>next <span class="title">month</span> <span class="params">(e)</span>exit</span></span><br><span class="line"><span class="function">2008-11-1	Total: 0.0	command&gt; c 5</span></span><br><span class="line"><span class="function">2008-11-5	Total: 0.0	command&gt; d 0 5000 salary</span></span><br><span class="line"><span class="function">2008-11-5	#S3755217	5000	5000	 salary</span></span><br><span class="line"><span class="function">2008-11-5	Total: 5000.0	command&gt; c 15</span></span><br><span class="line"><span class="function">2008-11-15	Total: 5000.0	command&gt; w 2 2000 buy a cell</span></span><br><span class="line"><span class="function">2008-11-15	#C5392394	-2000	-2000	 buy a cell</span></span><br><span class="line"><span class="function">2008-11-15	Total: 3000.0	command&gt; c 25</span></span><br><span class="line"><span class="function">2008-11-25	Total: 3000.0	command&gt; d 1 10000 sell stock 0323</span></span><br><span class="line"><span class="function">2008-11-25	#02342342	10000	10000	 sell stock 0323</span></span><br><span class="line"><span class="function">2008-11-25	Total: 13000.0	command&gt; n</span></span><br><span class="line"><span class="function">2008-12-1	#C5392394	-16	-2016	interest</span></span><br><span class="line"><span class="function">2008-12-1	Total: 12984.0	command&gt; d 2 2016 repay the credit</span></span><br><span class="line"><span class="function">2008-12-1	#C5392394	2016	0	 repay the credit</span></span><br><span class="line"><span class="function">2008-12-1	Total: 15000.0	command&gt; c 5</span></span><br><span class="line"><span class="function">2008-12-5	Total: 15000.0	command&gt; d 0 5500 salary</span></span><br><span class="line"><span class="function">2008-12-5	#S3755217	5500	10500	 salary</span></span><br><span class="line"><span class="function">2008-12-5	Total: 20500.0	command&gt; n</span></span><br><span class="line"><span class="function">2009-1-1	#S3755217	17.77	10517.77	interest</span></span><br><span class="line"><span class="function">2009-1-1	#02342342	15.16	10015.16	interest</span></span><br><span class="line"><span class="function">2009-1-1	#C5392394	-50	-50	annual fee</span></span><br><span class="line"><span class="function">2009-1-1	Total: 20482.93	command&gt; s</span></span><br><span class="line"><span class="function">[0] S3755217	Balance: 10517.77</span></span><br><span class="line"><span class="function">[1] 02342342	Balance: 10015.16</span></span><br><span class="line"><span class="function">[2] C5392394	Balance: -50	Available credit:9950</span></span><br><span class="line"><span class="function">2009-1-1	Total: 20482.93	command&gt; e</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs java">2008-11-1	#S3755217 created<br>2008-11-1	#02342342 created<br>2008-11-1	#C5392394 created<br>(d)deposit (w)withdraw (s)show (c)<span class="hljs-function">change <span class="hljs-title">day</span> <span class="hljs-params">(n)</span>next <span class="hljs-title">month</span> <span class="hljs-params">(e)</span>exit</span><br><span class="hljs-function">2008-11-1	Total: 0.0	command&gt; c 5</span><br><span class="hljs-function">2008-11-5	Total: 0.0	command&gt; d 0 5000 salary</span><br><span class="hljs-function">2008-11-5	#S3755217	5000	5000	 salary</span><br><span class="hljs-function">2008-11-5	Total: 5000.0	command&gt; c 15</span><br><span class="hljs-function">2008-11-15	Total: 5000.0	command&gt; w 2 2000 buy a cell</span><br><span class="hljs-function">2008-11-15	#C5392394	-2000	-2000	 buy a cell</span><br><span class="hljs-function">2008-11-15	Total: 3000.0	command&gt; c 25</span><br><span class="hljs-function">2008-11-25	Total: 3000.0	command&gt; d 1 10000 sell stock 0323</span><br><span class="hljs-function">2008-11-25	#02342342	10000	10000	 sell stock 0323</span><br><span class="hljs-function">2008-11-25	Total: 13000.0	command&gt; n</span><br><span class="hljs-function">2008-12-1	#C5392394	-16	-2016	interest</span><br><span class="hljs-function">2008-12-1	Total: 12984.0	command&gt; d 2 2016 repay the credit</span><br><span class="hljs-function">2008-12-1	#C5392394	2016	0	 repay the credit</span><br><span class="hljs-function">2008-12-1	Total: 15000.0	command&gt; c 5</span><br><span class="hljs-function">2008-12-5	Total: 15000.0	command&gt; d 0 5500 salary</span><br><span class="hljs-function">2008-12-5	#S3755217	5500	10500	 salary</span><br><span class="hljs-function">2008-12-5	Total: 20500.0	command&gt; n</span><br><span class="hljs-function">2009-1-1	#S3755217	17.77	10517.77	interest</span><br><span class="hljs-function">2009-1-1	#02342342	15.16	10015.16	interest</span><br><span class="hljs-function">2009-1-1	#C5392394	-50	-50	annual fee</span><br><span class="hljs-function">2009-1-1	Total: 20482.93	command&gt; s</span><br><span class="hljs-function">[0] S3755217	Balance: 10517.77</span><br><span class="hljs-function">[1] 02342342	Balance: 10015.16</span><br><span class="hljs-function">[2] C5392394	Balance: -50	Available credit:9950</span><br><span class="hljs-function">2009-1-1	Total: 20482.93	command&gt; e</span><br></code></pre></td></tr></table></figure>
 <h3 id="5-5-体会心得"><a href="#5-5-体会心得" class="headerlink" title="5.5    体会心得"></a>5.5    体会心得</h3><ul>
 <li>为了能够通过数组的形式来操作同一父类下的子类，修改了父类的实现，使得一些方法的具体实现在其子类中实现，这样可以仅使用父类来引用具体要操作的子类，大大的使操作更加的便捷。</li>
 <li>c++中的运算符重载功能在Java中不再存在，而是使用具体的方法来实现，同样也使得代码的书写更加的直观，增加程序的可读性。</li>
@@ -480,16 +459,16 @@ ga('send', 'pageview');
 <h3 id="6-2-系统设计"><a href="#6-2-系统设计" class="headerlink" title="6.2    系统设计"></a>6.2    系统设计</h3><p>在上一版本中，使用父类对象数组来处理不同派生类对象，从而实现多态性调用，本版本中使用Java中的 <code>ArrayList</code> 来代替原来的对象数组，以实现动态的改变大小，添加新账户的功能。</p>
 <p>除 <code>Main</code> 类外，其余类文件都无需更改。在 <code>Main</code> 类中导入Java实用包中的 <code>ArrayList</code>。创建对象数组。</p>
 <p>本版本的UML图与上一版本的相同。</p>
-<h3 id="6-3-系统实现"><a href="#6-3-系统实现" class="headerlink" title="6.3    系统实现"></a>6.3    系统实现</h3><h4 id="Main类"><a href="#Main类" class="headerlink" title="Main类"></a>Main类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Account&gt; accounts = <span class="keyword">new</span> ArrayList&lt;Account&gt;();</span><br></pre></td></tr></table></figure>
+<h3 id="6-3-系统实现"><a href="#6-3-系统实现" class="headerlink" title="6.3    系统实现"></a>6.3    系统实现</h3><h4 id="Main类"><a href="#Main类" class="headerlink" title="Main类"></a>Main类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">ArrayList&lt;Account&gt; accounts = <span class="hljs-keyword">new</span> ArrayList&lt;Account&gt;();<br></code></pre></td></tr></table></figure>
 <h3 id="6-4-系统测试"><a href="#6-4-系统测试" class="headerlink" title="6.4    系统测试"></a>6.4    系统测试</h3><p>目的： </p>
 <ul>
 <li>使用 <em>ArrayList</em> 实现对象数组，同时通过用户来录入账户信息，输入为：</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a s S3755217 <span class="number">0.015</span></span><br><span class="line">a s <span class="number">02342342</span> <span class="number">0.015</span></span><br><span class="line">a c C5392394 <span class="number">10000</span> <span class="number">0.0005</span> <span class="number">50</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java">a s S3755217 <span class="hljs-number">0.015</span><br>a s <span class="hljs-number">02342342</span> <span class="hljs-number">0.015</span><br>a c C5392394 <span class="hljs-number">10000</span> <span class="hljs-number">0.0005</span> <span class="hljs-number">50</span><br></code></pre></td></tr></table></figure>
 <p>表示录入两个活期账户和一个信用账户，同时对应显示应该为： <code>date #xxxxxxxx created</code>；</p>
 <p>其他的输入输出测试与上一版本的一致；</p>
 <p>输入和最后的输出符合预期。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">(a)<span class="function">add <span class="title">account</span> <span class="params">(d)</span><span class="title">deposit</span> <span class="params">(w)</span><span class="title">withdraw</span> <span class="params">(s)</span><span class="title">show</span> <span class="params">(c)</span>change <span class="title">day</span> <span class="params">(n)</span>next <span class="title">month</span> <span class="params">(e)</span>exit</span></span><br><span class="line"><span class="function">2008-11-1	Total: 0.0	command&gt; a s S3755217 0.015</span></span><br><span class="line"><span class="function">2008-11-1	#S3755217 created</span></span><br><span class="line"><span class="function">2008-11-1	Total: 0.0	command&gt; a s 02342342 0.015</span></span><br><span class="line"><span class="function">2008-11-1	#02342342 created</span></span><br><span class="line"><span class="function">2008-11-1	Total: 0.0	command&gt; a c C5392394 10000 0.0005 50</span></span><br><span class="line"><span class="function">2008-11-1	#C5392394 created</span></span><br><span class="line"><span class="function">2008-11-1	Total: 0.0	command&gt; c 5</span></span><br><span class="line"><span class="function">2008-11-5	Total: 0.0	command&gt; d 0 5000 salary</span></span><br><span class="line"><span class="function">2008-11-5	#S3755217	5000	5000	 salary</span></span><br><span class="line"><span class="function">2008-11-5	Total: 5000.0	command&gt; c 15</span></span><br><span class="line"><span class="function">2008-11-15	Total: 5000.0	command&gt; w 2 2000 buy a cell</span></span><br><span class="line"><span class="function">2008-11-15	#C5392394	-2000	-2000	 buy a cell</span></span><br><span class="line"><span class="function">2008-11-15	Total: 3000.0	command&gt; c 25</span></span><br><span class="line"><span class="function">2008-11-25	Total: 3000.0	command&gt; d 1 10000 sell stock 0323</span></span><br><span class="line"><span class="function">2008-11-25	#02342342	10000	10000	 sell stock 0323</span></span><br><span class="line"><span class="function">2008-11-25	Total: 13000.0	command&gt; n</span></span><br><span class="line"><span class="function">2008-12-1	#C5392394	-16	-2016	interest</span></span><br><span class="line"><span class="function">2008-12-1	Total: 12984.0	command&gt; d 2 2016 repay the credit</span></span><br><span class="line"><span class="function">2008-12-1	#C5392394	2016	0	 repay the credit</span></span><br><span class="line"><span class="function">2008-12-1	Total: 15000.0	command&gt; c 5</span></span><br><span class="line"><span class="function">2008-12-5	Total: 15000.0	command&gt; d 0 5500 salary</span></span><br><span class="line"><span class="function">2008-12-5	#S3755217	5500	10500	 salary</span></span><br><span class="line"><span class="function">2008-12-5	Total: 20500.0	command&gt; n</span></span><br><span class="line"><span class="function">2009-1-1	#S3755217	17.77	10517.77	interest</span></span><br><span class="line"><span class="function">2009-1-1	#02342342	15.16	10015.16	interest</span></span><br><span class="line"><span class="function">2009-1-1	#C5392394	-50	-50	annual fee</span></span><br><span class="line"><span class="function">2009-1-1	Total: 20482.93	command&gt; s</span></span><br><span class="line"><span class="function">[0] S3755217	Balance: 10517.77</span></span><br><span class="line"><span class="function">[1] 02342342	Balance: 10015.16</span></span><br><span class="line"><span class="function">[2] C5392394	Balance: -50	Available credit:9950</span></span><br><span class="line"><span class="function">2009-1-1	Total: 20482.93	command&gt; e</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs java">(a)<span class="hljs-function">add <span class="hljs-title">account</span> <span class="hljs-params">(d)</span><span class="hljs-title">deposit</span> <span class="hljs-params">(w)</span><span class="hljs-title">withdraw</span> <span class="hljs-params">(s)</span><span class="hljs-title">show</span> <span class="hljs-params">(c)</span>change <span class="hljs-title">day</span> <span class="hljs-params">(n)</span>next <span class="hljs-title">month</span> <span class="hljs-params">(e)</span>exit</span><br><span class="hljs-function">2008-11-1	Total: 0.0	command&gt; a s S3755217 0.015</span><br><span class="hljs-function">2008-11-1	#S3755217 created</span><br><span class="hljs-function">2008-11-1	Total: 0.0	command&gt; a s 02342342 0.015</span><br><span class="hljs-function">2008-11-1	#02342342 created</span><br><span class="hljs-function">2008-11-1	Total: 0.0	command&gt; a c C5392394 10000 0.0005 50</span><br><span class="hljs-function">2008-11-1	#C5392394 created</span><br><span class="hljs-function">2008-11-1	Total: 0.0	command&gt; c 5</span><br><span class="hljs-function">2008-11-5	Total: 0.0	command&gt; d 0 5000 salary</span><br><span class="hljs-function">2008-11-5	#S3755217	5000	5000	 salary</span><br><span class="hljs-function">2008-11-5	Total: 5000.0	command&gt; c 15</span><br><span class="hljs-function">2008-11-15	Total: 5000.0	command&gt; w 2 2000 buy a cell</span><br><span class="hljs-function">2008-11-15	#C5392394	-2000	-2000	 buy a cell</span><br><span class="hljs-function">2008-11-15	Total: 3000.0	command&gt; c 25</span><br><span class="hljs-function">2008-11-25	Total: 3000.0	command&gt; d 1 10000 sell stock 0323</span><br><span class="hljs-function">2008-11-25	#02342342	10000	10000	 sell stock 0323</span><br><span class="hljs-function">2008-11-25	Total: 13000.0	command&gt; n</span><br><span class="hljs-function">2008-12-1	#C5392394	-16	-2016	interest</span><br><span class="hljs-function">2008-12-1	Total: 12984.0	command&gt; d 2 2016 repay the credit</span><br><span class="hljs-function">2008-12-1	#C5392394	2016	0	 repay the credit</span><br><span class="hljs-function">2008-12-1	Total: 15000.0	command&gt; c 5</span><br><span class="hljs-function">2008-12-5	Total: 15000.0	command&gt; d 0 5500 salary</span><br><span class="hljs-function">2008-12-5	#S3755217	5500	10500	 salary</span><br><span class="hljs-function">2008-12-5	Total: 20500.0	command&gt; n</span><br><span class="hljs-function">2009-1-1	#S3755217	17.77	10517.77	interest</span><br><span class="hljs-function">2009-1-1	#02342342	15.16	10015.16	interest</span><br><span class="hljs-function">2009-1-1	#C5392394	-50	-50	annual fee</span><br><span class="hljs-function">2009-1-1	Total: 20482.93	command&gt; s</span><br><span class="hljs-function">[0] S3755217	Balance: 10517.77</span><br><span class="hljs-function">[1] 02342342	Balance: 10015.16</span><br><span class="hljs-function">[2] C5392394	Balance: -50	Available credit:9950</span><br><span class="hljs-function">2009-1-1	Total: 20482.93	command&gt; e</span><br></code></pre></td></tr></table></figure>
 <h3 id="6-5-体会心得"><a href="#6-5-体会心得" class="headerlink" title="6.5    体会心得"></a>6.5    体会心得</h3><ul>
 <li>使用Java类库中的 <em>ArrayList</em> 实现了类的对象数组功能</li>
 <li>使用一个共同的父类的对象数组便可一个统一管理他的子类的对象，使得最后的代码更加的简便，操作更符合逻辑性。</li>
@@ -517,334 +496,318 @@ ga('send', 'pageview');
 <h2 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h2><p>这个银行管理系统的完成让我熟悉了Java的基本语法，同时体会到了Java与c++的不同的程序设计思想；在完成项目的同时遇到了很多的问题，但是都通过自己独立查阅资料逐一解决，了解了Java中基本的输入输出等一些已有的包的功能；最后文档的书写也使我清晰的认识到了一个简单项目从用户需求到系统设计、系统实现以及最后的代码的编写测试这一个流程，同时uml图的书写也让我理清了各功能直接的具体关系，使得最后的代码间的联系更加的清晰明了。</p>
 <p>此外通过每一版本的需求的更新以及系统的实现，我体会到了面向对象程序设计在实现功能的过程与面向过程以及c++面向对象程序设计的不同，Java万物皆为类的思想，包括测试用的Main方法都为类，从最开始的一个储蓄活期账户的功能的实现，date类的实现以及累加日期类的实现实现了系统的基本功能，此后新增活期账户功能类似的信用账户的需求，通过比较两个类的共同特点，抽象出其共同的父类 <code>Account</code> ，这样使得一些共同点得以复用，减少代码量的同时也使得各类之间的关系增强，同时在最后几个版本中，因为Java中父类的引用同时可以引用其子类的特点，使得通过一个父类的对象数组便可以轻易的操纵其子类，使得最后的循环处理测试时的代码可以有不同类对应不同操作代码合二为一，大大的使程序的可读性增强，代码量减少，开发的负担也减轻许多，最后的 <em>ArrayList</em> 声明的对象数组也使得开发者不必关心数组空间的分配问题，也使得程序的安全性增强。</p>
 
-        </div>
-
-        <blockquote class="post-copyright">
-    
-    <div class="content">
-        
-<span class="post-time">
-    最后更新时间：<time datetime="2019-08-02T03:00:37.927Z" itemprop="dateUpdated">2019-08-02 11:00:37</time>
-</span><br>
-
-
-        
-        <a href="/2019/04/12/Java实验-个人银行管理系统/" target="_blank" rel="external">http://blog.31415x.cf/2019/04/12/Java实验-个人银行管理系统/</a>
-        
-    </div>
-    
-    <footer>
-        <a href="http://blog.31415x.cf">
-            <img src="/img/misaka.jpg" alt="31415926535x">
-            31415926535x
-        </a>
-    </footer>
-</blockquote>
-
-        
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
-
-
-            
-<div class="page-share-wrap">
-    
-
-<div class="page-share" id="pageShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.31415x.cf/2019/04/12/Java实验-个人银行管理系统/&title=《课程设计报告一：个人银行账户管理系统 此文档及源码仅供参考 不得直接复制使用》 — 31415926535x&pic=http://blog.31415x.cf/img/misaka.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.31415x.cf/2019/04/12/Java实验-个人银行管理系统/&title=《课程设计报告一：个人银行账户管理系统 此文档及源码仅供参考 不得直接复制使用》 — 31415926535x&source=作　　者：31415926535x
-出　　处：https://www.cnblogs.com/31415926535x/p/10697659.html
-版..." data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.31415x.cf/2019/04/12/Java实验-个人银行管理系统/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《课程设计报告一：个人银行账户管理系统 此文档及源码仅供参考 不得直接复制使用》 — 31415926535x&url=http://blog.31415x.cf/2019/04/12/Java实验-个人银行管理系统/&via=http://blog.31415x.cf" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.31415x.cf/2019/04/12/Java实验-个人银行管理系统/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
-        <i class="icon icon-share-alt icon-lg"></i>
-    </a>
-</div>
-
-
-
-        </div>
-    </div>
-
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2019/04/21/The-Preliminary-Contest-for-ICPC-China-Nanchang-National-Invitational/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">The Preliminary Contest for ICPC China Nanchang National Invitational</h4>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/2019/04/08/Educational-Codeforces-Round-60/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Educational Codeforces Round 60</h4>
-      </a>
-    </div>
-  
-</nav>
-
-
-
-    
-
-
-<section class="comments" id="comments">
-    <div id="disqus_thread"></div>
-    <script>
-    var disqus_shortname = 'www-31415-cf';
-    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</article>
-
-
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
-        
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p><span>31415926535x &copy; 2018 - 2021</span>
-            <span>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
                 
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Java/">Java</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/04/21/The-Preliminary-Contest-for-ICPC-China-Nanchang-National-Invitational/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">The Preliminary Contest for ICPC China Nanchang National Invitational</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/04/08/Educational-Codeforces-Round-60/">
+                        <span class="hidden-mobile">Educational Codeforces Round 60</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_config = function() {
+        this.page.url = 'http://blog.31415x.cf/2019/04/12/Java%E5%AE%9E%E9%AA%8C-%E4%B8%AA%E4%BA%BA%E9%93%B6%E8%A1%8C%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/';
+        this.page.identifier = '/2019/04/12/Java%E5%AE%9E%E9%AA%8C-%E4%B8%AA%E4%BA%BA%E9%93%B6%E8%A1%8C%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/';
+      };
+      Fluid.utils.waitElementVisible('disqus_thread', function () {
+        var d = document, s = d.createElement('script');
+        s.src = '//' + 'www-31415-cf' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', new Date());
+        (d.head || d.body).appendChild(s);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the
+      <a target="_blank" href="https://disqus.com/?ref_noscript" rel="nofollow noopener noopener">comments powered by Disqus.</a>
+    </noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
     </div>
-	
-	
-	<div id="aplayer">
-		<!-- 音乐播放器 -->
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.css">
-		<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.js"></script>
-		<div id="aplayer" class="aplayer" data-id="2254014329" data-lrctype="0" data-server="netease" data-type="playlist" data-fixed="true" data-listfolded="true"></div>
-		<script src="https://unpkg.com/meting@1.2/dist/Meting.min.js"></script>
-	</div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br> <a>不忘初心 <strong><span style="color: red">☭</span></strong> 方得始终</a> 
+  </div>
+  
+
+  
+
+  
 </footer>
 
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
 
 
 
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.31415x.cf/2019/04/12/Java实验-个人银行管理系统/&title=《课程设计报告一：个人银行账户管理系统 此文档及源码仅供参考 不得直接复制使用》 — 31415926535x&pic=http://blog.31415x.cf/img/misaka.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.31415x.cf/2019/04/12/Java实验-个人银行管理系统/&title=《课程设计报告一：个人银行账户管理系统 此文档及源码仅供参考 不得直接复制使用》 — 31415926535x&source=作　　者：31415926535x
-出　　处：https://www.cnblogs.com/31415926535x/p/10697659.html
-版..." data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.31415x.cf/2019/04/12/Java实验-个人银行管理系统/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《课程设计报告一：个人银行账户管理系统 此文档及源码仅供参考 不得直接复制使用》 — 31415926535x&url=http://blog.31415x.cf/2019/04/12/Java实验-个人银行管理系统/&via=http://blog.31415x.cf" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.31415x.cf/2019/04/12/Java实验-个人银行管理系统/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://blog.31415x.cf/2019/04/12/Java实验-个人银行管理系统/" alt="微信分享二维码">
-</div>
+  
 
 
 
-
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
-
-
-</script>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
 
 
 
-<!-- mathjax config similar to math.stackexchange -->
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
 
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
 
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
 
 
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
 
 
 
-<script>
-(function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = '(つェ⊂)';
-            clearTimeout(titleTime);
-        } else {
-            document.title = '(๑•̀ㅂ•́)و✧';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
         }
-    });
-})();
-</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
-</script>
+      };
+    </script>
 
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
     }
-  });
-</script>
+  </script>
 
-<script type="text/javascript" src="custom_mathjax_source">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-114656515-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 

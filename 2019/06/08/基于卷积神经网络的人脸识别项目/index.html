@@ -1,245 +1,249 @@
+
+
 <!DOCTYPE html>
-<html>
-<head><meta name="generator" content="Hexo 3.9.0">
-    
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Google Analytics -->
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-114656515-1', 'auto');
-ga('send', 'pageview');
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-<!-- End Google Analytics -->
-
-
-    
-
-    
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
-    <meta charset="utf-8">
-    
-    
-    
-    <link rel="canonical" href="https://31415926535x.github.io/2019/06/08/基于卷积神经网络的人脸识别项目/">
-    
-    
-    <title>基于卷积神经网络的人脸识别项目 | 31415926535x</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#40c4ff">
-    
-    
-    <meta name="keywords" content="工具使用,人脸识别,实验报告">
-    <meta name="description" content="概述学期末了啊，，，最后这个人脸识别的项目弄完了，，有很多的不足，，很多东西都是只知道怎么用，但是不知道其背后的逻辑，，感觉自己学习东西对于那些潜意识优先级不高的就放弃了，，，emmm 这篇文章主要是大致介绍一下我们最后弄出来的人脸识别项目的成果吧，，整个项目放到了我的github，，可以直接下载运行的，，不过这也只是一个我们的思路，，这块东西还是多阅读别人的项目代码，，然后自己写一下好些，，根据">
-<meta name="keywords" content="工具使用,人脸识别,实验报告">
-<meta property="og:type" content="article">
-<meta property="og:title" content="基于卷积神经网络的人脸识别项目">
-<meta property="og:url" content="http://blog.31415x.cf/2019/06/08/基于卷积神经网络的人脸识别项目/index.html">
-<meta property="og:site_name" content="31415926535x">
-<meta property="og:description" content="概述学期末了啊，，，最后这个人脸识别的项目弄完了，，有很多的不足，，很多东西都是只知道怎么用，但是不知道其背后的逻辑，，感觉自己学习东西对于那些潜意识优先级不高的就放弃了，，，emmm 这篇文章主要是大致介绍一下我们最后弄出来的人脸识别项目的成果吧，，整个项目放到了我的github，，可以直接下载运行的，，不过这也只是一个我们的思路，，这块东西还是多阅读别人的项目代码，，然后自己写一下好些，，根据">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://github.com/31415926535x/CollegeProjectBackup/blob/master/FaceRecognition/acc.png">
-<meta property="og:image" content="https://github.com/31415926535x/CollegeProjectBackup/blob/master/FaceRecognition/loss.png">
-<meta property="og:updated_time" content="2019-08-02T02:58:59.443Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="基于卷积神经网络的人脸识别项目">
-<meta name="twitter:description" content="概述学期末了啊，，，最后这个人脸识别的项目弄完了，，有很多的不足，，很多东西都是只知道怎么用，但是不知道其背后的逻辑，，感觉自己学习东西对于那些潜意识优先级不高的就放弃了，，，emmm 这篇文章主要是大致介绍一下我们最后弄出来的人脸识别项目的成果吧，，整个项目放到了我的github，，可以直接下载运行的，，不过这也只是一个我们的思路，，这块东西还是多阅读别人的项目代码，，然后自己写一下好些，，根据">
-<meta name="twitter:image" content="https://github.com/31415926535x/CollegeProjectBackup/blob/master/FaceRecognition/acc.png">
-    
-        <link rel="alternate" type="application/atom+xml" title="31415926535x" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/misaka.jpg">
+  <link rel="icon" href="/img/misaka.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  
+    <meta name="description" content="概述学期末了啊，，，最后这个人脸识别的项目弄完了，，有很多的不足，，很多东西都是只知道怎么用，但是不知道其背后的逻辑，，感觉自己学习东西对于那些潜意识优先级不高的就放弃了，，，emmm
+这篇文章主要是大致介绍一下我们最后弄出来的人脸识别项目的成果吧，，整个项目放到了我的github，，可以直接下载运行的，，不过这也只是一个我们的思路，，这块东西还是多阅读别人的项目代码，，然后自己写一下好些，，根据">
+  
+  <meta name="author" content="31415926535x">
+  <meta name="keywords" content="">
+  
+  <title>基于卷积神经网络的人脸识别项目 - 31415926535x</title>
 
-    <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-    
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/monokai.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"blog.31415x.cf","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":null,"google":"UA-114656515-1","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="31415926535x" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
-<body>
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide" >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/misaka.jpg">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">31415926535x</h5>
-          <a href="mailto:2509437152wx@gmail.com" title="2509437152wx@gmail.com" class="mail">2509437152wx@gmail.com</a>
-        </hgroup>
-      </div>
-    </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>31415926535x</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                Archives
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                标签
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/31415926535x" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="https://plus.google.com/106114719135977350421" target="_blank" >
-                <i class="icon icon-lg icon-google"></i>
-                Google+
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="https://instagram.com/314159265358x" target="_blank" >
-                <i class="icon icon-lg icon-instagram"></i>
-                Instagram
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="https://cnblogs.com/31415926535x" target="_blank" >
-                <i class="icon icon-lg icon-th-large"></i>
-                cnblogs
-              </a>
-            </li>
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
         
-            <li class="waves-block waves-effect">
-              <a href="https://blog.csdn.net/pi31415926535x" target="_blank" >
-                <i class="icon icon-lg icon-cubes"></i>
-                csdn
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/timeline"  >
-                <i class="icon icon-lg icon-calendar"></i>
-                timeline
-              </a>
-            </li>
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
         
       </ul>
     </div>
   </div>
-</aside>
+</nav>
 
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">基于卷积神经网络的人脸识别项目</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
-        
-    </div>
-</header>
-<header class="content-header post-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">基于卷积神经网络的人脸识别项目</h1>
-        <h5 class="subtitle">
-            
-                <time datetime="2019-06-08T05:07:17.000Z" itemprop="datePublished" class="page-time">
-  2019-06-08
-</time>
-
-
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/人脸识别/">人脸识别</a></li></ul>
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="基于卷积神经网络的人脸识别项目">
+              
+            </span>
 
             
-        </h5>
-    </div>
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      31415926535x
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-06-08 13:07" pubdate>
+        2019年6月8日 下午
+      </time>
+    </span>
+  
+</div>
 
+<div class="mt-1">
+  
     
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4.6k 字
+    </span>
+  
 
-
-</header>
-
-
-<div class="container body-wrap">
+  
     
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#概述"><span class="post-toc-number">1.</span> <span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#项目思路"><span class="post-toc-number">2.</span> <span class="post-toc-text">项目思路</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#人脸数据的录入"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">人脸数据的录入</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#构建卷积神经网络，然后训练模型"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">构建卷积神经网络，然后训练模型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#构建卷积神经网络"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">构建卷积神经网络</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#训练模型"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">训练模型</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#识别"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">识别</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#总结"><span class="post-toc-number">3.</span> <span class="post-toc-text">总结</span></a></li></ol>
-        </nav>
-    </aside>
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      69
+       分钟
+    </span>
+  
 
-
-<article id="post-基于卷积神经网络的人脸识别项目"
-  class="post-article article-type-post fade" itemprop="blogPost">
-
-    <div class="post-card">
-        <h1 class="post-card-title">基于卷积神经网络的人脸识别项目</h1>
-        <div class="post-meta">
-            <time class="post-time" title="2019-06-08 13:07:17" datetime="2019-06-08T05:07:17.000Z"  itemprop="datePublished">2019-06-08</time>
+  
+  
+</div>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/人脸识别/">人脸识别</a></li></ul>
+          </div>
 
-
-
-            
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
-
-
+          
         </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>学期末了啊，，，最后这个人脸识别的项目弄完了，，有很多的不足，，很多东西都是只知道怎么用，但是不知道其背后的逻辑，，感觉自己学习东西对于那些潜意识优先级不高的就放弃了，，，emmm</p>
-<p>这篇文章主要是大致介绍一下我们最后弄出来的人脸识别项目的成果吧，，整个项目放到了<a href="https://github.com/31415926535x/CollegeProjectBackup/tree/master/FaceRecognition" target="_blank" rel="noopener">我的github</a>，，可以直接下载运行的，，不过这也只是一个我们的思路，，这块东西还是多阅读别人的项目代码，，然后自己写一下好些，，根据自己的需求尝试自己写代码，实在不行再看别人的思路，，才能提升自己的思维吧，，，</p>
-<a id="more"></a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">基于卷积神经网络的人脸识别项目</h1>
+            
+            <div class="markdown-body">
+              <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>学期末了啊，，，最后这个人脸识别的项目弄完了，，有很多的不足，，很多东西都是只知道怎么用，但是不知道其背后的逻辑，，感觉自己学习东西对于那些潜意识优先级不高的就放弃了，，，emmm</p>
+<p>这篇文章主要是大致介绍一下我们最后弄出来的人脸识别项目的成果吧，，整个项目放到了<a target="_blank" rel="noopener" href="https://github.com/31415926535x/CollegeProjectBackup/tree/master/FaceRecognition">我的github</a>，，可以直接下载运行的，，不过这也只是一个我们的思路，，这块东西还是多阅读别人的项目代码，，然后自己写一下好些，，根据自己的需求尝试自己写代码，实在不行再看别人的思路，，才能提升自己的思维吧，，，</p>
+<span id="more"></span>
 <h1 id="项目思路"><a href="#项目思路" class="headerlink" title="项目思路"></a>项目思路</h1><p>抛开那些花里胡哨的东西，人脸识别的大致流程只有三个： <strong>人脸数据的录入、构建卷积神经网络并训练模型、识别</strong></p>
-<p>不过这前要配置好环境，，我用的Anaconda来配置的整体环境，，，<a href="https://www.cnblogs.com/31415926535x/p/10620732.html" target="_blank" rel="noopener">可以看我的这篇博客</a> ，，（到能成功验证环境即可</p>
+<p>不过这前要配置好环境，，我用的Anaconda来配置的整体环境，，，<a target="_blank" rel="noopener" href="https://www.cnblogs.com/31415926535x/p/10620732.html">可以看我的这篇博客</a> ，，（到能成功验证环境即可</p>
 <p>具体的运行流程：</p>
 <ul>
 <li>激活创建的anaconda环境</li>
@@ -249,7 +253,7 @@ ga('send', 'pageview');
 <li>等待，，结束后会打印准确度，，</li>
 <li>运行识别模块，<code>python tensorflow_face.py</code> ，，，没错还是这个，，第二次运行会调用识别模块的，，，</li>
 </ul>
-<h2 id="人脸数据的录入"><a href="#人脸数据的录入" class="headerlink" title="人脸数据的录入"></a>人脸数据的录入</h2><p><a href="https://github.com/31415926535x/CollegeProjectBackup/blob/master/FaceRecognition/getFaceByCamera.py" target="_blank" rel="noopener">这部分的代码在这里</a></p>
+<h2 id="人脸数据的录入"><a href="#人脸数据的录入" class="headerlink" title="人脸数据的录入"></a>人脸数据的录入</h2><p><a target="_blank" rel="noopener" href="https://github.com/31415926535x/CollegeProjectBackup/blob/master/FaceRecognition/getFaceByCamera.py">这部分的代码在这里</a></p>
 <p>这部分我们的大致思路是：</p>
 <ul>
 <li>录入待录入者的姓名</li>
@@ -259,7 +263,7 @@ ga('send', 'pageview');
 </ul>
 <p>这一部分的代码：</p>
 <p>getFaceByCamera.py</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> dlib</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_video</span><span class="params">(name)</span>:</span></span><br><span class="line">    <span class="comment"># 录制视频</span></span><br><span class="line">    <span class="comment">#shutil.rmtree(name)</span></span><br><span class="line">    <span class="string">"""使用opencv录像"""</span></span><br><span class="line">    cap = cv2.VideoCapture(<span class="number">0</span>)  <span class="comment"># 默认的摄像头</span></span><br><span class="line">    <span class="comment"># 指定视频代码</span></span><br><span class="line">    fourcc = cv2.VideoWriter_fourcc(*<span class="string">"DIVX"</span>)</span><br><span class="line">    out = cv2.VideoWriter(<span class="string">'233.avi'</span>, fourcc, <span class="number">20.0</span>, (<span class="number">640</span>,<span class="number">480</span>))   <span class="comment"># 设置录制的视频的格式</span></span><br><span class="line">    <span class="keyword">while</span>(cap.isOpened()):</span><br><span class="line">        ret, frame = cap.read()</span><br><span class="line">        <span class="keyword">if</span> ret:</span><br><span class="line">            out.write(frame)</span><br><span class="line">            <span class="comment">#</span></span><br><span class="line">            cv2.imshow(<span class="string">'frame'</span>,frame)</span><br><span class="line">            <span class="comment"># 等待按键q操作关闭摄像头</span></span><br><span class="line">            <span class="keyword">if</span> cv2.waitKey(<span class="number">1</span>) &amp; <span class="number">0xFF</span> == ord(<span class="string">'q'</span>):</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    cap.release()                   <span class="comment"># 释放摄像头资源</span></span><br><span class="line">    out.release()                   <span class="comment"># 释放文件资源</span></span><br><span class="line">    cv2.destroyAllWindows()         <span class="comment"># 关闭拍摄窗口</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 改变图片的亮度与对比度</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">relight</span><span class="params">(img, light=<span class="number">1</span>, bias=<span class="number">0</span>)</span>:</span></span><br><span class="line">    w = img.shape[<span class="number">1</span>]</span><br><span class="line">    h = img.shape[<span class="number">0</span>]</span><br><span class="line">    <span class="comment">#image = []</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,w):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">0</span>,h):</span><br><span class="line">            <span class="keyword">for</span> c <span class="keyword">in</span> range(<span class="number">3</span>):</span><br><span class="line">                tmp = int(img[j,i,c]*light + bias)</span><br><span class="line">                <span class="keyword">if</span> tmp &gt; <span class="number">255</span>:</span><br><span class="line">                    tmp = <span class="number">255</span></span><br><span class="line">                <span class="keyword">elif</span> tmp &lt; <span class="number">0</span>:</span><br><span class="line">                    tmp = <span class="number">0</span></span><br><span class="line">                img[j,i,c] = tmp</span><br><span class="line">    <span class="keyword">return</span> img</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getDataByDlib</span><span class="params">(name)</span>:</span></span><br><span class="line">    <span class="comment"># 利用dlib来实现</span></span><br><span class="line">    output_dir = name       <span class="comment"># 使用录入的名字作为文件夹的名字</span></span><br><span class="line">    size = <span class="number">64</span>               <span class="comment"># 相片的大小为64*64</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(output_dir):      <span class="comment"># 没有文件夹是主动创建一个</span></span><br><span class="line">        os.makedirs(output_dir)</span><br><span class="line">    <span class="comment">#使用dlib自带的frontal_face_detector作为我们的特征提取器</span></span><br><span class="line">    detector = dlib.get_frontal_face_detector()</span><br><span class="line">    <span class="comment"># 打开摄像头 参数为输入流，可以为摄像头或视频文件</span></span><br><span class="line">    <span class="comment">#camera = cv2.VideoCapture(0)</span></span><br><span class="line">    camera = cv2.VideoCapture(<span class="string">"233.avi"</span>)    <span class="comment"># 相片来自上一步拍摄的视频</span></span><br><span class="line"></span><br><span class="line">    index = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">        <span class="keyword">if</span> (index &lt;= <span class="number">200</span>):                  <span class="comment"># 每一段视频只取200张</span></span><br><span class="line">            print(<span class="string">'Being processed picture %s'</span> % index) <span class="comment"># 显示处理的过程</span></span><br><span class="line">            <span class="comment"># 从摄像头读取照片</span></span><br><span class="line">            success, img = camera.read()    <span class="comment"># 从视频流中读取照片</span></span><br><span class="line">            <span class="comment"># 转为灰度图片</span></span><br><span class="line">            gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)</span><br><span class="line">            <span class="comment"># 使用detector进行人脸检测</span></span><br><span class="line">            dets = detector(gray_img, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> success == <span class="keyword">False</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> i, d <span class="keyword">in</span> enumerate(dets):</span><br><span class="line">                x1 = d.top() <span class="keyword">if</span> d.top() &gt; <span class="number">0</span> <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">                y1 = d.bottom() <span class="keyword">if</span> d.bottom() &gt; <span class="number">0</span> <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">                x2 = d.left() <span class="keyword">if</span> d.left() &gt; <span class="number">0</span> <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">                y2 = d.right() <span class="keyword">if</span> d.right() &gt; <span class="number">0</span> <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">                face = img[x1:y1,x2:y2]</span><br><span class="line">                <span class="comment"># 调整图片的对比度与亮度， 对比度与亮度值都取随机数，这样能增加样本的多样性</span></span><br><span class="line">                face = relight(face, random.uniform(<span class="number">0.5</span>, <span class="number">1.5</span>), random.randint(<span class="number">-50</span>, <span class="number">50</span>))</span><br><span class="line">                <span class="comment"># 裁剪出人脸相片，大小为64*64</span></span><br><span class="line">                face = cv2.resize(face, (size,size))    </span><br><span class="line">                <span class="comment"># 显示最后裁剪出的人脸相片</span></span><br><span class="line">                cv2.imshow(<span class="string">'image'</span>, face)</span><br><span class="line">                <span class="comment"># 保存到文件下，文件名为1 - 200.jpg</span></span><br><span class="line">                cv2.imwrite(output_dir+<span class="string">'/'</span>+str(index)+<span class="string">'.jpg'</span>, face)</span><br><span class="line"></span><br><span class="line">                index += <span class="number">1</span></span><br><span class="line">            key = cv2.waitKey(<span class="number">30</span>) &amp; <span class="number">0xff</span></span><br><span class="line">            <span class="keyword">if</span> key == <span class="number">27</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">'Finished!'</span>)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="comment"># 删除视频</span></span><br><span class="line">    shutil.rmtree(<span class="string">'./233.avi'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getDataByOpencv2</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 利用opencv来实现</span></span><br><span class="line">    output_dir = <span class="string">'./my_faces'</span></span><br><span class="line">    size = <span class="number">64</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(output_dir):</span><br><span class="line">        os.makedirs(output_dir)                                 </span><br><span class="line">    <span class="comment"># 获取分类器</span></span><br><span class="line">    haar = cv2.CascadeClassifier(<span class="string">r'G:\DIP\Anaconda3\envs\test1\Library\etc\haarcascades\haarcascade_frontalface_default.xml'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 打开摄像头 参数为输入流，可以为摄像头或视频文件</span></span><br><span class="line">    camera = cv2.VideoCapture(<span class="string">"233.avi"</span>)</span><br><span class="line"></span><br><span class="line">    n = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">if</span> (n &lt;= <span class="number">10000</span>):</span><br><span class="line">            print(<span class="string">'It`s processing %s image.'</span> % n)</span><br><span class="line">            <span class="comment"># 读帧</span></span><br><span class="line">            success, img = camera.read()</span><br><span class="line"></span><br><span class="line">            gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)</span><br><span class="line">            faces = haar.detectMultiScale(gray_img, <span class="number">1.3</span>, <span class="number">5</span>)</span><br><span class="line">            <span class="keyword">for</span> f_x, f_y, f_w, f_h <span class="keyword">in</span> faces:</span><br><span class="line">                face = img[f_y:f_y+f_h, f_x:f_x+f_w]</span><br><span class="line">                face = cv2.resize(face, (<span class="number">64</span>,<span class="number">64</span>))</span><br><span class="line">                <span class="string">'''</span></span><br><span class="line"><span class="string">                if n % 3 == 1:</span></span><br><span class="line"><span class="string">                    face = relight(face, 1, 50)</span></span><br><span class="line"><span class="string">                elif n % 3 == 2:</span></span><br><span class="line"><span class="string">                    face = relight(face, 0.5, 0)</span></span><br><span class="line"><span class="string">                '''</span></span><br><span class="line">                face = relight(face, random.uniform(<span class="number">0.5</span>, <span class="number">1.5</span>), random.randint(<span class="number">-50</span>, <span class="number">50</span>))</span><br><span class="line">                cv2.imshow(<span class="string">'img'</span>, face)</span><br><span class="line">                cv2.imwrite(output_dir+<span class="string">'/'</span>+str(n)+<span class="string">'.jpg'</span>, face)</span><br><span class="line">                n+=<span class="number">1</span></span><br><span class="line">            key = cv2.waitKey(<span class="number">30</span>) &amp; <span class="number">0xff</span></span><br><span class="line">            <span class="keyword">if</span> key == <span class="number">27</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    name = input(<span class="string">'please input yourename: '</span>)        <span class="comment"># 获取录入者的名字</span></span><br><span class="line">    name = os.path.join(<span class="string">'./image/trainfaces'</span>, name) <span class="comment"># 生成保存的文件路径名</span></span><br><span class="line">    make_video(name)                                <span class="comment"># 拍摄视频</span></span><br><span class="line">    getDataByDlib(name)                             <span class="comment"># 利用dlib处理裁剪人脸原始相片</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">import</span> dlib<br><span class="hljs-keyword">import</span> sys<br><span class="hljs-keyword">import</span> random<br><span class="hljs-keyword">import</span> shutil<br><br> <br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">make_video</span>(<span class="hljs-params">name</span>):</span><br>    <span class="hljs-comment"># 录制视频</span><br>    <span class="hljs-comment">#shutil.rmtree(name)</span><br>    <span class="hljs-string">&quot;&quot;&quot;使用opencv录像&quot;&quot;&quot;</span><br>    cap = cv2.VideoCapture(<span class="hljs-number">0</span>)  <span class="hljs-comment"># 默认的摄像头</span><br>    <span class="hljs-comment"># 指定视频代码</span><br>    fourcc = cv2.VideoWriter_fourcc(*<span class="hljs-string">&quot;DIVX&quot;</span>)<br>    out = cv2.VideoWriter(<span class="hljs-string">&#x27;233.avi&#x27;</span>, fourcc, <span class="hljs-number">20.0</span>, (<span class="hljs-number">640</span>,<span class="hljs-number">480</span>))   <span class="hljs-comment"># 设置录制的视频的格式</span><br>    <span class="hljs-keyword">while</span>(cap.isOpened()):<br>        ret, frame = cap.read()<br>        <span class="hljs-keyword">if</span> ret:<br>            out.write(frame)<br>            <span class="hljs-comment">#</span><br>            cv2.imshow(<span class="hljs-string">&#x27;frame&#x27;</span>,frame)<br>            <span class="hljs-comment"># 等待按键q操作关闭摄像头</span><br>            <span class="hljs-keyword">if</span> cv2.waitKey(<span class="hljs-number">1</span>) &amp; <span class="hljs-number">0xFF</span> == <span class="hljs-built_in">ord</span>(<span class="hljs-string">&#x27;q&#x27;</span>):<br>                <span class="hljs-keyword">break</span><br>        <span class="hljs-keyword">else</span>:<br>            <span class="hljs-keyword">break</span><br>    cap.release()                   <span class="hljs-comment"># 释放摄像头资源</span><br>    out.release()                   <span class="hljs-comment"># 释放文件资源</span><br>    cv2.destroyAllWindows()         <span class="hljs-comment"># 关闭拍摄窗口</span><br><br><br><br><br><span class="hljs-comment"># 改变图片的亮度与对比度</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">relight</span>(<span class="hljs-params">img, light=<span class="hljs-number">1</span>, bias=<span class="hljs-number">0</span></span>):</span><br>    w = img.shape[<span class="hljs-number">1</span>]<br>    h = img.shape[<span class="hljs-number">0</span>]<br>    <span class="hljs-comment">#image = []</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>,w):<br>        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>,h):<br>            <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>):<br>                tmp = <span class="hljs-built_in">int</span>(img[j,i,c]*light + bias)<br>                <span class="hljs-keyword">if</span> tmp &gt; <span class="hljs-number">255</span>:<br>                    tmp = <span class="hljs-number">255</span><br>                <span class="hljs-keyword">elif</span> tmp &lt; <span class="hljs-number">0</span>:<br>                    tmp = <span class="hljs-number">0</span><br>                img[j,i,c] = tmp<br>    <span class="hljs-keyword">return</span> img<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getDataByDlib</span>(<span class="hljs-params">name</span>):</span><br>    <span class="hljs-comment"># 利用dlib来实现</span><br>    output_dir = name       <span class="hljs-comment"># 使用录入的名字作为文件夹的名字</span><br>    size = <span class="hljs-number">64</span>               <span class="hljs-comment"># 相片的大小为64*64</span><br><br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> os.path.exists(output_dir):      <span class="hljs-comment"># 没有文件夹是主动创建一个</span><br>        os.makedirs(output_dir)<br>    <span class="hljs-comment">#使用dlib自带的frontal_face_detector作为我们的特征提取器</span><br>    detector = dlib.get_frontal_face_detector()<br>    <span class="hljs-comment"># 打开摄像头 参数为输入流，可以为摄像头或视频文件</span><br>    <span class="hljs-comment">#camera = cv2.VideoCapture(0)</span><br>    camera = cv2.VideoCapture(<span class="hljs-string">&quot;233.avi&quot;</span>)    <span class="hljs-comment"># 相片来自上一步拍摄的视频</span><br><br>    index = <span class="hljs-number">1</span><br>    <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>        <span class="hljs-keyword">if</span> (index &lt;= <span class="hljs-number">200</span>):                  <span class="hljs-comment"># 每一段视频只取200张</span><br>            print(<span class="hljs-string">&#x27;Being processed picture %s&#x27;</span> % index) <span class="hljs-comment"># 显示处理的过程</span><br>            <span class="hljs-comment"># 从摄像头读取照片</span><br>            success, img = camera.read()    <span class="hljs-comment"># 从视频流中读取照片</span><br>            <span class="hljs-comment"># 转为灰度图片</span><br>            gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)<br>            <span class="hljs-comment"># 使用detector进行人脸检测</span><br>            dets = detector(gray_img, <span class="hljs-number">1</span>)<br><br>            <span class="hljs-keyword">if</span> success == <span class="hljs-literal">False</span>:<br>                <span class="hljs-keyword">break</span><br><br>            <span class="hljs-keyword">for</span> i, d <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(dets):<br>                x1 = d.top() <span class="hljs-keyword">if</span> d.top() &gt; <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> <span class="hljs-number">0</span><br>                y1 = d.bottom() <span class="hljs-keyword">if</span> d.bottom() &gt; <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> <span class="hljs-number">0</span><br>                x2 = d.left() <span class="hljs-keyword">if</span> d.left() &gt; <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> <span class="hljs-number">0</span><br>                y2 = d.right() <span class="hljs-keyword">if</span> d.right() &gt; <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> <span class="hljs-number">0</span><br><br>                face = img[x1:y1,x2:y2]<br>                <span class="hljs-comment"># 调整图片的对比度与亮度， 对比度与亮度值都取随机数，这样能增加样本的多样性</span><br>                face = relight(face, random.uniform(<span class="hljs-number">0.5</span>, <span class="hljs-number">1.5</span>), random.randint(-<span class="hljs-number">50</span>, <span class="hljs-number">50</span>))<br>                <span class="hljs-comment"># 裁剪出人脸相片，大小为64*64</span><br>                face = cv2.resize(face, (size,size))    <br>                <span class="hljs-comment"># 显示最后裁剪出的人脸相片</span><br>                cv2.imshow(<span class="hljs-string">&#x27;image&#x27;</span>, face)<br>                <span class="hljs-comment"># 保存到文件下，文件名为1 - 200.jpg</span><br>                cv2.imwrite(output_dir+<span class="hljs-string">&#x27;/&#x27;</span>+<span class="hljs-built_in">str</span>(index)+<span class="hljs-string">&#x27;.jpg&#x27;</span>, face)<br><br>                index += <span class="hljs-number">1</span><br>            key = cv2.waitKey(<span class="hljs-number">30</span>) &amp; <span class="hljs-number">0xff</span><br>            <span class="hljs-keyword">if</span> key == <span class="hljs-number">27</span>:<br>                <span class="hljs-keyword">break</span><br>        <span class="hljs-keyword">else</span>:<br>            print(<span class="hljs-string">&#x27;Finished!&#x27;</span>)<br>            <span class="hljs-keyword">break</span><br>    <span class="hljs-comment"># 删除视频</span><br>    shutil.rmtree(<span class="hljs-string">&#x27;./233.avi&#x27;</span>)<br><br><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getDataByOpencv2</span>():</span><br>    <span class="hljs-comment"># 利用opencv来实现</span><br>    output_dir = <span class="hljs-string">&#x27;./my_faces&#x27;</span><br>    size = <span class="hljs-number">64</span><br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> os.path.exists(output_dir):<br>        os.makedirs(output_dir)                                 <br>    <span class="hljs-comment"># 获取分类器</span><br>    haar = cv2.CascadeClassifier(<span class="hljs-string">r&#x27;G:\DIP\Anaconda3\envs\test1\Library\etc\haarcascades\haarcascade_frontalface_default.xml&#x27;</span>)<br><br>    <span class="hljs-comment"># 打开摄像头 参数为输入流，可以为摄像头或视频文件</span><br>    camera = cv2.VideoCapture(<span class="hljs-string">&quot;233.avi&quot;</span>)<br><br>    n = <span class="hljs-number">1</span><br>    <span class="hljs-keyword">while</span> <span class="hljs-number">1</span>:<br>        <span class="hljs-keyword">if</span> (n &lt;= <span class="hljs-number">10000</span>):<br>            print(<span class="hljs-string">&#x27;It`s processing %s image.&#x27;</span> % n)<br>            <span class="hljs-comment"># 读帧</span><br>            success, img = camera.read()<br><br>            gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)<br>            faces = haar.detectMultiScale(gray_img, <span class="hljs-number">1.3</span>, <span class="hljs-number">5</span>)<br>            <span class="hljs-keyword">for</span> f_x, f_y, f_w, f_h <span class="hljs-keyword">in</span> faces:<br>                face = img[f_y:f_y+f_h, f_x:f_x+f_w]<br>                face = cv2.resize(face, (<span class="hljs-number">64</span>,<span class="hljs-number">64</span>))<br>                <span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">                if n % 3 == 1:</span><br><span class="hljs-string">                    face = relight(face, 1, 50)</span><br><span class="hljs-string">                elif n % 3 == 2:</span><br><span class="hljs-string">                    face = relight(face, 0.5, 0)</span><br><span class="hljs-string">                &#x27;&#x27;&#x27;</span><br>                face = relight(face, random.uniform(<span class="hljs-number">0.5</span>, <span class="hljs-number">1.5</span>), random.randint(-<span class="hljs-number">50</span>, <span class="hljs-number">50</span>))<br>                cv2.imshow(<span class="hljs-string">&#x27;img&#x27;</span>, face)<br>                cv2.imwrite(output_dir+<span class="hljs-string">&#x27;/&#x27;</span>+<span class="hljs-built_in">str</span>(n)+<span class="hljs-string">&#x27;.jpg&#x27;</span>, face)<br>                n+=<span class="hljs-number">1</span><br>            key = cv2.waitKey(<span class="hljs-number">30</span>) &amp; <span class="hljs-number">0xff</span><br>            <span class="hljs-keyword">if</span> key == <span class="hljs-number">27</span>:<br>                <span class="hljs-keyword">break</span><br>        <span class="hljs-keyword">else</span>:<br>            <span class="hljs-keyword">break</span><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    name = <span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;please input yourename: &#x27;</span>)        <span class="hljs-comment"># 获取录入者的名字</span><br>    name = os.path.join(<span class="hljs-string">&#x27;./image/trainfaces&#x27;</span>, name) <span class="hljs-comment"># 生成保存的文件路径名</span><br>    make_video(name)                                <span class="hljs-comment"># 拍摄视频</span><br>    getDataByDlib(name)                             <span class="hljs-comment"># 利用dlib处理裁剪人脸原始相片</span><br></code></pre></td></tr></table></figure>
 <h2 id="构建卷积神经网络，然后训练模型"><a href="#构建卷积神经网络，然后训练模型" class="headerlink" title="构建卷积神经网络，然后训练模型"></a>构建卷积神经网络，然后训练模型</h2><p>这一部分大概就是做人脸识别的主要目的了吧，，，</p>
 <h3 id="构建卷积神经网络"><a href="#构建卷积神经网络" class="headerlink" title="构建卷积神经网络"></a>构建卷积神经网络</h3><p>这一部分几乎网上写的代码的框架都是差不多的，，，所以只要理解每一层是什么意思，，怎么用就行了，，当然可以继续深究下去，，理解每一层为什么这么做，，这么做的方法是什么等等，，</p>
 <p>我们之前在这一部分投入的精力也最多，，出现的问题也是很多的，，其中我感觉最印象深刻的就是层数的叠加和那个神奇的 <code>loss=0.69.....</code></p>
@@ -267,355 +271,333 @@ ga('send', 'pageview');
 <p>关于那一个神奇的 <code>loss=0.69</code> ，，貌似不同的网络、需求下可能不会出现这种情况，，，但是如果出现不管比怎么调参出来的loss都保持在0.69附近的话，，可以试着查一下这一个问题，，我们最后的解决方法是再添加一层 <strong>batch nomalization层</strong> ，，具体干什么的网上有很多讲解的，，，加了它就可以使loss快速收敛，，，</p>
 <h3 id="训练模型"><a href="#训练模型" class="headerlink" title="训练模型"></a>训练模型</h3><p>这一部分的框架都是差不多的，，变化可能有参数的变化，，优化器的不同等等</p>
 <p>代码：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#coding=utf-8</span></span><br><span class="line"><span class="string">''' face detect convolution'''</span></span><br><span class="line"><span class="comment"># pylint: disable=invalid-name</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> logging <span class="keyword">as</span> log</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> common</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> tensorflow.examples.tutorials.mnist <span class="keyword">import</span> input_data</span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">SIZE = <span class="number">64</span></span><br><span class="line"></span><br><span class="line">x = tf.placeholder(tf.float32, [<span class="keyword">None</span>, SIZE, SIZE, <span class="number">3</span>])</span><br><span class="line">y_ = tf.placeholder(tf.float32, [<span class="keyword">None</span>, <span class="keyword">None</span>])</span><br><span class="line">keep_prob_5 = tf.placeholder(tf.float32)</span><br><span class="line">keep_prob_75 = tf.placeholder(tf.float32)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">weightVariable</span><span class="params">(shape)</span>:</span></span><br><span class="line">    <span class="string">''' build weight variable'''</span></span><br><span class="line">    init = tf.random_normal(shape, stddev=<span class="number">0.01</span>)</span><br><span class="line">    <span class="comment">#init = tf.truncated_normal(shape, stddev=0.01)</span></span><br><span class="line">    <span class="keyword">return</span> tf.Variable(init)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">biasVariable</span><span class="params">(shape)</span>:</span></span><br><span class="line">    <span class="string">''' build bias variable'''</span></span><br><span class="line">    init = tf.random_normal(shape)</span><br><span class="line">    <span class="comment">#init = tf.truncated_normal(shape, stddev=0.01)</span></span><br><span class="line">    <span class="keyword">return</span> tf.Variable(init)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">conv2d</span><span class="params">(x, W)</span>:</span></span><br><span class="line">    <span class="string">''' conv2d by 1, 1, 1, 1'''</span></span><br><span class="line">    <span class="keyword">return</span> tf.nn.conv2d(x, W, strides=[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>], padding=<span class="string">'SAME'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">maxPool</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="string">''' max pooling'''</span></span><br><span class="line">    <span class="keyword">return</span> tf.nn.max_pool(x, ksize=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>], strides=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>], padding=<span class="string">'SAME'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dropout</span><span class="params">(x, keep)</span>:</span></span><br><span class="line">    <span class="string">''' drop out'''</span></span><br><span class="line">    <span class="keyword">return</span> tf.nn.dropout(x, keep)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">batch_norm_layer</span><span class="params">(value,is_training=False,name=<span class="string">'batch_norm'</span>)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    批量归一化  返回批量归一化的结果</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    args:</span></span><br><span class="line"><span class="string">        value:代表输入，第一个维度为batch_size</span></span><br><span class="line"><span class="string">        is_training:当它为True，代表是训练过程，这时会不断更新样本集的均值与方差。当测试时，要设置成False，这样就会使用训练样本集的均值和方差。</span></span><br><span class="line"><span class="string">              默认测试模式</span></span><br><span class="line"><span class="string">        name：名称。</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">if</span> is_training <span class="keyword">is</span> <span class="keyword">True</span>:</span><br><span class="line">        <span class="comment">#训练模式 使用指数加权函数不断更新均值和方差</span></span><br><span class="line">        <span class="keyword">return</span> tf.contrib.layers.batch_norm(inputs=value,decay=<span class="number">0.9</span>,updates_collections=<span class="keyword">None</span>,is_training = <span class="keyword">True</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment">#测试模式 不更新均值和方差，直接使用</span></span><br><span class="line">        <span class="keyword">return</span> tf.contrib.layers.batch_norm(inputs=value,decay=<span class="number">0.9</span>,updates_collections=<span class="keyword">None</span>,is_training = <span class="keyword">False</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cnnLayer</span><span class="params">(classnum, isTrue)</span>:</span></span><br><span class="line">    <span class="string">''' create cnn layer'''</span></span><br><span class="line">    <span class="comment"># 第一层</span></span><br><span class="line">    W1 = weightVariable([<span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">32</span>]) <span class="comment"># 卷积核大小(3,3)， 输入通道(3)， 输出通道(32)</span></span><br><span class="line">    b1 = biasVariable([<span class="number">32</span>])</span><br><span class="line">    conv1 = tf.nn.relu(batch_norm_layer(conv2d(x, W1) + b1, isTrue))</span><br><span class="line">    pool1 = maxPool(conv1)</span><br><span class="line">    <span class="comment"># 减少过拟合，随机让某些权重不更新</span></span><br><span class="line">    drop1 = dropout(pool1, keep_prob_5) <span class="comment"># 32 * 32 * 32 多个输入channel 被filter内积掉了</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 第二层</span></span><br><span class="line">    W2 = weightVariable([<span class="number">3</span>, <span class="number">3</span>, <span class="number">32</span>, <span class="number">64</span>])</span><br><span class="line">    b2 = biasVariable([<span class="number">64</span>])</span><br><span class="line">    conv2 = tf.nn.relu(batch_norm_layer(conv2d(drop1, W2) + b2, isTrue))</span><br><span class="line">    pool2 = maxPool(conv2)</span><br><span class="line">    drop2 = dropout(pool2, keep_prob_5) <span class="comment"># 64 * 16 * 16</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 第三层</span></span><br><span class="line">    W3 = weightVariable([<span class="number">3</span>, <span class="number">3</span>, <span class="number">64</span>, <span class="number">64</span>])</span><br><span class="line">    b3 = biasVariable([<span class="number">64</span>])</span><br><span class="line">    conv3 = tf.nn.relu(conv2d(drop2, W3) + b3)</span><br><span class="line">    pool3 = maxPool(conv3)</span><br><span class="line">    drop3 = dropout(pool3, keep_prob_5) <span class="comment"># 64 * 8 * 8</span></span><br><span class="line">        </span><br><span class="line">    <span class="comment"># 全连接层</span></span><br><span class="line">    Wf = weightVariable([<span class="number">8</span>*<span class="number">8</span>*<span class="number">64</span>,<span class="number">512</span>])</span><br><span class="line">    bf = biasVariable([<span class="number">512</span>])</span><br><span class="line">    drop3_flat = tf.reshape(drop3, [<span class="number">-1</span>, <span class="number">8</span>*<span class="number">8</span>*<span class="number">64</span>])</span><br><span class="line">    dense = tf.nn.relu(tf.matmul(drop3_flat, Wf) + bf)</span><br><span class="line">    dropf = dropout(dense, keep_prob_75)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 输出层</span></span><br><span class="line">    Wout = weightVariable([<span class="number">512</span>, classnum])</span><br><span class="line">    bout = weightVariable([classnum])</span><br><span class="line">    <span class="comment">#out = tf.matmul(dropf, Wout) + bout</span></span><br><span class="line">    out = tf.add(tf.matmul(dropf, Wout), bout)</span><br><span class="line">    <span class="keyword">return</span> out</span><br><span class="line"></span><br><span class="line">    <span class="comment"># # 第三层</span></span><br><span class="line">    <span class="comment"># W3 = weightVariable([3, 3, 64, 128])</span></span><br><span class="line">    <span class="comment"># b3 = biasVariable([128])</span></span><br><span class="line">    <span class="comment"># conv3 = tf.nn.relu(batch_norm_layer(conv2d(drop2, W3) + b3, True))</span></span><br><span class="line">    <span class="comment"># pool3 = maxPool(conv3)</span></span><br><span class="line">    <span class="comment"># drop3 = dropout(pool3, keep_prob_5) # 128 * 8 * 8</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># # 第四层</span></span><br><span class="line">    <span class="comment"># W4 = weightVariable([3, 3, 128, 512])</span></span><br><span class="line">    <span class="comment"># b4 = biasVariable([512])</span></span><br><span class="line">    <span class="comment"># conv4 = tf.nn.relu(batch_norm_layer(conv2d(drop3, W4) + b4, True))</span></span><br><span class="line">    <span class="comment"># pool4 = maxPool(conv4)</span></span><br><span class="line">    <span class="comment"># drop4 = dropout(pool4, keep_prob_5) # 512 * 4 * 4</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># # 第五层</span></span><br><span class="line">    <span class="comment"># W5 = weightVariable([3, 3, 512, 1024])</span></span><br><span class="line">    <span class="comment"># b5 = biasVariable([1024])</span></span><br><span class="line">    <span class="comment"># conv5 = tf.nn.relu(batch_norm_layer(conv2d(drop4, W5) + b5, True))</span></span><br><span class="line">    <span class="comment"># pool5 = maxPool(conv5)</span></span><br><span class="line">    <span class="comment"># drop5 = dropout(pool5, keep_prob_5) # 1024 * 2 * 2</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># # 第六层</span></span><br><span class="line">    <span class="comment"># W6 = weightVariable([3, 3, 1024, 1024])</span></span><br><span class="line">    <span class="comment"># b6 = biasVariable([1024])</span></span><br><span class="line">    <span class="comment"># conv6 = tf.nn.relu(conv2d(drop5, W6) + b6)</span></span><br><span class="line">    <span class="comment"># pool6 = maxPool(conv6)</span></span><br><span class="line">    <span class="comment"># drop6 = dropout(pool6, keep_prob_5) # 2048 * 1 * 1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment"># # 全连接层</span></span><br><span class="line">    <span class="comment"># Wf = weightVariable([1*1*1024, 2048])</span></span><br><span class="line">    <span class="comment"># bf = biasVariable([2048])</span></span><br><span class="line">    <span class="comment"># drop3_flat = tf.reshape(drop6, [-1, 1*1*1024])</span></span><br><span class="line">    <span class="comment"># dense = tf.nn.relu(tf.matmul(drop3_flat, Wf) + bf)</span></span><br><span class="line">    <span class="comment"># # dense = tf.nn.relu(tf.matmul(max_pool22_flat, Wf) + bf)</span></span><br><span class="line">    <span class="comment"># dropf = dropout(dense, keep_prob_75)</span></span><br><span class="line"></span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">    <span class="comment"># # 输出层</span></span><br><span class="line">    <span class="comment"># Wout = weightVariable([2048, classnum])</span></span><br><span class="line">    <span class="comment"># bout = weightVariable([classnum])</span></span><br><span class="line">    <span class="comment"># #out = tf.matmul(dropf, Wout) + bout</span></span><br><span class="line">    <span class="comment"># out = tf.add(tf.matmul(dropf, Wout), bout)</span></span><br><span class="line">    <span class="comment"># #return out</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">train</span><span class="params">(train_x, train_y, tfsavepath)</span>:</span></span><br><span class="line">    <span class="string">''' train'''</span></span><br><span class="line">    <span class="comment">##### log.debug('train')</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 随机划分测试集与训练集</span></span><br><span class="line">    train_x,test_x,train_y,test_y = train_test_split(train_x, train_y, test_size=<span class="number">0.05</span>, random_state=random.randint(<span class="number">0</span>,<span class="number">100</span>))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 得到卷积结果</span></span><br><span class="line">    out = cnnLayer(train_y.shape[<span class="number">1</span>],<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 参数：图片数据的总数，图片的高、宽、通道</span></span><br><span class="line">    train_x = train_x.reshape(train_x.shape[<span class="number">0</span>], SIZE, SIZE, <span class="number">3</span>)</span><br><span class="line">    test_x = test_x.reshape(test_x.shape[<span class="number">0</span>], SIZE, SIZE, <span class="number">3</span>)</span><br><span class="line">    </span><br><span class="line">    print(<span class="string">'train size:%s, test size:%s'</span> % (len(train_x), len(test_x)))</span><br><span class="line">    sys.stdout.flush()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 图片块，每次取32张图片</span></span><br><span class="line">    batch_size = <span class="number">32</span></span><br><span class="line">    num_batch = len(train_x) // batch_size  </span><br><span class="line"></span><br><span class="line">    <span class="comment"># 交叉熵</span></span><br><span class="line">    cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=out, labels=y_))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Adam优化器，学习速率：0.001</span></span><br><span class="line">    train_step = tf.train.AdamOptimizer(<span class="number">0.001</span>).minimize(cross_entropy)</span><br><span class="line">    <span class="comment"># train_step = tf.train.AdadeltaOptimizer(0.001).minimize(cross_entropy)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 比较标签是否相等，再求的所有数的平均值，tf.cast(强制转换类型)</span></span><br><span class="line">    <span class="comment"># 准确率计算公式</span></span><br><span class="line">    accuracy = tf.reduce_mean(tf.cast(tf.equal(tf.argmax(out, <span class="number">1</span>), tf.argmax(y_, <span class="number">1</span>)), tf.float32))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 将loss与accuracy保存以供tensorboard使用</span></span><br><span class="line">    tf.summary.scalar(<span class="string">'loss'</span>, cross_entropy)</span><br><span class="line">    tf.summary.scalar(<span class="string">'accuracy'</span>, accuracy)</span><br><span class="line">    merged_summary_op = tf.summary.merge_all()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 数据保存器的初始化</span></span><br><span class="line">    saver = tf.train.Saver()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line"></span><br><span class="line">        <span class="comment"># tensorflow初始化</span></span><br><span class="line">        sess.run(tf.global_variables_initializer())</span><br><span class="line">        <span class="comment"># tensorboard数据保存</span></span><br><span class="line">        summary_writer = tf.summary.FileWriter(<span class="string">'./tmp'</span>, graph=tf.get_default_graph())</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 迭代80次</span></span><br><span class="line">        <span class="keyword">for</span> n <span class="keyword">in</span> range(<span class="number">80</span>):</span><br><span class="line">            <span class="comment"># 每次取32(batch_size)张图片</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(num_batch):</span><br><span class="line"></span><br><span class="line">                <span class="comment"># 训练集、测试集分块</span></span><br><span class="line">                batch_x = train_x[i*batch_size : (i+<span class="number">1</span>)*batch_size]</span><br><span class="line">                batch_y = train_y[i*batch_size : (i+<span class="number">1</span>)*batch_size]</span><br><span class="line">                <span class="comment"># 开始训练数据，同时训练三个变量，返回三个数据</span></span><br><span class="line">                _,loss,summary = sess.run([train_step, cross_entropy, merged_summary_op],</span><br><span class="line">                                                feed_dict=&#123;x:batch_x,y_:batch_y, keep_prob_5:<span class="number">0.5</span>,keep_prob_75:<span class="number">0.75</span>&#125;)</span><br><span class="line"></span><br><span class="line">                <span class="comment"># tensorboard记录数据    </span></span><br><span class="line">                summary_writer.add_summary(summary, n*num_batch+i)</span><br><span class="line"></span><br><span class="line">                </span><br><span class="line">                <span class="comment"># 打印损失</span></span><br><span class="line">                print(n*num_batch+i, loss)</span><br><span class="line">                sys.stdout.flush()</span><br><span class="line"></span><br><span class="line">        <span class="comment">#         if (n*num_batch+i) % batch_size == 0:</span></span><br><span class="line">        <span class="comment">#             # 获取测试数据的准确率</span></span><br><span class="line">        <span class="comment">#             acc = accuracy.eval(&#123;x:test_x, y_:test_y, keep_prob_5:1.0, keep_prob_75:1.0&#125;)</span></span><br><span class="line">        <span class="comment">#             print(n*num_batch+i, acc, '--', n)</span></span><br><span class="line">                    </span><br><span class="line">        <span class="comment">#             accc = acc</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#             # 准确率大于0.98时保存并退出</span></span><br><span class="line">        <span class="comment">#             if acc &gt; 0.95 and n &gt; 2:</span></span><br><span class="line">        <span class="comment">#                 # saver.save(sess, './train_faces.model', global_step=n*num_batch+i)</span></span><br><span class="line">        <span class="comment">#                 saver.save(sess, tfsavepath)</span></span><br><span class="line">        <span class="comment">#                 # saver.save(sess, tfsavepath)</span></span><br><span class="line">        <span class="comment">#                 sys.exit(0)</span></span><br><span class="line">        <span class="comment"># # saver.save(sess, './train_faces.model', global_step=n*num_batch+i)</span></span><br><span class="line">        <span class="comment"># # saver.save(sess, tfsavepath)</span></span><br><span class="line">        <span class="comment"># print('accuracy less 0.98, exited!')   </span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 准确率计算表达式</span></span><br><span class="line">        acc = accuracy.eval(&#123;x:test_x, y_:test_y, keep_prob_5:<span class="number">1.0</span>, keep_prob_75:<span class="number">1.0</span>&#125;)</span><br><span class="line">        print(<span class="string">'after 80 times run: accuracy is '</span>, acc)</span><br><span class="line">        sys.stdout.flush()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 模型保存</span></span><br><span class="line">        saver.save(sess, tfsavepath) </span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-comment">#!/usr/bin/python</span><br><span class="hljs-comment">#coding=utf-8</span><br><span class="hljs-string">&#x27;&#x27;&#x27; face detect convolution&#x27;&#x27;&#x27;</span><br><span class="hljs-comment"># pylint: disable=invalid-name</span><br><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">import</span> sys<br><span class="hljs-keyword">import</span> logging <span class="hljs-keyword">as</span> log<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><span class="hljs-keyword">import</span> common<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">from</span> tensorflow.examples.tutorials.mnist <span class="hljs-keyword">import</span> input_data<br><span class="hljs-keyword">import</span> tensorflow <span class="hljs-keyword">as</span> tf<br><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">from</span> sklearn.model_selection <span class="hljs-keyword">import</span> train_test_split<br><span class="hljs-keyword">import</span> random<br><br>SIZE = <span class="hljs-number">64</span><br><br>x = tf.placeholder(tf.float32, [<span class="hljs-literal">None</span>, SIZE, SIZE, <span class="hljs-number">3</span>])<br>y_ = tf.placeholder(tf.float32, [<span class="hljs-literal">None</span>, <span class="hljs-literal">None</span>])<br>keep_prob_5 = tf.placeholder(tf.float32)<br>keep_prob_75 = tf.placeholder(tf.float32)<br><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">weightVariable</span>(<span class="hljs-params">shape</span>):</span><br>    <span class="hljs-string">&#x27;&#x27;&#x27; build weight variable&#x27;&#x27;&#x27;</span><br>    init = tf.random_normal(shape, stddev=<span class="hljs-number">0.01</span>)<br>    <span class="hljs-comment">#init = tf.truncated_normal(shape, stddev=0.01)</span><br>    <span class="hljs-keyword">return</span> tf.Variable(init)<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">biasVariable</span>(<span class="hljs-params">shape</span>):</span><br>    <span class="hljs-string">&#x27;&#x27;&#x27; build bias variable&#x27;&#x27;&#x27;</span><br>    init = tf.random_normal(shape)<br>    <span class="hljs-comment">#init = tf.truncated_normal(shape, stddev=0.01)</span><br>    <span class="hljs-keyword">return</span> tf.Variable(init)<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">conv2d</span>(<span class="hljs-params">x, W</span>):</span><br>    <span class="hljs-string">&#x27;&#x27;&#x27; conv2d by 1, 1, 1, 1&#x27;&#x27;&#x27;</span><br>    <span class="hljs-keyword">return</span> tf.nn.conv2d(x, W, strides=[<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>], padding=<span class="hljs-string">&#x27;SAME&#x27;</span>)<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">maxPool</span>(<span class="hljs-params">x</span>):</span><br>    <span class="hljs-string">&#x27;&#x27;&#x27; max pooling&#x27;&#x27;&#x27;</span><br>    <span class="hljs-keyword">return</span> tf.nn.max_pool(x, ksize=[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>], strides=[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>], padding=<span class="hljs-string">&#x27;SAME&#x27;</span>)<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">dropout</span>(<span class="hljs-params">x, keep</span>):</span><br>    <span class="hljs-string">&#x27;&#x27;&#x27; drop out&#x27;&#x27;&#x27;</span><br>    <span class="hljs-keyword">return</span> tf.nn.dropout(x, keep)<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">batch_norm_layer</span>(<span class="hljs-params">value,is_training=<span class="hljs-literal">False</span>,name=<span class="hljs-string">&#x27;batch_norm&#x27;</span></span>):</span><br>    <span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">    批量归一化  返回批量归一化的结果</span><br><span class="hljs-string">    </span><br><span class="hljs-string">    args:</span><br><span class="hljs-string">        value:代表输入，第一个维度为batch_size</span><br><span class="hljs-string">        is_training:当它为True，代表是训练过程，这时会不断更新样本集的均值与方差。当测试时，要设置成False，这样就会使用训练样本集的均值和方差。</span><br><span class="hljs-string">              默认测试模式</span><br><span class="hljs-string">        name：名称。</span><br><span class="hljs-string">    &#x27;&#x27;&#x27;</span><br>    <span class="hljs-keyword">if</span> is_training <span class="hljs-keyword">is</span> <span class="hljs-literal">True</span>:<br>        <span class="hljs-comment">#训练模式 使用指数加权函数不断更新均值和方差</span><br>        <span class="hljs-keyword">return</span> tf.contrib.layers.batch_norm(inputs=value,decay=<span class="hljs-number">0.9</span>,updates_collections=<span class="hljs-literal">None</span>,is_training = <span class="hljs-literal">True</span>)<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-comment">#测试模式 不更新均值和方差，直接使用</span><br>        <span class="hljs-keyword">return</span> tf.contrib.layers.batch_norm(inputs=value,decay=<span class="hljs-number">0.9</span>,updates_collections=<span class="hljs-literal">None</span>,is_training = <span class="hljs-literal">False</span>)<br><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">cnnLayer</span>(<span class="hljs-params">classnum, isTrue</span>):</span><br>    <span class="hljs-string">&#x27;&#x27;&#x27; create cnn layer&#x27;&#x27;&#x27;</span><br>    <span class="hljs-comment"># 第一层</span><br>    W1 = weightVariable([<span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">32</span>]) <span class="hljs-comment"># 卷积核大小(3,3)， 输入通道(3)， 输出通道(32)</span><br>    b1 = biasVariable([<span class="hljs-number">32</span>])<br>    conv1 = tf.nn.relu(batch_norm_layer(conv2d(x, W1) + b1, isTrue))<br>    pool1 = maxPool(conv1)<br>    <span class="hljs-comment"># 减少过拟合，随机让某些权重不更新</span><br>    drop1 = dropout(pool1, keep_prob_5) <span class="hljs-comment"># 32 * 32 * 32 多个输入channel 被filter内积掉了</span><br><br>    <span class="hljs-comment"># 第二层</span><br>    W2 = weightVariable([<span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">32</span>, <span class="hljs-number">64</span>])<br>    b2 = biasVariable([<span class="hljs-number">64</span>])<br>    conv2 = tf.nn.relu(batch_norm_layer(conv2d(drop1, W2) + b2, isTrue))<br>    pool2 = maxPool(conv2)<br>    drop2 = dropout(pool2, keep_prob_5) <span class="hljs-comment"># 64 * 16 * 16</span><br><br>    <span class="hljs-comment"># 第三层</span><br>    W3 = weightVariable([<span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">64</span>, <span class="hljs-number">64</span>])<br>    b3 = biasVariable([<span class="hljs-number">64</span>])<br>    conv3 = tf.nn.relu(conv2d(drop2, W3) + b3)<br>    pool3 = maxPool(conv3)<br>    drop3 = dropout(pool3, keep_prob_5) <span class="hljs-comment"># 64 * 8 * 8</span><br>        <br>    <span class="hljs-comment"># 全连接层</span><br>    Wf = weightVariable([<span class="hljs-number">8</span>*<span class="hljs-number">8</span>*<span class="hljs-number">64</span>,<span class="hljs-number">512</span>])<br>    bf = biasVariable([<span class="hljs-number">512</span>])<br>    drop3_flat = tf.reshape(drop3, [-<span class="hljs-number">1</span>, <span class="hljs-number">8</span>*<span class="hljs-number">8</span>*<span class="hljs-number">64</span>])<br>    dense = tf.nn.relu(tf.matmul(drop3_flat, Wf) + bf)<br>    dropf = dropout(dense, keep_prob_75)<br><br>    <span class="hljs-comment"># 输出层</span><br>    Wout = weightVariable([<span class="hljs-number">512</span>, classnum])<br>    bout = weightVariable([classnum])<br>    <span class="hljs-comment">#out = tf.matmul(dropf, Wout) + bout</span><br>    out = tf.add(tf.matmul(dropf, Wout), bout)<br>    <span class="hljs-keyword">return</span> out<br><br>    <span class="hljs-comment"># # 第三层</span><br>    <span class="hljs-comment"># W3 = weightVariable([3, 3, 64, 128])</span><br>    <span class="hljs-comment"># b3 = biasVariable([128])</span><br>    <span class="hljs-comment"># conv3 = tf.nn.relu(batch_norm_layer(conv2d(drop2, W3) + b3, True))</span><br>    <span class="hljs-comment"># pool3 = maxPool(conv3)</span><br>    <span class="hljs-comment"># drop3 = dropout(pool3, keep_prob_5) # 128 * 8 * 8</span><br><br>    <span class="hljs-comment"># # 第四层</span><br>    <span class="hljs-comment"># W4 = weightVariable([3, 3, 128, 512])</span><br>    <span class="hljs-comment"># b4 = biasVariable([512])</span><br>    <span class="hljs-comment"># conv4 = tf.nn.relu(batch_norm_layer(conv2d(drop3, W4) + b4, True))</span><br>    <span class="hljs-comment"># pool4 = maxPool(conv4)</span><br>    <span class="hljs-comment"># drop4 = dropout(pool4, keep_prob_5) # 512 * 4 * 4</span><br><br>    <span class="hljs-comment"># # 第五层</span><br>    <span class="hljs-comment"># W5 = weightVariable([3, 3, 512, 1024])</span><br>    <span class="hljs-comment"># b5 = biasVariable([1024])</span><br>    <span class="hljs-comment"># conv5 = tf.nn.relu(batch_norm_layer(conv2d(drop4, W5) + b5, True))</span><br>    <span class="hljs-comment"># pool5 = maxPool(conv5)</span><br>    <span class="hljs-comment"># drop5 = dropout(pool5, keep_prob_5) # 1024 * 2 * 2</span><br><br>    <span class="hljs-comment"># # 第六层</span><br>    <span class="hljs-comment"># W6 = weightVariable([3, 3, 1024, 1024])</span><br>    <span class="hljs-comment"># b6 = biasVariable([1024])</span><br>    <span class="hljs-comment"># conv6 = tf.nn.relu(conv2d(drop5, W6) + b6)</span><br>    <span class="hljs-comment"># pool6 = maxPool(conv6)</span><br>    <span class="hljs-comment"># drop6 = dropout(pool6, keep_prob_5) # 2048 * 1 * 1</span><br><br><br><br><br>    <span class="hljs-comment"># # 全连接层</span><br>    <span class="hljs-comment"># Wf = weightVariable([1*1*1024, 2048])</span><br>    <span class="hljs-comment"># bf = biasVariable([2048])</span><br>    <span class="hljs-comment"># drop3_flat = tf.reshape(drop6, [-1, 1*1*1024])</span><br>    <span class="hljs-comment"># dense = tf.nn.relu(tf.matmul(drop3_flat, Wf) + bf)</span><br>    <span class="hljs-comment"># # dense = tf.nn.relu(tf.matmul(max_pool22_flat, Wf) + bf)</span><br>    <span class="hljs-comment"># dropf = dropout(dense, keep_prob_75)</span><br><br>   <br><br>    <span class="hljs-comment"># # 输出层</span><br>    <span class="hljs-comment"># Wout = weightVariable([2048, classnum])</span><br>    <span class="hljs-comment"># bout = weightVariable([classnum])</span><br>    <span class="hljs-comment"># #out = tf.matmul(dropf, Wout) + bout</span><br>    <span class="hljs-comment"># out = tf.add(tf.matmul(dropf, Wout), bout)</span><br>    <span class="hljs-comment"># #return out</span><br><br><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">train</span>(<span class="hljs-params">train_x, train_y, tfsavepath</span>):</span><br>    <span class="hljs-string">&#x27;&#x27;&#x27; train&#x27;&#x27;&#x27;</span><br>    <span class="hljs-comment">##### log.debug(&#x27;train&#x27;)</span><br><br>    <span class="hljs-comment"># 随机划分测试集与训练集</span><br>    train_x,test_x,train_y,test_y = train_test_split(train_x, train_y, test_size=<span class="hljs-number">0.05</span>, random_state=random.randint(<span class="hljs-number">0</span>,<span class="hljs-number">100</span>))<br><br>    <span class="hljs-comment"># 得到卷积结果</span><br>    out = cnnLayer(train_y.shape[<span class="hljs-number">1</span>],<span class="hljs-literal">True</span>)<br><br>    <span class="hljs-comment"># 参数：图片数据的总数，图片的高、宽、通道</span><br>    train_x = train_x.reshape(train_x.shape[<span class="hljs-number">0</span>], SIZE, SIZE, <span class="hljs-number">3</span>)<br>    test_x = test_x.reshape(test_x.shape[<span class="hljs-number">0</span>], SIZE, SIZE, <span class="hljs-number">3</span>)<br>    <br>    print(<span class="hljs-string">&#x27;train size:%s, test size:%s&#x27;</span> % (<span class="hljs-built_in">len</span>(train_x), <span class="hljs-built_in">len</span>(test_x)))<br>    sys.stdout.flush()<br><br>    <span class="hljs-comment"># 图片块，每次取32张图片</span><br>    batch_size = <span class="hljs-number">32</span><br>    num_batch = <span class="hljs-built_in">len</span>(train_x) // batch_size  <br><br>    <span class="hljs-comment"># 交叉熵</span><br>    cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=out, labels=y_))<br><br>    <span class="hljs-comment"># Adam优化器，学习速率：0.001</span><br>    train_step = tf.train.AdamOptimizer(<span class="hljs-number">0.001</span>).minimize(cross_entropy)<br>    <span class="hljs-comment"># train_step = tf.train.AdadeltaOptimizer(0.001).minimize(cross_entropy)</span><br><br>    <span class="hljs-comment"># 比较标签是否相等，再求的所有数的平均值，tf.cast(强制转换类型)</span><br>    <span class="hljs-comment"># 准确率计算公式</span><br>    accuracy = tf.reduce_mean(tf.cast(tf.equal(tf.argmax(out, <span class="hljs-number">1</span>), tf.argmax(y_, <span class="hljs-number">1</span>)), tf.float32))<br><br><br><br>    <span class="hljs-comment"># 将loss与accuracy保存以供tensorboard使用</span><br>    tf.summary.scalar(<span class="hljs-string">&#x27;loss&#x27;</span>, cross_entropy)<br>    tf.summary.scalar(<span class="hljs-string">&#x27;accuracy&#x27;</span>, accuracy)<br>    merged_summary_op = tf.summary.merge_all()<br><br>    <span class="hljs-comment"># 数据保存器的初始化</span><br>    saver = tf.train.Saver()<br><br>    <span class="hljs-keyword">with</span> tf.Session() <span class="hljs-keyword">as</span> sess:<br><br>        <span class="hljs-comment"># tensorflow初始化</span><br>        sess.run(tf.global_variables_initializer())<br>        <span class="hljs-comment"># tensorboard数据保存</span><br>        summary_writer = tf.summary.FileWriter(<span class="hljs-string">&#x27;./tmp&#x27;</span>, graph=tf.get_default_graph())<br><br>        <span class="hljs-comment"># 迭代80次</span><br>        <span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">80</span>):<br>            <span class="hljs-comment"># 每次取32(batch_size)张图片</span><br>            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(num_batch):<br><br>                <span class="hljs-comment"># 训练集、测试集分块</span><br>                batch_x = train_x[i*batch_size : (i+<span class="hljs-number">1</span>)*batch_size]<br>                batch_y = train_y[i*batch_size : (i+<span class="hljs-number">1</span>)*batch_size]<br>                <span class="hljs-comment"># 开始训练数据，同时训练三个变量，返回三个数据</span><br>                _,loss,summary = sess.run([train_step, cross_entropy, merged_summary_op],<br>                                                feed_dict=&#123;x:batch_x,y_:batch_y, keep_prob_5:<span class="hljs-number">0.5</span>,keep_prob_75:<span class="hljs-number">0.75</span>&#125;)<br><br>                <span class="hljs-comment"># tensorboard记录数据    </span><br>                summary_writer.add_summary(summary, n*num_batch+i)<br><br>                <br>                <span class="hljs-comment"># 打印损失</span><br>                print(n*num_batch+i, loss)<br>                sys.stdout.flush()<br><br>        <span class="hljs-comment">#         if (n*num_batch+i) % batch_size == 0:</span><br>        <span class="hljs-comment">#             # 获取测试数据的准确率</span><br>        <span class="hljs-comment">#             acc = accuracy.eval(&#123;x:test_x, y_:test_y, keep_prob_5:1.0, keep_prob_75:1.0&#125;)</span><br>        <span class="hljs-comment">#             print(n*num_batch+i, acc, &#x27;--&#x27;, n)</span><br>                    <br>        <span class="hljs-comment">#             accc = acc</span><br><br>        <span class="hljs-comment">#             # 准确率大于0.98时保存并退出</span><br>        <span class="hljs-comment">#             if acc &gt; 0.95 and n &gt; 2:</span><br>        <span class="hljs-comment">#                 # saver.save(sess, &#x27;./train_faces.model&#x27;, global_step=n*num_batch+i)</span><br>        <span class="hljs-comment">#                 saver.save(sess, tfsavepath)</span><br>        <span class="hljs-comment">#                 # saver.save(sess, tfsavepath)</span><br>        <span class="hljs-comment">#                 sys.exit(0)</span><br>        <span class="hljs-comment"># # saver.save(sess, &#x27;./train_faces.model&#x27;, global_step=n*num_batch+i)</span><br>        <span class="hljs-comment"># # saver.save(sess, tfsavepath)</span><br>        <span class="hljs-comment"># print(&#x27;accuracy less 0.98, exited!&#x27;)   </span><br><br>        <span class="hljs-comment"># 准确率计算表达式</span><br>        acc = accuracy.<span class="hljs-built_in">eval</span>(&#123;x:test_x, y_:test_y, keep_prob_5:<span class="hljs-number">1.0</span>, keep_prob_75:<span class="hljs-number">1.0</span>&#125;)<br>        print(<span class="hljs-string">&#x27;after 80 times run: accuracy is &#x27;</span>, acc)<br>        sys.stdout.flush()<br><br>        <span class="hljs-comment"># 模型保存</span><br>        saver.save(sess, tfsavepath) <br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    <span class="hljs-keyword">pass</span><br><br></code></pre></td></tr></table></figure>
 <h2 id="识别"><a href="#识别" class="headerlink" title="识别"></a>识别</h2><p>这部分就是将训练好的模型加载，，然后实时的获取每一张相片处理等等，，，</p>
 <p>tensorflow_face.py 这部分代码第一次运行会给每一个人创建一个标签，，获得标签集，，然后和训练集一同训练，，，而第二次运行就是识别，，，</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> logging <span class="keyword">as</span> log</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> common</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> tensorflow.examples.tutorials.mnist <span class="keyword">import</span> input_data</span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="comment"># import convert as myconv</span></span><br><span class="line"><span class="keyword">import</span> tensorflow_face_conv <span class="keyword">as</span> myconv</span><br><span class="line"><span class="keyword">import</span> dlib</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># rm</span></span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">createdir</span><span class="params">(*args)</span>:</span>       <span class="comment"># 创建一个文件夹</span></span><br><span class="line">    <span class="string">''' create dir'''</span></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> args:</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(item):</span><br><span class="line">            os.makedirs(item)</span><br><span class="line"></span><br><span class="line">IMGSIZE = <span class="number">64</span></span><br><span class="line">SIZE = <span class="number">64</span></span><br><span class="line"></span><br><span class="line">rootpath = <span class="string">'G:\\DIP\\mine'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getpaddingSize</span><span class="params">(shape)</span>:</span>  <span class="comment"># 将相片两侧填充为正方形</span></span><br><span class="line">    <span class="string">''' get size to make image to be a square rect '''</span></span><br><span class="line">    h, w = shape</span><br><span class="line">    longest = max(h, w)</span><br><span class="line">    result = (np.array([longest]*<span class="number">4</span>, int) - np.array([h, h, w, w], int)) // <span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> result.tolist()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dealwithimage</span><span class="params">(img, h=<span class="number">64</span>, w=<span class="number">64</span>)</span>:</span> <span class="comment"># 裁剪出人脸的图片</span></span><br><span class="line">    <span class="string">''' dealwithimage '''</span></span><br><span class="line">    <span class="comment">#img = cv2.imread(imgpath)</span></span><br><span class="line">    top, bottom, left, right = getpaddingSize(img.shape[<span class="number">0</span>:<span class="number">2</span>])</span><br><span class="line">    img = cv2.copyMakeBorder(img, top, bottom, left, right, cv2.BORDER_CONSTANT, value=[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>])</span><br><span class="line">    img = cv2.resize(img, (h, w))</span><br><span class="line">    <span class="keyword">return</span> img</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">relight</span><span class="params">(imgsrc, alpha=<span class="number">1</span>, bias=<span class="number">0</span>)</span>:</span>   <span class="comment"># 更改图片为二值图</span></span><br><span class="line">    <span class="string">'''relight'''</span></span><br><span class="line">    imgsrc = imgsrc.astype(float)</span><br><span class="line">    imgsrc = imgsrc * alpha + bias</span><br><span class="line">    imgsrc[imgsrc &lt; <span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">    imgsrc[imgsrc &gt; <span class="number">255</span>] = <span class="number">255</span></span><br><span class="line">    imgsrc = imgsrc.astype(np.uint8)</span><br><span class="line">    <span class="keyword">return</span> imgsrc</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getfilesinpath</span><span class="params">(filedir)</span>:</span>            <span class="comment"># 得到一个文件夹下的所有文件</span></span><br><span class="line">    <span class="string">''' get all file from file directory'''</span></span><br><span class="line">    <span class="keyword">for</span> (path, dirnames, filenames) <span class="keyword">in</span> os.walk(filedir):</span><br><span class="line">        <span class="keyword">for</span> filename <span class="keyword">in</span> filenames:</span><br><span class="line">            <span class="keyword">if</span> filename.endswith(<span class="string">'.jpg'</span>):</span><br><span class="line">                <span class="keyword">yield</span> os.path.join(path, filename)</span><br><span class="line">        <span class="keyword">for</span> diritem <span class="keyword">in</span> dirnames:</span><br><span class="line">            getfilesinpath(os.path.join(path, diritem)) <span class="comment"># 递归调用得到改文件夹下的文件</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">readimage</span><span class="params">(pairpathlabel)</span>:</span>           <span class="comment"># 得到一个文件夹下的照片文件名和标记labels， 返回一个列表</span></span><br><span class="line">    <span class="string">'''read image to list'''</span></span><br><span class="line">    imgs = []</span><br><span class="line">    labels = []</span><br><span class="line">    <span class="keyword">for</span> filepath, label <span class="keyword">in</span> pairpathlabel:</span><br><span class="line">        <span class="keyword">for</span> fileitem <span class="keyword">in</span> getfilesinpath(filepath):</span><br><span class="line">            img = cv2.imread(fileitem)</span><br><span class="line">            imgs.append(img)</span><br><span class="line">            labels.append(label)</span><br><span class="line">    <span class="keyword">return</span> np.array(imgs), np.array(labels)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">onehot</span><span class="params">(numlist)</span>:</span>                    <span class="comment"># 用于得到一个人的标签</span></span><br><span class="line">    <span class="string">''' get one hot return host matrix is len * max+1 demensions'''</span></span><br><span class="line">    b = np.zeros([len(numlist), max(numlist)+<span class="number">1</span>])</span><br><span class="line">    b[np.arange(len(numlist)), numlist] = <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> b.tolist()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getfileandlabel</span><span class="params">(filedir)</span>:</span>           <span class="comment"># 用字典保存一个人名的照片和对应的labels</span></span><br><span class="line">    <span class="string">''' get path and host paire and class index to name'''</span></span><br><span class="line">    dictdir = dict([[name, os.path.join(filedir, name)] \</span><br><span class="line">                    <span class="keyword">for</span> name <span class="keyword">in</span> os.listdir(filedir) <span class="keyword">if</span> os.path.isdir(os.path.join(filedir, name))])</span><br><span class="line">                    <span class="comment">#for (path, dirnames, _) in os.walk(filedir) for dirname in dirnames])</span></span><br><span class="line"></span><br><span class="line">    dirnamelist, dirpathlist = dictdir.keys(), dictdir.values()</span><br><span class="line"></span><br><span class="line">    indexlist = list(range(len(dirnamelist)))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> list(zip(dirpathlist, onehot(indexlist))), dict(zip(indexlist, dirnamelist))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">(_)</span>:</span></span><br><span class="line">    <span class="string">''' main '''</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    人脸识别项目主main函数</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    + 在第一次运行该文件时，会将上一次拍照保存的多个人的照片数据进行处理，卷积、训练等得到一个适合的模型</span></span><br><span class="line"><span class="string">    + 在第二次运行该文件时，会打开摄像头获取一个照片，然后根据上一步得到的模型处理后分类（识别）出照片上出现的人脸是之前录入的所有人中哪一个</span></span><br><span class="line"><span class="string">    + 目前无法判断其他未录入人的人脸，即others</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="comment">#shutil.rmtree('./checkpoint')</span></span><br><span class="line">    savepath = <span class="string">'./checkpoint/face.ckpt'</span>     <span class="comment"># 记录下模型的索引路径</span></span><br><span class="line">    isneedtrain = <span class="keyword">False</span>                     <span class="comment"># 不存在时认为时第一次运行，即进行卷积训练</span></span><br><span class="line">    <span class="keyword">if</span> os.path.exists(savepath+<span class="string">'.meta'</span>) <span class="keyword">is</span> <span class="keyword">False</span>:</span><br><span class="line">        isneedtrain = <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 根据录入保存的照片得到一个label和字典的路径的列表</span></span><br><span class="line">    pathlabelpair, indextoname = getfileandlabel(rootpath + <span class="string">'\\image\\trainfaces'</span>)</span><br><span class="line">    </span><br><span class="line">    print(indextoname)</span><br><span class="line">    sys.stdout.flush()</span><br><span class="line">    print(pathlabelpair)</span><br><span class="line">    sys.stdout.flush()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 得到训练集、测试集的照片和labels的列表</span></span><br><span class="line">    train_x, train_y = readimage(pathlabelpair)</span><br><span class="line">    <span class="comment"># 将数据集归一化 ？？？</span></span><br><span class="line">    train_x = train_x.astype(np.float32) / <span class="number">255.0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">#### log.debug('len of train_x : %s', train_x.shape) </span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> isneedtrain:</span><br><span class="line">        <span class="comment"># first generate all face</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 调用另一文件进行卷积训练模型</span></span><br><span class="line">        myconv.train(train_x, train_y, savepath)</span><br><span class="line"></span><br><span class="line">       <span class="comment">#### # log.debug('training is over, please run again')</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># second recognize faces </span></span><br><span class="line">        <span class="comment"># 调用下面的函数进行实时识别</span></span><br><span class="line"></span><br><span class="line">        testfromcamera(train_x, train_y, savepath)</span><br><span class="line">        <span class="comment">#print(np.column_stack((out, argmax)))</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">testfromcamera</span><span class="params">(train_x, train_y, chkpoint)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 打开默认摄像头</span></span><br><span class="line">    camera = cv2.VideoCapture(<span class="number">0</span>)</span><br><span class="line">    <span class="comment">#haar = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')</span></span><br><span class="line">    pathlabelpair, indextoname = getfileandlabel(rootpath + <span class="string">'\\image\\trainfaces'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 得到预测值</span></span><br><span class="line">    output = myconv.cnnLayer(len(pathlabelpair),<span class="keyword">False</span>)</span><br><span class="line"></span><br><span class="line">    predict = output</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 得到dlib的人脸检测器</span></span><br><span class="line">    detector = dlib.get_frontal_face_detector()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 加载模型</span></span><br><span class="line">    saver = tf.train.Saver()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">        <span class="comment">#sess.run(tf.global_variables_initializer())</span></span><br><span class="line">        saver.restore(sess, chkpoint)</span><br><span class="line"></span><br><span class="line">        n = <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">if</span> (n &lt;= <span class="number">20000</span>):</span><br><span class="line">                print(<span class="string">'It`s processing %s image.'</span> % n)</span><br><span class="line">                sys.stdout.flush()</span><br><span class="line"></span><br><span class="line">                <span class="comment"># 间隔0.2s</span></span><br><span class="line">                time.sleep(<span class="number">0.2</span>) </span><br><span class="line"></span><br><span class="line">                <span class="comment"># 读帧</span></span><br><span class="line">                success, img = camera.read()</span><br><span class="line">                <span class="comment"># 得到灰度图</span></span><br><span class="line">                gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)</span><br><span class="line"></span><br><span class="line">                <span class="comment"># 使用detector进行人脸检测</span></span><br><span class="line">                faces = detector(gray_img, <span class="number">1</span>)</span><br><span class="line">                <span class="comment">#faces = haar.detectMultiScale(gray_img, 1.3, 5)</span></span><br><span class="line">                <span class="keyword">for</span> i, d <span class="keyword">in</span> enumerate(faces):</span><br><span class="line">                    x1 = d.top() <span class="keyword">if</span> d.top() &gt; <span class="number">0</span> <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">                    y1 = d.bottom() <span class="keyword">if</span> d.bottom() &gt; <span class="number">0</span> <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">                    x2 = d.left() <span class="keyword">if</span> d.left() &gt; <span class="number">0</span> <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">                    y2 = d.right() <span class="keyword">if</span> d.right() &gt; <span class="number">0</span> <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">                </span><br><span class="line">                    face = img[x1:y1,x2:y2]</span><br><span class="line"></span><br><span class="line">                    face = cv2.resize(face, (IMGSIZE, IMGSIZE))</span><br><span class="line">                    <span class="comment">#could deal with face to train</span></span><br><span class="line">                    test_x = np.array([face])</span><br><span class="line">                    test_x = test_x.astype(np.float32) / <span class="number">255.0</span></span><br><span class="line">                    </span><br><span class="line">                    res = sess.run([predict, tf.argmax(output, <span class="number">1</span>)],\</span><br><span class="line">                                   feed_dict=&#123;myconv.x: test_x,\</span><br><span class="line">                                   myconv.keep_prob_5:<span class="number">1.0</span>, myconv.keep_prob_75: <span class="number">1.0</span>&#125;)</span><br><span class="line">                    print(res, indextoname[res[<span class="number">1</span>][<span class="number">0</span>]], res[<span class="number">0</span>][<span class="number">0</span>][res[<span class="number">1</span>][<span class="number">0</span>]])</span><br><span class="line">                    sys.stdout.flush()</span><br><span class="line">                    </span><br><span class="line">                    <span class="comment"># 得到一组随机的颜色值</span></span><br><span class="line">                    r = random.randint(<span class="number">0</span>, <span class="number">255</span>)</span><br><span class="line">                    g = random.randint(<span class="number">0</span>, <span class="number">255</span>)</span><br><span class="line">                    b = random.randint(<span class="number">0</span>, <span class="number">255</span>)</span><br><span class="line"></span><br><span class="line">                    <span class="comment"># 绘制检测到的人脸的方框</span></span><br><span class="line">                    cv2.rectangle(img, (x2,x1),(y2,y1), (r, g, b),<span class="number">3</span>)</span><br><span class="line">                    </span><br><span class="line">                    <span class="comment"># if res[0][0][res[1][0]] &gt;= 500:</span></span><br><span class="line">                    <span class="comment">#     cv2.putText(img, 'others', (x1, y1 + 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (col, col, col), 2)  #显示名字</span></span><br><span class="line">                    <span class="comment"># else:        </span></span><br><span class="line">                    <span class="comment">#     cv2.putText(img, indextoname[res[1][0]], (x1, y1 - 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (col, col, col), 2)  #显示名字</span></span><br><span class="line">                    cv2.putText(img, indextoname[res[<span class="number">1</span>][<span class="number">0</span>]], (x2 + <span class="number">25</span>, y1 + <span class="number">40</span>), cv2.FONT_HERSHEY_SIMPLEX, <span class="number">1</span>, (r, g, b), <span class="number">2</span>)  <span class="comment">#显示名字</span></span><br><span class="line">                    </span><br><span class="line">                    n+=<span class="number">1</span></span><br><span class="line">                    cv2.imshow(<span class="string">'img'</span>, img)</span><br><span class="line">                key = cv2.waitKey(<span class="number">30</span>) &amp; <span class="number">0xff</span></span><br><span class="line">                <span class="keyword">if</span> key == <span class="number">27</span>:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">break</span>           </span><br><span class="line">    camera.release()</span><br><span class="line">    cv2.destroyAllWindows()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="comment"># first generate all face</span></span><br><span class="line">    main(<span class="number">0</span>)</span><br><span class="line">    <span class="comment">#onehot([1, 3, 9])</span></span><br><span class="line">    <span class="comment">#print(getfileandlabel('./image/trainimages'))</span></span><br><span class="line">    <span class="comment">#generateface([['./image/trainimages', './image/trainfaces']])</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">import</span> logging <span class="hljs-keyword">as</span> log<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><span class="hljs-keyword">import</span> common<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">from</span> tensorflow.examples.tutorials.mnist <span class="hljs-keyword">import</span> input_data<br><span class="hljs-keyword">import</span> tensorflow <span class="hljs-keyword">as</span> tf<br><span class="hljs-keyword">import</span> cv2<br><span class="hljs-comment"># import convert as myconv</span><br><span class="hljs-keyword">import</span> tensorflow_face_conv <span class="hljs-keyword">as</span> myconv<br><span class="hljs-keyword">import</span> dlib<br><span class="hljs-keyword">import</span> random<br><span class="hljs-keyword">from</span> sklearn.model_selection <span class="hljs-keyword">import</span> train_test_split<br><span class="hljs-keyword">import</span> time<br><br><span class="hljs-keyword">import</span> sys<br><br><br><span class="hljs-comment"># rm</span><br><span class="hljs-keyword">import</span> shutil<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">createdir</span>(<span class="hljs-params">*args</span>):</span>       <span class="hljs-comment"># 创建一个文件夹</span><br>    <span class="hljs-string">&#x27;&#x27;&#x27; create dir&#x27;&#x27;&#x27;</span><br>    <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> args:<br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> os.path.exists(item):<br>            os.makedirs(item)<br><br>IMGSIZE = <span class="hljs-number">64</span><br>SIZE = <span class="hljs-number">64</span><br><br>rootpath = <span class="hljs-string">&#x27;G:\\DIP\\mine&#x27;</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getpaddingSize</span>(<span class="hljs-params">shape</span>):</span>  <span class="hljs-comment"># 将相片两侧填充为正方形</span><br>    <span class="hljs-string">&#x27;&#x27;&#x27; get size to make image to be a square rect &#x27;&#x27;&#x27;</span><br>    h, w = shape<br>    longest = <span class="hljs-built_in">max</span>(h, w)<br>    result = (np.array([longest]*<span class="hljs-number">4</span>, <span class="hljs-built_in">int</span>) - np.array([h, h, w, w], <span class="hljs-built_in">int</span>)) // <span class="hljs-number">2</span><br>    <span class="hljs-keyword">return</span> result.tolist()<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">dealwithimage</span>(<span class="hljs-params">img, h=<span class="hljs-number">64</span>, w=<span class="hljs-number">64</span></span>):</span> <span class="hljs-comment"># 裁剪出人脸的图片</span><br>    <span class="hljs-string">&#x27;&#x27;&#x27; dealwithimage &#x27;&#x27;&#x27;</span><br>    <span class="hljs-comment">#img = cv2.imread(imgpath)</span><br>    top, bottom, left, right = getpaddingSize(img.shape[<span class="hljs-number">0</span>:<span class="hljs-number">2</span>])<br>    img = cv2.copyMakeBorder(img, top, bottom, left, right, cv2.BORDER_CONSTANT, value=[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>])<br>    img = cv2.resize(img, (h, w))<br>    <span class="hljs-keyword">return</span> img<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">relight</span>(<span class="hljs-params">imgsrc, alpha=<span class="hljs-number">1</span>, bias=<span class="hljs-number">0</span></span>):</span>   <span class="hljs-comment"># 更改图片为二值图</span><br>    <span class="hljs-string">&#x27;&#x27;&#x27;relight&#x27;&#x27;&#x27;</span><br>    imgsrc = imgsrc.astype(<span class="hljs-built_in">float</span>)<br>    imgsrc = imgsrc * alpha + bias<br>    imgsrc[imgsrc &lt; <span class="hljs-number">0</span>] = <span class="hljs-number">0</span><br>    imgsrc[imgsrc &gt; <span class="hljs-number">255</span>] = <span class="hljs-number">255</span><br>    imgsrc = imgsrc.astype(np.uint8)<br>    <span class="hljs-keyword">return</span> imgsrc<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getfilesinpath</span>(<span class="hljs-params">filedir</span>):</span>            <span class="hljs-comment"># 得到一个文件夹下的所有文件</span><br>    <span class="hljs-string">&#x27;&#x27;&#x27; get all file from file directory&#x27;&#x27;&#x27;</span><br>    <span class="hljs-keyword">for</span> (path, dirnames, filenames) <span class="hljs-keyword">in</span> os.walk(filedir):<br>        <span class="hljs-keyword">for</span> filename <span class="hljs-keyword">in</span> filenames:<br>            <span class="hljs-keyword">if</span> filename.endswith(<span class="hljs-string">&#x27;.jpg&#x27;</span>):<br>                <span class="hljs-keyword">yield</span> os.path.join(path, filename)<br>        <span class="hljs-keyword">for</span> diritem <span class="hljs-keyword">in</span> dirnames:<br>            getfilesinpath(os.path.join(path, diritem)) <span class="hljs-comment"># 递归调用得到改文件夹下的文件</span><br><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">readimage</span>(<span class="hljs-params">pairpathlabel</span>):</span>           <span class="hljs-comment"># 得到一个文件夹下的照片文件名和标记labels， 返回一个列表</span><br>    <span class="hljs-string">&#x27;&#x27;&#x27;read image to list&#x27;&#x27;&#x27;</span><br>    imgs = []<br>    labels = []<br>    <span class="hljs-keyword">for</span> filepath, label <span class="hljs-keyword">in</span> pairpathlabel:<br>        <span class="hljs-keyword">for</span> fileitem <span class="hljs-keyword">in</span> getfilesinpath(filepath):<br>            img = cv2.imread(fileitem)<br>            imgs.append(img)<br>            labels.append(label)<br>    <span class="hljs-keyword">return</span> np.array(imgs), np.array(labels)<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">onehot</span>(<span class="hljs-params">numlist</span>):</span>                    <span class="hljs-comment"># 用于得到一个人的标签</span><br>    <span class="hljs-string">&#x27;&#x27;&#x27; get one hot return host matrix is len * max+1 demensions&#x27;&#x27;&#x27;</span><br>    b = np.zeros([<span class="hljs-built_in">len</span>(numlist), <span class="hljs-built_in">max</span>(numlist)+<span class="hljs-number">1</span>])<br>    b[np.arange(<span class="hljs-built_in">len</span>(numlist)), numlist] = <span class="hljs-number">1</span><br>    <span class="hljs-keyword">return</span> b.tolist()<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getfileandlabel</span>(<span class="hljs-params">filedir</span>):</span>           <span class="hljs-comment"># 用字典保存一个人名的照片和对应的labels</span><br>    <span class="hljs-string">&#x27;&#x27;&#x27; get path and host paire and class index to name&#x27;&#x27;&#x27;</span><br>    dictdir = <span class="hljs-built_in">dict</span>([[name, os.path.join(filedir, name)] \<br>                    <span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> os.listdir(filedir) <span class="hljs-keyword">if</span> os.path.isdir(os.path.join(filedir, name))])<br>                    <span class="hljs-comment">#for (path, dirnames, _) in os.walk(filedir) for dirname in dirnames])</span><br><br>    dirnamelist, dirpathlist = dictdir.keys(), dictdir.values()<br><br>    indexlist = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(dirnamelist)))<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">list</span>(<span class="hljs-built_in">zip</span>(dirpathlist, onehot(indexlist))), <span class="hljs-built_in">dict</span>(<span class="hljs-built_in">zip</span>(indexlist, dirnamelist))<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span>(<span class="hljs-params">_</span>):</span><br>    <span class="hljs-string">&#x27;&#x27;&#x27; main &#x27;&#x27;&#x27;</span><br>    <span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">    </span><br><span class="hljs-string">    人脸识别项目主main函数</span><br><span class="hljs-string">    </span><br><span class="hljs-string">    + 在第一次运行该文件时，会将上一次拍照保存的多个人的照片数据进行处理，卷积、训练等得到一个适合的模型</span><br><span class="hljs-string">    + 在第二次运行该文件时，会打开摄像头获取一个照片，然后根据上一步得到的模型处理后分类（识别）出照片上出现的人脸是之前录入的所有人中哪一个</span><br><span class="hljs-string">    + 目前无法判断其他未录入人的人脸，即others</span><br><span class="hljs-string"></span><br><span class="hljs-string">    &#x27;&#x27;&#x27;</span><br>    <span class="hljs-comment">#shutil.rmtree(&#x27;./checkpoint&#x27;)</span><br>    savepath = <span class="hljs-string">&#x27;./checkpoint/face.ckpt&#x27;</span>     <span class="hljs-comment"># 记录下模型的索引路径</span><br>    isneedtrain = <span class="hljs-literal">False</span>                     <span class="hljs-comment"># 不存在时认为时第一次运行，即进行卷积训练</span><br>    <span class="hljs-keyword">if</span> os.path.exists(savepath+<span class="hljs-string">&#x27;.meta&#x27;</span>) <span class="hljs-keyword">is</span> <span class="hljs-literal">False</span>:<br>        isneedtrain = <span class="hljs-literal">True</span><br><br><br>    <span class="hljs-comment"># 根据录入保存的照片得到一个label和字典的路径的列表</span><br>    pathlabelpair, indextoname = getfileandlabel(rootpath + <span class="hljs-string">&#x27;\\image\\trainfaces&#x27;</span>)<br>    <br>    print(indextoname)<br>    sys.stdout.flush()<br>    print(pathlabelpair)<br>    sys.stdout.flush()<br><br>    <span class="hljs-comment"># 得到训练集、测试集的照片和labels的列表</span><br>    train_x, train_y = readimage(pathlabelpair)<br>    <span class="hljs-comment"># 将数据集归一化 ？？？</span><br>    train_x = train_x.astype(np.float32) / <span class="hljs-number">255.0</span><br><br><br><br>    <span class="hljs-comment">#### log.debug(&#x27;len of train_x : %s&#x27;, train_x.shape) </span><br><br><br><br>    <span class="hljs-keyword">if</span> isneedtrain:<br>        <span class="hljs-comment"># first generate all face</span><br>        <br>        <span class="hljs-comment"># 调用另一文件进行卷积训练模型</span><br>        myconv.train(train_x, train_y, savepath)<br><br>       <span class="hljs-comment">#### # log.debug(&#x27;training is over, please run again&#x27;)</span><br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-comment"># second recognize faces </span><br>        <span class="hljs-comment"># 调用下面的函数进行实时识别</span><br><br>        testfromcamera(train_x, train_y, savepath)<br>        <span class="hljs-comment">#print(np.column_stack((out, argmax)))</span><br><br><br><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">testfromcamera</span>(<span class="hljs-params">train_x, train_y, chkpoint</span>):</span><br><br>    <span class="hljs-comment"># 打开默认摄像头</span><br>    camera = cv2.VideoCapture(<span class="hljs-number">0</span>)<br>    <span class="hljs-comment">#haar = cv2.CascadeClassifier(&#x27;haarcascade_frontalface_default.xml&#x27;)</span><br>    pathlabelpair, indextoname = getfileandlabel(rootpath + <span class="hljs-string">&#x27;\\image\\trainfaces&#x27;</span>)<br><br>    <span class="hljs-comment"># 得到预测值</span><br>    output = myconv.cnnLayer(<span class="hljs-built_in">len</span>(pathlabelpair),<span class="hljs-literal">False</span>)<br><br>    predict = output<br>    <br>    <span class="hljs-comment"># 得到dlib的人脸检测器</span><br>    detector = dlib.get_frontal_face_detector()<br><br>    <span class="hljs-comment"># 加载模型</span><br>    saver = tf.train.Saver()<br><br>    <span class="hljs-keyword">with</span> tf.Session() <span class="hljs-keyword">as</span> sess:<br>        <span class="hljs-comment">#sess.run(tf.global_variables_initializer())</span><br>        saver.restore(sess, chkpoint)<br><br>        n = <span class="hljs-number">1</span><br>        <span class="hljs-keyword">while</span> <span class="hljs-number">1</span>:<br>            <span class="hljs-keyword">if</span> (n &lt;= <span class="hljs-number">20000</span>):<br>                print(<span class="hljs-string">&#x27;It`s processing %s image.&#x27;</span> % n)<br>                sys.stdout.flush()<br><br>                <span class="hljs-comment"># 间隔0.2s</span><br>                time.sleep(<span class="hljs-number">0.2</span>) <br><br>                <span class="hljs-comment"># 读帧</span><br>                success, img = camera.read()<br>                <span class="hljs-comment"># 得到灰度图</span><br>                gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)<br><br>                <span class="hljs-comment"># 使用detector进行人脸检测</span><br>                faces = detector(gray_img, <span class="hljs-number">1</span>)<br>                <span class="hljs-comment">#faces = haar.detectMultiScale(gray_img, 1.3, 5)</span><br>                <span class="hljs-keyword">for</span> i, d <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(faces):<br>                    x1 = d.top() <span class="hljs-keyword">if</span> d.top() &gt; <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> <span class="hljs-number">0</span><br>                    y1 = d.bottom() <span class="hljs-keyword">if</span> d.bottom() &gt; <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> <span class="hljs-number">0</span><br>                    x2 = d.left() <span class="hljs-keyword">if</span> d.left() &gt; <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> <span class="hljs-number">0</span><br>                    y2 = d.right() <span class="hljs-keyword">if</span> d.right() &gt; <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> <span class="hljs-number">0</span><br>                <br>                    face = img[x1:y1,x2:y2]<br><br>                    face = cv2.resize(face, (IMGSIZE, IMGSIZE))<br>                    <span class="hljs-comment">#could deal with face to train</span><br>                    test_x = np.array([face])<br>                    test_x = test_x.astype(np.float32) / <span class="hljs-number">255.0</span><br>                    <br>                    res = sess.run([predict, tf.argmax(output, <span class="hljs-number">1</span>)],\<br>                                   feed_dict=&#123;myconv.x: test_x,\<br>                                   myconv.keep_prob_5:<span class="hljs-number">1.0</span>, myconv.keep_prob_75: <span class="hljs-number">1.0</span>&#125;)<br>                    print(res, indextoname[res[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>]], res[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>][res[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>]])<br>                    sys.stdout.flush()<br>                    <br>                    <span class="hljs-comment"># 得到一组随机的颜色值</span><br>                    r = random.randint(<span class="hljs-number">0</span>, <span class="hljs-number">255</span>)<br>                    g = random.randint(<span class="hljs-number">0</span>, <span class="hljs-number">255</span>)<br>                    b = random.randint(<span class="hljs-number">0</span>, <span class="hljs-number">255</span>)<br><br>                    <span class="hljs-comment"># 绘制检测到的人脸的方框</span><br>                    cv2.rectangle(img, (x2,x1),(y2,y1), (r, g, b),<span class="hljs-number">3</span>)<br>                    <br>                    <span class="hljs-comment"># if res[0][0][res[1][0]] &gt;= 500:</span><br>                    <span class="hljs-comment">#     cv2.putText(img, &#x27;others&#x27;, (x1, y1 + 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (col, col, col), 2)  #显示名字</span><br>                    <span class="hljs-comment"># else:        </span><br>                    <span class="hljs-comment">#     cv2.putText(img, indextoname[res[1][0]], (x1, y1 - 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (col, col, col), 2)  #显示名字</span><br>                    cv2.putText(img, indextoname[res[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>]], (x2 + <span class="hljs-number">25</span>, y1 + <span class="hljs-number">40</span>), cv2.FONT_HERSHEY_SIMPLEX, <span class="hljs-number">1</span>, (r, g, b), <span class="hljs-number">2</span>)  <span class="hljs-comment">#显示名字</span><br>                    <br>                    n+=<span class="hljs-number">1</span><br>                    cv2.imshow(<span class="hljs-string">&#x27;img&#x27;</span>, img)<br>                key = cv2.waitKey(<span class="hljs-number">30</span>) &amp; <span class="hljs-number">0xff</span><br>                <span class="hljs-keyword">if</span> key == <span class="hljs-number">27</span>:<br>                    <span class="hljs-keyword">break</span><br>            <span class="hljs-keyword">else</span>:<br>                <span class="hljs-keyword">break</span>           <br>    camera.release()<br>    cv2.destroyAllWindows()<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    <span class="hljs-comment"># first generate all face</span><br>    main(<span class="hljs-number">0</span>)<br>    <span class="hljs-comment">#onehot([1, 3, 9])</span><br>    <span class="hljs-comment">#print(getfileandlabel(&#x27;./image/trainimages&#x27;))</span><br>    <span class="hljs-comment">#generateface([[&#x27;./image/trainimages&#x27;, &#x27;./image/trainfaces&#x27;]])</span><br></code></pre></td></tr></table></figure>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>最后的模型的准确度还行，，但是不能识别未录入者，，它会认为是与已录入者最接近的人，，，</p>
 <p>acc:</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/31415926535x/CollegeProjectBackup/blob/master/FaceRecognition/acc.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="https://github.com/31415926535x/CollegeProjectBackup/blob/master/FaceRecognition/acc.png" srcset="/img/loading.gif" alt=""></p>
 <p>loss:</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/31415926535x/CollegeProjectBackup/blob/master/FaceRecognition/loss.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="https://github.com/31415926535x/CollegeProjectBackup/blob/master/FaceRecognition/loss.png" srcset="/img/loading.gif" alt=""></p>
 <p>这个数据是通过tensorboard生成的，，</p>
 <p>项目里还有一个简单的gui的实现，，因为没有时间了，，所有没有好好的优化一下，，，</p>
 <p>(end 困。。。。)</p>
 
-        </div>
-
-        <blockquote class="post-copyright">
-    
-    <div class="content">
-        
-<span class="post-time">
-    最后更新时间：<time datetime="2019-08-02T02:58:59.443Z" itemprop="dateUpdated">2019-08-02 10:58:59</time>
-</span><br>
-
-
-        
-        <a href="/2019/06/08/基于卷积神经网络的人脸识别项目/" target="_blank" rel="external">http://blog.31415x.cf/2019/06/08/基于卷积神经网络的人脸识别项目/</a>
-        
-    </div>
-    
-    <footer>
-        <a href="http://blog.31415x.cf">
-            <img src="/img/misaka.jpg" alt="31415926535x">
-            31415926535x
-        </a>
-    </footer>
-</blockquote>
-
-        
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/人脸识别/">人脸识别</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/实验报告/">实验报告</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具使用/">工具使用</a></li></ul>
-
-
-            
-<div class="page-share-wrap">
-    
-
-<div class="page-share" id="pageShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.31415x.cf/2019/06/08/基于卷积神经网络的人脸识别项目/&title=《基于卷积神经网络的人脸识别项目》 — 31415926535x&pic=http://blog.31415x.cf/img/misaka.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.31415x.cf/2019/06/08/基于卷积神经网络的人脸识别项目/&title=《基于卷积神经网络的人脸识别项目》 — 31415926535x&source=概述学期末了啊，，，最后这个人脸识别的项目弄完了，，有很多的不足，，很多东西都是只知道怎么用，但是不知道其背后的逻辑，，感觉自己学习东西对于那些潜意识优先..." data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.31415x.cf/2019/06/08/基于卷积神经网络的人脸识别项目/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《基于卷积神经网络的人脸识别项目》 — 31415926535x&url=http://blog.31415x.cf/2019/06/08/基于卷积神经网络的人脸识别项目/&via=http://blog.31415x.cf" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.31415x.cf/2019/06/08/基于卷积神经网络的人脸识别项目/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
-        <i class="icon icon-share-alt icon-lg"></i>
-    </a>
-</div>
-
-
-
-        </div>
-    </div>
-
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2019/07/13/搜索专题/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">搜索专题</h4>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/2019/05/31/2019西安邀请赛补题/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">2019西安邀请赛补题</h4>
-      </a>
-    </div>
-  
-</nav>
-
-
-
-    
-
-
-<section class="comments" id="comments">
-    <div id="disqus_thread"></div>
-    <script>
-    var disqus_shortname = 'www-31415-cf';
-    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</article>
-
-
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
-        
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p><span>31415926535x &copy; 2018 - 2021</span>
-            <span>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
                 
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/">人脸识别</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/">工具使用</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/">人脸识别</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">实验报告</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/07/13/%E6%90%9C%E7%B4%A2%E4%B8%93%E9%A2%98/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">搜索专题</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/05/31/2019%E8%A5%BF%E5%AE%89%E9%82%80%E8%AF%B7%E8%B5%9B%E8%A1%A5%E9%A2%98/">
+                        <span class="hidden-mobile">2019西安邀请赛补题</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_config = function() {
+        this.page.url = 'http://blog.31415x.cf/2019/06/08/%E5%9F%BA%E4%BA%8E%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E9%A1%B9%E7%9B%AE/';
+        this.page.identifier = '/2019/06/08/%E5%9F%BA%E4%BA%8E%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E9%A1%B9%E7%9B%AE/';
+      };
+      Fluid.utils.waitElementVisible('disqus_thread', function () {
+        var d = document, s = d.createElement('script');
+        s.src = '//' + 'www-31415-cf' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', new Date());
+        (d.head || d.body).appendChild(s);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the
+      <a target="_blank" href="https://disqus.com/?ref_noscript" rel="nofollow noopener noopener">comments powered by Disqus.</a>
+    </noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
     </div>
-	
-	
-	<div id="aplayer">
-		<!-- 音乐播放器 -->
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.css">
-		<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.js"></script>
-		<div id="aplayer" class="aplayer" data-id="2254014329" data-lrctype="0" data-server="netease" data-type="playlist" data-fixed="true" data-listfolded="true"></div>
-		<script src="https://unpkg.com/meting@1.2/dist/Meting.min.js"></script>
-	</div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br> <a>不忘初心 <strong><span style="color: red">☭</span></strong> 方得始终</a> 
+  </div>
+  
+
+  
+
+  
 </footer>
 
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
 
 
 
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.31415x.cf/2019/06/08/基于卷积神经网络的人脸识别项目/&title=《基于卷积神经网络的人脸识别项目》 — 31415926535x&pic=http://blog.31415x.cf/img/misaka.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.31415x.cf/2019/06/08/基于卷积神经网络的人脸识别项目/&title=《基于卷积神经网络的人脸识别项目》 — 31415926535x&source=概述学期末了啊，，，最后这个人脸识别的项目弄完了，，有很多的不足，，很多东西都是只知道怎么用，但是不知道其背后的逻辑，，感觉自己学习东西对于那些潜意识优先..." data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.31415x.cf/2019/06/08/基于卷积神经网络的人脸识别项目/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《基于卷积神经网络的人脸识别项目》 — 31415926535x&url=http://blog.31415x.cf/2019/06/08/基于卷积神经网络的人脸识别项目/&via=http://blog.31415x.cf" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.31415x.cf/2019/06/08/基于卷积神经网络的人脸识别项目/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://blog.31415x.cf/2019/06/08/基于卷积神经网络的人脸识别项目/" alt="微信分享二维码">
-</div>
+  
 
 
 
-
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
-
-
-</script>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
 
 
 
-<!-- mathjax config similar to math.stackexchange -->
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
 
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
 
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
 
 
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
 
 
 
-<script>
-(function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = '(つェ⊂)';
-            clearTimeout(titleTime);
-        } else {
-            document.title = '(๑•̀ㅂ•́)و✧';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
         }
-    });
-})();
-</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
-</script>
+      };
+    </script>
 
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
     }
-  });
-</script>
+  </script>
 
-<script type="text/javascript" src="custom_mathjax_source">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-114656515-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 

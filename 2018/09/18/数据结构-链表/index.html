@@ -1,580 +1,575 @@
+
+
 <!DOCTYPE html>
-<html>
-<head><meta name="generator" content="Hexo 3.9.0">
-    
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Google Analytics -->
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-114656515-1', 'auto');
-ga('send', 'pageview');
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-<!-- End Google Analytics -->
-
-
-    
-
-    
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
-    <meta charset="utf-8">
-    
-    
-    
-    <link rel="canonical" href="https://31415926535x.github.io/2018/09/18/数据结构-链表/">
-    
-    
-    <title>数据结构-链表 | 31415926535x</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#40c4ff">
-    
-    
-    <meta name="keywords" content="数据结构,链表,c/c++">
-    <meta name="description" content="概述作为数据结构中的入门基础，，表十分的重要，，基本上可以说数据结构中其他的大部分的实现都是基于顺序表的，，而 链表 则是顺序表中很重要的一个东西，，， 之前在学习C/C++时就已经了解到了链表，，，那时粗略的看了看，，以为自己可以熟练的实现，，，但实际是，，我只会基于C++的链表的实现，，在使用C来实现时总是在报错，，，最后发现是自己的逻辑不清，，各个函数的实现中指针乱指，，，才导致总是出现各种">
-<meta name="keywords" content="数据结构,链表,c&#x2F;c++">
-<meta property="og:type" content="article">
-<meta property="og:title" content="数据结构-链表">
-<meta property="og:url" content="http://blog.31415x.cf/2018/09/18/数据结构-链表/index.html">
-<meta property="og:site_name" content="31415926535x">
-<meta property="og:description" content="概述作为数据结构中的入门基础，，表十分的重要，，基本上可以说数据结构中其他的大部分的实现都是基于顺序表的，，而 链表 则是顺序表中很重要的一个东西，，， 之前在学习C/C++时就已经了解到了链表，，，那时粗略的看了看，，以为自己可以熟练的实现，，，但实际是，，我只会基于C++的链表的实现，，在使用C来实现时总是在报错，，，最后发现是自己的逻辑不清，，各个函数的实现中指针乱指，，，才导致总是出现各种">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-18T11:58:57.521Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数据结构-链表">
-<meta name="twitter:description" content="概述作为数据结构中的入门基础，，表十分的重要，，基本上可以说数据结构中其他的大部分的实现都是基于顺序表的，，而 链表 则是顺序表中很重要的一个东西，，， 之前在学习C/C++时就已经了解到了链表，，，那时粗略的看了看，，以为自己可以熟练的实现，，，但实际是，，我只会基于C++的链表的实现，，在使用C来实现时总是在报错，，，最后发现是自己的逻辑不清，，各个函数的实现中指针乱指，，，才导致总是出现各种">
-    
-        <link rel="alternate" type="application/atom+xml" title="31415926535x" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/misaka.jpg">
+  <link rel="icon" href="/img/misaka.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  
+    <meta name="description" content="概述作为数据结构中的入门基础，，表十分的重要，，基本上可以说数据结构中其他的大部分的实现都是基于顺序表的，，而 链表 则是顺序表中很重要的一个东西，，，
+之前在学习C/C++时就已经了解到了链表，，，那时粗略的看了看，，以为自己可以熟练的实现，，，但实际是，，我只会基于C++的链表的实现，，在使用C来实现时总是在报错，，，最后发现是自己的逻辑不清，，各个函数的实现中指针乱指，，，才导致总是出现各种">
+  
+  <meta name="author" content="31415926535x">
+  <meta name="keywords" content="">
+  
+  <title>数据结构-链表 - 31415926535x</title>
 
-    <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-    
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/monokai.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"blog.31415x.cf","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":null,"google":"UA-114656515-1","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="31415926535x" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
-<body>
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide" >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/misaka.jpg">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">31415926535x</h5>
-          <a href="mailto:2509437152wx@gmail.com" title="2509437152wx@gmail.com" class="mail">2509437152wx@gmail.com</a>
-        </hgroup>
-      </div>
-    </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>31415926535x</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                Archives
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                标签
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/31415926535x" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="https://plus.google.com/106114719135977350421" target="_blank" >
-                <i class="icon icon-lg icon-google"></i>
-                Google+
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="https://instagram.com/314159265358x" target="_blank" >
-                <i class="icon icon-lg icon-instagram"></i>
-                Instagram
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="https://cnblogs.com/31415926535x" target="_blank" >
-                <i class="icon icon-lg icon-th-large"></i>
-                cnblogs
-              </a>
-            </li>
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
         
-            <li class="waves-block waves-effect">
-              <a href="https://blog.csdn.net/pi31415926535x" target="_blank" >
-                <i class="icon icon-lg icon-cubes"></i>
-                csdn
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/timeline"  >
-                <i class="icon icon-lg icon-calendar"></i>
-                timeline
-              </a>
-            </li>
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
         
       </ul>
     </div>
   </div>
-</aside>
-
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">数据结构-链表</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
-        
-    </div>
-</header>
-<header class="content-header post-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">数据结构-链表</h1>
-        <h5 class="subtitle">
-            
-                <time datetime="2018-09-18T10:57:24.000Z" itemprop="datePublished" class="page-time">
-  2018-09-18
-</time>
-
-
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数据结构/">数据结构</a></li></ul>
-
-            
-        </h5>
-    </div>
-
-    
-
-
-</header>
-
-
-<div class="container body-wrap">
-    
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#概述"><span class="post-toc-number">1.</span> <span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#实现"><span class="post-toc-number">2.</span> <span class="post-toc-text">实现</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#链表节点"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">链表节点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#建立链表"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">建立链表</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#尾插法建立链表"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">尾插法建立链表</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#头插法建立链表"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">头插法建立链表</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#插入一个节点"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">插入一个节点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#删除一个节点"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">删除一个节点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#显示链表中的数据"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">显示链表中的数据</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#实例"><span class="post-toc-number">3.</span> <span class="post-toc-text">实例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Description"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">Description</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Input"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">Input</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Output"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">Output</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#IO"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">IO</span></a></li></ol></li></ol>
-        </nav>
-    </aside>
-
-
-<article id="post-数据结构-链表"
-  class="post-article article-type-post fade" itemprop="blogPost">
-
-    <div class="post-card">
-        <h1 class="post-card-title">数据结构-链表</h1>
-        <div class="post-meta">
-            <time class="post-time" title="2018-09-18 18:57:24" datetime="2018-09-18T10:57:24.000Z"  itemprop="datePublished">2018-09-18</time>
-
-            
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数据结构/">数据结构</a></li></ul>
-
-
-
-            
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
-
-
-        </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>作为数据结构中的入门基础，，表十分的重要，，基本上可以说数据结构中其他的大部分的实现都是基于顺序表的，，而 <strong>链表</strong> 则是顺序表中很重要的一个东西，，，</p>
-<p>之前在学习C/C++时就已经了解到了链表，，，那时粗略的看了看，，以为自己可以熟练的实现，，，但实际是，，我只会基于C++的链表的实现，，在使用C来实现时总是在报错，，，最后发现是自己的逻辑不清，，各个函数的实现中指针乱指，，，才导致总是出现各种报错，，，</p>
-<a id="more"></a>
-<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><h2 id="链表节点"><a href="#链表节点" class="headerlink" title="链表节点"></a>链表节点</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> datatype;           <span class="comment">//自定义节点所储存的数据类型，便于之后的更改</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    datatype key;               <span class="comment">//节点所储存的数据</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">next</span>;</span>          <span class="comment">//当前节点指向下一节点的指针</span></span><br><span class="line">&#125;Node , *List;                  <span class="comment">//节点，节点指针（链表指针）</span></span><br></pre></td></tr></table></figure>
-<p>节点结构体内可以根据需要增加更多的数据，，，同时也可以设置两个节点指针，，创建双向链表。。。</p>
-<h2 id="建立链表"><a href="#建立链表" class="headerlink" title="建立链表"></a>建立链表</h2><h3 id="尾插法建立链表"><a href="#尾插法建立链表" class="headerlink" title="尾插法建立链表"></a>尾插法建立链表</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">List <span class="title">creat_List</span><span class="params">(<span class="keyword">int</span> len)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//尾插法实现链表的建立</span></span><br><span class="line">    Node *pre;              <span class="comment">//前一节点</span></span><br><span class="line">    List L = <span class="literal">NULL</span>;          <span class="comment">//链表指针</span></span><br><span class="line">    List head;              <span class="comment">//头节点</span></span><br><span class="line"></span><br><span class="line">    head = (List)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</span><br><span class="line">    head-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    pre = head;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        datatype t;</span><br><span class="line">        <span class="comment">//cin &gt;&gt; t;</span></span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span> , &amp;t);</span><br><span class="line">        L = (List)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</span><br><span class="line"></span><br><span class="line">        L-&gt;key = t;</span><br><span class="line"></span><br><span class="line">        pre-&gt;next = L;</span><br><span class="line">        pre = L;</span><br><span class="line">    &#125;</span><br><span class="line">    L-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">    <span class="comment">//display_list(L);</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>学校发的书上的方法编译错误，，，最后我选择了这种返回头节点的指针的方法，</p>
-<h3 id="头插法建立链表"><a href="#头插法建立链表" class="headerlink" title="头插法建立链表"></a>头插法建立链表</h3><p>和尾插法相似，，改一下指针就行了，，，</p>
-<h2 id="插入一个节点"><a href="#插入一个节点" class="headerlink" title="插入一个节点"></a>插入一个节点</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert_List</span><span class="params">(List L , <span class="keyword">int</span> i , datatype k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//在链表的第i个位置插入数据为k的结点</span></span><br><span class="line">    List p , s;                         <span class="comment">//s为要插入的节点</span></span><br><span class="line">    p = L;</span><br><span class="line">    <span class="comment">//找到第i-1个位置的节点</span></span><br><span class="line">    <span class="keyword">if</span> (i - <span class="number">1</span>)                          <span class="comment">//若要在不是第一个位置处插入，遍历到第i-1节点处</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= i - <span class="number">1</span>; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">            <span class="keyword">if</span> (p == <span class="literal">NULL</span>)</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    s = (Node *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));   <span class="comment">//为新节点申请空间</span></span><br><span class="line">    s-&gt;key = k;                         <span class="comment">//赋值</span></span><br><span class="line">    s-&gt;next = p-&gt;next;                  <span class="comment">//指向下一节点，及插入链表</span></span><br><span class="line">    p-&gt;next = s;                        <span class="comment">//上一节点指向新建的节点</span></span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="删除一个节点"><a href="#删除一个节点" class="headerlink" title="删除一个节点"></a>删除一个节点</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">delete_List</span><span class="params">(List L , <span class="keyword">int</span> i <span class="comment">/*datatype &amp;x*/</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//删除链表中的第i个节点</span></span><br><span class="line">    List pre , cur;                     <span class="comment">//pre为前一节点,cur为要删除的节点</span></span><br><span class="line">    pre = L;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= i - <span class="number">1</span>; j++)    <span class="comment">//遍历到第i-1个节点</span></span><br><span class="line">    &#123;</span><br><span class="line">        pre = pre-&gt;next;</span><br><span class="line">        <span class="keyword">if</span> (pre == <span class="literal">NULL</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (pre-&gt;next == <span class="literal">NULL</span>)              <span class="comment">//若此时为尾节点，则无法删除第i个节点</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        cur = pre-&gt;next;</span><br><span class="line">        pre-&gt;next = cur-&gt;next;</span><br><span class="line">        <span class="built_in">free</span>(cur);                      <span class="comment">//删除节点并释放空间</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="显示链表中的数据"><a href="#显示链表中的数据" class="headerlink" title="显示链表中的数据"></a>显示链表中的数据</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">display_list</span><span class="params">(List L)</span>       <span class="comment">//输出链表所储存的所有数据</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    List p = L;                 <span class="comment">//定义链表的指针，用于遍历该链表</span></span><br><span class="line">    <span class="keyword">if</span> (p-&gt;next)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//cout &lt;&lt; p-&gt;key;</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d"</span> , p-&gt;next-&gt;key);</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (p-&gt;next)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//cout &lt;&lt; " " &lt;&lt; p-&gt;key;</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">" %d"</span> , p-&gt;next-&gt;key);</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//cout &lt;&lt; endl;</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">假设利用两个线性表LA和LB分别表示两个集合A和B（即：线性表中的数据元素即为集合中的成员），</span><br><span class="line">现要求一个新的集合A=A∪B。这就要求对线性表做如下操作：扩大线性表LA，</span><br><span class="line">将存在于线性表LB中而不存在于线性表LA中的数据元素插入到线性表LA中去。</span><br><span class="line">只要从线性表LB中依次取得每个元素，并依值在线性表LA中进行查访，</span><br><span class="line">若不存在，则插入之。上述操作过程可用下列算法描述之。</span><br><span class="line"></span><br><span class="line">图：将两个列表合并的算法（C/C++描述）</span><br><span class="line">上图算法中，在第8行取得集合B中的元素，然后再在第10行插入到集合A中。</span><br><span class="line">你的任务是先输出集合A和集合B中的元素，每个集合在一行中输出。</span><br><span class="line">然后每次在将集合B中的元素取出插入到集合A尾部后输出集合A中的元素。</span><br><span class="line">当然你的代码可以和上面的代码不一样，只要有相同的输出即可。</span><br></pre></td></tr></table></figure>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">有多组测试数据，每组测试数据占两行。第一行是集合A，</span><br><span class="line">第一个整数m（0&lt; m &lt; = 100）代表集合A起始有m个元素，后面有m个整数，代表A中的元素。</span><br><span class="line">第二行是集合B，第一个整数n(0 &lt; n &lt; = 100)代表集合B起始有n个元素，</span><br><span class="line">后面有n个整数，代表B中的元素。每行中整数之间用一个空格隔开。</span><br></pre></td></tr></table></figure>
-<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">每组测试数据输出n+2行：前两行分别输出集合A、集合B中的数据，</span><br><span class="line">后面n行是每次从B中取出元素插入到A尾部后的集合A。</span><br><span class="line">每行整数之间用一个空格隔开，每组测试数据之间用一行空行隔开。</span><br></pre></td></tr></table></figure>
-<h2 id="IO"><a href="#IO" class="headerlink" title="IO"></a>IO</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">Sample Input</span><br><span class="line"></span><br><span class="line">5 1 5 2 6 3</span><br><span class="line">3 1 7 9</span><br><span class="line">1 3</span><br><span class="line">2 2 7</span><br><span class="line">4 2 5 1 4</span><br><span class="line">4 1 2 4 5</span><br><span class="line"></span><br><span class="line">Sample Output</span><br><span class="line"></span><br><span class="line">1 5 2 6 3</span><br><span class="line">1 7 9</span><br><span class="line">1 5 2 6 3</span><br><span class="line">1 5 2 6 3 7</span><br><span class="line">1 5 2 6 3 7 9</span><br><span class="line"></span><br><span class="line">3</span><br><span class="line">2 7</span><br><span class="line">3 2</span><br><span class="line">3 2 7</span><br><span class="line"></span><br><span class="line">2 5 1 4</span><br><span class="line">1 2 4 5</span><br><span class="line">2 5 1 4</span><br><span class="line">2 5 1 4</span><br><span class="line">2 5 1 4</span><br><span class="line">2 5 1 4</span><br></pre></td></tr></table></figure>
-<p>我的代码:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;malloc.h&gt;</span></span></span><br><span class="line"><span class="comment">//const int maxn = 105;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> datatype;           <span class="comment">//自定义节点所储存的数据类型，便于之后的更改</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    datatype key;               <span class="comment">//节点所储存的数据</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">next</span>;</span>          <span class="comment">//当前节点指向下一节点的指针</span></span><br><span class="line">    <span class="comment">//Node(datatype x):key(x) , next(NULL)&#123;&#125;</span></span><br><span class="line">&#125;Node , *List;                  <span class="comment">//节点，节点指针（链表指针）</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">display_list</span><span class="params">(List L)</span>       <span class="comment">//输出链表所储存的所有数据</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    List p = L;                 <span class="comment">//定义链表的指针，用于遍历该链表</span></span><br><span class="line">    <span class="keyword">if</span> (p-&gt;next)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//cout &lt;&lt; p-&gt;key;</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d"</span> , p-&gt;next-&gt;key);</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (p-&gt;next)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//cout &lt;&lt; " " &lt;&lt; p-&gt;key;</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">" %d"</span> , p-&gt;next-&gt;key);</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//cout &lt;&lt; endl;</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">search_List</span><span class="params">(List L , datatype k)</span>    <span class="comment">//搜索值为k的节点在链表中的位置，返回所在的位置loc</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//查找链表中值为k的节点的位置</span></span><br><span class="line">    List p = L-&gt;next;</span><br><span class="line">    <span class="keyword">int</span> loc = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (p != <span class="literal">NULL</span> &amp;&amp; p-&gt;key != k)</span><br><span class="line">    &#123;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">        loc++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (p != <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> loc;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;                       <span class="comment">//没有找到返回值0</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert_List</span><span class="params">(List L , <span class="keyword">int</span> i , datatype k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//在链表的第i个位置插入数据为k的结点</span></span><br><span class="line">    List p , s;                         <span class="comment">//s为要插入的节点</span></span><br><span class="line">    p = L;</span><br><span class="line">    <span class="comment">//找到第i-1个位置的节点</span></span><br><span class="line">    <span class="keyword">if</span> (i - <span class="number">1</span>)                          <span class="comment">//若要在不是第一个位置处插入，遍历到第i-1节点处</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= i - <span class="number">1</span>; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">            <span class="keyword">if</span> (p == <span class="literal">NULL</span>)</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    s = (Node *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));   <span class="comment">//为新节点申请空间</span></span><br><span class="line">    s-&gt;key = k;                         <span class="comment">//赋值</span></span><br><span class="line">    s-&gt;next = p-&gt;next;                  <span class="comment">//指向下一节点，及插入链表</span></span><br><span class="line">    p-&gt;next = s;                        <span class="comment">//上一节点指向新建的节点</span></span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">delete_List</span><span class="params">(List L , <span class="keyword">int</span> i <span class="comment">/*datatype &amp;x*/</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//删除链表中的第i个节点</span></span><br><span class="line">    List pre , cur;                     <span class="comment">//pre为前一节点,cur为要删除的节点</span></span><br><span class="line">    pre = L;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= i - <span class="number">1</span>; j++)    <span class="comment">//遍历到第i-1个节点</span></span><br><span class="line">    &#123;</span><br><span class="line">        pre = pre-&gt;next;</span><br><span class="line">        <span class="keyword">if</span> (pre == <span class="literal">NULL</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (pre-&gt;next == <span class="literal">NULL</span>)              <span class="comment">//若此时为尾节点，则无法删除第i个节点</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        cur = pre-&gt;next;</span><br><span class="line">        pre-&gt;next = cur-&gt;next;</span><br><span class="line">        <span class="built_in">free</span>(cur);                      <span class="comment">//删除节点并释放空间</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">List <span class="title">creat_List</span><span class="params">(<span class="keyword">int</span> len)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//尾插法实现链表的建立</span></span><br><span class="line">    Node *pre;              <span class="comment">//前一节点</span></span><br><span class="line">    List L = <span class="literal">NULL</span>;          <span class="comment">//链表指针</span></span><br><span class="line">    List head;              <span class="comment">//头节点</span></span><br><span class="line"></span><br><span class="line">    head = (List)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</span><br><span class="line">    head-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    pre = head;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        datatype t;</span><br><span class="line">        <span class="comment">//cin &gt;&gt; t;</span></span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span> , &amp;t);</span><br><span class="line">        L = (List)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</span><br><span class="line"></span><br><span class="line">        L-&gt;key = t;</span><br><span class="line"></span><br><span class="line">        pre-&gt;next = L;</span><br><span class="line">        pre = L;</span><br><span class="line">    &#125;</span><br><span class="line">    L-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">    <span class="comment">//display_list(L);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m , n;</span><br><span class="line">    List LA;</span><br><span class="line">    List LB;</span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">1</span>;</span><br><span class="line"><span class="comment">//    freopen("233.txt" , "r" , stdin);</span></span><br><span class="line"><span class="comment">//    freopen("emmm.txt" , "w" , stdout);</span></span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;m) != EOF)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (flag)</span><br><span class="line">            flag = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line"><span class="comment">//            cout &lt;&lt; endl;</span></span><br><span class="line"></span><br><span class="line">        LA = creat_List(m);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span> , &amp;n);</span><br><span class="line">        LB = creat_List(n);</span><br><span class="line"></span><br><span class="line">        display_list(LA);</span><br><span class="line">        display_list(LB);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            datatype t = LB-&gt;next-&gt;key;</span><br><span class="line">            <span class="keyword">int</span> p = search_List(LA , t);</span><br><span class="line"><span class="comment">//            printf("lb---%d\n" , t);</span></span><br><span class="line"><span class="comment">//            printf("p---%d\n" , p);</span></span><br><span class="line">            <span class="keyword">if</span> (!p)</span><br><span class="line">            &#123;</span><br><span class="line"></span><br><span class="line">                m++;</span><br><span class="line">                insert_List(LA , m , t);</span><br><span class="line">                delete_List(LB , <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                delete_List(LB , <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            display_list(LA);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-        </div>
-
-        <blockquote class="post-copyright">
-    
-    <div class="content">
-        
-<span class="post-time">
-    最后更新时间：<time datetime="2018-09-18T11:58:57.521Z" itemprop="dateUpdated">2018-09-18 19:58:57</time>
-</span><br>
-
-
-        
-        <a href="/2018/09/18/数据结构-链表/" target="_blank" rel="external">http://blog.31415x.cf/2018/09/18/数据结构-链表/</a>
-        
-    </div>
-    
-    <footer>
-        <a href="http://blog.31415x.cf">
-            <img src="/img/misaka.jpg" alt="31415926535x">
-            31415926535x
-        </a>
-    </footer>
-</blockquote>
-
-        
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-c/">c/c++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/链表/">链表</a></li></ul>
-
-
-            
-<div class="page-share-wrap">
-    
-
-<div class="page-share" id="pageShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.31415x.cf/2018/09/18/数据结构-链表/&title=《数据结构-链表》 — 31415926535x&pic=http://blog.31415x.cf/img/misaka.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.31415x.cf/2018/09/18/数据结构-链表/&title=《数据结构-链表》 — 31415926535x&source=概述作为数据结构中的入门基础，，表十分的重要，，基本上可以说数据结构中其他的大部分的实现都是基于顺序表的，，而 链表 则是顺序表中很重要的一个东西，，，
-..." data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.31415x.cf/2018/09/18/数据结构-链表/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数据结构-链表》 — 31415926535x&url=http://blog.31415x.cf/2018/09/18/数据结构-链表/&via=http://blog.31415x.cf" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.31415x.cf/2018/09/18/数据结构-链表/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
-        <i class="icon icon-share-alt icon-lg"></i>
-    </a>
-</div>
-
-
-
-        </div>
-    </div>
-
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2018/09/18/acm-STL/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">acm-STL</h4>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/2018/09/06/chrome-PC-自定义字体作死改变之后的恢复方法/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">chrome PC 自定义字体作死改变之后的恢复方法</h4>
-      </a>
-    </div>
-  
 </nav>
 
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="数据结构-链表">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      31415926535x
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2018-09-18 18:57" pubdate>
+        2018年9月18日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      30
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">数据结构-链表</h1>
+            
+            <div class="markdown-body">
+              <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>作为数据结构中的入门基础，，表十分的重要，，基本上可以说数据结构中其他的大部分的实现都是基于顺序表的，，而 <strong>链表</strong> 则是顺序表中很重要的一个东西，，，</p>
+<p>之前在学习C/C++时就已经了解到了链表，，，那时粗略的看了看，，以为自己可以熟练的实现，，，但实际是，，我只会基于C++的链表的实现，，在使用C来实现时总是在报错，，，最后发现是自己的逻辑不清，，各个函数的实现中指针乱指，，，才导致总是出现各种报错，，，</p>
+<span id="more"></span>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><h2 id="链表节点"><a href="#链表节点" class="headerlink" title="链表节点"></a>链表节点</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">int</span> datatype;           <span class="hljs-comment">//自定义节点所储存的数据类型，便于之后的更改</span><br><br><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Node</span></span><br><span class="hljs-class">&#123;</span><br>    datatype key;               <span class="hljs-comment">//节点所储存的数据</span><br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Node</span> *<span class="hljs-title">next</span>;</span>          <span class="hljs-comment">//当前节点指向下一节点的指针</span><br>&#125;Node , *List;                  <span class="hljs-comment">//节点，节点指针（链表指针）</span><br><br></code></pre></td></tr></table></figure>
+<p>节点结构体内可以根据需要增加更多的数据，，，同时也可以设置两个节点指针，，创建双向链表。。。</p>
+<h2 id="建立链表"><a href="#建立链表" class="headerlink" title="建立链表"></a>建立链表</h2><h3 id="尾插法建立链表"><a href="#尾插法建立链表" class="headerlink" title="尾插法建立链表"></a>尾插法建立链表</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">List <span class="hljs-title">creat_List</span><span class="hljs-params">(<span class="hljs-keyword">int</span> len)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">//尾插法实现链表的建立</span><br>    Node *pre;              <span class="hljs-comment">//前一节点</span><br>    List L = <span class="hljs-literal">NULL</span>;          <span class="hljs-comment">//链表指针</span><br>    List head;              <span class="hljs-comment">//头节点</span><br><br>    head = (List)<span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(Node));<br>    head-&gt;next = <span class="hljs-literal">NULL</span>;<br>    pre = head;<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= len; i++)<br>    &#123;<br>        datatype t;<br>        <span class="hljs-comment">//cin &gt;&gt; t;</span><br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span> , &amp;t);<br>        L = (List)<span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(Node));<br><br>        L-&gt;key = t;<br><br>        pre-&gt;next = L;<br>        pre = L;<br>    &#125;<br>    L-&gt;next = <span class="hljs-literal">NULL</span>;<br><br>    <span class="hljs-keyword">return</span> head;<br>    <span class="hljs-comment">//display_list(L);</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>学校发的书上的方法编译错误，，，最后我选择了这种返回头节点的指针的方法，</p>
+<h3 id="头插法建立链表"><a href="#头插法建立链表" class="headerlink" title="头插法建立链表"></a>头插法建立链表</h3><p>和尾插法相似，，改一下指针就行了，，，</p>
+<h2 id="插入一个节点"><a href="#插入一个节点" class="headerlink" title="插入一个节点"></a>插入一个节点</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">insert_List</span><span class="hljs-params">(List L , <span class="hljs-keyword">int</span> i , datatype k)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">//在链表的第i个位置插入数据为k的结点</span><br>    List p , s;                         <span class="hljs-comment">//s为要插入的节点</span><br>    p = L;<br>    <span class="hljs-comment">//找到第i-1个位置的节点</span><br>    <span class="hljs-keyword">if</span> (i - <span class="hljs-number">1</span>)                          <span class="hljs-comment">//若要在不是第一个位置处插入，遍历到第i-1节点处</span><br>    &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt;= i - <span class="hljs-number">1</span>; j++)<br>        &#123;<br>            p = p-&gt;next;<br>            <span class="hljs-keyword">if</span> (p == <span class="hljs-literal">NULL</span>)<br>                <span class="hljs-keyword">return</span>;<br>        &#125;<br><br>    &#125;<br><br>    s = (Node *)<span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(Node));   <span class="hljs-comment">//为新节点申请空间</span><br>    s-&gt;key = k;                         <span class="hljs-comment">//赋值</span><br>    s-&gt;next = p-&gt;next;                  <span class="hljs-comment">//指向下一节点，及插入链表</span><br>    p-&gt;next = s;                        <span class="hljs-comment">//上一节点指向新建的节点</span><br>    <span class="hljs-keyword">return</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="删除一个节点"><a href="#删除一个节点" class="headerlink" title="删除一个节点"></a>删除一个节点</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">delete_List</span><span class="hljs-params">(List L , <span class="hljs-keyword">int</span> i <span class="hljs-comment">/*datatype &amp;x*/</span>)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">//删除链表中的第i个节点</span><br>    List pre , cur;                     <span class="hljs-comment">//pre为前一节点,cur为要删除的节点</span><br>    pre = L;<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt;= i - <span class="hljs-number">1</span>; j++)    <span class="hljs-comment">//遍历到第i-1个节点</span><br>    &#123;<br>        pre = pre-&gt;next;<br>        <span class="hljs-keyword">if</span> (pre == <span class="hljs-literal">NULL</span>)<br>            <span class="hljs-keyword">return</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">if</span> (pre-&gt;next == <span class="hljs-literal">NULL</span>)              <span class="hljs-comment">//若此时为尾节点，则无法删除第i个节点</span><br>        <span class="hljs-keyword">return</span>;<br>    <span class="hljs-keyword">else</span><br>    &#123;<br>        cur = pre-&gt;next;<br>        pre-&gt;next = cur-&gt;next;<br>        <span class="hljs-built_in">free</span>(cur);                      <span class="hljs-comment">//删除节点并释放空间</span><br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="显示链表中的数据"><a href="#显示链表中的数据" class="headerlink" title="显示链表中的数据"></a>显示链表中的数据</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">display_list</span><span class="hljs-params">(List L)</span>       <span class="hljs-comment">//输出链表所储存的所有数据</span></span><br><span class="hljs-function"></span>&#123;<br>    List p = L;                 <span class="hljs-comment">//定义链表的指针，用于遍历该链表</span><br>    <span class="hljs-keyword">if</span> (p-&gt;next)<br>    &#123;<br>        <span class="hljs-comment">//cout &lt;&lt; p-&gt;key;</span><br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span> , p-&gt;next-&gt;key);<br>        p = p-&gt;next;<br>    &#125;<br>    <span class="hljs-keyword">while</span> (p-&gt;next)<br>    &#123;<br>        <span class="hljs-comment">//cout &lt;&lt; &quot; &quot; &lt;&lt; p-&gt;key;</span><br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot; %d&quot;</span> , p-&gt;next-&gt;key);<br>        p = p-&gt;next;<br>    &#125;<br>    <span class="hljs-comment">//cout &lt;&lt; endl;</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs dns">假设利用两个线性表LA和LB分别表示两个集合<span class="hljs-keyword">A</span>和B（即：线性表中的数据元素即为集合中的成员），<br>现要求一个新的集合<span class="hljs-keyword">A</span>=<span class="hljs-keyword">A</span>∪B。这就要求对线性表做如下操作：扩大线性表LA，<br>将存在于线性表LB中而不存在于线性表LA中的数据元素插入到线性表LA中去。<br>只要从线性表LB中依次取得每个元素，并依值在线性表LA中进行查访，<br>若不存在，则插入之。上述操作过程可用下列算法描述之。<br><br>图：将两个列表合并的算法（C/C++描述）<br>上图算法中，在第<span class="hljs-number">8</span>行取得集合B中的元素，然后再在第<span class="hljs-number">10</span>行插入到集合<span class="hljs-keyword">A</span>中。<br>你的任务是先输出集合<span class="hljs-keyword">A</span>和集合B中的元素，每个集合在一行中输出。<br>然后每次在将集合B中的元素取出插入到集合<span class="hljs-keyword">A</span>尾部后输出集合<span class="hljs-keyword">A</span>中的元素。<br>当然你的代码可以和上面的代码不一样，只要有相同的输出即可。<br></code></pre></td></tr></table></figure>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs excel">有多组测试数据，每组测试数据占两行。第一行是集合A，<br>第一个整数m（<span class="hljs-number">0</span>&lt; m &lt; = <span class="hljs-number">100</span>）代表集合A起始有m个元素，后面有m个整数，代表A中的元素。<br>第二行是集合B，第一个整数<span class="hljs-built_in">n</span>(<span class="hljs-comment">0 &lt; n &lt; = 100</span>)代表集合B起始有<span class="hljs-built_in">n</span>个元素，<br>后面有<span class="hljs-built_in">n</span>个整数，代表B中的元素。每行中整数之间用一个空格隔开。<br></code></pre></td></tr></table></figure>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css">每组测试数据输出n+<span class="hljs-number">2</span>行：前两行分别输出集合<span class="hljs-selector-tag">A</span>、集合<span class="hljs-selector-tag">B</span>中的数据，<br>后面n行是每次从<span class="hljs-selector-tag">B</span>中取出元素插入到<span class="hljs-selector-tag">A</span>尾部后的集合<span class="hljs-selector-tag">A</span>。<br>每行整数之间用一个空格隔开，每组测试数据之间用一行空行隔开。<br></code></pre></td></tr></table></figure>
+<h2 id="IO"><a href="#IO" class="headerlink" title="IO"></a>IO</h2><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">Sample</span> Input<br><br><span class="hljs-attribute">5</span> <span class="hljs-number">1</span> <span class="hljs-number">5</span> <span class="hljs-number">2</span> <span class="hljs-number">6</span> <span class="hljs-number">3</span><br><span class="hljs-attribute">3</span> <span class="hljs-number">1</span> <span class="hljs-number">7</span> <span class="hljs-number">9</span><br><span class="hljs-attribute">1</span> <span class="hljs-number">3</span><br><span class="hljs-attribute">2</span> <span class="hljs-number">2</span> <span class="hljs-number">7</span><br><span class="hljs-attribute">4</span> <span class="hljs-number">2</span> <span class="hljs-number">5</span> <span class="hljs-number">1</span> <span class="hljs-number">4</span><br><span class="hljs-attribute">4</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span><br><br><span class="hljs-attribute">Sample</span> Output<br><br><span class="hljs-attribute">1</span> <span class="hljs-number">5</span> <span class="hljs-number">2</span> <span class="hljs-number">6</span> <span class="hljs-number">3</span><br><span class="hljs-attribute">1</span> <span class="hljs-number">7</span> <span class="hljs-number">9</span><br><span class="hljs-attribute">1</span> <span class="hljs-number">5</span> <span class="hljs-number">2</span> <span class="hljs-number">6</span> <span class="hljs-number">3</span><br><span class="hljs-attribute">1</span> <span class="hljs-number">5</span> <span class="hljs-number">2</span> <span class="hljs-number">6</span> <span class="hljs-number">3</span> <span class="hljs-number">7</span><br><span class="hljs-attribute">1</span> <span class="hljs-number">5</span> <span class="hljs-number">2</span> <span class="hljs-number">6</span> <span class="hljs-number">3</span> <span class="hljs-number">7</span> <span class="hljs-number">9</span><br><br><span class="hljs-attribute">3</span><br><span class="hljs-attribute">2</span> <span class="hljs-number">7</span><br><span class="hljs-attribute">3</span> <span class="hljs-number">2</span><br><span class="hljs-attribute">3</span> <span class="hljs-number">2</span> <span class="hljs-number">7</span><br><br><span class="hljs-attribute">2</span> <span class="hljs-number">5</span> <span class="hljs-number">1</span> <span class="hljs-number">4</span><br><span class="hljs-attribute">1</span> <span class="hljs-number">2</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span><br><span class="hljs-attribute">2</span> <span class="hljs-number">5</span> <span class="hljs-number">1</span> <span class="hljs-number">4</span><br><span class="hljs-attribute">2</span> <span class="hljs-number">5</span> <span class="hljs-number">1</span> <span class="hljs-number">4</span><br><span class="hljs-attribute">2</span> <span class="hljs-number">5</span> <span class="hljs-number">1</span> <span class="hljs-number">4</span><br><span class="hljs-attribute">2</span> <span class="hljs-number">5</span> <span class="hljs-number">1</span> <span class="hljs-number">4</span><br></code></pre></td></tr></table></figure>
+<p>我的代码:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;malloc.h&gt;</span></span><br><span class="hljs-comment">//const int maxn = 105;</span><br><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">int</span> datatype;           <span class="hljs-comment">//自定义节点所储存的数据类型，便于之后的更改</span><br><br><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Node</span></span><br><span class="hljs-class">&#123;</span><br>    datatype key;               <span class="hljs-comment">//节点所储存的数据</span><br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Node</span> *<span class="hljs-title">next</span>;</span>          <span class="hljs-comment">//当前节点指向下一节点的指针</span><br>    <span class="hljs-comment">//Node(datatype x):key(x) , next(NULL)&#123;&#125;</span><br>&#125;Node , *List;                  <span class="hljs-comment">//节点，节点指针（链表指针）</span><br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">display_list</span><span class="hljs-params">(List L)</span>       <span class="hljs-comment">//输出链表所储存的所有数据</span></span><br><span class="hljs-function"></span>&#123;<br>    List p = L;                 <span class="hljs-comment">//定义链表的指针，用于遍历该链表</span><br>    <span class="hljs-keyword">if</span> (p-&gt;next)<br>    &#123;<br>        <span class="hljs-comment">//cout &lt;&lt; p-&gt;key;</span><br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span> , p-&gt;next-&gt;key);<br>        p = p-&gt;next;<br>    &#125;<br>    <span class="hljs-keyword">while</span> (p-&gt;next)<br>    &#123;<br>        <span class="hljs-comment">//cout &lt;&lt; &quot; &quot; &lt;&lt; p-&gt;key;</span><br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot; %d&quot;</span> , p-&gt;next-&gt;key);<br>        p = p-&gt;next;<br>    &#125;<br>    <span class="hljs-comment">//cout &lt;&lt; endl;</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">search_List</span><span class="hljs-params">(List L , datatype k)</span>    <span class="hljs-comment">//搜索值为k的节点在链表中的位置，返回所在的位置loc</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">//查找链表中值为k的节点的位置</span><br>    List p = L-&gt;next;<br>    <span class="hljs-keyword">int</span> loc = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span> (p != <span class="hljs-literal">NULL</span> &amp;&amp; p-&gt;key != k)<br>    &#123;<br>        p = p-&gt;next;<br>        loc++;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (p != <span class="hljs-literal">NULL</span>)<br>        <span class="hljs-keyword">return</span> loc;<br>    <span class="hljs-keyword">else</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;                       <span class="hljs-comment">//没有找到返回值0</span><br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">insert_List</span><span class="hljs-params">(List L , <span class="hljs-keyword">int</span> i , datatype k)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">//在链表的第i个位置插入数据为k的结点</span><br>    List p , s;                         <span class="hljs-comment">//s为要插入的节点</span><br>    p = L;<br>    <span class="hljs-comment">//找到第i-1个位置的节点</span><br>    <span class="hljs-keyword">if</span> (i - <span class="hljs-number">1</span>)                          <span class="hljs-comment">//若要在不是第一个位置处插入，遍历到第i-1节点处</span><br>    &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt;= i - <span class="hljs-number">1</span>; j++)<br>        &#123;<br>            p = p-&gt;next;<br>            <span class="hljs-keyword">if</span> (p == <span class="hljs-literal">NULL</span>)<br>                <span class="hljs-keyword">return</span>;<br>        &#125;<br><br>    &#125;<br><br>    s = (Node *)<span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(Node));   <span class="hljs-comment">//为新节点申请空间</span><br>    s-&gt;key = k;                         <span class="hljs-comment">//赋值</span><br>    s-&gt;next = p-&gt;next;                  <span class="hljs-comment">//指向下一节点，及插入链表</span><br>    p-&gt;next = s;                        <span class="hljs-comment">//上一节点指向新建的节点</span><br>    <span class="hljs-keyword">return</span>;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">delete_List</span><span class="hljs-params">(List L , <span class="hljs-keyword">int</span> i <span class="hljs-comment">/*datatype &amp;x*/</span>)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">//删除链表中的第i个节点</span><br>    List pre , cur;                     <span class="hljs-comment">//pre为前一节点,cur为要删除的节点</span><br>    pre = L;<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt;= i - <span class="hljs-number">1</span>; j++)    <span class="hljs-comment">//遍历到第i-1个节点</span><br>    &#123;<br>        pre = pre-&gt;next;<br>        <span class="hljs-keyword">if</span> (pre == <span class="hljs-literal">NULL</span>)<br>            <span class="hljs-keyword">return</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">if</span> (pre-&gt;next == <span class="hljs-literal">NULL</span>)              <span class="hljs-comment">//若此时为尾节点，则无法删除第i个节点</span><br>        <span class="hljs-keyword">return</span>;<br>    <span class="hljs-keyword">else</span><br>    &#123;<br>        cur = pre-&gt;next;<br>        pre-&gt;next = cur-&gt;next;<br>        <span class="hljs-built_in">free</span>(cur);                      <span class="hljs-comment">//删除节点并释放空间</span><br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>&#125;<br><span class="hljs-function">List <span class="hljs-title">creat_List</span><span class="hljs-params">(<span class="hljs-keyword">int</span> len)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">//尾插法实现链表的建立</span><br>    Node *pre;              <span class="hljs-comment">//前一节点</span><br>    List L = <span class="hljs-literal">NULL</span>;          <span class="hljs-comment">//链表指针</span><br>    List head;              <span class="hljs-comment">//头节点</span><br><br>    head = (List)<span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(Node));<br>    head-&gt;next = <span class="hljs-literal">NULL</span>;<br>    pre = head;<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= len; i++)<br>    &#123;<br>        datatype t;<br>        <span class="hljs-comment">//cin &gt;&gt; t;</span><br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span> , &amp;t);<br>        L = (List)<span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(Node));<br><br>        L-&gt;key = t;<br><br>        pre-&gt;next = L;<br>        pre = L;<br>    &#125;<br>    L-&gt;next = <span class="hljs-literal">NULL</span>;<br><br>    <span class="hljs-keyword">return</span> head;<br>    <span class="hljs-comment">//display_list(L);</span><br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> m , n;<br>    List LA;<br>    List LB;<br>    <span class="hljs-keyword">int</span> flag = <span class="hljs-number">1</span>;<br><span class="hljs-comment">//    freopen(&quot;233.txt&quot; , &quot;r&quot; , stdin);</span><br><span class="hljs-comment">//    freopen(&quot;emmm.txt&quot; , &quot;w&quot; , stdout);</span><br>    <span class="hljs-keyword">while</span> (<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;m) != EOF)<br>    &#123;<br>        <span class="hljs-keyword">if</span> (flag)<br>            flag = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">else</span><br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br><span class="hljs-comment">//            cout &lt;&lt; endl;</span><br><br>        LA = creat_List(m);<br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span> , &amp;n);<br>        LB = creat_List(n);<br><br>        display_list(LA);<br>        display_list(LB);<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)<br>        &#123;<br>            datatype t = LB-&gt;next-&gt;key;<br>            <span class="hljs-keyword">int</span> p = search_List(LA , t);<br><span class="hljs-comment">//            printf(&quot;lb---%d\n&quot; , t);</span><br><span class="hljs-comment">//            printf(&quot;p---%d\n&quot; , p);</span><br>            <span class="hljs-keyword">if</span> (!p)<br>            &#123;<br><br>                m++;<br>                insert_List(LA , m , t);<br>                delete_List(LB , <span class="hljs-number">1</span>);<br>            &#125;<br>            <span class="hljs-keyword">else</span><br>            &#123;<br>                delete_List(LB , <span class="hljs-number">1</span>);<br>            &#125;<br>            display_list(LA);<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%93%BE%E8%A1%A8/">链表</a>
+                    
+                      <a class="hover-with-bg" href="/tags/c-c/">c/c++</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2018/09/18/acm-STL/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">acm-STL</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2018/09/06/chrome-PC-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E4%BD%93%E4%BD%9C%E6%AD%BB%E6%94%B9%E5%8F%98%E4%B9%8B%E5%90%8E%E7%9A%84%E6%81%A2%E5%A4%8D%E6%96%B9%E6%B3%95/">
+                        <span class="hidden-mobile">chrome PC 自定义字体作死改变之后的恢复方法</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_config = function() {
+        this.page.url = 'http://blog.31415x.cf/2018/09/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%93%BE%E8%A1%A8/';
+        this.page.identifier = '/2018/09/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%93%BE%E8%A1%A8/';
+      };
+      Fluid.utils.waitElementVisible('disqus_thread', function () {
+        var d = document, s = d.createElement('script');
+        s.src = '//' + 'www-31415-cf' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', new Date());
+        (d.head || d.body).appendChild(s);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the
+      <a target="_blank" href="https://disqus.com/?ref_noscript" rel="nofollow noopener noopener">comments powered by Disqus.</a>
+    </noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
 
 
     
 
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-<section class="comments" id="comments">
-    <div id="disqus_thread"></div>
-    <script>
-    var disqus_shortname = 'www-31415-cf';
-    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</article>
-
-
-
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
 </div>
+    
 
-        <footer class="footer">
-    <div class="top">
-        
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
+    
+  </main>
 
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br> <a>不忘初心 <strong><span style="color: red">☭</span></strong> 方得始终</a> 
+  </div>
+  
 
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p><span>31415926535x &copy; 2018 - 2021</span>
-            <span>
-                
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
-	
-	
-	<div id="aplayer">
-		<!-- 音乐播放器 -->
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.css">
-		<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.js"></script>
-		<div id="aplayer" class="aplayer" data-id="2254014329" data-lrctype="0" data-server="netease" data-type="playlist" data-fixed="true" data-listfolded="true"></div>
-		<script src="https://unpkg.com/meting@1.2/dist/Meting.min.js"></script>
-	</div>
+  
+
+  
 </footer>
 
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
 
 
 
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.31415x.cf/2018/09/18/数据结构-链表/&title=《数据结构-链表》 — 31415926535x&pic=http://blog.31415x.cf/img/misaka.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.31415x.cf/2018/09/18/数据结构-链表/&title=《数据结构-链表》 — 31415926535x&source=概述作为数据结构中的入门基础，，表十分的重要，，基本上可以说数据结构中其他的大部分的实现都是基于顺序表的，，而 链表 则是顺序表中很重要的一个东西，，，
-..." data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.31415x.cf/2018/09/18/数据结构-链表/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数据结构-链表》 — 31415926535x&url=http://blog.31415x.cf/2018/09/18/数据结构-链表/&via=http://blog.31415x.cf" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.31415x.cf/2018/09/18/数据结构-链表/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://blog.31415x.cf/2018/09/18/数据结构-链表/" alt="微信分享二维码">
-</div>
+  
 
 
 
-
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
-
-
-</script>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
 
 
 
-<!-- mathjax config similar to math.stackexchange -->
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
 
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
 
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
 
 
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
 
 
 
-<script>
-(function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = '(つェ⊂)';
-            clearTimeout(titleTime);
-        } else {
-            document.title = '(๑•̀ㅂ•́)و✧';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
         }
-    });
-})();
-</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
-</script>
+      };
+    </script>
 
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
     }
-  });
-</script>
+  </script>
 
-<script type="text/javascript" src="custom_mathjax_source">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-114656515-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 

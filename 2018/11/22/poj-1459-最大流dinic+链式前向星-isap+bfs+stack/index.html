@@ -1,279 +1,280 @@
+
+
 <!DOCTYPE html>
-<html>
-<head><meta name="generator" content="Hexo 3.9.0">
-    
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Google Analytics -->
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-114656515-1', 'auto');
-ga('send', 'pageview');
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-<!-- End Google Analytics -->
-
-
-    
-
-    
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
-    <meta charset="utf-8">
-    
-    
-    
-    <link rel="canonical" href="https://31415926535x.github.io/2018/11/22/poj-1459-最大流dinic+链式前向星-isap+bfs+stack/">
-    
-    
-    <title>poj-1459-最大流dinic+链式前向星-isap+bfs+stack | 31415926535x</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#40c4ff">
-    
-    
-    <meta name="keywords" content="acm,刷题">
-    <meta name="description" content="概述这道是一道网络流里最大流的板子题,,, 暑期集训网络流草草水过，，连基本的算法都不知道有哪些，，，更别提怎么实现了，，，只知道网络流的大致的概念，， 今天花了一天的时间重新学习了一波，，，本以为这东西很简单，，，没想到不仅算法的实现一大堆的东西，，就连题目都有时候看不懂，，，，感受就是网络流的题不仅算法实现起来不好懂，，，每一道题的建图也很关键，，，几乎看到的每一道题的图都是得自己去建，，完全">
-<meta name="keywords" content="acm,刷题">
-<meta property="og:type" content="article">
-<meta property="og:title" content="poj-1459-最大流dinic+链式前向星-isap+bfs+stack">
-<meta property="og:url" content="http://blog.31415x.cf/2018/11/22/poj-1459-最大流dinic+链式前向星-isap+bfs+stack/index.html">
-<meta property="og:site_name" content="31415926535x">
-<meta property="og:description" content="概述这道是一道网络流里最大流的板子题,,, 暑期集训网络流草草水过，，连基本的算法都不知道有哪些，，，更别提怎么实现了，，，只知道网络流的大致的概念，， 今天花了一天的时间重新学习了一波，，，本以为这东西很简单，，，没想到不仅算法的实现一大堆的东西，，就连题目都有时候看不懂，，，，感受就是网络流的题不仅算法实现起来不好懂，，，每一道题的建图也很关键，，，几乎看到的每一道题的图都是得自己去建，，完全">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://blog.andrewei.info/images/network-flows/FFalgo1.png">
-<meta property="og:image" content="https://blog.andrewei.info/images/network-flows/FFalgo2.png">
-<meta property="og:image" content="https://blog.andrewei.info/images/network-flows/FFalgo7.jpg">
-<meta property="og:image" content="https://blog.andrewei.info/images/network-flows/FFalgo8.jpg">
-<meta property="og:image" content="https://blog.andrewei.info/images/network-flows/FFalgo3.png">
-<meta property="og:image" content="https://blog.andrewei.info/images/network-flows/FFalgo4.png">
-<meta property="og:image" content="https://blog.andrewei.info/images/network-flows/FFalgo5.png">
-<meta property="og:image" content="https://blog.andrewei.info/images/network-flows/FFalgo6.png">
-<meta property="og:updated_time" content="2019-08-02T03:37:16.987Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="poj-1459-最大流dinic+链式前向星-isap+bfs+stack">
-<meta name="twitter:description" content="概述这道是一道网络流里最大流的板子题,,, 暑期集训网络流草草水过，，连基本的算法都不知道有哪些，，，更别提怎么实现了，，，只知道网络流的大致的概念，， 今天花了一天的时间重新学习了一波，，，本以为这东西很简单，，，没想到不仅算法的实现一大堆的东西，，就连题目都有时候看不懂，，，，感受就是网络流的题不仅算法实现起来不好懂，，，每一道题的建图也很关键，，，几乎看到的每一道题的图都是得自己去建，，完全">
-<meta name="twitter:image" content="https://blog.andrewei.info/images/network-flows/FFalgo1.png">
-    
-        <link rel="alternate" type="application/atom+xml" title="31415926535x" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/misaka.jpg">
+  <link rel="icon" href="/img/misaka.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  
+    <meta name="description" content="概述这道是一道网络流里最大流的板子题,,,
+暑期集训网络流草草水过，，连基本的算法都不知道有哪些，，，更别提怎么实现了，，，只知道网络流的大致的概念，，
+今天花了一天的时间重新学习了一波，，，本以为这东西很简单，，，没想到不仅算法的实现一大堆的东西，，就连题目都有时候看不懂，，，，感受就是网络流的题不仅算法实现起来不好懂，，，每一道题的建图也很关键，，，几乎看到的每一道题的图都是得自己去建，，完全">
+  
+  <meta name="author" content="31415926535x">
+  <meta name="keywords" content="">
+  
+  <title>poj-1459-最大流dinic+链式前向星-isap+bfs+stack - 31415926535x</title>
 
-    <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-    
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/monokai.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"blog.31415x.cf","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":null,"google":"UA-114656515-1","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="31415926535x" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
-<body>
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide" >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/misaka.jpg">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">31415926535x</h5>
-          <a href="mailto:2509437152wx@gmail.com" title="2509437152wx@gmail.com" class="mail">2509437152wx@gmail.com</a>
-        </hgroup>
-      </div>
-    </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>31415926535x</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                Archives
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                标签
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/31415926535x" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="https://plus.google.com/106114719135977350421" target="_blank" >
-                <i class="icon icon-lg icon-google"></i>
-                Google+
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="https://instagram.com/314159265358x" target="_blank" >
-                <i class="icon icon-lg icon-instagram"></i>
-                Instagram
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="https://cnblogs.com/31415926535x" target="_blank" >
-                <i class="icon icon-lg icon-th-large"></i>
-                cnblogs
-              </a>
-            </li>
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
         
-            <li class="waves-block waves-effect">
-              <a href="https://blog.csdn.net/pi31415926535x" target="_blank" >
-                <i class="icon icon-lg icon-cubes"></i>
-                csdn
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/timeline"  >
-                <i class="icon icon-lg icon-calendar"></i>
-                timeline
-              </a>
-            </li>
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
         
       </ul>
     </div>
   </div>
-</aside>
+</nav>
 
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">poj-1459-最大流dinic+链式前向星-isap+bfs+stack</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
-        
-    </div>
-</header>
-<header class="content-header post-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">poj-1459-最大流dinic+链式前向星-isap+bfs+stack</h1>
-        <h5 class="subtitle">
-            
-                <time datetime="2018-11-22T12:57:54.000Z" itemprop="datePublished" class="page-time">
-  2018-11-22
-</time>
-
-
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ACM-网络流-最大流/">ACM-网络流-最大流</a></li></ul>
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="poj-1459-最大流dinic+链式前向星-isap+bfs+stack">
+              
+            </span>
 
             
-        </h5>
-    </div>
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      31415926535x
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2018-11-22 20:57" pubdate>
+        2018年11月22日 晚上
+      </time>
+    </span>
+  
+</div>
 
+<div class="mt-1">
+  
     
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.3k 字
+    </span>
+  
 
-
-</header>
-
-
-<div class="container body-wrap">
+  
     
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#概述"><span class="post-toc-number">1.</span> <span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#分析思路"><span class="post-toc-number">2.</span> <span class="post-toc-text">分析思路</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#最短路的一些基本概念"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">最短路的一些基本概念</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#容量网络和网络最大流"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">容量网络和网络最大流</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#容量网络"><span class="post-toc-number">3.</span> <span class="post-toc-text">容量网络:</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#弧的流量"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">弧的流量:</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#网络流-所有弧上流量的集合-f-f-u-v-称为该容量网络-G-的一个网络流。"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">网络流: 所有弧上流量的集合 f = { f(u, v) },称为该容量网络 G 的一个网络流。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#可行流-在容量网络-G-V-E-中-满足以下条件的网络流-f-称为可行流"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">可行流: 在容量网络 G(V, E) 中, 满足以下条件的网络流 f, 称为可行流:</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#弧流量限制条件-0≤f-u-v-≤c-u-v"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">弧流量限制条件:  $0≤f(u,v)≤c(u,v)$</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#平衡条件"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">平衡条件:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#伪流"><span class="post-toc-number">3.2.2.</span> <span class="post-toc-text">伪流:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#最大流"><span class="post-toc-number">3.2.3.</span> <span class="post-toc-text">最大流:</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#链与增广路"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">链与增广路</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#链"><span class="post-toc-number">3.3.1.</span> <span class="post-toc-text">链:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#增广路"><span class="post-toc-number">3.3.2.</span> <span class="post-toc-text">增广路:</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#残留容量与残留网络"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">残留容量与残留网络</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#残留容量"><span class="post-toc-number">3.4.1.</span> <span class="post-toc-text">残留容量:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#残留网络"><span class="post-toc-number">3.4.2.</span> <span class="post-toc-text">残留网络:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#割与最小割"><span class="post-toc-number">3.4.3.</span> <span class="post-toc-text">割与最小割</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#相关定理"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">相关定理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#残留网络与原网络的关系"><span class="post-toc-number">3.5.1.</span> <span class="post-toc-text">残留网络与原网络的关系</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#网络流流量与割的净流量之间的关系"><span class="post-toc-number">3.5.2.</span> <span class="post-toc-text">网络流流量与割的净流量之间的关系</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#网络流流量与割的容量之间的关系"><span class="post-toc-number">3.5.3.</span> <span class="post-toc-text">网络流流量与割的容量之间的关系</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#最大流最小割定理"><span class="post-toc-number">3.5.4.</span> <span class="post-toc-text">最大流最小割定理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#增广路定理"><span class="post-toc-number">3.5.5.</span> <span class="post-toc-text">增广路定理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#几个等价命题"><span class="post-toc-number">3.5.6.</span> <span class="post-toc-text">几个等价命题</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#最大流-1"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">最大流</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#增广路算法"><span class="post-toc-number">4.</span> <span class="post-toc-text">增广路算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基本思想"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">基本思想</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建反向弧的作用："><span class="post-toc-number">4.2.</span> <span class="post-toc-text">创建反向弧的作用：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#dinic模板程序"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">dinic模板程序</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#算法思想"><span class="post-toc-number">4.3.1.</span> <span class="post-toc-text">算法思想</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实现流程"><span class="post-toc-number">4.3.2.</span> <span class="post-toc-text">实现流程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#时间复杂度"><span class="post-toc-number">4.3.3.</span> <span class="post-toc-text">时间复杂度</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#思路"><span class="post-toc-number">4.3.4.</span> <span class="post-toc-text">思路</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#isap模板"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">isap模板</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#算法思路"><span class="post-toc-number">4.4.1.</span> <span class="post-toc-text">算法思路</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#算法流程"><span class="post-toc-number">4.4.2.</span> <span class="post-toc-text">算法流程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实现"><span class="post-toc-number">4.4.3.</span> <span class="post-toc-text">实现</span></a></li></ol></li></ol></li></ol>
-        </nav>
-    </aside>
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      14
+       分钟
+    </span>
+  
 
-
-<article id="post-poj-1459-最大流dinic+链式前向星-isap+bfs+stack"
-  class="post-article article-type-post fade" itemprop="blogPost">
-
-    <div class="post-card">
-        <h1 class="post-card-title">poj-1459-最大流dinic+链式前向星-isap+bfs+stack</h1>
-        <div class="post-meta">
-            <time class="post-time" title="2018-11-22 20:57:54" datetime="2018-11-22T12:57:54.000Z"  itemprop="datePublished">2018-11-22</time>
+  
+  
+</div>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ACM-网络流-最大流/">ACM-网络流-最大流</a></li></ul>
+          </div>
 
-
-
-            
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
-
-
+          
         </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p><a href="http://poj.org/problem?id=1459" target="_blank" rel="noopener">这道是一道网络流里最大流的板子题</a>,,,</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">poj-1459-最大流dinic+链式前向星-isap+bfs+stack</h1>
+            
+            <div class="markdown-body">
+              <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p><a target="_blank" rel="noopener" href="http://poj.org/problem?id=1459">这道是一道网络流里最大流的板子题</a>,,,</p>
 <p>暑期集训网络流草草水过，，连基本的算法都不知道有哪些，，，更别提怎么实现了，，，只知道网络流的大致的概念，，</p>
 <p>今天花了一天的时间重新学习了一波，，，本以为这东西很简单，，，没想到不仅算法的实现一大堆的东西，，就连题目都有时候看不懂，，，，感受就是网络流的题不仅算法实现起来不好懂，，，每一道题的建图也很关键，，，几乎看到的每一道题的图都是得自己去建，，完全不像最短路那些题花里胡哨的东西都只改一改贪心时的方程就行，，，</p>
-<a id="more"></a>
+<span id="more"></span>
 <h1 id="分析思路"><a href="#分析思路" class="headerlink" title="分析思路"></a>分析思路</h1><h2 id="最短路的一些基本概念"><a href="#最短路的一些基本概念" class="headerlink" title="最短路的一些基本概念"></a>最短路的一些基本概念</h2><p>这一段 <em>算法导论</em> 上讲的很好，，，不过我感觉还是在基本弄懂那几个算法再看一遍比较好QAQ</p>
-<p><a href="https://blog.andrewei.info/2016/04/11/network-flows/" target="_blank" rel="noopener">这里就直接摘抄别人写过的东西了</a></p>
-<h2 id="容量网络和网络最大流"><a href="#容量网络和网络最大流" class="headerlink" title="容量网络和网络最大流"></a>容量网络和网络最大流</h2><h1 id="容量网络"><a href="#容量网络" class="headerlink" title="容量网络:"></a>容量网络:</h1><p>$设 G(V, E)是一个有向网络, 在 V 中指定了一个顶点, 称为源点(记为 Vs ), 以及另一个顶点, 称为汇点(记为 Vt); 对于每一条弧 <u, v>∈E, 对应有一个权值 c(u, v)&gt;0, 称为弧的容量, 通常把这样的有向网络 G 称为容量网络。$</u,></p>
+<p><a target="_blank" rel="noopener" href="https://blog.andrewei.info/2016/04/11/network-flows/">这里就直接摘抄别人写过的东西了</a></p>
+<h2 id="容量网络和网络最大流"><a href="#容量网络和网络最大流" class="headerlink" title="容量网络和网络最大流"></a>容量网络和网络最大流</h2><h1 id="容量网络"><a href="#容量网络" class="headerlink" title="容量网络:"></a>容量网络:</h1><p>$设 G(V, E)是一个有向网络, 在 V 中指定了一个顶点, 称为源点(记为 Vs ), 以及另一个顶点, 称为汇点(记为 Vt); 对于每一条弧 <u, v>∈E, 对应有一个权值 c(u, v)&gt;0, 称为弧的容量, 通常把这样的有向网络 G 称为容量网络。$</p>
 <p>把它想象成 <strong>自来水厂</strong> 、 <strong>自来水管网</strong> 和 <strong>用户</strong> 那种图就行了，，，</p>
-<h2 id="弧的流量"><a href="#弧的流量" class="headerlink" title="弧的流量:"></a>弧的流量:</h2><p> 通过容量网络 G 中每条弧 <u, v> 上的实际流量(简称流量), 记为 $f(u, v)$。</u,></p>
+<h2 id="弧的流量"><a href="#弧的流量" class="headerlink" title="弧的流量:"></a>弧的流量:</h2><p> 通过容量网络 G 中每条弧 <u, v> 上的实际流量(简称流量), 记为 $f(u, v)$。</p>
 <h3 id="网络流-所有弧上流量的集合-f-f-u-v-称为该容量网络-G-的一个网络流。"><a href="#网络流-所有弧上流量的集合-f-f-u-v-称为该容量网络-G-的一个网络流。" class="headerlink" title="网络流: 所有弧上流量的集合 f = { f(u, v) },称为该容量网络 G 的一个网络流。"></a><strong>网络流</strong>: 所有弧上流量的集合 f = { f(u, v) },称为该容量网络 G 的一个网络流。</h3><h3 id="可行流-在容量网络-G-V-E-中-满足以下条件的网络流-f-称为可行流"><a href="#可行流-在容量网络-G-V-E-中-满足以下条件的网络流-f-称为可行流" class="headerlink" title="可行流: 在容量网络 G(V, E) 中, 满足以下条件的网络流 f, 称为可行流:"></a><strong>可行流</strong>: 在容量网络 G(V, E) 中, 满足以下条件的网络流 f, 称为可行流:</h3><h2 id="弧流量限制条件-0≤f-u-v-≤c-u-v"><a href="#弧流量限制条件-0≤f-u-v-≤c-u-v" class="headerlink" title="弧流量限制条件:  $0≤f(u,v)≤c(u,v)$"></a>弧流量限制条件:  $0≤f(u,v)≤c(u,v)$</h2><h3 id="平衡条件"><a href="#平衡条件" class="headerlink" title="平衡条件:"></a><strong>平衡条件</strong>:</h3><p> 除了 Vs, Vt 外, 其余的点流入的流量总和等于流出的流量总和, 其中 <strong>Vs 流出的流量总和 - 流出的流量总和 = f</strong>,   <strong>Vt 流入的流量总和 - 流出的流量总和 = f</strong>, 并且称 f 为可性流的流量</p>
 <p>也就是指:  $在图中有一条从 Vs 到 Vt 的路径, 这条路径上起点 fo−fi=f, 终点 fi−fo=f， 其他的点 fi==fo, 并且所有的边的当前流量小于等于最大流量.(其中 fi 代表流入流量, fo 代表流出流量)$</p>
 <h3 id="伪流"><a href="#伪流" class="headerlink" title="伪流:"></a><strong>伪流</strong>:</h3><p>如果一个网络流只满足弧流量限制条件, 不满足平衡条件, 则这种网络流称为伪流, 或称为容量可行流。</p>
 <h3 id="最大流"><a href="#最大流" class="headerlink" title="最大流:"></a><strong>最大流</strong>:</h3><p> 在容量网络 G(V, E) 中, 满足弧流量限制条件和平衡条件、且具有最大流量的可行流, 称为网络最大流, 简称最大流。</p>
 <h2 id="链与增广路"><a href="#链与增广路" class="headerlink" title="链与增广路"></a>链与增广路</h2><p>在容量网络 G(V, E) 中, 设有一可行流 f = { f(u, v) }, 根据每条弧上流量的多少、以及流量和容量的关系,可将弧分四种类型:</p>
-<p>饱和弧, 即 f(u,v)=c(u,v);<br>非饱和弧,即 f(u,v)<c(u,v); 零流弧, 即 f(u,v)="0;" 非零流弧,>0。</c(u,v);></p>
-<h3 id="链"><a href="#链" class="headerlink" title="链:"></a><strong>链</strong>:</h3><p> 在容量网络中,称顶点序列(u,u1,u2,…,un,v)为一条链,要求相邻两个顶点之间有一条弧, 如 $<u, u_1>$ 或 $<u_1, u>$ 为容量网络中一条弧。沿着 Vs 到 Vt 的一条链, 各弧可分为两类:</u_1,></u,></p>
+<p>饱和弧, 即 f(u,v)=c(u,v);<br>非饱和弧,即 f(u,v)<c(u,v);
+零流弧, 即 f(u,v)=0;
+非零流弧, 即 f(u,v)>0。</p>
+<h3 id="链"><a href="#链" class="headerlink" title="链:"></a><strong>链</strong>:</h3><p> 在容量网络中,称顶点序列(u,u1,u2,…,un,v)为一条链,要求相邻两个顶点之间有一条弧, 如 $<u, u_1>$ 或 $<u_1, u>$ 为容量网络中一条弧。沿着 Vs 到 Vt 的一条链, 各弧可分为两类:</p>
 <ul>
 <li><strong>前向弧</strong>: 方向与链的正方向一致的弧, 其集合记为 P+;</li>
 <li><strong>后向弧</strong>: 方向与链的正方向相反的弧, 其集合记为 P-;</li>
 </ul>
 <h3 id="增广路"><a href="#增广路" class="headerlink" title="增广路:"></a><strong>增广路</strong>:</h3><p> 设 f 是一个容量网络 G 中的一个可行流, P 是从 Vs 到 Vt 的一条链, 若 P 满足下列条件:</p>
-<p>在 P 的所有<strong>前向弧</strong> <u, v> 上, 0≤f(u,v)&lt;c(u,v), 即 P+ 中每一条弧都是非饱和弧;</u,></p>
-<p>在 P 的所有<strong>后向弧</strong> <u, v> 上, 0&lt;f(u,v)≤c(u,v), 即 P– 中每一条弧是非零流弧。</u,></p>
+<p>在 P 的所有<strong>前向弧</strong> <u, v> 上, 0≤f(u,v)&lt;c(u,v), 即 P+ 中每一条弧都是非饱和弧;</p>
+<p>在 P 的所有<strong>后向弧</strong> <u, v> 上, 0&lt;f(u,v)≤c(u,v), 即 P– 中每一条弧是非零流弧。</p>
 <p>则称 P 为关于可行流 f 的一条增广路, 简称为 <strong>增广路(或称为增广链、可改进路)</strong> 。<strong>沿着增广路改进可行流的操作称为增广</strong>。</p>
-<h2 id="残留容量与残留网络"><a href="#残留容量与残留网络" class="headerlink" title="残留容量与残留网络"></a>残留容量与残留网络</h2><h3 id="残留容量"><a href="#残留容量" class="headerlink" title="残留容量:"></a><strong>残留容量</strong>:</h3><p>给定容量网络 G(V, E) 及可行流 f, 弧 <u, v> 上的残留容量记为 c′(u,v)=c(u,v)–f(u,v)。每条弧的残留容量表示该弧上可以增加的流量。因为从顶点 u 到顶点 v 流量的减少, 等效于顶点 v 到顶点 u 流量增加, 所以每条弧 <u, v> 上还有一个反方向的残留容量 c′(v,u)=–f(u,v)。</u,></u,></p>
+<h2 id="残留容量与残留网络"><a href="#残留容量与残留网络" class="headerlink" title="残留容量与残留网络"></a>残留容量与残留网络</h2><h3 id="残留容量"><a href="#残留容量" class="headerlink" title="残留容量:"></a><strong>残留容量</strong>:</h3><p>给定容量网络 G(V, E) 及可行流 f, 弧 <u, v> 上的残留容量记为 c′(u,v)=c(u,v)–f(u,v)。每条弧的残留容量表示该弧上可以增加的流量。因为从顶点 u 到顶点 v 流量的减少, 等效于顶点 v 到顶点 u 流量增加, 所以每条弧 <u, v> 上还有一个反方向的残留容量 c′(v,u)=–f(u,v)。</p>
 <ul>
 <li>一个容量网络中还可以压入的流量称为残留容量</li>
 </ul>
-<h3 id="残留网络"><a href="#残留网络" class="headerlink" title="残留网络:"></a><strong>残留网络</strong>:</h3><p>$设有容量网络 G(V, E) 及其上的网络流 f,G 关于 f 的残留网络(简称残留网络)记为 G’(V’, E’), 其中 G’的顶点集 V’和 G 的顶点集 V 相同,即 V’=V, 对于 G 中的任何一条弧 <u, v>, 如果 f(u,v)<c(u,v), 那么在 g’中有一条弧 <u, v>∈E’, 其容量为 c′(u,v)=c(u,v)–f(u,v), 如果 f(u,v)&gt;0,则在 G’中有一条弧 <v, u>∈E’, 其容量为 c′(v,u)=f(u,v), 残留网络也称为剩余网络.$</v,></c(u,v),></u,></p>
+<h3 id="残留网络"><a href="#残留网络" class="headerlink" title="残留网络:"></a><strong>残留网络</strong>:</h3><p>$设有容量网络 G(V, E) 及其上的网络流 f,G 关于 f 的残留网络(简称残留网络)记为 G’(V’, E’), 其中 G’的顶点集 V’和 G 的顶点集 V 相同,即 V’=V, 对于 G 中的任何一条弧 <u, v>, 如果 f(u,v)<c(u,v), 那么在 G’中有一条弧 <u, v>∈E’, 其容量为 c′(u,v)=c(u,v)–f(u,v), 如果 f(u,v)&gt;0,则在 G’中有一条弧 <v, u>∈E’, 其容量为 c′(v,u)=f(u,v), 残留网络也称为剩余网络.$</p>
 <ul>
 <li>由残留的容量以及源点汇点构成的网络。</li>
 </ul>
-<h3 id="割与最小割"><a href="#割与最小割" class="headerlink" title="割与最小割"></a><strong>割与最小割</strong></h3><p><strong>割</strong>: $在容量网络 G(V, E) 中, 设 E’⊆E, 如果在 G 的基图中删去 E’ 后不再连通, 则称 E’ 是 G 的割。割将 G 的顶点集 V 划分成两个子集 S 和 T = V - S。将割记为(S, T)。<br>s-t 割: 更进一步, 如果割所划分的两个顶点子集满足源点 Vs ∈ S,汇点 Vt ∈ T, 则称该割为 s-t 割。 s-t 割(S, T)中的弧 <u, v>(u∈S, v∈T) 称为割的前向弧, 弧 <u, v>( u∈T, v∈S) 称为割的反向弧。$</u,></u,></p>
+<h3 id="割与最小割"><a href="#割与最小割" class="headerlink" title="割与最小割"></a><strong>割与最小割</strong></h3><p><strong>割</strong>: $在容量网络 G(V, E) 中, 设 E’⊆E, 如果在 G 的基图中删去 E’ 后不再连通, 则称 E’ 是 G 的割。割将 G 的顶点集 V 划分成两个子集 S 和 T = V - S。将割记为(S, T)。<br>s-t 割: 更进一步, 如果割所划分的两个顶点子集满足源点 Vs ∈ S,汇点 Vt ∈ T, 则称该割为 s-t 割。 s-t 割(S, T)中的弧 <u, v>(u∈S, v∈T) 称为割的前向弧, 弧 <u, v>( u∈T, v∈S) 称为割的反向弧。$</p>
 <p><strong>割的容量</strong>: $设 (S, T) 为容量网络 G(V, E) 的一个割, 其容量定义为所有前向弧的容量总和, 用 c(S, T) 表示。$</p>
 <p><strong>最小割</strong>: $容量网络 G(V, E) 的最小割是指容量最小的割。$</p>
 <h2 id="相关定理"><a href="#相关定理" class="headerlink" title="相关定理"></a><strong>相关定理</strong></h2><h3 id="残留网络与原网络的关系"><a href="#残留网络与原网络的关系" class="headerlink" title="残留网络与原网络的关系"></a>残留网络与原网络的关系</h3><p>$设 f 是容量网络 G(V, E) 的可行流, f’ 是残留网络 G’ 的可行流, 则 f + f’ 仍是容量网络 G 的一个可行流。(f + f’ 表示对应弧上的流量相加)$</p>
@@ -293,30 +294,12 @@ ga('send', 'pageview');
 <li>(2) 寻找关于 f 的增广路 P,如果找到,则沿着这条增广路 P 将 f 改进成一个更大的流, 并建立相应的反向弧;</li>
 <li>(3) 重复第(2)步直到 f 不存在增广路为止。</li>
 </ul>
-<p>图示如下:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://blog.andrewei.info/images/network-flows/FFalgo1.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://blog.andrewei.info/images/network-flows/FFalgo2.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p>图示如下:<br><img src="https://blog.andrewei.info/images/network-flows/FFalgo1.png" srcset="/img/loading.gif" alt=""></p>
+<p><img src="https://blog.andrewei.info/images/network-flows/FFalgo2.png" srcset="/img/loading.gif" alt=""></p>
 <p>增广路算法的关键是 <strong>寻找增广路</strong> 和 <strong>改进网络流</strong>.</p>
 <h2 id="创建反向弧的作用："><a href="#创建反向弧的作用：" class="headerlink" title="创建反向弧的作用："></a>创建反向弧的作用：</h2><p><strong>为程序提供一次反悔的机会</strong></p>
 <p>在图中如果程序找到了一条增广路 1 -&gt; 2 -&gt; 4 -&gt; 6, 此时得到一个流量为 2 的流并且无法继续进行增广,<br>但是如果在更新可行流的同时建立反向弧的话, 就可以找到 1 -&gt; 3 -&gt; 4 -&gt; 2 -&gt; 5 -&gt; 6 的可行流, 流量为1, 这样就可以得到最大流为 3.</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://blog.andrewei.info/images/network-flows/FFalgo7.jpg" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="https://blog.andrewei.info/images/network-flows/FFalgo7.jpg" srcset="/img/loading.gif" alt=""></p>
 <h2 id="dinic模板程序"><a href="#dinic模板程序" class="headerlink" title="dinic模板程序"></a>dinic模板程序</h2><p>因为ek算法的效率没有dinic的高，，所以本着先追求实用主义就先看了dinic算法，，，算法实现的模板时kaungbin的，，，dinic+链式前向星。。。</p>
 <h3 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h3><p>DINIC 在找增广路的时候也是找的最短增广路, 与 EK 算法不同的是 DINIC 算法并不是每次 bfs 只找一个增广路, 他会首先通过一次 bfs 为所有点添加一个标号, 构成一个层次图， 然后在层次图中寻找增广路进行更新。</p>
 <h3 id="实现流程"><a href="#实现流程" class="headerlink" title="实现流程"></a>实现流程</h3><ul>
@@ -327,18 +310,12 @@ ga('send', 'pageview');
 <li><p>3.重复步骤 2, 当找不到一条增广路的时候, 重复步骤 1, 重新建立层次图, 直到从源点不能到达汇点为止。</p>
 </li>
 </ul>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://blog.andrewei.info/images/network-flows/FFalgo8.jpg" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="https://blog.andrewei.info/images/network-flows/FFalgo8.jpg" srcset="/img/loading.gif" alt=""></p>
 <h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>$O(V^2E)$</p>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>这道题的题意是给你n个源点（发电站）、np个中间路径点（中转站）、nc个汇点（用户）以及m个通路。。求最大送到用户的效率也就是图的最大流。。</p>
 <p>多个源点和汇点所以要弄一个<strong>超级源点s</strong>和<strong>超级汇点t</strong>，，，s,t连源点，汇点然后跑dinic就行了，，</p>
 <p>具体的代码的细节都注释在里面了，，，都是自己的理解可能有误，，，看的头疼.jpg</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//dinic求网络流的最大流</span></span><br><span class="line"><span class="comment">//bfs求一次层次图</span></span><br><span class="line"><span class="comment">//dfs求源点到汇点的一条增广路</span></span><br><span class="line"><span class="comment">//然后根据这条增广路中残余流量的最小值tp来更新所有边的残余流量</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">105</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxm = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n , np , nc , m;</span><br><span class="line"><span class="keyword">int</span> u , v , z;</span><br><span class="line"><span class="comment">//前向星存图</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">edge</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> to;</span><br><span class="line">    <span class="keyword">int</span> next;</span><br><span class="line">    <span class="keyword">int</span> cap;        <span class="comment">//容量</span></span><br><span class="line">    <span class="keyword">int</span> flow;       <span class="comment">//流量</span></span><br><span class="line">&#125;edge[maxm];        <span class="comment">//注意边数为所给边数的两倍多</span></span><br><span class="line"><span class="keyword">int</span> tol;</span><br><span class="line"><span class="keyword">int</span> head[maxn];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    tol = <span class="number">2</span>;        <span class="comment">//???</span></span><br><span class="line">    <span class="built_in">memset</span>(head , <span class="number">-1</span> , <span class="keyword">sizeof</span> head);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addedge</span><span class="params">(<span class="keyword">int</span> u , <span class="keyword">int</span> v , <span class="keyword">int</span> w , <span class="keyword">int</span> rw = <span class="number">0</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//前向星加边，反向弧容量为rw一般为0</span></span><br><span class="line">    <span class="comment">//正反弧相邻存储，直接异或就能找到</span></span><br><span class="line">    <span class="comment">//正向弧的编号要比反向弧的编号小</span></span><br><span class="line">    edge[tol].to = v;edge[tol].cap = w;edge[tol].flow = <span class="number">0</span>;</span><br><span class="line">    edge[tol].next = head[u];head[u] = tol++;</span><br><span class="line">    edge[tol].to = u; edge[tol].cap = rw;edge[tol].flow = <span class="number">0</span>;</span><br><span class="line">    edge[tol].next = head[v];head[v] = tol++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> q[maxn];        <span class="comment">//双向队列，bfs使用</span></span><br><span class="line"><span class="keyword">int</span> dep[maxn] , cur[maxn] , sta[maxn];<span class="comment">//sta保存增广路的边</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">bfs</span><span class="params">(<span class="keyword">int</span> s , <span class="keyword">int</span> t , <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//bfs搜索网络的层次</span></span><br><span class="line">    <span class="keyword">int</span> front = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> tail = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">memset</span>(dep , <span class="number">-1</span> , <span class="keyword">sizeof</span>(dep[<span class="number">0</span>]) * (n + <span class="number">1</span>));</span><br><span class="line">    dep[s] = <span class="number">0</span>;</span><br><span class="line">    q[tail++] = s;</span><br><span class="line">    <span class="keyword">while</span>(front &lt; tail)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> u = q[front++];</span><br><span class="line">        <span class="comment">//前向星图的遍历</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = head[u]; ~i; i = edge[i].next)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> v = edge[i].to;</span><br><span class="line">            <span class="keyword">if</span>(edge[i].cap &gt; edge[i].flow &amp;&amp; !(~dep[v]))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">//(u,v)这条边的容量大于流量时即残余流量大于0并且这个点没有被分层时</span></span><br><span class="line">                dep[v] = dep[u] + <span class="number">1</span>;    <span class="comment">//分层</span></span><br><span class="line">                <span class="keyword">if</span>(v == t)<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                q[tail++] = v;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dinic</span><span class="params">(<span class="keyword">int</span> s , <span class="keyword">int</span> t , <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> maxflow = <span class="number">0</span>;            <span class="comment">//待求的最大流</span></span><br><span class="line">    <span class="keyword">while</span>(bfs(s , t , n))       <span class="comment">//当层次图存在时进行dfs寻找增广路</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)cur[i] = head[i]; <span class="comment">//当前所有可以利用链式前向星遍历的边的编号</span></span><br><span class="line">        <span class="keyword">int</span> u = s , tail = <span class="number">0</span>;   <span class="comment">//tail表示找到的增广路的点的数量</span></span><br><span class="line">        <span class="keyword">while</span>(~cur[s])          <span class="comment">//边合法时</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(u == t)          <span class="comment">//找到汇点时，即找到一条增广路时</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">int</span> tp = inf;   <span class="comment">//tp为该增广路中最小的残余流量</span></span><br><span class="line">                <span class="comment">//找到最小值</span></span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> i = tail - <span class="number">1</span>; i &gt;= <span class="number">0</span>; --i)</span><br><span class="line">                    tp = min(tp , edge[sta[i]].cap - edge[sta[i]].flow);</span><br><span class="line">                maxflow += tp;  <span class="comment">//最大流增加</span></span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> i = tail - <span class="number">1</span>; i &gt;= <span class="number">0</span>; --i)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="comment">//用最小的残余流量更新参与网络</span></span><br><span class="line">                    <span class="comment">//这里是倒着遍历每一条增广路中的边，，</span></span><br><span class="line">                    <span class="comment">//所以编号是由大到小，sta[i]是(u,v)那条弧的编号，sta[i] ^ 1是其反向弧的编号</span></span><br><span class="line">                    <span class="comment">//正向弧的流入流量加上tp</span></span><br><span class="line">                    <span class="comment">//反向弧的流入流量就是减去tp</span></span><br><span class="line">                    edge[sta[i]].flow += tp;</span><br><span class="line">                    edge[sta[i] ^ <span class="number">1</span>].flow -= tp;</span><br><span class="line">                    <span class="comment">//这条路的残余流量为零，经过这条路径的增广路不再存在</span></span><br><span class="line">                    <span class="comment">//增广路的尾边缩回到这个点</span></span><br><span class="line">                    <span class="comment">//并尝试寻找经过这个点的其他的增广路</span></span><br><span class="line">                    <span class="keyword">if</span>(edge[sta[i]].cap - edge[sta[i]].flow == <span class="number">0</span>)</span><br><span class="line">                        tail = i;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//当前增广路的尾边回退到上一个点，，继续搜索其他的增广路</span></span><br><span class="line">                u = edge[sta[tail] ^ <span class="number">1</span>].to;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(~cur[u] &amp;&amp;</span><br><span class="line">                    edge[cur[u]].cap &gt; edge[cur[u]].flow &amp;&amp;</span><br><span class="line">                    dep[u] + <span class="number">1</span> == dep[edge[cur[u]].to])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">//当这条边能到达、残余流量为正值并且u是v的上一层的点时</span></span><br><span class="line">                sta[tail++] = cur[u];   <span class="comment">//增广路的点数tail++，并保存这条边到sta</span></span><br><span class="line">                u = edge[cur[u]].to;    <span class="comment">//更新u</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">//回退？？</span></span><br><span class="line">                <span class="comment">//while(u != s &amp;&amp; cur[u] == -1)</span></span><br><span class="line">                <span class="keyword">while</span>(u != s &amp;&amp; !(~cur[u]))</span><br><span class="line">                    u = edge[sta[--tail] ^ <span class="number">1</span>].to;</span><br><span class="line">                cur[u] = edge[cur[u]].next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxflow;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d%d%d%d "</span> , &amp;n , &amp;np , &amp;nc , &amp;m) != EOF)</span><br><span class="line">    &#123;</span><br><span class="line">        init();</span><br><span class="line">        <span class="keyword">while</span>(m--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">" (%d,%d)%d"</span> , &amp;u , &amp;v , &amp;z); <span class="comment">//输入前面有空格</span></span><br><span class="line">            ++u;++v;</span><br><span class="line">            addedge(u , v , z);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(np--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">" (%d)%d"</span> , &amp;u , &amp;z);</span><br><span class="line">            ++u;</span><br><span class="line">            addedge(<span class="number">0</span> , u , z);                 <span class="comment">//超级源点</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(nc--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">" (%d)%d"</span> , &amp;u , &amp;z);</span><br><span class="line">            ++u;</span><br><span class="line">            addedge(u , n + <span class="number">1</span> , z);             <span class="comment">//超级汇点</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span> , dinic(<span class="number">0</span> , n + <span class="number">1</span> , n + <span class="number">1</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">//dinic求网络流的最大流</span><br><span class="hljs-comment">//bfs求一次层次图</span><br><span class="hljs-comment">//dfs求源点到汇点的一条增广路</span><br><span class="hljs-comment">//然后根据这条增广路中残余流量的最小值tp来更新所有边的残余流量</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdio&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdlib&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> maxn = <span class="hljs-number">105</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> maxm = <span class="hljs-number">1e5</span> + <span class="hljs-number">10</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> inf = <span class="hljs-number">0x3f3f3f3f</span>;<br><br><span class="hljs-keyword">int</span> n , np , nc , m;<br><span class="hljs-keyword">int</span> u , v , z;<br><span class="hljs-comment">//前向星存图</span><br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">edge</span></span><br><span class="hljs-class">&#123;</span><br>    <span class="hljs-keyword">int</span> to;<br>    <span class="hljs-keyword">int</span> next;<br>    <span class="hljs-keyword">int</span> cap;        <span class="hljs-comment">//容量</span><br>    <span class="hljs-keyword">int</span> flow;       <span class="hljs-comment">//流量</span><br>&#125;edge[maxm];        <span class="hljs-comment">//注意边数为所给边数的两倍多</span><br><span class="hljs-keyword">int</span> tol;<br><span class="hljs-keyword">int</span> head[maxn];<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    tol = <span class="hljs-number">2</span>;        <span class="hljs-comment">//???</span><br>    <span class="hljs-built_in">memset</span>(head , <span class="hljs-number">-1</span> , <span class="hljs-keyword">sizeof</span> head);<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">addedge</span><span class="hljs-params">(<span class="hljs-keyword">int</span> u , <span class="hljs-keyword">int</span> v , <span class="hljs-keyword">int</span> w , <span class="hljs-keyword">int</span> rw = <span class="hljs-number">0</span>)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">//前向星加边，反向弧容量为rw一般为0</span><br>    <span class="hljs-comment">//正反弧相邻存储，直接异或就能找到</span><br>    <span class="hljs-comment">//正向弧的编号要比反向弧的编号小</span><br>    edge[tol].to = v;edge[tol].cap = w;edge[tol].flow = <span class="hljs-number">0</span>;<br>    edge[tol].next = head[u];head[u] = tol++;<br>    edge[tol].to = u; edge[tol].cap = rw;edge[tol].flow = <span class="hljs-number">0</span>;<br>    edge[tol].next = head[v];head[v] = tol++;<br>&#125;<br><span class="hljs-keyword">int</span> q[maxn];        <span class="hljs-comment">//双向队列，bfs使用</span><br><span class="hljs-keyword">int</span> dep[maxn] , cur[maxn] , sta[maxn];<span class="hljs-comment">//sta保存增广路的边</span><br><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">bfs</span><span class="hljs-params">(<span class="hljs-keyword">int</span> s , <span class="hljs-keyword">int</span> t , <span class="hljs-keyword">int</span> n)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">//bfs搜索网络的层次</span><br>    <span class="hljs-keyword">int</span> front = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">int</span> tail = <span class="hljs-number">0</span>;<br>    <span class="hljs-built_in">memset</span>(dep , <span class="hljs-number">-1</span> , <span class="hljs-keyword">sizeof</span>(dep[<span class="hljs-number">0</span>]) * (n + <span class="hljs-number">1</span>));<br>    dep[s] = <span class="hljs-number">0</span>;<br>    q[tail++] = s;<br>    <span class="hljs-keyword">while</span>(front &lt; tail)<br>    &#123;<br>        <span class="hljs-keyword">int</span> u = q[front++];<br>        <span class="hljs-comment">//前向星图的遍历</span><br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = head[u]; ~i; i = edge[i].next)<br>        &#123;<br>            <span class="hljs-keyword">int</span> v = edge[i].to;<br>            <span class="hljs-keyword">if</span>(edge[i].cap &gt; edge[i].flow &amp;&amp; !(~dep[v]))<br>            &#123;<br>                <span class="hljs-comment">//(u,v)这条边的容量大于流量时即残余流量大于0并且这个点没有被分层时</span><br>                dep[v] = dep[u] + <span class="hljs-number">1</span>;    <span class="hljs-comment">//分层</span><br>                <span class="hljs-keyword">if</span>(v == t)<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>                q[tail++] = v;<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">dinic</span><span class="hljs-params">(<span class="hljs-keyword">int</span> s , <span class="hljs-keyword">int</span> t , <span class="hljs-keyword">int</span> n)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> maxflow = <span class="hljs-number">0</span>;            <span class="hljs-comment">//待求的最大流</span><br>    <span class="hljs-keyword">while</span>(bfs(s , t , n))       <span class="hljs-comment">//当层次图存在时进行dfs寻找增广路</span><br>    &#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; ++i)cur[i] = head[i]; <span class="hljs-comment">//当前所有可以利用链式前向星遍历的边的编号</span><br>        <span class="hljs-keyword">int</span> u = s , tail = <span class="hljs-number">0</span>;   <span class="hljs-comment">//tail表示找到的增广路的点的数量</span><br>        <span class="hljs-keyword">while</span>(~cur[s])          <span class="hljs-comment">//边合法时</span><br>        &#123;<br>            <span class="hljs-keyword">if</span>(u == t)          <span class="hljs-comment">//找到汇点时，即找到一条增广路时</span><br>            &#123;<br>                <span class="hljs-keyword">int</span> tp = inf;   <span class="hljs-comment">//tp为该增广路中最小的残余流量</span><br>                <span class="hljs-comment">//找到最小值</span><br>                <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = tail - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; --i)<br>                    tp = min(tp , edge[sta[i]].cap - edge[sta[i]].flow);<br>                maxflow += tp;  <span class="hljs-comment">//最大流增加</span><br>                <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = tail - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; --i)<br>                &#123;<br>                    <span class="hljs-comment">//用最小的残余流量更新参与网络</span><br>                    <span class="hljs-comment">//这里是倒着遍历每一条增广路中的边，，</span><br>                    <span class="hljs-comment">//所以编号是由大到小，sta[i]是(u,v)那条弧的编号，sta[i] ^ 1是其反向弧的编号</span><br>                    <span class="hljs-comment">//正向弧的流入流量加上tp</span><br>                    <span class="hljs-comment">//反向弧的流入流量就是减去tp</span><br>                    edge[sta[i]].flow += tp;<br>                    edge[sta[i] ^ <span class="hljs-number">1</span>].flow -= tp;<br>                    <span class="hljs-comment">//这条路的残余流量为零，经过这条路径的增广路不再存在</span><br>                    <span class="hljs-comment">//增广路的尾边缩回到这个点</span><br>                    <span class="hljs-comment">//并尝试寻找经过这个点的其他的增广路</span><br>                    <span class="hljs-keyword">if</span>(edge[sta[i]].cap - edge[sta[i]].flow == <span class="hljs-number">0</span>)<br>                        tail = i;<br>                &#125;<br>                <span class="hljs-comment">//当前增广路的尾边回退到上一个点，，继续搜索其他的增广路</span><br>                u = edge[sta[tail] ^ <span class="hljs-number">1</span>].to;<br>            &#125;<br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(~cur[u] &amp;&amp;<br>                    edge[cur[u]].cap &gt; edge[cur[u]].flow &amp;&amp;<br>                    dep[u] + <span class="hljs-number">1</span> == dep[edge[cur[u]].to])<br>            &#123;<br>                <span class="hljs-comment">//当这条边能到达、残余流量为正值并且u是v的上一层的点时</span><br>                sta[tail++] = cur[u];   <span class="hljs-comment">//增广路的点数tail++，并保存这条边到sta</span><br>                u = edge[cur[u]].to;    <span class="hljs-comment">//更新u</span><br>            &#125;<br>            <span class="hljs-keyword">else</span><br>            &#123;<br>                <span class="hljs-comment">//回退？？</span><br>                <span class="hljs-comment">//while(u != s &amp;&amp; cur[u] == -1)</span><br>                <span class="hljs-keyword">while</span>(u != s &amp;&amp; !(~cur[u]))<br>                    u = edge[sta[--tail] ^ <span class="hljs-number">1</span>].to;<br>                cur[u] = edge[cur[u]].next;<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> maxflow;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">while</span>(<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d%d%d &quot;</span> , &amp;n , &amp;np , &amp;nc , &amp;m) != EOF)<br>    &#123;<br>        init();<br>        <span class="hljs-keyword">while</span>(m--)<br>        &#123;<br>            <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot; (%d,%d)%d&quot;</span> , &amp;u , &amp;v , &amp;z); <span class="hljs-comment">//输入前面有空格</span><br>            ++u;++v;<br>            addedge(u , v , z);<br>        &#125;<br>        <span class="hljs-keyword">while</span>(np--)<br>        &#123;<br>            <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot; (%d)%d&quot;</span> , &amp;u , &amp;z);<br>            ++u;<br>            addedge(<span class="hljs-number">0</span> , u , z);                 <span class="hljs-comment">//超级源点</span><br>        &#125;<br>        <span class="hljs-keyword">while</span>(nc--)<br>        &#123;<br>            <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot; (%d)%d&quot;</span> , &amp;u , &amp;z);<br>            ++u;<br>            addedge(u , n + <span class="hljs-number">1</span> , z);             <span class="hljs-comment">//超级汇点</span><br>        &#125;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span> , dinic(<span class="hljs-number">0</span> , n + <span class="hljs-number">1</span> , n + <span class="hljs-number">1</span>));<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
 <p><del>下一个就是sap,isap了吧，，，头疼ing</del></p>
 <p><del>(end)</del></p>
 <h2 id="isap模板"><a href="#isap模板" class="headerlink" title="isap模板"></a><strong>isap模板</strong></h2><h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a><strong>算法思路</strong></h3><p><strong>最短增广路算法(SAP)</strong></p>
@@ -358,49 +335,21 @@ ga('send', 'pageview');
 </blockquote>
 <p><strong>下面的图演示了标号的更新过程:</strong></p>
 <ul>
-<li><p>1.首先我们假设有个图如下，为了简化没有标箭头也没有写流量:</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://blog.andrewei.info/images/network-flows/FFalgo3.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<li><p>1.首先我们假设有个图如下，为了简化没有标箭头也没有写流量:<br><img src="https://blog.andrewei.info/images/network-flows/FFalgo3.png" srcset="/img/loading.gif" alt=""></p>
 </li>
-<li><p>2.红色的数为图标号, 每个点的标号为其到汇点的最短距离(这里把每条边看作1)</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://blog.andrewei.info/images/network-flows/FFalgo4.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<li><p>2.红色的数为图标号, 每个点的标号为其到汇点的最短距离(这里把每条边看作1)<br><img src="https://blog.andrewei.info/images/network-flows/FFalgo4.png" srcset="/img/loading.gif" alt=""></p>
 </li>
-<li><p>3.第一遍遍历时，找到了1-&gt;2-&gt;9这样一条增广路以后，更新边上流量值, 得到下图</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://blog.andrewei.info/images/network-flows/FFalgo5.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<li><p>3.第一遍遍历时，找到了1-&gt;2-&gt;9这样一条增广路以后，更新边上流量值, 得到下图<br><img src="https://blog.andrewei.info/images/network-flows/FFalgo5.png" srcset="/img/loading.gif" alt=""></p>
 </li>
 </ul>
 <p>$棕色字体为边上的流量值。这时按照标号再搜一遍,发现从1出发已经找不到增广路了，因为flow(1,2)等于0不可以走，h[1]=2,h[3]=2≠h[1]+1,h[5]=4≠h[1]+1，所以这时更新1的标号，按照 min(h[next]|Flow(now,next)&gt;0)+1，修改后 h[1]=h[3]+1=3.$</p>
 <ul>
-<li><p>4.第二遍遍历以后找到了这样一条增广路：1-&gt;3-&gt;4-&gt;9,做完这条路以后又发现无法找到可行边了，这时再更新标号使图中有路可走，如上文所说的那样做，再次修改后h[1]=h[5]+1=5，就这样搜索并更新直到变成下图</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://blog.andrewei.info/images/network-flows/FFalgo6.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<li><p>4.第二遍遍历以后找到了这样一条增广路：1-&gt;3-&gt;4-&gt;9,做完这条路以后又发现无法找到可行边了，这时再更新标号使图中有路可走，如上文所说的那样做，再次修改后h[1]=h[5]+1=5，就这样搜索并更新直到变成下图<br><img src="https://blog.andrewei.info/images/network-flows/FFalgo6.png" srcset="/img/loading.gif" alt=""></p>
 </li>
 <li><p>5.这时再更新h[1]发现没有点可以用来更新h[1]了，于是此时h[1]=∞，使程序退出。</p>
 </li>
 </ul>
-<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//isap+bfs+stack求最大流</span></span><br><span class="line"><span class="comment">//貌似时间复杂度要比dinic还要小一些</span></span><br><span class="line"><span class="comment">//bfs只求一次层次图，而且编号是从汇点开始的</span></span><br><span class="line"><span class="comment">//之后的编号的更新在isap中更新</span></span><br><span class="line"><span class="comment">//更新按照d[now]=min(d[next]|Flow(now,next)&gt;0)+1</span></span><br><span class="line"><span class="comment">//gap优化的目的是当出现断链时，即存在编号的个数为零的情况时停止寻找不存在增广路</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">105</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxm = <span class="number">1e6</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> tol;</span><br><span class="line"><span class="keyword">int</span> n , np , nc , m;</span><br><span class="line"><span class="keyword">int</span> u , v , z;</span><br><span class="line"><span class="keyword">int</span> head[maxn];         <span class="comment">//链式前向星存图</span></span><br><span class="line"><span class="keyword">int</span> gap[maxn];          <span class="comment">//gap优化，，gap[i]表示编号为i的节点的数量，，为零表示出现断链</span></span><br><span class="line"><span class="keyword">int</span> dis[maxn];          <span class="comment">//分层后每个点的编号</span></span><br><span class="line"><span class="keyword">int</span> cur[maxn];          <span class="comment">//弧优化所保存的弧，避免多次走到重复的位置上，比如走过x-&gt;y这条边后，下次再从x为起点开始走是就不再走x-&gt;y的边了</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">edge</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> to;</span><br><span class="line">    <span class="keyword">int</span> next;</span><br><span class="line">    <span class="keyword">int</span> cap;</span><br><span class="line">    <span class="keyword">int</span> flow;</span><br><span class="line">&#125;edge[maxm];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    tol = <span class="number">0</span>;            <span class="comment">//？？？</span></span><br><span class="line">    <span class="built_in">memset</span>(head , <span class="number">-1</span> , <span class="keyword">sizeof</span> head);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addedge</span><span class="params">(<span class="keyword">int</span> u , <span class="keyword">int</span> v , <span class="keyword">int</span> w , <span class="keyword">int</span> rw = <span class="number">0</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    edge[tol].to = v;edge[tol].cap = w;edge[tol].flow = <span class="number">0</span>;</span><br><span class="line">    edge[tol].next = head[u];head[u] = tol++;</span><br><span class="line">    edge[tol].to = u; edge[tol].cap = rw;edge[tol].flow = <span class="number">0</span>;</span><br><span class="line">    edge[tol].next = head[v];head[v] = tol++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> q[maxn];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bfs</span><span class="params">(<span class="keyword">int</span> s , <span class="keyword">int</span> t)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//bfs一次得到从汇点开始的层次图</span></span><br><span class="line">    <span class="built_in">memset</span>(dis , <span class="number">-1</span> , <span class="keyword">sizeof</span> dis);</span><br><span class="line">    <span class="built_in">memset</span>(gap , <span class="number">0</span> , <span class="keyword">sizeof</span> gap);</span><br><span class="line">    gap[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> front = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> rear = <span class="number">0</span>;</span><br><span class="line">    dis[t] = <span class="number">0</span>;         <span class="comment">//汇点的编号是0</span></span><br><span class="line">    q[rear++] = t;</span><br><span class="line">    <span class="keyword">while</span>(front != rear)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//这里bfs应该用的逆图</span></span><br><span class="line">        <span class="keyword">int</span> u = q[front++];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = head[u]; ~i; i = edge[i].next)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> v = edge[i].to;</span><br><span class="line">            <span class="keyword">if</span>(~dis[v]) <span class="keyword">continue</span>;</span><br><span class="line">            q[rear++] = v;</span><br><span class="line">            dis[v] = dis[u] + <span class="number">1</span>;    <span class="comment">//相邻编号递增</span></span><br><span class="line">            ++gap[dis[v]];          <span class="comment">//对应编号的点的数量增一</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> <span class="built_in">stack</span>[maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isap</span><span class="params">(<span class="keyword">int</span> s , <span class="keyword">int</span> t , <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    bfs(s , t);                     <span class="comment">//建一次层次图</span></span><br><span class="line">    <span class="built_in">memcpy</span>(cur , head , <span class="keyword">sizeof</span> head);</span><br><span class="line">    <span class="keyword">int</span> top = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> u = s;</span><br><span class="line">    <span class="keyword">int</span> maxflow = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(dis[s] &lt; n)               <span class="comment">//最大的编号只可能是n-1，大于说明出现断层</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(u == t)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//当找到一条增广路时，更新这条路上的流量</span></span><br><span class="line">            <span class="keyword">int</span> min = inf;</span><br><span class="line">            <span class="keyword">int</span> inser;              <span class="comment">//记录回退点</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; top; ++i)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">//找到增广路上的最小残余流量</span></span><br><span class="line">                <span class="keyword">if</span>(min &gt; edge[<span class="built_in">stack</span>[i]].cap - edge[<span class="built_in">stack</span>[i]].flow)</span><br><span class="line">                &#123;</span><br><span class="line">                    min = edge[<span class="built_in">stack</span>[i]].cap - edge[<span class="built_in">stack</span>[i]].flow;</span><br><span class="line">                    inser = i;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; top; ++i)</span><br><span class="line">            &#123;</span><br><span class="line">                edge[<span class="built_in">stack</span>[i]].flow += min;</span><br><span class="line">                edge[<span class="built_in">stack</span>[i] ^ <span class="number">1</span>].flow -= min;</span><br><span class="line">            &#125;</span><br><span class="line">            maxflow += min;</span><br><span class="line">            <span class="comment">//回退</span></span><br><span class="line">            top = inser;</span><br><span class="line">            u = edge[<span class="built_in">stack</span>[top] ^ <span class="number">1</span>].to;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">bool</span> flag = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">int</span> v;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = cur[u]; ~i; i = edge[i].next)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//找到一条从u出发的可行路径</span></span><br><span class="line">            <span class="comment">//满足残余流量大于零并且v是u的下一层</span></span><br><span class="line">            v = edge[i].to;</span><br><span class="line">            <span class="keyword">if</span>(edge[i].cap - edge[i].flow &amp;&amp; dis[v] + <span class="number">1</span> == dis[u])</span><br><span class="line">            &#123;</span><br><span class="line">                flag = <span class="literal">true</span>;</span><br><span class="line">                cur[u] = i;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(flag)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//存在这样的可行路径时压栈保存</span></span><br><span class="line">            <span class="comment">//continue继续找</span></span><br><span class="line">            <span class="built_in">stack</span>[top++] = cur[u];</span><br><span class="line">            u = v;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> min = n;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = head[u]; ~i; i = edge[i].next)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(edge[i].cap - edge[i].flow &amp;&amp; dis[edge[i].to] &lt; min)</span><br><span class="line">            &#123;</span><br><span class="line">                min = dis[edge[i].to];</span><br><span class="line">                cur[u] = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        --gap[dis[u]];                          <span class="comment">//该编号的数量减一</span></span><br><span class="line">        <span class="keyword">if</span>(!gap[dis[u]])    <span class="keyword">return</span> maxflow;     <span class="comment">//出现断层时退出</span></span><br><span class="line">        dis[u] = min + <span class="number">1</span>;</span><br><span class="line">        ++gap[dis[u]];</span><br><span class="line">        <span class="keyword">if</span>(u != s)</span><br><span class="line">            u = edge[<span class="built_in">stack</span>[--top] ^ <span class="number">1</span>].to;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxflow;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//freopen("233.txt" , "r" , stdin);</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d%d%d%d "</span> , &amp;n , &amp;np , &amp;nc , &amp;m) != EOF)</span><br><span class="line">    &#123;</span><br><span class="line">        init();</span><br><span class="line">        <span class="keyword">while</span>(m--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">" (%d,%d)%d"</span> , &amp;u , &amp;v , &amp;z);</span><br><span class="line">            ++u;++v;</span><br><span class="line">            addedge(u , v , z);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(np--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">" (%d)%d"</span> , &amp;u , &amp;z);</span><br><span class="line">            ++u;</span><br><span class="line">            addedge(<span class="number">0</span> , u , z);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(nc--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">" (%d)%d"</span> , &amp;u , &amp;z);</span><br><span class="line">            ++u;</span><br><span class="line">            addedge(u , n + <span class="number">1</span> , z);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span> , isap(<span class="number">0</span> , n + <span class="number">1</span> , n + <span class="number">2</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">//isap+bfs+stack求最大流</span><br><span class="hljs-comment">//貌似时间复杂度要比dinic还要小一些</span><br><span class="hljs-comment">//bfs只求一次层次图，而且编号是从汇点开始的</span><br><span class="hljs-comment">//之后的编号的更新在isap中更新</span><br><span class="hljs-comment">//更新按照d[now]=min(d[next]|Flow(now,next)&gt;0)+1</span><br><span class="hljs-comment">//gap优化的目的是当出现断链时，即存在编号的个数为零的情况时停止寻找不存在增广路</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdio&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdlib&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> maxn = <span class="hljs-number">105</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> maxm = <span class="hljs-number">1e6</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> inf = <span class="hljs-number">0x3f3f3f3f</span>;<br><span class="hljs-keyword">int</span> tol;<br><span class="hljs-keyword">int</span> n , np , nc , m;<br><span class="hljs-keyword">int</span> u , v , z;<br><span class="hljs-keyword">int</span> head[maxn];         <span class="hljs-comment">//链式前向星存图</span><br><span class="hljs-keyword">int</span> gap[maxn];          <span class="hljs-comment">//gap优化，，gap[i]表示编号为i的节点的数量，，为零表示出现断链</span><br><span class="hljs-keyword">int</span> dis[maxn];          <span class="hljs-comment">//分层后每个点的编号</span><br><span class="hljs-keyword">int</span> cur[maxn];          <span class="hljs-comment">//弧优化所保存的弧，避免多次走到重复的位置上，比如走过x-&gt;y这条边后，下次再从x为起点开始走是就不再走x-&gt;y的边了</span><br><br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">edge</span></span><br><span class="hljs-class">&#123;</span><br>    <span class="hljs-keyword">int</span> to;<br>    <span class="hljs-keyword">int</span> next;<br>    <span class="hljs-keyword">int</span> cap;<br>    <span class="hljs-keyword">int</span> flow;<br>&#125;edge[maxm];<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    tol = <span class="hljs-number">0</span>;            <span class="hljs-comment">//？？？</span><br>    <span class="hljs-built_in">memset</span>(head , <span class="hljs-number">-1</span> , <span class="hljs-keyword">sizeof</span> head);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">addedge</span><span class="hljs-params">(<span class="hljs-keyword">int</span> u , <span class="hljs-keyword">int</span> v , <span class="hljs-keyword">int</span> w , <span class="hljs-keyword">int</span> rw = <span class="hljs-number">0</span>)</span></span><br><span class="hljs-function"></span>&#123;<br>    edge[tol].to = v;edge[tol].cap = w;edge[tol].flow = <span class="hljs-number">0</span>;<br>    edge[tol].next = head[u];head[u] = tol++;<br>    edge[tol].to = u; edge[tol].cap = rw;edge[tol].flow = <span class="hljs-number">0</span>;<br>    edge[tol].next = head[v];head[v] = tol++;<br>&#125;<br><br><span class="hljs-keyword">int</span> q[maxn];<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">bfs</span><span class="hljs-params">(<span class="hljs-keyword">int</span> s , <span class="hljs-keyword">int</span> t)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">//bfs一次得到从汇点开始的层次图</span><br>    <span class="hljs-built_in">memset</span>(dis , <span class="hljs-number">-1</span> , <span class="hljs-keyword">sizeof</span> dis);<br>    <span class="hljs-built_in">memset</span>(gap , <span class="hljs-number">0</span> , <span class="hljs-keyword">sizeof</span> gap);<br>    gap[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">int</span> front = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">int</span> rear = <span class="hljs-number">0</span>;<br>    dis[t] = <span class="hljs-number">0</span>;         <span class="hljs-comment">//汇点的编号是0</span><br>    q[rear++] = t;<br>    <span class="hljs-keyword">while</span>(front != rear)<br>    &#123;<br>        <span class="hljs-comment">//这里bfs应该用的逆图</span><br>        <span class="hljs-keyword">int</span> u = q[front++];<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = head[u]; ~i; i = edge[i].next)<br>        &#123;<br>            <span class="hljs-keyword">int</span> v = edge[i].to;<br>            <span class="hljs-keyword">if</span>(~dis[v]) <span class="hljs-keyword">continue</span>;<br>            q[rear++] = v;<br>            dis[v] = dis[u] + <span class="hljs-number">1</span>;    <span class="hljs-comment">//相邻编号递增</span><br>            ++gap[dis[v]];          <span class="hljs-comment">//对应编号的点的数量增一</span><br>        &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">int</span> <span class="hljs-built_in">stack</span>[maxn];<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">isap</span><span class="hljs-params">(<span class="hljs-keyword">int</span> s , <span class="hljs-keyword">int</span> t , <span class="hljs-keyword">int</span> n)</span></span><br><span class="hljs-function"></span>&#123;<br>    bfs(s , t);                     <span class="hljs-comment">//建一次层次图</span><br>    <span class="hljs-built_in">memcpy</span>(cur , head , <span class="hljs-keyword">sizeof</span> head);<br>    <span class="hljs-keyword">int</span> top = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">int</span> u = s;<br>    <span class="hljs-keyword">int</span> maxflow = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">while</span>(dis[s] &lt; n)               <span class="hljs-comment">//最大的编号只可能是n-1，大于说明出现断层</span><br>    &#123;<br>        <span class="hljs-keyword">if</span>(u == t)<br>        &#123;<br>            <span class="hljs-comment">//当找到一条增广路时，更新这条路上的流量</span><br>            <span class="hljs-keyword">int</span> min = inf;<br>            <span class="hljs-keyword">int</span> inser;              <span class="hljs-comment">//记录回退点</span><br>            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; top; ++i)<br>            &#123;<br>                <span class="hljs-comment">//找到增广路上的最小残余流量</span><br>                <span class="hljs-keyword">if</span>(min &gt; edge[<span class="hljs-built_in">stack</span>[i]].cap - edge[<span class="hljs-built_in">stack</span>[i]].flow)<br>                &#123;<br>                    min = edge[<span class="hljs-built_in">stack</span>[i]].cap - edge[<span class="hljs-built_in">stack</span>[i]].flow;<br>                    inser = i;<br>                &#125;<br>            &#125;<br>            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; top; ++i)<br>            &#123;<br>                edge[<span class="hljs-built_in">stack</span>[i]].flow += min;<br>                edge[<span class="hljs-built_in">stack</span>[i] ^ <span class="hljs-number">1</span>].flow -= min;<br>            &#125;<br>            maxflow += min;<br>            <span class="hljs-comment">//回退</span><br>            top = inser;<br>            u = edge[<span class="hljs-built_in">stack</span>[top] ^ <span class="hljs-number">1</span>].to;<br>            <span class="hljs-keyword">continue</span>;<br>        &#125;<br><br>        <span class="hljs-keyword">bool</span> flag = <span class="hljs-literal">false</span>;<br>        <span class="hljs-keyword">int</span> v;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = cur[u]; ~i; i = edge[i].next)<br>        &#123;<br>            <span class="hljs-comment">//找到一条从u出发的可行路径</span><br>            <span class="hljs-comment">//满足残余流量大于零并且v是u的下一层</span><br>            v = edge[i].to;<br>            <span class="hljs-keyword">if</span>(edge[i].cap - edge[i].flow &amp;&amp; dis[v] + <span class="hljs-number">1</span> == dis[u])<br>            &#123;<br>                flag = <span class="hljs-literal">true</span>;<br>                cur[u] = i;<br>                <span class="hljs-keyword">break</span>;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">if</span>(flag)<br>        &#123;<br>            <span class="hljs-comment">//存在这样的可行路径时压栈保存</span><br>            <span class="hljs-comment">//continue继续找</span><br>            <span class="hljs-built_in">stack</span>[top++] = cur[u];<br>            u = v;<br>            <span class="hljs-keyword">continue</span>;<br>        &#125;<br>        <span class="hljs-keyword">int</span> min = n;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = head[u]; ~i; i = edge[i].next)<br>        &#123;<br>            <span class="hljs-keyword">if</span>(edge[i].cap - edge[i].flow &amp;&amp; dis[edge[i].to] &lt; min)<br>            &#123;<br>                min = dis[edge[i].to];<br>                cur[u] = i;<br>            &#125;<br>        &#125;<br>        --gap[dis[u]];                          <span class="hljs-comment">//该编号的数量减一</span><br>        <span class="hljs-keyword">if</span>(!gap[dis[u]])    <span class="hljs-keyword">return</span> maxflow;     <span class="hljs-comment">//出现断层时退出</span><br>        dis[u] = min + <span class="hljs-number">1</span>;<br>        ++gap[dis[u]];<br>        <span class="hljs-keyword">if</span>(u != s)<br>            u = edge[<span class="hljs-built_in">stack</span>[--top] ^ <span class="hljs-number">1</span>].to;<br>    &#125;<br>    <span class="hljs-keyword">return</span> maxflow;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">//freopen(&quot;233.txt&quot; , &quot;r&quot; , stdin);</span><br>    <span class="hljs-keyword">while</span>(<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d%d%d &quot;</span> , &amp;n , &amp;np , &amp;nc , &amp;m) != EOF)<br>    &#123;<br>        init();<br>        <span class="hljs-keyword">while</span>(m--)<br>        &#123;<br>            <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot; (%d,%d)%d&quot;</span> , &amp;u , &amp;v , &amp;z);<br>            ++u;++v;<br>            addedge(u , v , z);<br>        &#125;<br>        <span class="hljs-keyword">while</span>(np--)<br>        &#123;<br>            <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot; (%d)%d&quot;</span> , &amp;u , &amp;z);<br>            ++u;<br>            addedge(<span class="hljs-number">0</span> , u , z);<br>        &#125;<br>        <span class="hljs-keyword">while</span>(nc--)<br>        &#123;<br>            <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot; (%d)%d&quot;</span> , &amp;u , &amp;z);<br>            ++u;<br>            addedge(u , n + <span class="hljs-number">1</span> , z);<br>        &#125;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span> , isap(<span class="hljs-number">0</span> , n + <span class="hljs-number">1</span> , n + <span class="hljs-number">2</span>));<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
 <p>这两个算法的时间复杂度都是 $O(V^2E)$</p>
 <p><del>还有一个更快的实现的方法，，预流推进算法 $O(V^2 \sqrt E)$，，，那天再看把，，，</del></p>
 <p><del>接下来就是做几道题去看最小费用最大流了吧，，，，</del></p>
@@ -408,334 +357,318 @@ ga('send', 'pageview');
 <p>剩下的东西在新的一篇网络流博客中，，，，QAQ</p>
 <p>(end)</p>
 
-        </div>
-
-        <blockquote class="post-copyright">
-    
-    <div class="content">
-        
-<span class="post-time">
-    最后更新时间：<time datetime="2019-08-02T03:37:16.987Z" itemprop="dateUpdated">2019-08-02 11:37:16</time>
-</span><br>
-
-
-        
-        <a href="/2018/11/22/poj-1459-最大流dinic+链式前向星-isap+bfs+stack/" target="_blank" rel="external">http://blog.31415x.cf/2018/11/22/poj-1459-最大流dinic+链式前向星-isap+bfs+stack/</a>
-        
-    </div>
-    
-    <footer>
-        <a href="http://blog.31415x.cf">
-            <img src="/img/misaka.jpg" alt="31415926535x">
-            31415926535x
-        </a>
-    </footer>
-</blockquote>
-
-        
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/acm/">acm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/刷题/">刷题</a></li></ul>
-
-
-            
-<div class="page-share-wrap">
-    
-
-<div class="page-share" id="pageShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.31415x.cf/2018/11/22/poj-1459-最大流dinic+链式前向星-isap+bfs+stack/&title=《poj-1459-最大流dinic+链式前向星-isap+bfs+stack》 — 31415926535x&pic=http://blog.31415x.cf/img/misaka.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.31415x.cf/2018/11/22/poj-1459-最大流dinic+链式前向星-isap+bfs+stack/&title=《poj-1459-最大流dinic+链式前向星-isap+bfs+stack》 — 31415926535x&source=概述这道是一道网络流里最大流的板子题,,,
-暑期集训网络流草草水过，，连基本的算法都不知道有哪些，，，更别提怎么实现了，，，只知道网络流的大致的概念，，
-..." data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.31415x.cf/2018/11/22/poj-1459-最大流dinic+链式前向星-isap+bfs+stack/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《poj-1459-最大流dinic+链式前向星-isap+bfs+stack》 — 31415926535x&url=http://blog.31415x.cf/2018/11/22/poj-1459-最大流dinic+链式前向星-isap+bfs+stack/&via=http://blog.31415x.cf" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.31415x.cf/2018/11/22/poj-1459-最大流dinic+链式前向星-isap+bfs+stack/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
-        <i class="icon icon-share-alt icon-lg"></i>
-    </a>
-</div>
-
-
-
-        </div>
-    </div>
-
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2018/11/24/Codeforces-1077C/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Codeforces-1077C</h4>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/2018/11/20/poj-2421-最小生成树刷题/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">poj-2421-最小生成树刷题</h4>
-      </a>
-    </div>
-  
-</nav>
-
-
-
-    
-
-
-<section class="comments" id="comments">
-    <div id="disqus_thread"></div>
-    <script>
-    var disqus_shortname = 'www-31415-cf';
-    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</article>
-
-
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
-        
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p><span>31415926535x &copy; 2018 - 2021</span>
-            <span>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
                 
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/ACM-%E7%BD%91%E7%BB%9C%E6%B5%81-%E6%9C%80%E5%A4%A7%E6%B5%81/">ACM-网络流-最大流</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%88%B7%E9%A2%98/">刷题</a>
+                    
+                      <a class="hover-with-bg" href="/tags/acm/">acm</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2018/11/24/Codeforces-1077C/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Codeforces-1077C</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2018/11/20/poj-2421-%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E5%88%B7%E9%A2%98/">
+                        <span class="hidden-mobile">poj-2421-最小生成树刷题</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_config = function() {
+        this.page.url = 'http://blog.31415x.cf/2018/11/22/poj-1459-%E6%9C%80%E5%A4%A7%E6%B5%81dinic+%E9%93%BE%E5%BC%8F%E5%89%8D%E5%90%91%E6%98%9F-isap+bfs+stack/';
+        this.page.identifier = '/2018/11/22/poj-1459-%E6%9C%80%E5%A4%A7%E6%B5%81dinic+%E9%93%BE%E5%BC%8F%E5%89%8D%E5%90%91%E6%98%9F-isap+bfs+stack/';
+      };
+      Fluid.utils.waitElementVisible('disqus_thread', function () {
+        var d = document, s = d.createElement('script');
+        s.src = '//' + 'www-31415-cf' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', new Date());
+        (d.head || d.body).appendChild(s);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the
+      <a target="_blank" href="https://disqus.com/?ref_noscript" rel="nofollow noopener noopener">comments powered by Disqus.</a>
+    </noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
     </div>
-	
-	
-	<div id="aplayer">
-		<!-- 音乐播放器 -->
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.css">
-		<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.js"></script>
-		<div id="aplayer" class="aplayer" data-id="2254014329" data-lrctype="0" data-server="netease" data-type="playlist" data-fixed="true" data-listfolded="true"></div>
-		<script src="https://unpkg.com/meting@1.2/dist/Meting.min.js"></script>
-	</div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br> <a>不忘初心 <strong><span style="color: red">☭</span></strong> 方得始终</a> 
+  </div>
+  
+
+  
+
+  
 </footer>
 
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
 
 
 
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.31415x.cf/2018/11/22/poj-1459-最大流dinic+链式前向星-isap+bfs+stack/&title=《poj-1459-最大流dinic+链式前向星-isap+bfs+stack》 — 31415926535x&pic=http://blog.31415x.cf/img/misaka.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.31415x.cf/2018/11/22/poj-1459-最大流dinic+链式前向星-isap+bfs+stack/&title=《poj-1459-最大流dinic+链式前向星-isap+bfs+stack》 — 31415926535x&source=概述这道是一道网络流里最大流的板子题,,,
-暑期集训网络流草草水过，，连基本的算法都不知道有哪些，，，更别提怎么实现了，，，只知道网络流的大致的概念，，
-..." data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.31415x.cf/2018/11/22/poj-1459-最大流dinic+链式前向星-isap+bfs+stack/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《poj-1459-最大流dinic+链式前向星-isap+bfs+stack》 — 31415926535x&url=http://blog.31415x.cf/2018/11/22/poj-1459-最大流dinic+链式前向星-isap+bfs+stack/&via=http://blog.31415x.cf" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.31415x.cf/2018/11/22/poj-1459-最大流dinic+链式前向星-isap+bfs+stack/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://blog.31415x.cf/2018/11/22/poj-1459-最大流dinic+链式前向星-isap+bfs+stack/" alt="微信分享二维码">
-</div>
+  
 
 
 
-
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
-
-
-</script>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
 
 
 
-<!-- mathjax config similar to math.stackexchange -->
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
 
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
 
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
 
 
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
 
 
 
-<script>
-(function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = '(つェ⊂)';
-            clearTimeout(titleTime);
-        } else {
-            document.title = '(๑•̀ㅂ•́)و✧';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
         }
-    });
-})();
-</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
-</script>
+      };
+    </script>
 
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
     }
-  });
-</script>
+  </script>
 
-<script type="text/javascript" src="custom_mathjax_source">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-114656515-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 

@@ -1,239 +1,245 @@
+
+
 <!DOCTYPE html>
-<html>
-<head><meta name="generator" content="Hexo 3.9.0">
-    
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Google Analytics -->
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-114656515-1', 'auto');
-ga('send', 'pageview');
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-<!-- End Google Analytics -->
-
-
-    
-
-    
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
-    <meta charset="utf-8">
-    
-    
-    
-    <link rel="canonical" href="https://31415926535x.github.io/2019/02/19/动态规划_背包问题笔记/">
-    
-    
-    <title>动态规划_背包问题笔记 | 31415926535x</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#40c4ff">
-    
-    
-    <meta name="keywords" content="acm,笔记">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/misaka.jpg">
+  <link rel="icon" href="/img/misaka.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  
     <meta name="description" content="dp自从知道有这么个东西时，就没有好好的学，，现在一看道dp的题就绕道走，，，但是，很多比赛中的dp问题有很多，，别人都会，自己不会很吃亏啊，，，于是从基础开始一点一点的补ing">
-<meta name="keywords" content="acm,笔记">
-<meta property="og:type" content="article">
-<meta property="og:title" content="动态规划_背包问题笔记">
-<meta property="og:url" content="http://blog.31415x.cf/2019/02/19/动态规划_背包问题笔记/index.html">
-<meta property="og:site_name" content="31415926535x">
-<meta property="og:description" content="dp自从知道有这么个东西时，就没有好好的学，，现在一看道dp的题就绕道走，，，但是，很多比赛中的dp问题有很多，，别人都会，自己不会很吃亏啊，，，于是从基础开始一点一点的补ing">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-21T05:32:25.839Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="动态规划_背包问题笔记">
-<meta name="twitter:description" content="dp自从知道有这么个东西时，就没有好好的学，，现在一看道dp的题就绕道走，，，但是，很多比赛中的dp问题有很多，，别人都会，自己不会很吃亏啊，，，于是从基础开始一点一点的补ing">
-    
-        <link rel="alternate" type="application/atom+xml" title="31415926535x" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
+  
+  <meta name="author" content="31415926535x">
+  <meta name="keywords" content="">
+  
+  <title>动态规划_背包问题笔记 - 31415926535x</title>
 
-    <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-    
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/monokai.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"blog.31415x.cf","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":null,"google":"UA-114656515-1","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="31415926535x" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
-<body>
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide" >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/misaka.jpg">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">31415926535x</h5>
-          <a href="mailto:2509437152wx@gmail.com" title="2509437152wx@gmail.com" class="mail">2509437152wx@gmail.com</a>
-        </hgroup>
-      </div>
-    </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>31415926535x</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                Archives
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                标签
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/31415926535x" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="https://plus.google.com/106114719135977350421" target="_blank" >
-                <i class="icon icon-lg icon-google"></i>
-                Google+
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
               </a>
             </li>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="https://instagram.com/314159265358x" target="_blank" >
-                <i class="icon icon-lg icon-instagram"></i>
-                Instagram
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="https://cnblogs.com/31415926535x" target="_blank" >
-                <i class="icon icon-lg icon-th-large"></i>
-                cnblogs
-              </a>
-            </li>
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
         
-            <li class="waves-block waves-effect">
-              <a href="https://blog.csdn.net/pi31415926535x" target="_blank" >
-                <i class="icon icon-lg icon-cubes"></i>
-                csdn
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/timeline"  >
-                <i class="icon icon-lg icon-calendar"></i>
-                timeline
-              </a>
-            </li>
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
         
       </ul>
     </div>
   </div>
-</aside>
+</nav>
 
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">动态规划_背包问题笔记</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
-        
-    </div>
-</header>
-<header class="content-header post-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">动态规划_背包问题笔记</h1>
-        <h5 class="subtitle">
-            
-                <time datetime="2019-02-19T05:30:33.000Z" itemprop="datePublished" class="page-time">
-  2019-02-19
-</time>
-
-
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ACM-动态规划/">ACM-动态规划</a></li></ul>
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="动态规划_背包问题笔记">
+              
+            </span>
 
             
-        </h5>
-    </div>
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      31415926535x
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-02-19 13:30" pubdate>
+        2019年2月19日 下午
+      </time>
+    </span>
+  
+</div>
 
+<div class="mt-1">
+  
     
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4.5k 字
+    </span>
+  
 
-
-</header>
-
-
-<div class="container body-wrap">
+  
     
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#背包问题"><span class="post-toc-number">1.</span> <span class="post-toc-text">背包问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#01背包"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">01背包</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#状态转移方程"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">状态转移方程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#初始化"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">初始化</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#例题"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">例题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#hud-2602"><span class="post-toc-number">1.1.3.1.</span> <span class="post-toc-text">hud-2602</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#hdu-2546"><span class="post-toc-number">1.1.3.2.</span> <span class="post-toc-text">hdu-2546</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#hdu-1171"><span class="post-toc-number">1.1.3.3.</span> <span class="post-toc-text">hdu-1171</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#完全背包"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">完全背包</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#0-1背包和完全背包的不同："><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">0-1背包和完全背包的不同：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#例题-1"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">例题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#hdu-1114"><span class="post-toc-number">1.2.2.1.</span> <span class="post-toc-text">hdu-1114</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#多重背包"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">多重背包</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#例题-2"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">例题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#hdu-2844"><span class="post-toc-number">1.3.1.1.</span> <span class="post-toc-text">hdu-2844</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#混合背包"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">混合背包</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#例题-3"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">例题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#codevs-3269"><span class="post-toc-number">1.4.1.1.</span> <span class="post-toc-text">codevs-3269</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二维费用背包"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">二维费用背包</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#例题-4"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">例题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#hdu-2159"><span class="post-toc-number">1.5.1.1.</span> <span class="post-toc-text">hdu-2159</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分组背包"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">分组背包</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#例题-5"><span class="post-toc-number">1.6.1.</span> <span class="post-toc-text">例题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#hdu-1712"><span class="post-toc-number">1.6.1.1.</span> <span class="post-toc-text">hdu-1712</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#hdu-3033"><span class="post-toc-number">1.6.1.2.</span> <span class="post-toc-text">hdu-3033</span></a></li></ol></li></ol></li></ol></li></ol>
-        </nav>
-    </aside>
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      67
+       分钟
+    </span>
+  
 
-
-<article id="post-动态规划_背包问题笔记"
-  class="post-article article-type-post fade" itemprop="blogPost">
-
-    <div class="post-card">
-        <h1 class="post-card-title">动态规划_背包问题笔记</h1>
-        <div class="post-meta">
-            <time class="post-time" title="2019-02-19 13:30:33" datetime="2019-02-19T05:30:33.000Z"  itemprop="datePublished">2019-02-19</time>
+  
+  
+</div>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ACM-动态规划/">ACM-动态规划</a></li></ul>
+          </div>
 
-
-
-            
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
-
-
+          
         </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            <p>dp自从知道有这么个东西时，就没有好好的学，，现在一看道dp的题就绕道走，，，但是，很多比赛中的dp问题有很多，，别人都会，自己不会很吃亏啊，，，于是从基础开始一点一点的补ing</p>
-<a id="more"></a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">动态规划_背包问题笔记</h1>
+            
+            <div class="markdown-body">
+              <p>dp自从知道有这么个东西时，就没有好好的学，，现在一看道dp的题就绕道走，，，但是，很多比赛中的dp问题有很多，，别人都会，自己不会很吃亏啊，，，于是从基础开始一点一点的补ing</p>
+<span id="more"></span>
 <h1 id="背包问题"><a href="#背包问题" class="headerlink" title="背包问题"></a>背包问题</h1><p>背包问题是动态规划的经典也是基础，，，下面的东西部分来自 <strong>背包九讲</strong>；</p>
 <h2 id="01背包"><a href="#01背包" class="headerlink" title="01背包"></a>01背包</h2><p>01背包指的是对于任意的物品只有 <strong>取或不取</strong> 两种状态，，</p>
 <h3 id="状态转移方程"><a href="#状态转移方程" class="headerlink" title="状态转移方程"></a>状态转移方程</h3><p>状态转移方程为：</p>
@@ -250,384 +256,372 @@ ga('send', 'pageview');
 <li>不必装满： $F[0..v]=0$</li>
 </ul>
 <p>初始化F数组就是在没有任何物品可以放入背包时的合法状态，所以，前者只有容量为零的背包什么都不装的情况下是恰好装满的，其他容量的背包都是未定义的状态，无合法解；后者因为不必装满，所以什么都不装的时候就是一个合法解，这时的价值为零。</p>
-<h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><h4 id="hud-2602"><a href="#hud-2602" class="headerlink" title="hud-2602"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=2602" target="_blank" rel="noopener">hud-2602</a></h4><p>裸的01背包，，直接做，，，注意判断当前物品是否能放入背包，，再选择放与不放，，</p>
+<h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><h4 id="hud-2602"><a href="#hud-2602" class="headerlink" title="hud-2602"></a><a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=2602">hud-2602</a></h4><p>裸的01背包，，直接做，，，注意判断当前物品是否能放入背包，，再选择放与不放，，</p>
 <p>还有内层循环容量的遍历是从0开始</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">memset</span>(dp, <span class="number">0</span>, <span class="keyword">sizeof</span> dp);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= v; ++j)</span><br><span class="line">                <span class="keyword">if</span>(c[i] &lt;= j)<span class="comment">//能放入时，选择放与不放</span></span><br><span class="line">                    dp[i][j] = max(dp[i - <span class="number">1</span>][j], dp[i - <span class="number">1</span>][j - c[i]] + w[i]);</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    dp[i][j] = dp[i - <span class="number">1</span>][j];</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, dp[n][v]);</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-built_in">memset</span>(dp, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span> dp);<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; ++i)<br>            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt;= v; ++j)<br>                <span class="hljs-keyword">if</span>(c[i] &lt;= j)<span class="hljs-comment">//能放入时，选择放与不放</span><br>                    dp[i][j] = max(dp[i - <span class="hljs-number">1</span>][j], dp[i - <span class="hljs-number">1</span>][j - c[i]] + w[i]);<br>                <span class="hljs-keyword">else</span><br>                    dp[i][j] = dp[i - <span class="hljs-number">1</span>][j];<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>, dp[n][v]);<br></code></pre></td></tr></table></figure>
 <p>空间优化后的方法：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">memset</span>(dp, <span class="number">0</span>, <span class="keyword">sizeof</span> dp);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = v; j &gt;= <span class="number">0</span>; --j)</span><br><span class="line">                <span class="keyword">if</span>(c[i] &lt;= j)<span class="comment">//能放入时，选择放与不放</span></span><br><span class="line">                    dp[j] = max(dp[j], dp[j - c[i]] + w[i]);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, dp[v]);</span><br></pre></td></tr></table></figure>
-<h4 id="hdu-2546"><a href="#hdu-2546" class="headerlink" title="hdu-2546"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=2546" target="_blank" rel="noopener">hdu-2546</a></h4><p>题意是：一个总钱数为m的钱包，在剩余金额大于等于5的情况下可以购买任何东西，即使买了一个东西后剩余钱数为负，然后给你这n个东西的标价，每种东西只能购买一次，，</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-built_in">memset</span>(dp, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span> dp);<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; ++i)<br>            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = v; j &gt;= <span class="hljs-number">0</span>; --j)<br>                <span class="hljs-keyword">if</span>(c[i] &lt;= j)<span class="hljs-comment">//能放入时，选择放与不放</span><br>                    dp[j] = max(dp[j], dp[j - c[i]] + w[i]);<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>, dp[v]);<br></code></pre></td></tr></table></figure>
+<h4 id="hdu-2546"><a href="#hdu-2546" class="headerlink" title="hdu-2546"></a><a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=2546">hdu-2546</a></h4><p>题意是：一个总钱数为m的钱包，在剩余金额大于等于5的情况下可以购买任何东西，即使买了一个东西后剩余钱数为负，然后给你这n个东西的标价，每种东西只能购买一次，，</p>
 <p>这道题按01背包做的话，可以将钱包m看成背包的容量，n道菜就是n种物品， <strong>每种物品的价值和花费都是其菜价</strong>，，</p>
 <p>这是其中一个点，还有为了尽可能的是利益最大，，我们可以先保留5块，为了最后买那个最贵的菜，，对剩下的n-1个菜选择出价值最大的，，，这样就将这道题转化成了容量为m-5的背包选择一些物品使得总价值最大，，，最后的答案在算上那个最贵的菜就行了，，，</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> dp[maxn], c[maxn], w[maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//    freopen("233.in" , "r" , stdin);</span></span><br><span class="line"><span class="comment">//    freopen("233.out" , "w" , stdout);</span></span><br><span class="line"><span class="comment">//    ios_base::sync_with_stdio(0);</span></span><br><span class="line"><span class="comment">//    cin.tie(0);cout.tie(0);</span></span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n) &amp;&amp; n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;c[i]);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> m;<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;m);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(m &lt; <span class="number">5</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, m);</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        m -= <span class="number">5</span>;</span><br><span class="line">        sort(c + <span class="number">1</span>, c + <span class="number">1</span> + n);</span><br><span class="line">        <span class="built_in">memset</span>(dp, <span class="number">0</span>, <span class="keyword">sizeof</span> dp);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n - <span class="number">1</span>; ++i)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = m; j &gt;= c[i]; --j)</span><br><span class="line">                dp[j] = max(dp[j], dp[j - c[i]] + c[i]);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, m + <span class="number">5</span> - dp[m] - c[n]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="hdu-1171"><a href="#hdu-1171" class="headerlink" title="hdu-1171"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1171" target="_blank" rel="noopener">hdu-1171</a></h4><p>题意是：有一些设施，每个设施的价值为 $w_i$，，然后要分成两堆，这两堆的价值要尽可能的相近</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> dp[maxn], c[maxn], w[maxn];<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-comment">//    freopen(&quot;233.in&quot; , &quot;r&quot; , stdin);</span><br><span class="hljs-comment">//    freopen(&quot;233.out&quot; , &quot;w&quot; , stdout);</span><br><span class="hljs-comment">//    ios_base::sync_with_stdio(0);</span><br><span class="hljs-comment">//    cin.tie(0);cout.tie(0);</span><br>    <span class="hljs-keyword">int</span> n;<br>    <span class="hljs-keyword">while</span>(<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;n) &amp;&amp; n)<br>    &#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; ++i)<br>            <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;c[i]);<br><br>        <span class="hljs-keyword">int</span> m;<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;m);<br><br>        <span class="hljs-keyword">if</span>(m &lt; <span class="hljs-number">5</span>)<br>        &#123;<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>, m);<br>            <span class="hljs-keyword">continue</span>;<br>        &#125;<br>        m -= <span class="hljs-number">5</span>;<br>        sort(c + <span class="hljs-number">1</span>, c + <span class="hljs-number">1</span> + n);<br>        <span class="hljs-built_in">memset</span>(dp, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span> dp);<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n - <span class="hljs-number">1</span>; ++i)<br>            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = m; j &gt;= c[i]; --j)<br>                dp[j] = max(dp[j], dp[j - c[i]] + c[i]);<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>, m + <span class="hljs-number">5</span> - dp[m] - c[n]);<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="hdu-1171"><a href="#hdu-1171" class="headerlink" title="hdu-1171"></a><a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=1171">hdu-1171</a></h4><p>题意是：有一些设施，每个设施的价值为 $w_i$，，然后要分成两堆，这两堆的价值要尽可能的相近</p>
 <p>显然分后的价值和 $sum$ 就是原来的价值和，，然后肯定一个大于等于均值，一个小于等于，，，所以可以将这道题目看成01背包的模型：一个容量为 $sum/2$ 的背包，选择装一些物品，这些物品的价值的和费用相同，，求最大的价值</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> dp[maxn], c[maxn], w[maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//    freopen("233.in" , "r" , stdin);</span></span><br><span class="line"><span class="comment">//    freopen("233.out" , "w" , stdout);</span></span><br><span class="line"><span class="comment">//    ios_base::sync_with_stdio(0);</span></span><br><span class="line"><span class="comment">//    cin.tie(0);cout.tie(0);</span></span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n) &amp;&amp; n &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> tot = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> a, b;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;a, &amp;b);</span><br><span class="line">            <span class="keyword">while</span>(b--)w[++tot] = a;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">memset</span>(dp, <span class="number">0</span>, <span class="keyword">sizeof</span> dp);</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= tot; ++i)sum += w[i];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= tot; ++i)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = sum / <span class="number">2</span>; j &gt;= w[i]; --j)</span><br><span class="line">                dp[j] = max(dp[j], dp[j - w[i]] + w[i]);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>, sum - dp[sum / <span class="number">2</span>], dp[sum / <span class="number">2</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a href="https://blog.csdn.net/libin56842/article/details/9338841" target="_blank" rel="noopener">剩下一些其他题，，以后再说</a></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> dp[maxn], c[maxn], w[maxn];<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-comment">//    freopen(&quot;233.in&quot; , &quot;r&quot; , stdin);</span><br><span class="hljs-comment">//    freopen(&quot;233.out&quot; , &quot;w&quot; , stdout);</span><br><span class="hljs-comment">//    ios_base::sync_with_stdio(0);</span><br><span class="hljs-comment">//    cin.tie(0);cout.tie(0);</span><br>    <span class="hljs-keyword">int</span> n;<br>    <span class="hljs-keyword">while</span>(<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;n) &amp;&amp; n &gt; <span class="hljs-number">0</span>)<br>    &#123;<br>        <span class="hljs-keyword">int</span> tot = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; ++i)<br>        &#123;<br>            <span class="hljs-keyword">int</span> a, b;<br>            <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d&quot;</span>, &amp;a, &amp;b);<br>            <span class="hljs-keyword">while</span>(b--)w[++tot] = a;<br>        &#125;<br>        <span class="hljs-built_in">memset</span>(dp, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span> dp);<br>        <span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= tot; ++i)sum += w[i];<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= tot; ++i)<br>            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = sum / <span class="hljs-number">2</span>; j &gt;= w[i]; --j)<br>                dp[j] = max(dp[j], dp[j - w[i]] + w[i]);<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d %d\n&quot;</span>, sum - dp[sum / <span class="hljs-number">2</span>], dp[sum / <span class="hljs-number">2</span>]);<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/libin56842/article/details/9338841">剩下一些其他题，，以后再说</a></p>
 <h2 id="完全背包"><a href="#完全背包" class="headerlink" title="完全背包"></a>完全背包</h2><p>完全背包就是在01背包的基础上对于物品的限制解除，，物品不再为只能取一件，而是无限件（实际也不可能是无限件，每一个物品最多取 $\lfloor \frac{v}{c_i} \rfloor$），，</p>
 <p>将完全背包转化为01背包后， 状态转移方程和01背包的类似，，只有对背包容量的枚举也就是内层循环中，完全背包是递增的顺序而01背包的是递减的顺序，，</p>
 <p>$for \ j=c_i \ to \ v$</p>
-<h3 id="0-1背包和完全背包的不同："><a href="#0-1背包和完全背包的不同：" class="headerlink" title="0-1背包和完全背包的不同："></a><a href="https://blog.csdn.net/qq_38984851/article/details/81133840" target="_blank" rel="noopener">0-1背包和完全背包的不同：</a></h3><blockquote>
+<h3 id="0-1背包和完全背包的不同："><a href="#0-1背包和完全背包的不同：" class="headerlink" title="0-1背包和完全背包的不同："></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38984851/article/details/81133840">0-1背包和完全背包的不同：</a></h3><blockquote>
 <p>从二维数组上区别0-1背包和完全背包也就是状态转移方程就差别在放第i中物品时，完全背包在选择放这个物品时，最优解是F[i][j-c[i]]+w[i]即画表格中同行的那一个，而0-1背包比较的是F[i-1][j-c[i]]+w[i]，上一行的那一个。</p>
 <p>从一维数组上区别0-1背包和完全背包差别就在循环顺序上，0-1背包必须逆序，因为这样保证了不会重复选择已经选择的物品，而完全背包是顺序，顺序会覆盖以前的状态，所以存在选择多次的情况，也符合完全背包的题意。状态转移方程都为F[i] = max(F[i],dp[F-c[i]]+v[i])。</p>
 </blockquote>
-<h3 id="例题-1"><a href="#例题-1" class="headerlink" title="例题"></a>例题</h3><h4 id="hdu-1114"><a href="#hdu-1114" class="headerlink" title="hdu-1114"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1114" target="_blank" rel="noopener">hdu-1114</a></h4><p>题意是：给你一个存钱罐的总质量个单纯存钱罐的质量（也就是差为钱的质量），，以及n种硬币的面值和质量，然后问你最小的金额是多少</p>
+<h3 id="例题-1"><a href="#例题-1" class="headerlink" title="例题"></a>例题</h3><h4 id="hdu-1114"><a href="#hdu-1114" class="headerlink" title="hdu-1114"></a><a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=1114">hdu-1114</a></h4><p>题意是：给你一个存钱罐的总质量个单纯存钱罐的质量（也就是差为钱的质量），，以及n种硬币的面值和质量，然后问你最小的金额是多少</p>
 <p>差值可以看作背包的容量，每个硬币的质量为物品的代价，面值为其价值，，然后求最小的价值转移方程里就为min，，初始化再改变一下，，</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> dp[maxn], c[maxn], w[maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//    freopen("233.in" , "r" , stdin);</span></span><br><span class="line"><span class="comment">//    freopen("233.out" , "w" , stdout);</span></span><br><span class="line"><span class="comment">//    ios_base::sync_with_stdio(0);</span></span><br><span class="line"><span class="comment">//    cin.tie(0);cout.tie(0);</span></span><br><span class="line">    <span class="keyword">int</span> t;<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;t);</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> e, f;<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;e, &amp;f);</span><br><span class="line">        <span class="keyword">int</span> v = f - e;</span><br><span class="line">        <span class="keyword">int</span> k;<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;k);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= k; ++i)<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;w[i], &amp;c[i]);</span><br><span class="line">        <span class="built_in">memset</span>(dp, inf, <span class="keyword">sizeof</span> dp);</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= k; ++i)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = c[i]; j &lt;= v; ++j)</span><br><span class="line">                dp[j] = min(dp[j], dp[j - c[i]] + w[i]);</span><br><span class="line">        <span class="keyword">if</span>(dp[v] &gt;= inf)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"This is impossible.\n"</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"The minimum amount of money in the piggy-bank is %d.\n"</span>, dp[v]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> dp[maxn], c[maxn], w[maxn];<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-comment">//    freopen(&quot;233.in&quot; , &quot;r&quot; , stdin);</span><br><span class="hljs-comment">//    freopen(&quot;233.out&quot; , &quot;w&quot; , stdout);</span><br><span class="hljs-comment">//    ios_base::sync_with_stdio(0);</span><br><span class="hljs-comment">//    cin.tie(0);cout.tie(0);</span><br>    <span class="hljs-keyword">int</span> t;<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;t);<br>    <span class="hljs-keyword">while</span>(t--)<br>    &#123;<br>        <span class="hljs-keyword">int</span> e, f;<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d&quot;</span>, &amp;e, &amp;f);<br>        <span class="hljs-keyword">int</span> v = f - e;<br>        <span class="hljs-keyword">int</span> k;<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;k);<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= k; ++i)<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d&quot;</span>, &amp;w[i], &amp;c[i]);<br>        <span class="hljs-built_in">memset</span>(dp, inf, <span class="hljs-keyword">sizeof</span> dp);<br>        dp[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= k; ++i)<br>            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = c[i]; j &lt;= v; ++j)<br>                dp[j] = min(dp[j], dp[j - c[i]] + w[i]);<br>        <span class="hljs-keyword">if</span>(dp[v] &gt;= inf)<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;This is impossible.\n&quot;</span>);<br>        <span class="hljs-keyword">else</span><br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;The minimum amount of money in the piggy-bank is %d.\n&quot;</span>, dp[v]);<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 <h2 id="多重背包"><a href="#多重背包" class="headerlink" title="多重背包"></a>多重背包</h2><p>多重背包就是完全背包的限制版，，每一种物品不再是无限个，，而是给定的个数，最后还是求背包的最大价值什么的，，，</p>
 <p>转化成01背包问题就是对于每一种物品取 $1, 2, 2^2, 2^3,,,2^{k-1},M_i-2^k+1$件，，</p>
 <p>一般的多重背包模板：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> dp[maxn], c[maxn], w[maxn], num[maxn];</span><br><span class="line"><span class="keyword">int</span> n, m, v;<span class="comment">//n为物品总数，v为背包容量</span></span><br><span class="line"><span class="comment">//01背包，该物品的代价，价值</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ZeroOnePack</span><span class="params">(<span class="keyword">int</span> C, <span class="keyword">int</span> W)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = v; i &gt;= C; --i)</span><br><span class="line">        dp[i] = max(dp[i], dp[i - C] + W);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//完全背包，该物品的代价，价值</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">CompletePack</span><span class="params">(<span class="keyword">int</span> C, <span class="keyword">int</span> W)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = C; i &lt;= v; ++i)</span><br><span class="line">        dp[i] = max(dp[i], dp[i - C] + W);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//一次多重背包，该物品的代价，价值，数量</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">OneMuitPack</span><span class="params">(<span class="keyword">int</span> C, <span class="keyword">int</span> W, <span class="keyword">int</span> M)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(v &lt;= C * M)<span class="comment">//物品足够多时用完全背包</span></span><br><span class="line">    &#123;</span><br><span class="line">        CompletePack(C, W);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>        <span class="comment">//否则用二进制划分成若干件01背包的物品</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> k = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(k &lt; M)</span><br><span class="line">        &#123;</span><br><span class="line">            ZeroOnePack(k * C, k * W);<span class="comment">//某一个划分成01背包的物品</span></span><br><span class="line">            M -= k;</span><br><span class="line">            k &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        ZeroOnePack(C * M, W * M);<span class="comment">//剩下的一些物品</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="例题-2"><a href="#例题-2" class="headerlink" title="例题"></a>例题</h3><h4 id="hdu-2844"><a href="#hdu-2844" class="headerlink" title="hdu-2844"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=2844" target="_blank" rel="noopener">hdu-2844</a></h4><p>题意是：n种面值的硬币，每种硬币的个数限定，问你能够组成几种面值和不超过m的组成方法，</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> dp[maxn], c[maxn], w[maxn], num[maxn];<br><span class="hljs-keyword">int</span> n, m, v;<span class="hljs-comment">//n为物品总数，v为背包容量</span><br><span class="hljs-comment">//01背包，该物品的代价，价值</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">ZeroOnePack</span><span class="hljs-params">(<span class="hljs-keyword">int</span> C, <span class="hljs-keyword">int</span> W)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = v; i &gt;= C; --i)<br>        dp[i] = max(dp[i], dp[i - C] + W);<br>    <span class="hljs-keyword">return</span>;<br>&#125;<br><span class="hljs-comment">//完全背包，该物品的代价，价值</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">CompletePack</span><span class="hljs-params">(<span class="hljs-keyword">int</span> C, <span class="hljs-keyword">int</span> W)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = C; i &lt;= v; ++i)<br>        dp[i] = max(dp[i], dp[i - C] + W);<br>    <span class="hljs-keyword">return</span>;<br>&#125;<br><span class="hljs-comment">//一次多重背包，该物品的代价，价值，数量</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">OneMuitPack</span><span class="hljs-params">(<span class="hljs-keyword">int</span> C, <span class="hljs-keyword">int</span> W, <span class="hljs-keyword">int</span> M)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span>(v &lt;= C * M)<span class="hljs-comment">//物品足够多时用完全背包</span><br>    &#123;<br>        CompletePack(C, W);<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span>        <span class="hljs-comment">//否则用二进制划分成若干件01背包的物品</span><br>    &#123;<br>        <span class="hljs-keyword">int</span> k = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">while</span>(k &lt; M)<br>        &#123;<br>            ZeroOnePack(k * C, k * W);<span class="hljs-comment">//某一个划分成01背包的物品</span><br>            M -= k;<br>            k &lt;&lt;= <span class="hljs-number">1</span>;<br>        &#125;<br>        ZeroOnePack(C * M, W * M);<span class="hljs-comment">//剩下的一些物品</span><br>    &#125;<br>    <span class="hljs-keyword">return</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="例题-2"><a href="#例题-2" class="headerlink" title="例题"></a>例题</h3><h4 id="hdu-2844"><a href="#hdu-2844" class="headerlink" title="hdu-2844"></a><a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=2844">hdu-2844</a></h4><p>题意是：n种面值的硬币，每种硬币的个数限定，问你能够组成几种面值和不超过m的组成方法，</p>
 <p>转化成背包问题就是，一个容量为m的背包装一些价值和代价都为面值的物品，其中物品的个数有限制，，问背包内的价值的可能种类</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//cf</span></span><br><span class="line"><span class="comment">//#include &lt;bits/stdc++.h&gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> aaa cout&lt;&lt;233&lt;&lt;endl;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> endl <span class="meta-string">'\n'</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pb push_back</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>, ull&gt; pii;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;<span class="comment">//1061109567</span></span><br><span class="line"><span class="keyword">const</span> ll linf = <span class="number">0x3f3f3f3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> eps = <span class="number">1e-6</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> pi = <span class="number">3.14159265358979</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxm = <span class="number">2e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> ll mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"><span class="keyword">int</span> dp[maxn], c[maxn], w[maxn], num[maxn];</span><br><span class="line"><span class="keyword">int</span> n, m, v;<span class="comment">//n为物品总数，v为背包容量</span></span><br><span class="line"><span class="comment">//01背包，该物品的代价，价值</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ZeroOnePack</span><span class="params">(<span class="keyword">int</span> C, <span class="keyword">int</span> W)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = v; i &gt;= C; --i)</span><br><span class="line">        dp[i] = max(dp[i], dp[i - C] + W);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//完全背包，该物品的代价，价值</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">CompletePack</span><span class="params">(<span class="keyword">int</span> C, <span class="keyword">int</span> W)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = C; i &lt;= v; ++i)</span><br><span class="line">        dp[i] = max(dp[i], dp[i - C] + W);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//一次多重背包，该物品的代价，价值，数量</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">OneMuitPack</span><span class="params">(<span class="keyword">int</span> C, <span class="keyword">int</span> W, <span class="keyword">int</span> M)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(v &lt;= C * M)<span class="comment">//物品足够多时用完全背包</span></span><br><span class="line">    &#123;</span><br><span class="line">        CompletePack(C, W);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>        <span class="comment">//否则用二进制划分成若干件01背包的物品</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> k = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(k &lt; M)</span><br><span class="line">        &#123;</span><br><span class="line">            ZeroOnePack(k * C, k * W);<span class="comment">//某一个划分成01背包的物品</span></span><br><span class="line">            M -= k;</span><br><span class="line">            k &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        ZeroOnePack(C * M, W * M);<span class="comment">//剩下的一些物品</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//    freopen("233.in" , "r" , stdin);</span></span><br><span class="line"><span class="comment">//    freopen("233.out" , "w" , stdout);</span></span><br><span class="line"><span class="comment">//    ios_base::sync_with_stdio(0);</span></span><br><span class="line"><span class="comment">//    cin.tie(0);cout.tie(0);</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;m) &amp;&amp; n + m)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;w[i]);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;num[i]);</span><br><span class="line">        <span class="built_in">memset</span>(dp, <span class="number">0</span>, <span class="keyword">sizeof</span> dp);</span><br><span class="line">        v = m;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">            OneMuitPack(w[i], w[i], num[i]);</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; ++i)<span class="keyword">if</span>(dp[i] == i)++ans;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">//cf</span><br><span class="hljs-comment">//#include &lt;bits/stdc++.h&gt;</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdio&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdlib&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;algorithm&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> aaa cout&lt;&lt;233&lt;&lt;endl;</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> endl <span class="hljs-meta-string">&#x27;\n&#x27;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> pb push_back</span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ll;<br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ull;<br><span class="hljs-keyword">typedef</span> <span class="hljs-built_in">pair</span>&lt;<span class="hljs-keyword">int</span>, ull&gt; pii;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> inf = <span class="hljs-number">0x3f3f3f3f</span>;<span class="hljs-comment">//1061109567</span><br><span class="hljs-keyword">const</span> ll linf = <span class="hljs-number">0x3f3f3f3f3f3f3f</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">double</span> eps = <span class="hljs-number">1e-6</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">double</span> pi = <span class="hljs-number">3.14159265358979</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> maxn = <span class="hljs-number">1e5</span> + <span class="hljs-number">5</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> maxm = <span class="hljs-number">2e5</span> + <span class="hljs-number">5</span>;<br><span class="hljs-keyword">const</span> ll mod = <span class="hljs-number">1e9</span> + <span class="hljs-number">7</span>;<br><span class="hljs-keyword">int</span> dp[maxn], c[maxn], w[maxn], num[maxn];<br><span class="hljs-keyword">int</span> n, m, v;<span class="hljs-comment">//n为物品总数，v为背包容量</span><br><span class="hljs-comment">//01背包，该物品的代价，价值</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">ZeroOnePack</span><span class="hljs-params">(<span class="hljs-keyword">int</span> C, <span class="hljs-keyword">int</span> W)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = v; i &gt;= C; --i)<br>        dp[i] = max(dp[i], dp[i - C] + W);<br>    <span class="hljs-keyword">return</span>;<br>&#125;<br><span class="hljs-comment">//完全背包，该物品的代价，价值</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">CompletePack</span><span class="hljs-params">(<span class="hljs-keyword">int</span> C, <span class="hljs-keyword">int</span> W)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = C; i &lt;= v; ++i)<br>        dp[i] = max(dp[i], dp[i - C] + W);<br>    <span class="hljs-keyword">return</span>;<br>&#125;<br><span class="hljs-comment">//一次多重背包，该物品的代价，价值，数量</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">OneMuitPack</span><span class="hljs-params">(<span class="hljs-keyword">int</span> C, <span class="hljs-keyword">int</span> W, <span class="hljs-keyword">int</span> M)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span>(v &lt;= C * M)<span class="hljs-comment">//物品足够多时用完全背包</span><br>    &#123;<br>        CompletePack(C, W);<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span>        <span class="hljs-comment">//否则用二进制划分成若干件01背包的物品</span><br>    &#123;<br>        <span class="hljs-keyword">int</span> k = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">while</span>(k &lt; M)<br>        &#123;<br>            ZeroOnePack(k * C, k * W);<span class="hljs-comment">//某一个划分成01背包的物品</span><br>            M -= k;<br>            k &lt;&lt;= <span class="hljs-number">1</span>;<br>        &#125;<br>        ZeroOnePack(C * M, W * M);<span class="hljs-comment">//剩下的一些物品</span><br>    &#125;<br>    <span class="hljs-keyword">return</span>;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-comment">//    freopen(&quot;233.in&quot; , &quot;r&quot; , stdin);</span><br><span class="hljs-comment">//    freopen(&quot;233.out&quot; , &quot;w&quot; , stdout);</span><br><span class="hljs-comment">//    ios_base::sync_with_stdio(0);</span><br><span class="hljs-comment">//    cin.tie(0);cout.tie(0);</span><br>    <span class="hljs-keyword">while</span>(<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d&quot;</span>, &amp;n, &amp;m) &amp;&amp; n + m)<br>    &#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; ++i)<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;w[i]);<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; ++i)<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;num[i]);<br>        <span class="hljs-built_in">memset</span>(dp, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span> dp);<br>        v = m;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; ++i)<br>            OneMuitPack(w[i], w[i], num[i]);<br>        <span class="hljs-keyword">int</span> ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= m; ++i)<span class="hljs-keyword">if</span>(dp[i] == i)++ans;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>, ans);<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 <h2 id="混合背包"><a href="#混合背包" class="headerlink" title="混合背包"></a>混合背包</h2><p>混合背包就是n种物品有的只能取一次，有的能取有限次，有的能取无限次，然后问你对于容量为v的背包的可取最大价值是多少</p>
 <p>直接判断每个物品的种类，使用不同的背包类型就行了</p>
-<h3 id="例题-3"><a href="#例题-3" class="headerlink" title="例题"></a>例题</h3><h4 id="codevs-3269"><a href="#codevs-3269" class="headerlink" title="codevs-3269"></a><a href="http://codevs.cn/problem/3269/" target="_blank" rel="noopener">codevs-3269</a></h4><p>题意就是混合背包的定义，，直接做就行</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//cf</span></span><br><span class="line"><span class="comment">//#include &lt;bits/stdc++.h&gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> aaa cout&lt;&lt;233&lt;&lt;endl;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> endl <span class="meta-string">'\n'</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pb push_back</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>, ull&gt; pii;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;<span class="comment">//1061109567</span></span><br><span class="line"><span class="keyword">const</span> ll linf = <span class="number">0x3f3f3f3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> eps = <span class="number">1e-6</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> pi = <span class="number">3.14159265358979</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">2e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxm = <span class="number">2e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> ll mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"><span class="keyword">int</span> dp[maxn], c[maxn], w[maxn], num[maxn];</span><br><span class="line"><span class="keyword">int</span> n, m, v;<span class="comment">//n为物品总数，v为背包容量</span></span><br><span class="line"><span class="comment">//01背包，该物品的代价，价值</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ZeroOnePack</span><span class="params">(<span class="keyword">int</span> C, <span class="keyword">int</span> W)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = v; i &gt;= C; --i)</span><br><span class="line">        dp[i] = max(dp[i], dp[i - C] + W);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//完全背包，该物品的代价，价值</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">CompletePack</span><span class="params">(<span class="keyword">int</span> C, <span class="keyword">int</span> W)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = C; i &lt;= v; ++i)</span><br><span class="line">        dp[i] = max(dp[i], dp[i - C] + W);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//一次多重背包，该物品的代价，价值，数量</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">OneMuitPack</span><span class="params">(<span class="keyword">int</span> C, <span class="keyword">int</span> W, <span class="keyword">int</span> M)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(v &lt;= C * M)<span class="comment">//物品足够多时用完全背包</span></span><br><span class="line">    &#123;</span><br><span class="line">        CompletePack(C, W);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>        <span class="comment">//否则用二进制划分成若干件01背包的物品</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> k = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(k &lt; M)</span><br><span class="line">        &#123;</span><br><span class="line">            ZeroOnePack(k * C, k * W);<span class="comment">//某一个划分成01背包的物品</span></span><br><span class="line">            M -= k;</span><br><span class="line">            k &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        ZeroOnePack(C * M, W * M);<span class="comment">//剩下的一些物品</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//    ios_base::sync_with_stdio(0);</span></span><br><span class="line"><span class="comment">//    cin.tie(0);cout.tie(0);</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;v);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)<span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;c[i], &amp;w[i], &amp;num[i]);</span><br><span class="line">    <span class="built_in">memset</span>(dp, <span class="number">0</span>, <span class="keyword">sizeof</span> dp);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(num[i] == <span class="number">1</span>)</span><br><span class="line">            ZeroOnePack(c[i], w[i]);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(num[i] == <span class="number">-1</span>)</span><br><span class="line">            CompletePack(c[i], w[i]);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            OneMuitPack(c[i], w[i], num[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, dp[v]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="例题-3"><a href="#例题-3" class="headerlink" title="例题"></a>例题</h3><h4 id="codevs-3269"><a href="#codevs-3269" class="headerlink" title="codevs-3269"></a><a target="_blank" rel="noopener" href="http://codevs.cn/problem/3269/">codevs-3269</a></h4><p>题意就是混合背包的定义，，直接做就行</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">//cf</span><br><span class="hljs-comment">//#include &lt;bits/stdc++.h&gt;</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdio&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdlib&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;algorithm&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> aaa cout&lt;&lt;233&lt;&lt;endl;</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> endl <span class="hljs-meta-string">&#x27;\n&#x27;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> pb push_back</span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ll;<br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ull;<br><span class="hljs-keyword">typedef</span> <span class="hljs-built_in">pair</span>&lt;<span class="hljs-keyword">int</span>, ull&gt; pii;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> inf = <span class="hljs-number">0x3f3f3f3f</span>;<span class="hljs-comment">//1061109567</span><br><span class="hljs-keyword">const</span> ll linf = <span class="hljs-number">0x3f3f3f3f3f3f3f</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">double</span> eps = <span class="hljs-number">1e-6</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">double</span> pi = <span class="hljs-number">3.14159265358979</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> maxn = <span class="hljs-number">2e5</span> + <span class="hljs-number">5</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> maxm = <span class="hljs-number">2e5</span> + <span class="hljs-number">5</span>;<br><span class="hljs-keyword">const</span> ll mod = <span class="hljs-number">1e9</span> + <span class="hljs-number">7</span>;<br><span class="hljs-keyword">int</span> dp[maxn], c[maxn], w[maxn], num[maxn];<br><span class="hljs-keyword">int</span> n, m, v;<span class="hljs-comment">//n为物品总数，v为背包容量</span><br><span class="hljs-comment">//01背包，该物品的代价，价值</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">ZeroOnePack</span><span class="hljs-params">(<span class="hljs-keyword">int</span> C, <span class="hljs-keyword">int</span> W)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = v; i &gt;= C; --i)<br>        dp[i] = max(dp[i], dp[i - C] + W);<br>    <span class="hljs-keyword">return</span>;<br>&#125;<br><span class="hljs-comment">//完全背包，该物品的代价，价值</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">CompletePack</span><span class="hljs-params">(<span class="hljs-keyword">int</span> C, <span class="hljs-keyword">int</span> W)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = C; i &lt;= v; ++i)<br>        dp[i] = max(dp[i], dp[i - C] + W);<br>    <span class="hljs-keyword">return</span>;<br>&#125;<br><span class="hljs-comment">//一次多重背包，该物品的代价，价值，数量</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">OneMuitPack</span><span class="hljs-params">(<span class="hljs-keyword">int</span> C, <span class="hljs-keyword">int</span> W, <span class="hljs-keyword">int</span> M)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span>(v &lt;= C * M)<span class="hljs-comment">//物品足够多时用完全背包</span><br>    &#123;<br>        CompletePack(C, W);<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span>        <span class="hljs-comment">//否则用二进制划分成若干件01背包的物品</span><br>    &#123;<br>        <span class="hljs-keyword">int</span> k = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">while</span>(k &lt; M)<br>        &#123;<br>            ZeroOnePack(k * C, k * W);<span class="hljs-comment">//某一个划分成01背包的物品</span><br>            M -= k;<br>            k &lt;&lt;= <span class="hljs-number">1</span>;<br>        &#125;<br>        ZeroOnePack(C * M, W * M);<span class="hljs-comment">//剩下的一些物品</span><br>    &#125;<br>    <span class="hljs-keyword">return</span>;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-comment">//    ios_base::sync_with_stdio(0);</span><br><span class="hljs-comment">//    cin.tie(0);cout.tie(0);</span><br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d&quot;</span>, &amp;n, &amp;v);<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; ++i)<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d%d&quot;</span>, &amp;c[i], &amp;w[i], &amp;num[i]);<br>    <span class="hljs-built_in">memset</span>(dp, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span> dp);<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; ++i)<br>    &#123;<br>        <span class="hljs-keyword">if</span>(num[i] == <span class="hljs-number">1</span>)<br>            ZeroOnePack(c[i], w[i]);<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(num[i] == <span class="hljs-number">-1</span>)<br>            CompletePack(c[i], w[i]);<br>        <span class="hljs-keyword">else</span><br>            OneMuitPack(c[i], w[i], num[i]);<br>    &#125;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>, dp[v]);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 <h2 id="二维费用背包"><a href="#二维费用背包" class="headerlink" title="二维费用背包"></a>二维费用背包</h2><p>二维费用指的就是相比之前的背包问题侑多了一个费用的影响因素，，对于一个物品有两个不同的代价以及其容量，，做法和前面的一样，dp数组增加一维就行了，，</p>
-<h3 id="例题-4"><a href="#例题-4" class="headerlink" title="例题"></a>例题</h3><h4 id="hdu-2159"><a href="#hdu-2159" class="headerlink" title="hdu-2159"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=2159" target="_blank" rel="noopener">hdu-2159</a></h4><p>转化成背包问题就是代价一是忍耐度，背包容量为m；代价二就是打怪，容量就是s，，求最大的价值（经验值）与n的大小关系，，，</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//cf</span></span><br><span class="line"><span class="comment">//#include &lt;bits/stdc++.h&gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> aaa cout&lt;&lt;233&lt;&lt;endl;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> endl <span class="meta-string">'\n'</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pb push_back</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>, ull&gt; pii;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;<span class="comment">//1061109567</span></span><br><span class="line"><span class="keyword">const</span> ll linf = <span class="number">0x3f3f3f3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> eps = <span class="number">1e-6</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> pi = <span class="number">3.14159265358979</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e3</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxm = <span class="number">2e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> ll mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"><span class="keyword">int</span> dp[maxn][maxn], c[maxn], w[maxn], num[maxn];</span><br><span class="line"><span class="keyword">int</span> n, m, v;<span class="comment">//n为物品总数，v为背包容量</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//    freopen("233.in" , "r" , stdin);</span></span><br><span class="line"><span class="comment">//    freopen("233.out" , "w" , stdout);</span></span><br><span class="line"><span class="comment">//    ios_base::sync_with_stdio(0);</span></span><br><span class="line"><span class="comment">//    cin.tie(0);cout.tie(0);</span></span><br><span class="line">    <span class="keyword">int</span> n, m, k, s;</span><br><span class="line">    <span class="keyword">while</span>(~<span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>, &amp;n, &amp;m, &amp;k, &amp;s))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">memset</span>(w, <span class="number">0</span>, <span class="keyword">sizeof</span> w);</span><br><span class="line">        <span class="built_in">memset</span>(c, <span class="number">0</span>, <span class="keyword">sizeof</span> c);</span><br><span class="line">        <span class="built_in">memset</span>(dp, <span class="number">0</span>, <span class="keyword">sizeof</span> dp);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= k; ++i)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;w[i], &amp;c[i]);</span><br><span class="line">        <span class="keyword">int</span> ans = inf;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= k; ++i)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = c[i]; j &lt;= m; ++j)</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= s; ++k)</span><br><span class="line">                &#123;</span><br><span class="line">                    dp[j][k] = max(dp[j][k], dp[j - c[i]][k - <span class="number">1</span>] + w[i]);</span><br><span class="line">                    <span class="keyword">if</span>(dp[j][k] &gt;= n)ans = min(ans, j);</span><br><span class="line">                &#125;</span><br><span class="line">        <span class="keyword">if</span>(ans &gt; m)<span class="built_in">printf</span>(<span class="string">"-1\n"</span>);</span><br><span class="line">        <span class="keyword">else</span>       <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, m - ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="例题-4"><a href="#例题-4" class="headerlink" title="例题"></a>例题</h3><h4 id="hdu-2159"><a href="#hdu-2159" class="headerlink" title="hdu-2159"></a><a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=2159">hdu-2159</a></h4><p>转化成背包问题就是代价一是忍耐度，背包容量为m；代价二就是打怪，容量就是s，，求最大的价值（经验值）与n的大小关系，，，</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">//cf</span><br><span class="hljs-comment">//#include &lt;bits/stdc++.h&gt;</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdio&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdlib&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;algorithm&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> aaa cout&lt;&lt;233&lt;&lt;endl;</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> endl <span class="hljs-meta-string">&#x27;\n&#x27;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> pb push_back</span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ll;<br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ull;<br><span class="hljs-keyword">typedef</span> <span class="hljs-built_in">pair</span>&lt;<span class="hljs-keyword">int</span>, ull&gt; pii;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> inf = <span class="hljs-number">0x3f3f3f3f</span>;<span class="hljs-comment">//1061109567</span><br><span class="hljs-keyword">const</span> ll linf = <span class="hljs-number">0x3f3f3f3f3f3f3f</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">double</span> eps = <span class="hljs-number">1e-6</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">double</span> pi = <span class="hljs-number">3.14159265358979</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> maxn = <span class="hljs-number">1e3</span> + <span class="hljs-number">5</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> maxm = <span class="hljs-number">2e5</span> + <span class="hljs-number">5</span>;<br><span class="hljs-keyword">const</span> ll mod = <span class="hljs-number">1e9</span> + <span class="hljs-number">7</span>;<br><span class="hljs-keyword">int</span> dp[maxn][maxn], c[maxn], w[maxn], num[maxn];<br><span class="hljs-keyword">int</span> n, m, v;<span class="hljs-comment">//n为物品总数，v为背包容量</span><br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-comment">//    freopen(&quot;233.in&quot; , &quot;r&quot; , stdin);</span><br><span class="hljs-comment">//    freopen(&quot;233.out&quot; , &quot;w&quot; , stdout);</span><br><span class="hljs-comment">//    ios_base::sync_with_stdio(0);</span><br><span class="hljs-comment">//    cin.tie(0);cout.tie(0);</span><br>    <span class="hljs-keyword">int</span> n, m, k, s;<br>    <span class="hljs-keyword">while</span>(~<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d%d%d&quot;</span>, &amp;n, &amp;m, &amp;k, &amp;s))<br>    &#123;<br>        <span class="hljs-built_in">memset</span>(w, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span> w);<br>        <span class="hljs-built_in">memset</span>(c, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span> c);<br>        <span class="hljs-built_in">memset</span>(dp, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span> dp);<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= k; ++i)<br>            <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d&quot;</span>, &amp;w[i], &amp;c[i]);<br>        <span class="hljs-keyword">int</span> ans = inf;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= k; ++i)<br>            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = c[i]; j &lt;= m; ++j)<br>                <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> k = <span class="hljs-number">1</span>; k &lt;= s; ++k)<br>                &#123;<br>                    dp[j][k] = max(dp[j][k], dp[j - c[i]][k - <span class="hljs-number">1</span>] + w[i]);<br>                    <span class="hljs-keyword">if</span>(dp[j][k] &gt;= n)ans = min(ans, j);<br>                &#125;<br>        <span class="hljs-keyword">if</span>(ans &gt; m)<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;-1\n&quot;</span>);<br>        <span class="hljs-keyword">else</span>       <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>, m - ans);<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p><del>(loading)</del></p>
 <h2 id="分组背包"><a href="#分组背包" class="headerlink" title="分组背包"></a>分组背包</h2><p>分组背包就是：一堆物品被划分成了K组，同一组的物品只能选择一个，或者这组不选，其他的条件和其他背包模型一样，，</p>
 <p>解决方法，再加一层对每组背包的枚举</p>
 <p>伪代码：</p>
 <p>$for \ k=1 \ to \ K$&lt;/br&gt;<br>$for \ v=V \ to \ V$&lt;/br&gt;<br>$for \ item \ i \ in \ group \ k$&lt;/br&gt;<br>$F[v]=max(F[v], F[v-C_i]+W_i)$</p>
-<h3 id="例题-5"><a href="#例题-5" class="headerlink" title="例题"></a>例题</h3><h4 id="hdu-1712"><a href="#hdu-1712" class="headerlink" title="hdu-1712"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1712" target="_blank" rel="noopener">hdu-1712</a></h4><p>题意就是有n节课，每一课上几天的价值给你，，一共要上m节课，问最大的价值，，</p>
+<h3 id="例题-5"><a href="#例题-5" class="headerlink" title="例题"></a>例题</h3><h4 id="hdu-1712"><a href="#hdu-1712" class="headerlink" title="hdu-1712"></a><a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=1712">hdu-1712</a></h4><p>题意就是有n节课，每一课上几天的价值给你，，一共要上m节课，问最大的价值，，</p>
 <p>把这道题看成容量为m的背包，装分为n组的物品最大的价值就行</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> dp[maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, m;</span><br><span class="line">    <span class="keyword">int</span> a[maxn][maxn];</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;m) &amp;&amp; n + m)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">memset</span>(a, <span class="number">0</span>, <span class="keyword">sizeof</span> a);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; ++j)</span><br><span class="line">                <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a[i][j]);</span><br><span class="line">        <span class="built_in">memset</span>(dp, <span class="number">0</span>, <span class="keyword">sizeof</span> dp);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= n; ++k)<span class="comment">//枚举组数</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = m; j &gt;= <span class="number">0</span>; --j)<span class="comment">//枚举背包的容量</span></span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; ++i)<span class="comment">//枚举第k组的物品</span></span><br><span class="line">                    <span class="keyword">if</span>(i &lt;= j)<span class="comment">//保证能装下</span></span><br><span class="line">                    dp[j] = max(dp[j], dp[j - i] + a[k][i]);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, dp[m]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="hdu-3033"><a href="#hdu-3033" class="headerlink" title="hdu-3033"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=3033" target="_blank" rel="noopener">hdu-3033</a></h4><p>题意就是一堆鞋子，某一些是一个牌子的，然后每一双鞋有一个价格（看作代价），一个价值，每个牌子至少取一双，问最大的价值，，，</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> dp[maxn];<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> n, m;<br>    <span class="hljs-keyword">int</span> a[maxn][maxn];<br>    <span class="hljs-keyword">while</span>(<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d&quot;</span>, &amp;n, &amp;m) &amp;&amp; n + m)<br>    &#123;<br>        <span class="hljs-built_in">memset</span>(a, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span> a);<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; ++i)<br>            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt;= m; ++j)<br>                <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;a[i][j]);<br>        <span class="hljs-built_in">memset</span>(dp, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span> dp);<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> k = <span class="hljs-number">1</span>; k &lt;= n; ++k)<span class="hljs-comment">//枚举组数</span><br>            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = m; j &gt;= <span class="hljs-number">0</span>; --j)<span class="hljs-comment">//枚举背包的容量</span><br>                <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= m; ++i)<span class="hljs-comment">//枚举第k组的物品</span><br>                    <span class="hljs-keyword">if</span>(i &lt;= j)<span class="hljs-comment">//保证能装下</span><br>                    dp[j] = max(dp[j], dp[j - i] + a[k][i]);<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>, dp[m]);<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="hdu-3033"><a href="#hdu-3033" class="headerlink" title="hdu-3033"></a><a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=3033">hdu-3033</a></h4><p>题意就是一堆鞋子，某一些是一个牌子的，然后每一双鞋有一个价格（看作代价），一个价值，每个牌子至少取一双，问最大的价值，，，</p>
 <p>与上一道不同的是每一组的物品不再是最多选一个了，，一组可以选多个，每一组都要选一个，，</p>
 <p>dp[i][j]表示的是前i组在容量为j的背包所取的最大价值，，当前状态dp[i][j]可以由 前一状态在本组选一个物品 推来，也可以由 当前状态在本组再取一个物品 推来，，</p>
 <p>初始化也不同了，，除了那一组都不选的那一行dp为零，，其他都为负，即未定义状态，，由这个判断是否有解，，</p>
-<p><a href="https://www.cnblogs.com/liyinggang/p/5402291.html" target="_blank" rel="noopener">参考1</a><br><a href="https://blog.csdn.net/juststeps/article/details/8712150" target="_blank" rel="noopener">参考2</a><br><a href="https://www.jianshu.com/p/efa8fbc0fea4" target="_blank" rel="noopener">参考3</a></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//hdu</span></span><br><span class="line"><span class="comment">//#include &lt;bits/stdc++.h&gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> aaa cout&lt;&lt;233&lt;&lt;endl;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> endl <span class="meta-string">'\n'</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pb push_back</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; pii;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;<span class="comment">//1061109567</span></span><br><span class="line"><span class="keyword">const</span> ll linf = <span class="number">0x3f3f3f3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> eps = <span class="number">1e-6</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> pi = <span class="number">3.14159265358979</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e4</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxm = <span class="number">2e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> ll mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">11</span>][maxn];</span><br><span class="line">pii a[<span class="number">11</span>][maxn];</span><br><span class="line"><span class="keyword">int</span> num[<span class="number">11</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//    freopen("233.in" , "r" , stdin);</span></span><br><span class="line"><span class="comment">//    freopen("233.out" , "w" , stdout);</span></span><br><span class="line"><span class="comment">//    ios_base::sync_with_stdio(0);</span></span><br><span class="line"><span class="comment">//    cin.tie(0);cout.tie(0);</span></span><br><span class="line">    <span class="keyword">int</span> n, m, K;</span><br><span class="line">    <span class="keyword">while</span>(~<span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;n, &amp;m, &amp;K))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">memset</span>(num, <span class="number">0</span>, <span class="keyword">sizeof</span> num);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> aa, bb, cc;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;aa, &amp;bb, &amp;cc);</span><br><span class="line">            ++num[aa];</span><br><span class="line">            a[aa][num[aa]].first = bb;</span><br><span class="line">            a[aa][num[aa]].second = cc;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">memset</span>(dp, <span class="number">-1</span>, <span class="keyword">sizeof</span> dp);</span><br><span class="line">        <span class="comment">//for(int i = 0; i &lt;= m; ++i)dp[0][i] = 0;</span></span><br><span class="line">        <span class="built_in">memset</span>(dp[<span class="number">0</span>], <span class="number">0</span>, <span class="keyword">sizeof</span> dp[<span class="number">0</span>]);</span><br><span class="line">        <span class="comment">//不能写成memset(dp[0], 0, sizeof dp);</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= K; ++k)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= num[k]; ++i)</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j = m; j &gt;= a[k][i].first; --j)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span>(dp[k][j - a[k][i].first] &gt;= <span class="number">0</span>)</span><br><span class="line">                        dp[k][j] = max(dp[k][j], dp[k][j - a[k][i].first] + a[k][i].second);</span><br><span class="line">                    <span class="keyword">if</span>(dp[k - <span class="number">1</span>][j - a[k][i].first] &gt;= <span class="number">0</span>)</span><br><span class="line">                        dp[k][j] = max(dp[k - <span class="number">1</span>][j - a[k][i].first] + a[k][i].second, dp[k][j]);</span><br><span class="line">                &#125;</span><br><span class="line">        <span class="keyword">if</span>(dp[K][m] &lt; <span class="number">0</span>)<span class="built_in">printf</span>(<span class="string">"Impossible\n"</span>);</span><br><span class="line">        <span class="keyword">else</span>            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, dp[K][m]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/liyinggang/p/5402291.html">参考1</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/juststeps/article/details/8712150">参考2</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/efa8fbc0fea4">参考3</a></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">//hdu</span><br><span class="hljs-comment">//#include &lt;bits/stdc++.h&gt;</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdio&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdlib&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;algorithm&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> aaa cout&lt;&lt;233&lt;&lt;endl;</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> endl <span class="hljs-meta-string">&#x27;\n&#x27;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> pb push_back</span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ll;<br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ull;<br><span class="hljs-keyword">typedef</span> <span class="hljs-built_in">pair</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt; pii;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> inf = <span class="hljs-number">0x3f3f3f3f</span>;<span class="hljs-comment">//1061109567</span><br><span class="hljs-keyword">const</span> ll linf = <span class="hljs-number">0x3f3f3f3f3f3f3f</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">double</span> eps = <span class="hljs-number">1e-6</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">double</span> pi = <span class="hljs-number">3.14159265358979</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> maxn = <span class="hljs-number">1e4</span> + <span class="hljs-number">5</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> maxm = <span class="hljs-number">2e5</span> + <span class="hljs-number">5</span>;<br><span class="hljs-keyword">const</span> ll mod = <span class="hljs-number">1e9</span> + <span class="hljs-number">7</span>;<br><span class="hljs-keyword">int</span> dp[<span class="hljs-number">11</span>][maxn];<br>pii a[<span class="hljs-number">11</span>][maxn];<br><span class="hljs-keyword">int</span> num[<span class="hljs-number">11</span>];<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-comment">//    freopen(&quot;233.in&quot; , &quot;r&quot; , stdin);</span><br><span class="hljs-comment">//    freopen(&quot;233.out&quot; , &quot;w&quot; , stdout);</span><br><span class="hljs-comment">//    ios_base::sync_with_stdio(0);</span><br><span class="hljs-comment">//    cin.tie(0);cout.tie(0);</span><br>    <span class="hljs-keyword">int</span> n, m, K;<br>    <span class="hljs-keyword">while</span>(~<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d%d&quot;</span>, &amp;n, &amp;m, &amp;K))<br>    &#123;<br>        <span class="hljs-built_in">memset</span>(num, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span> num);<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; ++i)<br>        &#123;<br>            <span class="hljs-keyword">int</span> aa, bb, cc;<br>            <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d%d&quot;</span>, &amp;aa, &amp;bb, &amp;cc);<br>            ++num[aa];<br>            a[aa][num[aa]].first = bb;<br>            a[aa][num[aa]].second = cc;<br>        &#125;<br>        <span class="hljs-built_in">memset</span>(dp, <span class="hljs-number">-1</span>, <span class="hljs-keyword">sizeof</span> dp);<br>        <span class="hljs-comment">//for(int i = 0; i &lt;= m; ++i)dp[0][i] = 0;</span><br>        <span class="hljs-built_in">memset</span>(dp[<span class="hljs-number">0</span>], <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span> dp[<span class="hljs-number">0</span>]);<br>        <span class="hljs-comment">//不能写成memset(dp[0], 0, sizeof dp);</span><br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> k = <span class="hljs-number">1</span>; k &lt;= K; ++k)<br>            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= num[k]; ++i)<br>                <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = m; j &gt;= a[k][i].first; --j)<br>                &#123;<br>                    <span class="hljs-keyword">if</span>(dp[k][j - a[k][i].first] &gt;= <span class="hljs-number">0</span>)<br>                        dp[k][j] = max(dp[k][j], dp[k][j - a[k][i].first] + a[k][i].second);<br>                    <span class="hljs-keyword">if</span>(dp[k - <span class="hljs-number">1</span>][j - a[k][i].first] &gt;= <span class="hljs-number">0</span>)<br>                        dp[k][j] = max(dp[k - <span class="hljs-number">1</span>][j - a[k][i].first] + a[k][i].second, dp[k][j]);<br>                &#125;<br>        <span class="hljs-keyword">if</span>(dp[K][m] &lt; <span class="hljs-number">0</span>)<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Impossible\n&quot;</span>);<br>        <span class="hljs-keyword">else</span>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>, dp[K][m]);<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p><del>这道题没怎么理解还，，<br>(loading)</del></p>
 <p>剩下一些其他的内容，暂时先放放，，</p>
 
-        </div>
-
-        <blockquote class="post-copyright">
-    
-    <div class="content">
-        
-<span class="post-time">
-    最后更新时间：<time datetime="2019-02-21T05:32:25.839Z" itemprop="dateUpdated">2019-02-21 13:32:25</time>
-</span><br>
-
-
-        
-        <a href="/2019/02/19/动态规划_背包问题笔记/" target="_blank" rel="external">http://blog.31415x.cf/2019/02/19/动态规划_背包问题笔记/</a>
-        
-    </div>
-    
-    <footer>
-        <a href="http://blog.31415x.cf">
-            <img src="/img/misaka.jpg" alt="31415926535x">
-            31415926535x
-        </a>
-    </footer>
-</blockquote>
-
-        
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/acm/">acm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
-
-
-            
-<div class="page-share-wrap">
-    
-
-<div class="page-share" id="pageShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.31415x.cf/2019/02/19/动态规划_背包问题笔记/&title=《动态规划_背包问题笔记》 — 31415926535x&pic=http://blog.31415x.cf/img/misaka.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.31415x.cf/2019/02/19/动态规划_背包问题笔记/&title=《动态规划_背包问题笔记》 — 31415926535x&source=dp自从知道有这么个东西时，就没有好好的学，，现在一看道dp的题就绕道走，，，但是，很多比赛中的dp问题有很多，，别人都会，自己不会很吃亏啊，，，于是从基..." data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.31415x.cf/2019/02/19/动态规划_背包问题笔记/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《动态规划_背包问题笔记》 — 31415926535x&url=http://blog.31415x.cf/2019/02/19/动态规划_背包问题笔记/&via=http://blog.31415x.cf" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.31415x.cf/2019/02/19/动态规划_背包问题笔记/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
-        <i class="icon icon-share-alt icon-lg"></i>
-    </a>
-</div>
-
-
-
-        </div>
-    </div>
-
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2019/02/21/动态规划-线性dp/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">动态规划_线性dp</h4>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/2019/02/18/codeforces-1111/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">codeforces-1111</h4>
-      </a>
-    </div>
-  
-</nav>
-
-
-
-    
-
-
-<section class="comments" id="comments">
-    <div id="disqus_thread"></div>
-    <script>
-    var disqus_shortname = 'www-31415-cf';
-    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</article>
-
-
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
-        
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p><span>31415926535x &copy; 2018 - 2021</span>
-            <span>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
                 
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/ACM-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">ACM-动态规划</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/acm/">acm</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/02/21/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E7%BA%BF%E6%80%A7dp/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">动态规划_线性dp</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/02/18/codeforces-1111/">
+                        <span class="hidden-mobile">codeforces-1111</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_config = function() {
+        this.page.url = 'http://blog.31415x.cf/2019/02/19/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92_%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AC%94%E8%AE%B0/';
+        this.page.identifier = '/2019/02/19/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92_%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AC%94%E8%AE%B0/';
+      };
+      Fluid.utils.waitElementVisible('disqus_thread', function () {
+        var d = document, s = d.createElement('script');
+        s.src = '//' + 'www-31415-cf' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', new Date());
+        (d.head || d.body).appendChild(s);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the
+      <a target="_blank" href="https://disqus.com/?ref_noscript" rel="nofollow noopener noopener">comments powered by Disqus.</a>
+    </noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
     </div>
-	
-	
-	<div id="aplayer">
-		<!-- 音乐播放器 -->
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.css">
-		<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.js"></script>
-		<div id="aplayer" class="aplayer" data-id="2254014329" data-lrctype="0" data-server="netease" data-type="playlist" data-fixed="true" data-listfolded="true"></div>
-		<script src="https://unpkg.com/meting@1.2/dist/Meting.min.js"></script>
-	</div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br> <a>不忘初心 <strong><span style="color: red">☭</span></strong> 方得始终</a> 
+  </div>
+  
+
+  
+
+  
 </footer>
 
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
 
 
 
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.31415x.cf/2019/02/19/动态规划_背包问题笔记/&title=《动态规划_背包问题笔记》 — 31415926535x&pic=http://blog.31415x.cf/img/misaka.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.31415x.cf/2019/02/19/动态规划_背包问题笔记/&title=《动态规划_背包问题笔记》 — 31415926535x&source=dp自从知道有这么个东西时，就没有好好的学，，现在一看道dp的题就绕道走，，，但是，很多比赛中的dp问题有很多，，别人都会，自己不会很吃亏啊，，，于是从基..." data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.31415x.cf/2019/02/19/动态规划_背包问题笔记/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《动态规划_背包问题笔记》 — 31415926535x&url=http://blog.31415x.cf/2019/02/19/动态规划_背包问题笔记/&via=http://blog.31415x.cf" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.31415x.cf/2019/02/19/动态规划_背包问题笔记/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://blog.31415x.cf/2019/02/19/动态规划_背包问题笔记/" alt="微信分享二维码">
-</div>
+  
 
 
 
-
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
-
-
-</script>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
 
 
 
-<!-- mathjax config similar to math.stackexchange -->
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
 
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
 
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
 
 
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
 
 
 
-<script>
-(function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = '(つェ⊂)';
-            clearTimeout(titleTime);
-        } else {
-            document.title = '(๑•̀ㅂ•́)و✧';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
         }
-    });
-})();
-</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
-</script>
+      };
+    </script>
 
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
     }
-  });
-</script>
+  </script>
 
-<script type="text/javascript" src="custom_mathjax_source">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-114656515-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
