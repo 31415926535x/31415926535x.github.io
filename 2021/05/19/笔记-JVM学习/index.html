@@ -1,0 +1,694 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/misaka.jpg">
+  <link rel="icon" href="/img/misaka.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  
+    <meta name="description" content="很感谢你能来，不遗憾你离开">
+  
+  <meta name="author" content="31415926535x">
+  <meta name="keywords" content="">
+  
+  <title>笔记-JVM学习 - 31415926535x</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/monokai.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"blog.31415x.cf","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":null,"google":"UA-114656515-1","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="31415926535x" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>31415926535x</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/diary/">
+                <i class="iconfont icon-tags-fill"></i>
+                diary
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="笔记-JVM学习">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      31415926535x
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-05-19 20:40" pubdate>
+        2021年5月19日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      23
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">笔记-JVM学习</h1>
+            
+            <div class="markdown-body">
+              <hr>
+<p>typora-root-url: ./</p>
+<hr>
+<p>[toc]</p>
+<h1 id="JVM学习前言"><a href="#JVM学习前言" class="headerlink" title="JVM学习前言"></a>JVM学习前言</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1iJ411d7jS">学习视频地址</a></p>
+<ul>
+<li>谈谈你对JVM的理解；Java8虚拟机与之前等待变化</li>
+<li>OOM，栈溢出StackOverFlowError，如何分析</li>
+<li>JVM的常用调优参数</li>
+<li>内存快照如何抓取，如何分析Dump文件</li>
+<li>JVM中类加载器</li>
+</ul>
+<h1 id="JVM体系结构"><a href="#JVM体系结构" class="headerlink" title="JVM体系结构"></a>JVM体系结构</h1><p><img src="https://img-blog.csdnimg.cn/2021051920414595.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BpMzE0MTU5MjY1MzV4,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"></p>
+<p>更加详细的结构为：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210519204201327.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BpMzE0MTU5MjY1MzV4,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt=""></p>
+<h1 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h1><p>作用：加载.class文件</p>
+<p>流程大致为：<img src="https://img-blog.csdnimg.cn/2021051920422179.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BpMzE0MTU5MjY1MzV4,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt=""></p>
+<p>分类：按照从低到高可分为：</p>
+<ul>
+<li>虚拟机加载器（引导类加载器）</li>
+<li>扩展类加载器</li>
+<li>系统类（启动类）加载器</li>
+<li>应用类加载器</li>
+</ul>
+<h2 id="双亲委派机制"><a href="#双亲委派机制" class="headerlink" title="双亲委派机制"></a>双亲委派机制</h2><p>某个特定的类加载器在接到加载类的请求时，首先将加载任务委托给父类加载器，依次递归，如果父类加载器可以完成类加载任务，就成功返回；只有父类加载器无法完成此加载任务时，才自己去加载。</p>
+<p>全都找不到报： <code>Class Not Found</code> </p>
+<h2 id="沙箱安全机制"><a href="#沙箱安全机制" class="headerlink" title="沙箱安全机制"></a>沙箱安全机制</h2><p><img src="https://img-blog.csdnimg.cn/20210519204237272.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BpMzE0MTU5MjY1MzV4,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt=""></p>
+<p>在早期的jvm中，对于本地代码信任，可以直接运行，而远程代码是放置在沙箱中运行，限制对系统资源的访问。</p>
+<p><img src="https://img-blog.csdnimg.cn/20210519204249762.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BpMzE0MTU5MjY1MzV4,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt=""></p>
+<p>此后增加了 <strong>安全策略</strong>，可以在给定一些权限后对本地资源访问。</p>
+<p><img src="https://img-blog.csdnimg.cn/20210519204308442.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BpMzE0MTU5MjY1MzV4,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt=""></p>
+<p>然后又增加了 <strong>代码签名</strong>，按照用户的安全策略设定，又类加载器来加载道虚拟机中权限不同的运行空间运行</p>
+<p><img src="https://img-blog.csdnimg.cn/20210519204321181.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BpMzE0MTU5MjY1MzV4,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt=""></p>
+<p>现在的安全机制引入 <strong>域</strong> 的概念，虚拟机将所有的代加载不同的系统域和应用域中，系统域负责关键资源，应用域通过系统域的部分代理来操作资源。不同的受保护域对应不同的权限。</p>
+<p>组成沙箱的基本条件：</p>
+<ul>
+<li><p><strong>字节码校验器</strong>： 确保Java文件遵循Java语言规范，帮助Java程序实现内存保护，但不是所有的类文件都会经过节码校验（核心类）</p>
+</li>
+<li><p><strong>类装载器</strong>： 类装载器在3个地方对Java沙箱起作用：</p>
+<ul>
+<li><p>放置恶意代码干涉善意代码</p>
+</li>
+<li><p>守护被信任的类库边界</p>
+</li>
+<li><p>将代码归入保护域</p>
+<p>虚拟机为不同的类加载器提供不同的命名空间，有唯一的标识，且由Java虚拟机的每一个类装载器维护，相互不可见</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>​    类加载器使用的是双亲委派机制：    </p>
+<ul>
+<li><p>从最内层jvm自带类加载器开始加载，外层恶意同名类得不到加载从而无法使用</p>
+</li>
+<li><p>由于严格通过包来区分访问域，外层恶意的类通过内置代码也无法获得权限访问道内层类，破坏代码自然无法生效</p>
+</li>
+</ul>
+<ul>
+<li><strong>存取控制器</strong>： 存取控制器可以控制核心API对操作系统的存取权限，控制的策略可以通过用户指定</li>
+<li><strong>安全管理器</strong>：是核心API和操作系统之间的主要接口。实现权限控制，比存取控制器优先级高</li>
+<li><strong>安全软件包</strong>： <code>java.security</code> 下的类和扩展包下的类，允许用户为自己的应用增加新的安全特性：<ul>
+<li>安全提供者</li>
+<li>消息摘要</li>
+<li>数字签名</li>
+<li>加密</li>
+<li>鉴别</li>
+</ul>
+</li>
+</ul>
+<h1 id="Native"><a href="#Native" class="headerlink" title="Native"></a>Native</h1><p>native：凡是使用 <code>native</code> 关键字修饰的，说明Java的作用范围达不到，会调用底层C/C++的库文件等等</p>
+<p>调用 <code>native</code> 修饰的方法会进入 <strong>本地方法栈</strong> ，然后通过 <strong>本地方法接口JNI</strong> 调用本地方法。</p>
+<p>所以JNI的作用就是扩展Java的使用，融合不同的编程语言为Java使用。jvm会在内存区域中开辟一个标记区域，即<strong>本地方法栈</strong>，登记所有的native方法，在最终执行时通过JNI加载本地方法库中的方法。（不同虚拟机这里会有所不同）</p>
+<h1 id="PC"><a href="#PC" class="headerlink" title="PC"></a>PC</h1><p>程序计数器</p>
+<h1 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h1><p>方法区是被所有线程共享，所有字段和方法字节码，以及一些特殊方法（构造函数、接口代码）都在此定义。所有定义的方法的信息都保存在此区域，<strong>此区域属于共享区间</strong></p>
+<p>==静态变量(static)、常量(final)、类信息(class)（构造方法、接口）、运行使得常量池 都存放在方法区中，但是，实例变量存在堆中，不是方法区==</p>
+<p><img src="https://img-blog.csdnimg.cn/2021051920435444.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BpMzE0MTU5MjY1MzV4,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt=""></p>
+<p>（最下方就是方法区，存储上面提到的东西）</p>
+<p><img src="https://img-blog.csdnimg.cn/20210519204951106.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BpMzE0MTU5MjY1MzV4,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt=""></p>
+<h1 id="栈（虚拟机栈）"><a href="#栈（虚拟机栈）" class="headerlink" title="栈（虚拟机栈）"></a>栈（虚拟机栈）</h1><p>栈内存，主管程序的运行，生命周期和线程同步</p>
+<p>线程结束，栈内存也释放，对于栈来说，不存在垃圾回收问题</p>
+<p>栈中的类型：8大基本类型+对象类型+实例方法</p>
+<p>实际的栈中存储的是一个个的栈帧，结构大致如下：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210519204412241.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BpMzE0MTU5MjY1MzV4,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"></p>
+<h1 id="三种JVM"><a href="#三种JVM" class="headerlink" title="三种JVM"></a>三种JVM</h1><ul>
+<li>sun： HotSpot （openjdk）</li>
+<li>BEA JRockit</li>
+<li>IBM J9 VM</li>
+</ul>
+<h1 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h1><h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>Heap，一个JVM仅有一个堆内存，可调节大小</p>
+<p>堆中保存的是 实例化的类及方法、常量、变量等</p>
+<p>堆内存分为：</p>
+<ul>
+<li>新生区（伊甸园区）young</li>
+<li>老年区 old </li>
+<li>永久区 perm（1.8改为元空间）</li>
+</ul>
+<p>GC垃圾回收，主要是在伊甸园区和养老区，，如果内存满了就会出现OOM</p>
+<p><a target="_blank" rel="noopener" href="https://www.processon.com/view/60a25c38f346fb1df41ec011">具体的结构可以看这里：https://www.processon.com/view/60a25c38f346fb1df41ec011</a></p>
+<h2 id="新生区和老年区"><a href="#新生区和老年区" class="headerlink" title="新生区和老年区"></a>新生区和老年区</h2><ul>
+<li>所有实例化 诞生和成长的地方，甚至死亡</li>
+<li>主要分为 <strong>伊甸园区</strong>，<strong>幸存者区(S0, S1)</strong> </li>
+</ul>
+<p>当伊甸园区满后，会进行一次轻量级垃圾回收，对于还存在的对象将转到幸存者区。如果新生区老年区满了会进行一次重量级垃圾回收，将存活的转到老年区，全部满了表示没有内存空间，即OOM</p>
+<p>整个流程大致如下：<img src="https://img-blog.csdnimg.cn/20210519204431577.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BpMzE0MTU5MjY1MzV4,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt=""></p>
+<h2 id="永久区（元空间）"><a href="#永久区（元空间）" class="headerlink" title="永久区（元空间）"></a>永久区（元空间）</h2><p>常驻内存，用来存放JDK自身携带的Class对象。Interface元数据，存储的是Java运行时的一些环境或类信息，不存在垃圾回收，仅在关闭虚拟机时释放</p>
+<p>一个启动类，如果加载大量的第三方jar包，如Tomcat部署太多应用，大量动态生成反射类等，会导致OOM</p>
+<ul>
+<li>1.6前： 永久代，常量池在方法区</li>
+<li>1.7： 永久代，但是退化 <em>去永久代</em> ，常量池在堆中</li>
+<li>1.8： 无永久代，常量池在元空间</li>
+</ul>
+<p><code>Runtime.getRuntime().maxMemroy()</code> 和 <code>Runtime.getRuntime().totalMemroy()</code> 可以获取jvm可以使用的最大内存以及当前初始化的内存大小。</p>
+<p><code>Xms1024m -Xmx1024m -XX:+PrintGCDetails</code> 可以设置初始化内存大小(1/64)与最大内存大小(1/4)。</p>
+<p>初始内存大小=新生区+老年区，元数据区在另一个地方</p>
+<p>出现OOM的尝试解决方法：</p>
+<ul>
+<li>Debug分析</li>
+<li>内存快照工具分析Dump文件：MAT、Jprofiler</li>
+</ul>
+<p><strong>MAT Jprofiler的作用</strong>：</p>
+<ul>
+<li>分析Dump内存文件，快速定位内存泄漏</li>
+<li>获得堆中的数据</li>
+<li>获得大的对象</li>
+<li>。。。</li>
+</ul>
+<p>Java虚拟机dump： <code>-Xms1m -Xmx8m -XX:+HeapDumpOnOutOfMemoryError[path]</code>  </p>
+<h1 id="GC：垃圾回收"><a href="#GC：垃圾回收" class="headerlink" title="GC：垃圾回收"></a>GC：垃圾回收</h1><p>gc作用于方法区和堆</p>
+<p>gc分类：轻GC(YGC)、重GC(Full GC)</p>
+<p><strong>gc的算法</strong>：标记清除法、标记整理、复制算法、分代收集，</p>
+<p><strong>判断对象是否存活的方法</strong>：引用计数法和可达性分析</p>
+<h2 id="引用计数法"><a href="#引用计数法" class="headerlink" title="引用计数法"></a>引用计数法</h2><p>顾名思义，记录每一个对象的引用数，对于没有引用的清理即可</p>
+<h2 id="可达性分析"><a href="#可达性分析" class="headerlink" title="可达性分析"></a>可达性分析</h2><h2 id="复制算法"><a href="#复制算法" class="headerlink" title="复制算法"></a>复制算法</h2><p>新生区中，伊甸园区和两个幸存区间中非空的将存活的对象复制到空的幸存区。其中为空的是 to ，另一个是 from </p>
+<p>当一个对象经历15次gc仍存活进入老年区，通过 <code>-XX:MaxTenuringThreshold=5</code> 可以设置进入老年区的时间</p>
+<ul>
+<li>好处： 没有内存碎片</li>
+<li>坏处：浪费了一部分空间，to是空的</li>
+</ul>
+<p>最佳使用场景：对象存活度较低时。</p>
+<h2 id="标记清除"><a href="#标记清除" class="headerlink" title="标记清除"></a>标记清除</h2><p>对存活对象标记，然后清除</p>
+<ul>
+<li>优点：不需要额外空间</li>
+<li>缺点：两次扫描费时、内存碎片</li>
+</ul>
+<h2 id="标记整理"><a href="#标记整理" class="headerlink" title="标记整理"></a>标记整理</h2><p>对标记清除后的整理压缩，，减少碎片</p>
+<h2 id="分代收集"><a href="#分代收集" class="headerlink" title="分代收集"></a>分代收集</h2><p>对于新生代：使用复制算法</p>
+<p>对于老年代：使用标记清除（整理）算法</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>内存效率：复制算法&gt;标记清除&gt;标记整理</p>
+<p>内存整齐度：复制算法=标记整理&gt;标记清除</p>
+<p>内存利用率：标记整理=标记清除&gt;复制算法</p>
+<p>所以使用分代收集算法，尽可能的提高性能</p>
+<p>（JMM指的是Java的内存模型，主要与多线程有关系，就是那8种方式）</p>
+<p><strong>一些比较好的总结</strong>：</p>
+<p><a target="_blank" rel="noopener" href="https://www.processon.com/view/5ec5d7c60791290fe0768668">https://www.processon.com/view/5ec5d7c60791290fe0768668</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.processon.com/view/60a25c38f346fb1df41ec011">https://www.processon.com/view/60a25c38f346fb1df41ec011</a></p>
+<p><img src="https://img-blog.csdnimg.cn/20210519200638618.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BpMzE0MTU5MjY1MzV4,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt=""></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42261668/article/details/109149428">对于CMS的学习</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.processon.com/view/603709716376896cd606078d#map">以上内容的总结</a></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/05/19/%E7%AC%94%E8%AE%B0-JUC%E5%AD%A6%E4%B9%A0/">
+                        <span class="hidden-mobile">笔记-JUC学习</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_config = function() {
+        this.page.url = 'http://blog.31415x.cf/2021/05/19/%E7%AC%94%E8%AE%B0-JVM%E5%AD%A6%E4%B9%A0/';
+        this.page.identifier = '/2021/05/19/%E7%AC%94%E8%AE%B0-JVM%E5%AD%A6%E4%B9%A0/';
+      };
+      Fluid.utils.waitElementVisible('disqus_thread', function () {
+        var d = document, s = d.createElement('script');
+        s.src = '//' + 'www-31415-cf' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', new Date());
+        (d.head || d.body).appendChild(s);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the
+      <a target="_blank" href="https://disqus.com/?ref_noscript" rel="nofollow noopener noopener">comments powered by Disqus.</a>
+    </noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br> <a>不忘初心 <strong><span style="color: red">☭</span></strong> 方得始终</a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-114656515-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+</body>
+</html>
