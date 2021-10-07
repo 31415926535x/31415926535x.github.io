@@ -14,15 +14,13 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  
-    <meta name="description" content="很感谢你能来，不遗憾你离开">
-  
+  <meta name="description" content="很感谢你能来，不遗憾你离开">
   <meta name="author" content="31415926535x">
   <meta name="keywords" content="">
   
   <title>31415926535x</title>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
 
 
@@ -42,7 +40,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"blog.31415x.cf","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":null,"google":"UA-114656515-1","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"blog.31415x.cf","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":"UA-114656515-1","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -131,13 +129,13 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
                 class="iconfont icon-search"></i>&nbsp;</a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -187,11 +185,176 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2019/01/02/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0/">汇编笔记_第十三章</a>
+        <a href="/2019/02/13/2-sat/" target="_blank">
+          2-sat
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2019/01/02/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0/">
+        <a href="/2019/02/13/2-sat/" target="_blank">
+          
+          
+            
+          
+          概述2-sat是k-sat问题中k==2时的一种情况，，（废话qaq，，
+当k大于等于3时是npc问题，，所以一般都是问的2-sat，，
+这种题的大概形式是： 对于给定的n对的点，要求每一对都只能选择一个，并且其中还有一些限制条件，比如说选了u就不能选择v等等，，
+然后问你有没有可行解，，，
+解决这类问题一般是用 染色法（求字典序最小的解） 和 强连通分量法（拓扑排序只能得到任意解），，
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-02-13 00:45" pubdate>
+              2019-02-13
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/ACM-%E5%9B%BE%E8%AE%BA-2-SAT/">ACM-图论-2-SAT</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%88%B7%E9%A2%98/">刷题</a>
+            
+              <a href="/tags/acm/">acm</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/02/12/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" target="_blank">
+          拓扑排序
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2019/02/12/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" target="_blank">
+          
+          
+            
+          
+          貌似从来没有敲过拓扑排序的板子，，，记录一下
+拓扑排序就是对DAG有向无环图中的边u-&gt;v,要求排序出一个点的序列，满足u在v的前面，，
+算法的思路是不停的将入度为零的点u放到前面，并且对u能到达的所有点v的入度递减，，循环处理所有的点即可，，期间将所有入度为零的点放在一个队列中，，
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-02-12 22:46" pubdate>
+              2019-02-12
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%9B%BE%E8%AE%BA/">图论</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%88%B7%E9%A2%98/">刷题</a>
+            
+              <a href="/tags/acm/">acm</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/02/11/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8FTarjan-Kosaraju/" target="_blank">
+          强连通分量Tarjan_Kosaraju
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2019/02/11/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8FTarjan-Kosaraju/" target="_blank">
+          
+          
+            
+          
+          概述图的连通性是图论中的一个基础知识点，算法很简单，但是所所涉及的基础知识点也很多，后悔当初离散数学没有好好的学，QAQ，，，
+这篇主要是记录一下两种方法求强连通分量的算法，Tarjan和Kosaraju的模板，
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-02-11 18:32" pubdate>
+              2019-02-11
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/ACM-%E5%9B%BE%E8%AE%BA-%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/">ACM-图论-强连通分量</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%88%B7%E9%A2%98/">刷题</a>
+            
+              <a href="/tags/acm/">acm</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/01/02/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0/" target="_blank">
+          汇编笔记_第十三章
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2019/01/02/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0/" target="_blank">
           
           
             
@@ -235,11 +398,13 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2019/01/01/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0/">汇编笔记_第十二章</a>
+        <a href="/2019/01/01/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0/" target="_blank">
+          汇编笔记_第十二章
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2019/01/01/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0/">
+        <a href="/2019/01/01/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0/" target="_blank">
           
           
             
@@ -284,11 +449,13 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2019/01/01/2018%E5%B9%B4%E6%80%BB%E7%BB%93/">2018年总结</a>
+        <a href="/2019/01/01/2018%E5%B9%B4%E6%80%BB%E7%BB%93/" target="_blank">
+          2018年总结
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2019/01/01/2018%E5%B9%B4%E6%80%BB%E7%BB%93/">
+        <a href="/2019/01/01/2018%E5%B9%B4%E6%80%BB%E7%BB%93/" target="_blank">
           
           
             
@@ -325,11 +492,13 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2018/12/30/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0/">汇编笔记_第十一章</a>
+        <a href="/2018/12/30/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0/" target="_blank">
+          汇编笔记_第十一章
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2018/12/30/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0/">
+        <a href="/2018/12/30/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0/" target="_blank">
           
           
             
@@ -421,11 +590,13 @@ C
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2018/12/28/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%8D%81%E7%AB%A0/">汇编笔记_第十章</a>
+        <a href="/2018/12/28/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%8D%81%E7%AB%A0/" target="_blank">
+          汇编笔记_第十章
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2018/12/28/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%8D%81%E7%AB%A0/">
+        <a href="/2018/12/28/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%8D%81%E7%AB%A0/" target="_blank">
           
           
             
@@ -472,11 +643,13 @@ retf指令用栈中的数据，修改 CS和IP 的内容，从而实现 远转移
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2018/12/27/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B9%9D%E7%AB%A0/">汇编笔记_第九章</a>
+        <a href="/2018/12/27/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B9%9D%E7%AB%A0/" target="_blank">
+          汇编笔记_第九章
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2018/12/27/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B9%9D%E7%AB%A0/">
+        <a href="/2018/12/27/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B9%9D%E7%AB%A0/" target="_blank">
           
           
             
@@ -527,11 +700,13 @@ retf指令用栈中的数据，修改 CS和IP 的内容，从而实现 远转移
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2018/12/27/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AB%E7%AB%A0/">汇编笔记_第八章</a>
+        <a href="/2018/12/27/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AB%E7%AB%A0/" target="_blank">
+          汇编笔记_第八章
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2018/12/27/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AB%E7%AB%A0/">
+        <a href="/2018/12/27/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AB%E7%AB%A0/" target="_blank">
           
           
             
@@ -572,165 +747,11 @@ retf指令用栈中的数据，修改 CS和IP 的内容，从而实现 远转移
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2018/12/26/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%83%E7%AB%A0/">汇编笔记_第七章</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2018/12/26/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%83%E7%AB%A0/">
-          
-          
-            
-          
-          更灵活的定位内存地址的方法and和or指令
-and指令：逻辑与指令，按位进行与运算；
-通过该指令可以将操作对象的相应为设为0，其他位不变，例如将al的第6为设为0的指令是：and al,10111111B
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2018-12-26 21:47" pubdate>
-              2018-12-26
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">汇编语言</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2018/12/26/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0/">汇编笔记_第六章</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2018/12/26/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0/">
-          
-          
-            
-          
-          包含多个段的程序在代码段中使用数据先看程序：
-123456789101112131415assume cs:codesgcodesg segmentdw 0123h,0456h,0789h,0abch,0fedh,0cbah,0987hstart:mov bx,0mov ax,0mov cx,8s:add ax,cx:[bx]add bx,2loop smov ax,4c00hint 21hcod
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2018-12-26 17:44" pubdate>
-              2018-12-26
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">汇编语言</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2018/12/26/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E3%80%81%E4%BA%94%E7%AB%A0/">汇编笔记_第四、五章</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2018/12/26/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E3%80%81%E4%BA%94%E7%AB%A0/">
-          
-          
-            
-          
-          第四章 第一个程序程序执行的基本过程编写-&gt;编译-&gt;连接-&gt;执行
-编程-&gt;1.asm-&gt;编译-&gt;1.obj-&gt;连接-&gt;1.exe-&gt;加载-&gt;内存中的程序
-程序的基本结构伪指令汇编语言源程序中，包含两种指令， 汇编指令 和 伪指令；
-
-汇编指令是对应的机器码的指令，可以被编译为机器指令；
-伪指令没有对应的机器指令，由编译器来执行。
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2018-12-26 15:33" pubdate>
-              2018-12-26
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">汇编语言</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/8/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/#board">7</a><a class="page-number" href="/page/8/#board">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/#board">10</a><a class="page-number" href="/page/11/#board">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/#board">14</a><a class="extend next" rel="next" href="/page/10/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/page/8/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/#board">7</a><a class="page-number" href="/page/8/#board">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/#board">10</a><a class="page-number" href="/page/11/#board">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/#board">15</a><a class="extend next" rel="next" href="/page/10/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 
@@ -778,7 +799,7 @@ and指令：逻辑与指令，按位进行与运算；
 
   <footer class="text-center mt-5 py-3">
   <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br> <a>不忘初心 <strong><span style="color: red">☭</span></strong> 方得始终</a> 
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br><a>不忘初心 <strong><span style="color: red">☭</span></strong> 方得始终</a> 
   </div>
   
 
@@ -787,8 +808,9 @@ and指令：逻辑与指令，按位进行与运算；
   
 </footer>
 
-<!-- SCRIPTS -->
 
+  <!-- SCRIPTS -->
+  
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
@@ -801,9 +823,8 @@ and指令：逻辑与指令，按位进行与运算；
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
@@ -811,7 +832,7 @@ and指令：逻辑与指令，按位进行与运算；
 
 
   
-    <script  src="/js/lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -826,14 +847,18 @@ and指令：逻辑与指令，按位进行与运算；
 
 
 
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
 
 
 
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
@@ -842,21 +867,6 @@ and指令：逻辑与指令，按位进行与运算；
       typing(title)
       
     })(window, document);
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    (function () {
-      var path = "/local-search.xml";
-      $('#local-search-input').on('click', function() {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      });
-      $('#modalSearch').on('shown.bs.modal', function() {
-        $('#local-search-input').focus();
-      });
-    })()
   </script>
 
 
@@ -897,7 +907,6 @@ and指令：逻辑与指令，按位进行与运算；
 
 <!-- 主题的启动项 保持在最底部 -->
 <script  src="/js/boot.js" ></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-
 
 
 </body>

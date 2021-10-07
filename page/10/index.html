@@ -14,15 +14,13 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  
-    <meta name="description" content="很感谢你能来，不遗憾你离开">
-  
+  <meta name="description" content="很感谢你能来，不遗憾你离开">
   <meta name="author" content="31415926535x">
   <meta name="keywords" content="">
   
   <title>31415926535x</title>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
 
 
@@ -42,7 +40,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"blog.31415x.cf","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":null,"google":"UA-114656515-1","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"blog.31415x.cf","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":"UA-114656515-1","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -131,13 +129,13 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
                 class="iconfont icon-search"></i>&nbsp;</a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -187,11 +185,173 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2018/12/26/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0/">汇编笔记_第三章</a>
+        <a href="/2018/12/26/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%83%E7%AB%A0/" target="_blank">
+          汇编笔记_第七章
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2018/12/26/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0/">
+        <a href="/2018/12/26/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%83%E7%AB%A0/" target="_blank">
+          
+          
+            
+          
+          更灵活的定位内存地址的方法and和or指令
+and指令：逻辑与指令，按位进行与运算；
+通过该指令可以将操作对象的相应为设为0，其他位不变，例如将al的第6为设为0的指令是：and al,10111111B
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2018-12-26 21:47" pubdate>
+              2018-12-26
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">汇编语言</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2018/12/26/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0/" target="_blank">
+          汇编笔记_第六章
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2018/12/26/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0/" target="_blank">
+          
+          
+            
+          
+          包含多个段的程序在代码段中使用数据先看程序：
+123456789101112131415assume cs:codesgcodesg segmentdw 0123h,0456h,0789h,0abch,0fedh,0cbah,0987hstart:mov bx,0mov ax,0mov cx,8s:add ax,cx:[bx]add bx,2loop smov ax,4c00hint 21hcod
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2018-12-26 17:44" pubdate>
+              2018-12-26
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">汇编语言</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2018/12/26/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E3%80%81%E4%BA%94%E7%AB%A0/" target="_blank">
+          汇编笔记_第四、五章
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2018/12/26/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E3%80%81%E4%BA%94%E7%AB%A0/" target="_blank">
+          
+          
+            
+          
+          第四章 第一个程序程序执行的基本过程编写-&gt;编译-&gt;连接-&gt;执行
+编程-&gt;1.asm-&gt;编译-&gt;1.obj-&gt;连接-&gt;1.exe-&gt;加载-&gt;内存中的程序
+程序的基本结构伪指令汇编语言源程序中，包含两种指令， 汇编指令 和 伪指令；
+
+汇编指令是对应的机器码的指令，可以被编译为机器指令；
+伪指令没有对应的机器指令，由编译器来执行。
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2018-12-26 15:33" pubdate>
+              2018-12-26
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">汇编语言</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2018/12/26/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0/" target="_blank">
+          汇编笔记_第三章
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2018/12/26/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0/" target="_blank">
           
           
             
@@ -238,11 +398,13 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2018/12/25/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0/">汇编笔记_第二章</a>
+        <a href="/2018/12/25/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0/" target="_blank">
+          汇编笔记_第二章
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2018/12/25/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0/">
+        <a href="/2018/12/25/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0/" target="_blank">
           
           
             
@@ -293,11 +455,13 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2018/12/25/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0/">汇编笔记_第一章</a>
+        <a href="/2018/12/25/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0/" target="_blank">
+          汇编笔记_第一章
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2018/12/25/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0/">
+        <a href="/2018/12/25/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0/" target="_blank">
           
           
             
@@ -344,11 +508,13 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2018/12/24/codeforces-1092c/">codeforces_1092c</a>
+        <a href="/2018/12/24/codeforces-1092c/" target="_blank">
+          codeforces_1092c
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2018/12/24/codeforces-1092c/">
+        <a href="/2018/12/24/codeforces-1092c/" target="_blank">
           
           
             
@@ -387,11 +553,13 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2018/12/15/acm%E6%80%BB%E7%BB%93/">acm总结</a>
+        <a href="/2018/12/15/acm%E6%80%BB%E7%BB%93/" target="_blank">
+          acm总结
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2018/12/15/acm%E6%80%BB%E7%BB%93/">
+        <a href="/2018/12/15/acm%E6%80%BB%E7%BB%93/" target="_blank">
           
           
             
@@ -440,11 +608,13 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2018/12/15/%E6%9C%80%E5%A4%A7%E6%9D%83%E9%97%AD%E5%90%88%E5%AD%90%E5%9B%BE/">最大权闭合子图</a>
+        <a href="/2018/12/15/%E6%9C%80%E5%A4%A7%E6%9D%83%E9%97%AD%E5%90%88%E5%AD%90%E5%9B%BE/" target="_blank">
+          最大权闭合子图
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2018/12/15/%E6%9C%80%E5%A4%A7%E6%9D%83%E9%97%AD%E5%90%88%E5%AD%90%E5%9B%BE/">
+        <a href="/2018/12/15/%E6%9C%80%E5%A4%A7%E6%9D%83%E9%97%AD%E5%90%88%E5%AD%90%E5%9B%BE/" target="_blank">
           
           
             
@@ -490,11 +660,13 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2018/12/13/csp%E5%88%B7%E9%A2%98/">csp刷题</a>
+        <a href="/2018/12/13/csp%E5%88%B7%E9%A2%98/" target="_blank">
+          csp刷题
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2018/12/13/csp%E5%88%B7%E9%A2%98/">
+        <a href="/2018/12/13/csp%E5%88%B7%E9%A2%98/" target="_blank">
           
           
             
@@ -518,164 +690,11 @@
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2018/12/13/Codeforces-1084C/">Codeforces-1084C</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2018/12/13/Codeforces-1084C/">
-          
-          
-            
-          
-          概述好久没写博客了，，，最近的事太多了，，几乎没有专门看一个知识点，，，一直在做各种的简单题QAQ。。。
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2018-12-13 16:02" pubdate>
-              2018-12-13
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Codeforces/">Codeforces</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%88%B7%E9%A2%98/">刷题</a>
-            
-              <a href="/tags/acm/">acm</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2018/11/25/codeforces-1080C/">codeforces-1080C</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2018/11/25/codeforces-1080C/">
-          
-          
-            
-          
-          概述昨天正好有时间，做了自己第一场的cf
-做完AB之后被C卡到最后，，，从来没做过坐标平面上两个矩形的面积和，，，因为存在相交的可能，，，所以要单独的处理矩形面积交，，然后自己就写懵了，，，当时写了几十行的if判断，，，，到最后都没弄完，，QAQ
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2018-11-25 14:23" pubdate>
-              2018-11-25
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Codeforces/">Codeforces</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%88%B7%E9%A2%98/">刷题</a>
-            
-              <a href="/tags/acm/">acm</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2018/11/24/Codeforces-1077C/">Codeforces-1077C</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2018/11/24/Codeforces-1077C/">
-          
-          
-            
-          
-          题意题目链接
-给你一个数组，如果存在一个数等于剩余的数的和的话，，，就称这样array是good array，，
-然后题目问你对于给定的数组去掉一个数之后时候是一个good array，，，输出所有的去掉的数的位置pos
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2018-11-24 15:22" pubdate>
-              2018-11-24
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Codeforces/">Codeforces</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%88%B7%E9%A2%98/">刷题</a>
-            
-              <a href="/tags/acm/">acm</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/9/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/#board">8</a><a class="page-number" href="/page/9/#board">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/#board">11</a><a class="page-number" href="/page/12/#board">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/#board">14</a><a class="extend next" rel="next" href="/page/11/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/page/9/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/#board">8</a><a class="page-number" href="/page/9/#board">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/#board">11</a><a class="page-number" href="/page/12/#board">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/#board">15</a><a class="extend next" rel="next" href="/page/11/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 
@@ -723,7 +742,7 @@
 
   <footer class="text-center mt-5 py-3">
   <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br> <a>不忘初心 <strong><span style="color: red">☭</span></strong> 方得始终</a> 
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br><a>不忘初心 <strong><span style="color: red">☭</span></strong> 方得始终</a> 
   </div>
   
 
@@ -732,8 +751,9 @@
   
 </footer>
 
-<!-- SCRIPTS -->
 
+  <!-- SCRIPTS -->
+  
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
@@ -746,9 +766,8 @@
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
@@ -756,7 +775,7 @@
 
 
   
-    <script  src="/js/lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -771,14 +790,18 @@
 
 
 
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
 
 
 
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
@@ -787,21 +810,6 @@
       typing(title)
       
     })(window, document);
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    (function () {
-      var path = "/local-search.xml";
-      $('#local-search-input').on('click', function() {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      });
-      $('#modalSearch').on('shown.bs.modal', function() {
-        $('#local-search-input').focus();
-      });
-    })()
   </script>
 
 
@@ -842,7 +850,6 @@
 
 <!-- 主题的启动项 保持在最底部 -->
 <script  src="/js/boot.js" ></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-
 
 
 </body>

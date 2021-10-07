@@ -14,15 +14,13 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  
-    <meta name="description" content="偶然看到的这个东西，可以说是第一次见到图论+数据结构的题了，，这题代码很简单，细节处理一下就没啥了，，，主要是一步一步的思路的推导很不错，，">
-  
+  <meta name="description" content="偶然看到的这个东西，可以说是第一次见到图论+数据结构的题了，，这题代码很简单，细节处理一下就没啥了，，，主要是一步一步的思路的推导很不错，，">
   <meta name="author" content="31415926535x">
   <meta name="keywords" content="">
   
   <title>cf-786B区间图最短路 - 31415926535x</title>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
@@ -32,7 +30,7 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/monokai.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/monokai.min.css" />
     
   
 
@@ -58,7 +56,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"blog.31415x.cf","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":null,"google":"UA-114656515-1","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"blog.31415x.cf","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":"UA-114656515-1","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -147,13 +145,13 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
                 class="iconfont icon-search"></i>&nbsp;</a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -249,15 +247,15 @@
 <p>这时的建图是线性的建图方式，，线性+区间==线段树？？！！，，这是我做这道题学习到的最有价值的一个处理方式，，在降了一维之后，虽然是线性的建图，，但是点还是很多，，而线段树恰好可以用很少的子区间来表示原来的区间，，，如果将线段树中的每一个表示的区间看成一个点，，那么我们就可以用很少的点来建图，，，这样就可以将上面的n次的建图降下去，，，</p>
 <p>那么这时的问题就变成了该如何利用线段树来处理，，</p>
 <p>我们需要两棵线段树，，一棵看成 <strong>入树</strong> 另一棵看成 <strong>出树</strong> ，，</p>
-<p><img src="https://img-blog.csdn.net/20170723135435553" srcset="/img/loading.gif" alt=""></p>
+<p><img src="https://img-blog.csdn.net/20170723135435553" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>首先我们的目的是用少量的区间来表示原来的很大的区间，以达到用很少的点来表示原来的所有点，，优化的问题用线段树解决了，，但是，如何正确的表示原来的所有点呢，，，</p>
 <p>线段树的每一个节点表示一个区间，，这个节点可以表示他下面的所有点，，也就是说，，我们可以从上向下的看，，定义选择了一个节点，，就选择了下面的所有点，，，按照这个思想，入树中的一个节点要向其儿子连一条指向儿子的有向边，，也就是说，，入树中所有的边指向下，，用 <code>down</code> 表示</p>
 <p>同理，，对于出树，，我们要保证在一个节点要能表示所有的点，，于是就是一个节点下的所有节点都要指向它，，，这样看这棵树就是一个向上的树，，用 <code>up</code> 表示，，</p>
 <p>这个样子的：</p>
-<p><img src="https://img-blog.csdn.net/20170723140149120" srcset="/img/loading.gif" alt=""></p>
+<p><img src="https://img-blog.csdn.net/20170723140149120" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>这样最后在这样初始图加上题目给的一些条件的边跑一边最短路就可以了，，</p>
 <p>加上题目的边后的图大致是这样的：</p>
-<p><img src="https://img-blog.csdn.net/20170723141642088" srcset="/img/loading.gif" alt=""></p>
+<p><img src="https://img-blog.csdn.net/20170723141642088" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>实际上，，这里的线段树的作用只是一个建树和查询其子区间的作用，，这个思想有点像是分块，，，只要能找到一个合理的区间分块，，用一些合理的、数量少的区间表示原来的区间，，就能达到减少点数的作用，，，，而线段树恰好是一个熟悉的、好操作的区间划分模型，，所以很多人都对于 区间图的最短路问题都是套一个线段树的板子，，</p>
 <p>回到这道题，，题目的加边方式只有 点对区间 和 区间对点 两种，，所以我们可以先预留出那n个点，，可以想象成放在这两棵树之间的一排点（不用再将两棵树的叶子节点相连，，），，，</p>
 <p>然后再处理出出树、入树的边后，，对于 <code>u-&gt;[l, r]</code> 和 <code>u-&gt;v</code> 的边，，从点 <code>u</code> 向入树的符合条件的节点连边即可，，因为之前说的入树保证了每一个节点是可以到其下面的叶子节点的，，所以我们这样连边就相当于是点 <code>u</code> 向区间的每一个点连边，，，</p>
@@ -337,28 +335,28 @@
 
             
               <!-- Comments -->
-              <article class="comments" id="comments">
+              <article class="comments" id="comments" lazyload>
                 
                   
                 
                 
   <div class="disqus" style="width:100%">
     <div id="disqus_thread"></div>
-    <script type="text/javascript">
-      var disqus_config = function() {
-        this.page.url = 'http://blog.31415x.cf/2019/09/29/cf-786B%E5%8C%BA%E9%97%B4%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF/';
-        this.page.identifier = '/2019/09/29/cf-786B%E5%8C%BA%E9%97%B4%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF/';
-      };
-      Fluid.utils.waitElementVisible('disqus_thread', function () {
-        var d = document, s = d.createElement('script');
-        s.src = '//' + 'www-31415-cf' + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', new Date());
-        (d.head || d.body).appendChild(s);
-      });
-    </script>
-    <noscript>Please enable JavaScript to view the
-      <a target="_blank" href="https://disqus.com/?ref_noscript" rel="nofollow noopener noopener">comments powered by Disqus.</a>
-    </noscript>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://blog.31415x.cf/2019/09/29/cf-786B%E5%8C%BA%E9%97%B4%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF/';
+          this.page.identifier = '/2019/09/29/cf-786B%E5%8C%BA%E9%97%B4%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'www-31415-cf' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
   </div>
 
 
@@ -420,7 +418,7 @@
 
   <footer class="text-center mt-5 py-3">
   <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br> <a>不忘初心 <strong><span style="color: red">☭</span></strong> 方得始终</a> 
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br><a>不忘初心 <strong><span style="color: red">☭</span></strong> 方得始终</a> 
   </div>
   
 
@@ -429,8 +427,9 @@
   
 </footer>
 
-<!-- SCRIPTS -->
 
+  <!-- SCRIPTS -->
+  
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
@@ -443,9 +442,8 @@
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
@@ -453,7 +451,7 @@
 
 
   
-    <script  src="/js/lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -462,7 +460,7 @@
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
 
 
 
@@ -470,18 +468,22 @@
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
 
 
 
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
 
 
 
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
@@ -490,21 +492,6 @@
       typing(title)
       
     })(window, document);
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    (function () {
-      var path = "/local-search.xml";
-      $('#local-search-input').on('click', function() {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      });
-      $('#modalSearch').on('shown.bs.modal', function() {
-        $('#local-search-input').focus();
-      });
-    })()
   </script>
 
 
@@ -546,7 +533,7 @@
       };
     </script>
 
-    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-svg.js" ></script>
 
   
 
@@ -554,7 +541,7 @@
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/mermaid.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8.10.1/dist/mermaid.min.js" ></script>
   <script>
     if (window.mermaid) {
       mermaid.initialize({"theme":"default"});
@@ -591,7 +578,6 @@
 
 <!-- 主题的启动项 保持在最底部 -->
 <script  src="/js/boot.js" ></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-
 
 
 </body>

@@ -14,15 +14,13 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  
-    <meta name="description" content="概述一道有关字符串前缀后缀的题，，，自己迟早要坑在这字符串的题上，，，一看到这样的题，，不管简单还是难一些的心里就发怵，， 明明思路是对的，，总是莫名其妙的wa,,wa,,,wa,,,,,,">
-  
+  <meta name="description" content="概述一道有关字符串前缀后缀的题，，，自己迟早要坑在这字符串的题上，，，一看到这样的题，，不管简单还是难一些的心里就发怵，， 明明思路是对的，，总是莫名其妙的wa,,wa,,,wa,,,,,,">
   <meta name="author" content="31415926535x">
   <meta name="keywords" content="">
   
   <title>codeforces_1092c - 31415926535x</title>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
@@ -32,7 +30,7 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/monokai.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/monokai.min.css" />
     
   
 
@@ -58,7 +56,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"blog.31415x.cf","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":null,"google":"UA-114656515-1","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"blog.31415x.cf","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":"UA-114656515-1","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -147,13 +145,13 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
                 class="iconfont icon-search"></i>&nbsp;</a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -247,7 +245,7 @@
 </ul>
 <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-comment">//#include &lt;iostream&gt;</span><br><span class="hljs-comment">//#include &lt;cstdio&gt;</span><br><span class="hljs-comment">//#include &lt;cstdlib&gt;</span><br><span class="hljs-comment">//#include &lt;string.h&gt;</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> aaa cout&lt;&lt;233&lt;&lt;endl;</span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ll;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> inf = <span class="hljs-number">0x3f3f3f3f</span>;<br><span class="hljs-keyword">const</span> ll linf = <span class="hljs-number">0x3f3f3f3f3f3f3f</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> maxn = <span class="hljs-number">1e5</span> + <span class="hljs-number">5</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> maxm = <span class="hljs-number">1e5</span> + <span class="hljs-number">5</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> mod = <span class="hljs-number">1e9</span> + <span class="hljs-number">7</span>;<br><br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">strings</span></span><br><span class="hljs-class">&#123;</span><br>    <span class="hljs-built_in">string</span> s;<br>    <span class="hljs-keyword">int</span> id;<br>    <span class="hljs-keyword">bool</span> <span class="hljs-keyword">operator</span> &lt; (<span class="hljs-keyword">const</span> strings &amp;r)<span class="hljs-keyword">const</span><br>    &#123;<br>        <span class="hljs-keyword">return</span> s.size() &lt; r.s.size();<br>    &#125;<br>&#125;str[<span class="hljs-number">300</span>];<br><span class="hljs-keyword">char</span> ans[<span class="hljs-number">300</span>];<br><span class="hljs-keyword">int</span> n;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-built_in">string</span> s)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">2</span> * n - <span class="hljs-number">2</span>; i += <span class="hljs-number">2</span>)<br>    &#123;<br>        <span class="hljs-keyword">if</span>(s.find(str[i].s) == <span class="hljs-number">0</span> &amp;&amp; s.rfind(str[i + <span class="hljs-number">1</span>].s) == n - str[i + <span class="hljs-number">1</span>].s.length())<br>        &#123;<br>            ans[str[i].id] = <span class="hljs-string">&#x27;P&#x27;</span>;<br>            ans[str[i + <span class="hljs-number">1</span>].id] = <span class="hljs-string">&#x27;S&#x27;</span>;<br>            <span class="hljs-keyword">continue</span>;<br>        &#125;<br>        <span class="hljs-keyword">if</span>(s.rfind(str[i].s) == n - str[i].s.length() &amp;&amp; s.find(str[i + <span class="hljs-number">1</span>].s) == <span class="hljs-number">0</span>)<br>        &#123;<br>            ans[str[i].id] = <span class="hljs-string">&#x27;S&#x27;</span>;<br>            ans[str[i + <span class="hljs-number">1</span>].id] = <span class="hljs-string">&#x27;P&#x27;</span>;<br>            <span class="hljs-keyword">continue</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">2</span> * n - <span class="hljs-number">2</span>; ++i)<br>        <span class="hljs-built_in">cout</span> &lt;&lt; ans[i];<br>    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;<br>    <span class="hljs-built_in">exit</span>(<span class="hljs-number">0</span>);<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-comment">//    freopen(&quot;233.txt&quot; , &quot;r&quot; , stdin);</span><br><span class="hljs-comment">//    freopen(&quot;233.out&quot; , &quot;w&quot; , stdout);</span><br>    ios_base::sync_with_stdio(<span class="hljs-number">0</span>);<br>    <span class="hljs-built_in">cin</span>.tie(<span class="hljs-number">0</span>);<span class="hljs-built_in">cout</span>.tie(<span class="hljs-number">0</span>);<br>    <span class="hljs-built_in">cin</span> &gt;&gt; n;<br>    <span class="hljs-built_in">string</span> pre , suf , t[<span class="hljs-number">2</span>];<br>    <span class="hljs-keyword">bool</span> flag = <span class="hljs-literal">true</span>;<br>    <span class="hljs-keyword">int</span> cnt = <span class="hljs-number">0</span>;<br><br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">2</span> * n - <span class="hljs-number">2</span>; ++i)<br>    &#123;<br>        <span class="hljs-built_in">cin</span> &gt;&gt; str[i].s;<br>        str[i].id = i;<br>    &#125;<br><br>    sort(str + <span class="hljs-number">1</span> , str + <span class="hljs-number">1</span> + <span class="hljs-number">2</span> * n - <span class="hljs-number">2</span>);<br><br>    get(str[<span class="hljs-number">1</span>].s + str[<span class="hljs-number">2</span> * n - <span class="hljs-number">2</span>].s);<br>    get(str[<span class="hljs-number">1</span>].s + str[<span class="hljs-number">2</span> * n - <span class="hljs-number">3</span>].s);<br>    get(str[<span class="hljs-number">2</span>].s + str[<span class="hljs-number">2</span> * n - <span class="hljs-number">2</span>].s);<br>    get(str[<span class="hljs-number">2</span>].s + str[<span class="hljs-number">2</span> * n - <span class="hljs-number">3</span>].s);<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>
 <p>菜到哭😭QAQ</p>
-<p><img src="https://img2018.cnblogs.com/blog/1028485/201812/1028485-20181224195910236-1750263669.png" srcset="/img/loading.gif" alt=""></p>
+<p><img src="https://img2018.cnblogs.com/blog/1028485/201812/1028485-20181224195910236-1750263669.png" srcset="/img/loading.gif" lazyload alt=""></p>
 
             </div>
             <hr>
@@ -300,28 +298,28 @@
 
             
               <!-- Comments -->
-              <article class="comments" id="comments">
+              <article class="comments" id="comments" lazyload>
                 
                   
                 
                 
   <div class="disqus" style="width:100%">
     <div id="disqus_thread"></div>
-    <script type="text/javascript">
-      var disqus_config = function() {
-        this.page.url = 'http://blog.31415x.cf/2018/12/24/codeforces-1092c/';
-        this.page.identifier = '/2018/12/24/codeforces-1092c/';
-      };
-      Fluid.utils.waitElementVisible('disqus_thread', function () {
-        var d = document, s = d.createElement('script');
-        s.src = '//' + 'www-31415-cf' + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', new Date());
-        (d.head || d.body).appendChild(s);
-      });
-    </script>
-    <noscript>Please enable JavaScript to view the
-      <a target="_blank" href="https://disqus.com/?ref_noscript" rel="nofollow noopener noopener">comments powered by Disqus.</a>
-    </noscript>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://blog.31415x.cf/2018/12/24/codeforces-1092c/';
+          this.page.identifier = '/2018/12/24/codeforces-1092c/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'www-31415-cf' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
   </div>
 
 
@@ -383,7 +381,7 @@
 
   <footer class="text-center mt-5 py-3">
   <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br> <a>不忘初心 <strong><span style="color: red">☭</span></strong> 方得始终</a> 
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br><a>不忘初心 <strong><span style="color: red">☭</span></strong> 方得始终</a> 
   </div>
   
 
@@ -392,8 +390,9 @@
   
 </footer>
 
-<!-- SCRIPTS -->
 
+  <!-- SCRIPTS -->
+  
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
@@ -406,9 +405,8 @@
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
@@ -416,7 +414,7 @@
 
 
   
-    <script  src="/js/lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -425,7 +423,7 @@
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
 
 
 
@@ -433,18 +431,22 @@
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
 
 
 
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
 
 
 
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
@@ -453,21 +455,6 @@
       typing(title)
       
     })(window, document);
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    (function () {
-      var path = "/local-search.xml";
-      $('#local-search-input').on('click', function() {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      });
-      $('#modalSearch').on('shown.bs.modal', function() {
-        $('#local-search-input').focus();
-      });
-    })()
   </script>
 
 
@@ -509,7 +496,7 @@
       };
     </script>
 
-    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-svg.js" ></script>
 
   
 
@@ -517,7 +504,7 @@
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/mermaid.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8.10.1/dist/mermaid.min.js" ></script>
   <script>
     if (window.mermaid) {
       mermaid.initialize({"theme":"default"});
@@ -554,7 +541,6 @@
 
 <!-- 主题的启动项 保持在最底部 -->
 <script  src="/js/boot.js" ></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-
 
 
 </body>
