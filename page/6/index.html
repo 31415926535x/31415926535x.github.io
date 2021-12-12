@@ -185,6 +185,49 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2019/05/29/%E6%89%B9%E9%87%8F%E5%B0%86doc%E6%96%87%E4%BB%B6%E8%BD%AC%E5%8C%96%E6%88%90docx/" target="_blank">
+          批量将doc文件转化成docx
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2019/05/29/%E6%89%B9%E9%87%8F%E5%B0%86doc%E6%96%87%E4%BB%B6%E8%BD%AC%E5%8C%96%E6%88%90docx/" target="_blank">
+          
+          
+            
+          
+          概述最近要弄暑期实训了，知道老师给了一份国标的软件文档标准，，然后里面很多 .doc 的文件，，因为我已经完全习惯了用md来写各种文档，，而且电脑也配置好了 pandoc 的环境，，所以就想着将 doc 文件转化成 .md 文件，，然后直接用md的语法来写文档，，然后用 pandoc 来转换写好的md文档成 docx，自动排版，，不用考虑一些对齐什么的格式问题，，但是，，doc 文档很多，，而且 
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-05-29 22:26" pubdate>
+              2019-05-29
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%8A%80%E5%B7%A7/">技巧</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2019/04/21/The-Preliminary-Contest-for-ICPC-China-Nanchang-National-Invitational/" target="_blank">
           The Preliminary Contest for ICPC China Nanchang National Invitational
         </a>
@@ -697,59 +740,6 @@ O for passing during the contest\Ø for passing after the contest\! for attempte
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2019/03/18/hexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E6%96%87%E4%BB%B6%E5%A4%87%E4%BB%BD%E8%87%B3github%E8%AE%BE%E7%BD%AE/" target="_blank">
-          hexo博客源文件备份至github设置
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2019/03/18/hexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E6%96%87%E4%BB%B6%E5%A4%87%E4%BB%BD%E8%87%B3github%E8%AE%BE%E7%BD%AE/" target="_blank">
-          
-          
-            
-          
-          起因弄这个的主要原因是之前搞崩过两次博客（手贱在上传文件的时候按ctrl+c，，在恢复的时候总是怕再出错，，每次都备份了好几遍源文件，，，尤其是那些md文件，，，毕竟丢了就真的只能重写了啊，，，
-今天偶然看到有人把md文件和渲染后的html文件放在一个文件夹中，，，感觉不错，，，后来看完他的设置后，，感觉有一点不好：md文件不集中，，，真要拿回所有的md文件很麻烦，，，而且还要动配置文件 _con
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2019-03-18 11:32" pubdate>
-              2019-03-18
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/hexo%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/">hexo博客相关</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/hexo/">hexo</a>
-            
-              <a href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
@@ -909,8 +899,21 @@ O for passing during the contest\Ø for passing after the contest\! for attempte
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script  src="/js/boot.js" ></script>
 
 
-</body>
+<!-- hexo injector body_end start -->
+<script>
+function func() {
+  console.log(233);
+  alert("click");
+  console.log(this)
+
+}
+console.log(document.getElementsByClassName("note-body"))
+let noteList = document.getElementsByClassName("note-body");
+for (let i = 0; i < noteList.length; ++i) {
+  noteList[i].addEventListener("click", func);
+}
+</script><!-- hexo injector body_end end --><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

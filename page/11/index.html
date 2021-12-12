@@ -185,6 +185,42 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2018/12/13/csp%E5%88%B7%E9%A2%98/" target="_blank">
+          csp刷题
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2018/12/13/csp%E5%88%B7%E9%A2%98/" target="_blank">
+          
+          
+            
+          
+          csp刷题留存：
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2018-12-13 16:41" pubdate>
+              2018-12-13
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2018/12/13/Codeforces-1084C/" target="_blank">
           Codeforces-1084C
         </a>
@@ -651,61 +687,6 @@
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2018/10/18/hdu-1540%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%88%B7%E9%A2%98/" target="_blank">
-          hdu-1540线段树刷题
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2018/10/18/hdu-1540%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%88%B7%E9%A2%98/" target="_blank">
-          
-          
-            
-          
-          概述哇，，，这道线段树的题可以说是到目前为止我所做过的最难的一道了吧QAQ，，，，，，
-一开始读完题就是一脸懵逼，，，，完全不知道该从哪里下手，，，就是知道这是一道线段树的题也不知道该怎么下手啊啊啊，，，，
-最后还是看了kaungbin大佬的代码，，，QAQ
-光是读代码就花了一两个小时，，，（不过也有可能和今天贼困有关，，，脑袋不怎么转啊
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2018-10-18 19:55" pubdate>
-              2018-10-18
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/ACM-%E7%BA%BF%E6%AE%B5%E6%A0%91/">ACM-线段树</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%88%B7%E9%A2%98/">刷题</a>
-            
-              <a href="/tags/acm/">acm</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
@@ -865,8 +846,21 @@
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script  src="/js/boot.js" ></script>
 
 
-</body>
+<!-- hexo injector body_end start -->
+<script>
+function func() {
+  console.log(233);
+  alert("click");
+  console.log(this)
+
+}
+console.log(document.getElementsByClassName("note-body"))
+let noteList = document.getElementsByClassName("note-body");
+for (let i = 0; i < noteList.length; ++i) {
+  noteList[i].addEventListener("click", func);
+}
+</script><!-- hexo injector body_end end --><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

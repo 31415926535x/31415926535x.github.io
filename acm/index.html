@@ -207,7 +207,20 @@
         <div>
 
         </div>
-    </body>
+    <!-- hexo injector body_end start -->
+<script>
+function func() {
+  console.log(233);
+  alert("click");
+  console.log(this)
+
+}
+console.log(document.getElementsByClassName("note-body"))
+let noteList = document.getElementsByClassName("note-body");
+for (let i = 0; i < noteList.length; ++i) {
+  noteList[i].addEventListener("click", func);
+}
+</script><!-- hexo injector body_end end --></body>
 </html>
 
   

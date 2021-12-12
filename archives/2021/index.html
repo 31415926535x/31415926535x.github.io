@@ -175,13 +175,19 @@
                 
 
 <div class="list-group">
-  <p class="h4">共计 141 篇文章</p>
+  <p class="h4">共计 142 篇文章</p>
   <hr>
   
   
     
       
       <p class="h5">2021</p>
+    
+    <a href="/2021/12/12/%E3%80%90%E6%97%A5%E8%AE%B0%E3%80%912021-12-12-%E5%91%A8%E8%AE%B0%E9%9A%8F%E7%AC%94/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">【日记】2021-12-12 周记随笔</span>
+      <time style="float: right;">12-12</time>
+    </a>
+  
     
     <a href="/2021/10/07/%E3%80%90%E6%97%A5%E8%AE%B0%E3%80%91%E6%88%91%E4%BB%AC%E7%9A%84%E7%AC%AC%E4%BA%8C%E6%AC%A1%E7%9B%B8%E8%A7%81/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">【日记】国庆随笔</span>
@@ -236,14 +242,14 @@
       <time style="float: right;">03-19</time>
     </a>
   
-    
-    <a href="/2021/02/25/microsoft-refresh-token%E8%8E%B7%E5%8F%96%E9%94%99%E8%AF%AF%E7%AD%89%E5%AF%BC%E8%87%B4%E7%9A%84multi-factor-authentication%E9%94%99%E8%AF%AF/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">microsoft_refresh_token获取错误等导致的multi-factor authentication错误</span>
-      <time style="float: right;">02-25</time>
-    </a>
-  
 </div>
 
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/archives/2021/page/2/#board">2</a><a class="extend next" rel="next" href="/archives/2021/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
 
 
 
@@ -397,8 +403,21 @@
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script  src="/js/boot.js" ></script>
 
 
-</body>
+<!-- hexo injector body_end start -->
+<script>
+function func() {
+  console.log(233);
+  alert("click");
+  console.log(this)
+
+}
+console.log(document.getElementsByClassName("note-body"))
+let noteList = document.getElementsByClassName("note-body");
+for (let i = 0; i < noteList.length; ++i) {
+  noteList[i].addEventListener("click", func);
+}
+</script><!-- hexo injector body_end end --><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

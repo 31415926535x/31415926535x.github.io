@@ -185,6 +185,54 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2018/07/23/%E6%B7%B1%E6%90%9C%E5%92%8C%E5%B9%BF%E6%90%9C2/" target="_blank">
+          深搜和广搜2
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2018/07/23/%E6%B7%B1%E6%90%9C%E5%92%8C%E5%B9%BF%E6%90%9C2/" target="_blank">
+          
+          
+            
+          
+          概述来来来，，，补票了，，，
+前几个月看了一些bfs , dfs ， 自以为自己学会了搜索的基本算法，，但今天的集训练习水的啊真是一把把我浇醒了，，，不能再这样自以为学过的东西就全会了，，，
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2018-07-23 22:29" pubdate>
+              2018-07-23
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/acm/">acm</a>
+            
+              <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+            
+              <a href="/tags/%E5%9B%BE%E8%AE%BA/">图论</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2018/07/23/%E5%90%8C%E4%BD%99%E9%97%AE%E9%A2%98/" target="_blank">
           同余问题
         </a>
@@ -630,65 +678,6 @@ c++中标识符的作用域有 函数原型作用域 、 局部作用域（块�
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2018/03/10/class/" target="_blank">
-          class
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2018/03/10/class/" target="_blank">
-          
-          
-            
-          
-          2018.3.22/19.22(完)
-不愤不启 ，不悱不发 ， 举一隅 ， 不以三隅反 ， 则不复也
-
-面向对象的特点：
-抽象：指对具体问题（对象）进行概括，抽出一类对象的公共性质并加以描述的过程；包括数据抽象与行为抽象（或称功能抽象、代码抽象）；
-封装：指将抽象得到的 数据 和 行为（功能）相结合，形成一个有机的整体，也就是将数据与操作数据的函数代码进行有机的结合，形成”类”，其中的数据和函数都
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2018-03-10 09:58" pubdate>
-              2018-03-10
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/c/">c++</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/c/">c++</a>
-            
-              <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">面向对象程序设计</a>
-            
-              <a href="/tags/%E7%B1%BB/">类</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
@@ -848,8 +837,21 @@ c++中标识符的作用域有 函数原型作用域 、 局部作用域（块�
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script  src="/js/boot.js" ></script>
 
 
-</body>
+<!-- hexo injector body_end start -->
+<script>
+function func() {
+  console.log(233);
+  alert("click");
+  console.log(this)
+
+}
+console.log(document.getElementsByClassName("note-body"))
+let noteList = document.getElementsByClassName("note-body");
+for (let i = 0; i < noteList.length; ++i) {
+  noteList[i].addEventListener("click", func);
+}
+</script><!-- hexo injector body_end end --><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

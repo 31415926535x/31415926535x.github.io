@@ -175,13 +175,19 @@
                 
 
 <div class="list-group">
-  <p class="h4">共计 141 篇文章</p>
+  <p class="h4">共计 142 篇文章</p>
   <hr>
   
   
     
       
       <p class="h5">2018</p>
+    
+    <a href="/2018/12/13/csp%E5%88%B7%E9%A2%98/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">csp刷题</span>
+      <time style="float: right;">12-13</time>
+    </a>
+  
     
     <a href="/2018/12/13/Codeforces-1084C/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">Codeforces-1084C</span>
@@ -234,12 +240,6 @@
     <a href="/2018/10/20/hdu-3790%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%88%B7%E9%A2%98/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">hdu-3790最短路刷题</span>
       <time style="float: right;">10-20</time>
-    </a>
-  
-    
-    <a href="/2018/10/18/hdu-1540%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%88%B7%E9%A2%98/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">hdu-1540线段树刷题</span>
-      <time style="float: right;">10-18</time>
     </a>
   
 </div>
@@ -403,8 +403,21 @@
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script  src="/js/boot.js" ></script>
 
 
-</body>
+<!-- hexo injector body_end start -->
+<script>
+function func() {
+  console.log(233);
+  alert("click");
+  console.log(this)
+
+}
+console.log(document.getElementsByClassName("note-body"))
+let noteList = document.getElementsByClassName("note-body");
+for (let i = 0; i < noteList.length; ++i) {
+  noteList[i].addEventListener("click", func);
+}
+</script><!-- hexo injector body_end end --><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

@@ -185,6 +185,58 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2019/09/04/Educational-Codeforces-Round-71/" target="_blank">
+          Educational Codeforces Round 71
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2019/09/04/Educational-Codeforces-Round-71/" target="_blank">
+          
+          
+            
+          
+          上午没课，做一套题，，练一下手感和思维，，教育场的71 ，，前两到没啥，，后面就做的磕磕巴巴的，，，有想法但是不敢实现，，自我否定，，没了思路就只能官方题解，，发现其实都很简单，，，思维场把，，，，
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-09-04 17:02" pubdate>
+              2019-09-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Codeforces/">Codeforces</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%88%B7%E9%A2%98/">刷题</a>
+            
+              <a href="/tags/Codefoces/">Codefoces</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2019/09/02/2019%E5%8D%97%E4%BA%AC%E7%BD%91%E7%BB%9C%E8%B5%9B/" target="_blank">
           2019南京网络赛
         </a>
@@ -629,42 +681,6 @@
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2019/07/24/2019-Multi-University-Training-Contest-2/" target="_blank">
-          2019 Multi-University Training Contest 2
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2019/07/24/2019-Multi-University-Training-Contest-2/" target="_blank">
-          
-          
-            
-          
-          补题ing
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2019-07-24 21:47" pubdate>
-              2019-07-24
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
@@ -824,8 +840,21 @@
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script  src="/js/boot.js" ></script>
 
 
-</body>
+<!-- hexo injector body_end start -->
+<script>
+function func() {
+  console.log(233);
+  alert("click");
+  console.log(this)
+
+}
+console.log(document.getElementsByClassName("note-body"))
+let noteList = document.getElementsByClassName("note-body");
+for (let i = 0; i < noteList.length; ++i) {
+  noteList[i].addEventListener("click", func);
+}
+</script><!-- hexo injector body_end end --><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

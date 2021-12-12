@@ -185,6 +185,72 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2018/09/21/RMQ-%E7%AC%AC%E4%B8%80%E5%BC%B9/" target="_blank">
+          RMQ_第一弹_Sparse Table
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2018/09/21/RMQ-%E7%AC%AC%E4%B8%80%E5%BC%B9/" target="_blank">
+          
+          
+            
+          
+          概述RMQ (Range Minimum/Maximum Query)
+从英文便可以看出这个算法的主要是询问一个区间内的最值问题，，，
+暑假集训的时候学习了 线段树 ，，，
+也可以对给定数组查询任意区间的最值问题，，，，
+这两个主要的区别就是 线段树 可以进行单点的修改操作，，，而 Sparse Table 算法不能进行点修改，，
+或者说这样修改一次重预处理一次不划算，，，
+所以说，，要是题目只是
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2018-09-21 21:33" pubdate>
+              2018-09-21
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/ACM-RMQ/">ACM-RMQ</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/acm/">acm</a>
+            
+              <a href="/tags/dp/">dp</a>
+            
+              <a href="/tags/RMQ/">RMQ</a>
+            
+              <a href="/tags/ST/">ST</a>
+            
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+            
+              <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2018/09/18/acm-STL/" target="_blank">
           acm-STL
         </a>
@@ -630,54 +696,6 @@
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2018/07/23/%E6%B7%B1%E6%90%9C%E5%92%8C%E5%B9%BF%E6%90%9C2/" target="_blank">
-          深搜和广搜2
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2018/07/23/%E6%B7%B1%E6%90%9C%E5%92%8C%E5%B9%BF%E6%90%9C2/" target="_blank">
-          
-          
-            
-          
-          概述来来来，，，补票了，，，
-前几个月看了一些bfs , dfs ， 自以为自己学会了搜索的基本算法，，但今天的集训练习水的啊真是一把把我浇醒了，，，不能再这样自以为学过的东西就全会了，，，
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2018-07-23 22:29" pubdate>
-              2018-07-23
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/acm/">acm</a>
-            
-              <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
-            
-              <a href="/tags/%E5%9B%BE%E8%AE%BA/">图论</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
@@ -837,8 +855,21 @@
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script  src="/js/boot.js" ></script>
 
 
-</body>
+<!-- hexo injector body_end start -->
+<script>
+function func() {
+  console.log(233);
+  alert("click");
+  console.log(this)
+
+}
+console.log(document.getElementsByClassName("note-body"))
+let noteList = document.getElementsByClassName("note-body");
+for (let i = 0; i < noteList.length; ++i) {
+  noteList[i].addEventListener("click", func);
+}
+</script><!-- hexo injector body_end end --><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

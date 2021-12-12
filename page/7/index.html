@@ -185,6 +185,59 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2019/03/18/hexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E6%96%87%E4%BB%B6%E5%A4%87%E4%BB%BD%E8%87%B3github%E8%AE%BE%E7%BD%AE/" target="_blank">
+          hexo博客源文件备份至github设置
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2019/03/18/hexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E6%96%87%E4%BB%B6%E5%A4%87%E4%BB%BD%E8%87%B3github%E8%AE%BE%E7%BD%AE/" target="_blank">
+          
+          
+            
+          
+          起因弄这个的主要原因是之前搞崩过两次博客（手贱在上传文件的时候按ctrl+c，，在恢复的时候总是怕再出错，，每次都备份了好几遍源文件，，，尤其是那些md文件，，，毕竟丢了就真的只能重写了啊，，，
+今天偶然看到有人把md文件和渲染后的html文件放在一个文件夹中，，，感觉不错，，，后来看完他的设置后，，感觉有一点不好：md文件不集中，，，真要拿回所有的md文件很麻烦，，，而且还要动配置文件 _con
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-03-18 11:32" pubdate>
+              2019-03-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/hexo%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/">hexo博客相关</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/hexo/">hexo</a>
+            
+              <a href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2019/03/16/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E5%88%A4%E7%8E%AF-%E4%BA%8C%E5%88%86%E6%9E%9A%E4%B8%BE%E5%BB%BA%E5%9B%BE/" target="_blank">
           拓扑排序判环+二分枚举建图
         </a>
@@ -641,58 +694,6 @@
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2019/02/28/%E5%B7%AE%E5%88%86%E7%BA%A6%E6%9D%9F/" target="_blank">
-          差分约束
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2019/02/28/%E5%B7%AE%E5%88%86%E7%BA%A6%E6%9D%9F/" target="_blank">
-          
-          
-            
-          
-          很早之前学最短路的时候就看了一眼差分约束，，当时以为这种问题不怎么会出现，，而且当时为了只为了学最短路，，所以就没有怎么做题，，知道是什么，但是不会建图使用，，然后上一次做cf就碰到了，，虽然那道题不只是差分约束能解决还卡时间，，但是万一以后还出现这种题，，只是知道是这个类型的题却不知道如何下手也相当于是不会啊，，所以抽时间重新看了看这块的内容，，做几道题，，顺便背一背最短路的板子，，好久敲最短路
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2019-02-28 20:49" pubdate>
-              2019-02-28
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/ACM-%E5%B7%AE%E5%88%86%E7%BA%A6%E6%9D%9F/">ACM-差分约束</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/acm/">acm</a>
-            
-              <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
@@ -852,8 +853,21 @@
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script  src="/js/boot.js" ></script>
 
 
-</body>
+<!-- hexo injector body_end start -->
+<script>
+function func() {
+  console.log(233);
+  alert("click");
+  console.log(this)
+
+}
+console.log(document.getElementsByClassName("note-body"))
+let noteList = document.getElementsByClassName("note-body");
+for (let i = 0; i < noteList.length; ++i) {
+  noteList[i].addEventListener("click", func);
+}
+</script><!-- hexo injector body_end end --><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

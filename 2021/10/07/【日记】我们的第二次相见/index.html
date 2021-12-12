@@ -274,6 +274,12 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2021/12/12/%E3%80%90%E6%97%A5%E8%AE%B0%E3%80%912021-12-12-%E5%91%A8%E8%AE%B0%E9%9A%8F%E7%AC%94/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">【日记】2021-12-12 周记随笔</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
@@ -505,8 +511,21 @@
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script  src="/js/boot.js" ></script>
 
 
-</body>
+<!-- hexo injector body_end start -->
+<script>
+function func() {
+  console.log(233);
+  alert("click");
+  console.log(this)
+
+}
+console.log(document.getElementsByClassName("note-body"))
+let noteList = document.getElementsByClassName("note-body");
+for (let i = 0; i < noteList.length; ++i) {
+  noteList[i].addEventListener("click", func);
+}
+</script><!-- hexo injector body_end end --><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>
