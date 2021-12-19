@@ -6,7 +6,7 @@
   <link href="http://blog.31415x.cf/atom.xml" rel="self"/>
   
   <link href="http://blog.31415x.cf/"/>
-  <updated>2021-12-12T16:07:15.500Z</updated>
+  <updated>2021-12-19T14:58:35.807Z</updated>
   <id>http://blog.31415x.cf/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>笔记-LIS最长不下降子序列</title>
+    <link href="http://blog.31415x.cf/2021/12/19/%E7%AC%94%E8%AE%B0-LIS%E6%9C%80%E9%95%BF%E4%B8%8D%E4%B8%8B%E9%99%8D%E5%AD%90%E5%BA%8F%E5%88%97/"/>
+    <id>http://blog.31415x.cf/2021/12/19/%E7%AC%94%E8%AE%B0-LIS%E6%9C%80%E9%95%BF%E4%B8%8D%E4%B8%8B%E9%99%8D%E5%AD%90%E5%BA%8F%E5%88%97/</id>
+    <published>2021-12-19T14:45:02.000Z</published>
+    <updated>2021-12-19T14:58:35.807Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting/dist/Meting.min.js"></script><p>最长不下降子序列的本质思想是 贪心+dp：以 <code>a[i]</code> 为结尾的LIS可以通过以 <code>a[i - 1]</code> 为结尾的 <code>LIS +</code> 求得</p><span id="more"></span><p>按这种思想可以很快得到 <code>o(n^2)</code> 的一种写法，但是一般来说这种写法没有用武之地</p><p>尝试改进，首先对每一个位置的遍历是不可避免的，所以只能优化后面的更新LIS的操作：</p><p>空间换时间，可以将 以 <code>a[i]</code> 为结尾的LIS的存储下来，长度为 <code>m</code> 的LIS的 <strong>最小</strong> 的LIS记为 <code>low[m]</code> ，后续更新时，对于位于 <code>a[i]</code> 的值，如果他大与 <code>low[最后一个]</code> ，这表明，原先最长的LIS可以加上 <code>a[i]</code> 成为一个新的长度增一的LIS；否则的话，需要尝试去找 <code>low</code> 中的每一个值，看哪一个可以用更小的 <code>a[i]</code> 代替，而 <code>low</code> 是不下降的，所以可以通过二分实现优化计算过程</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><code class="hljs java"><br><span class="hljs-keyword">package</span> DP;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * date: 2021/12/19 22:53</span><br><span class="hljs-comment"> * author: 31415926535x</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LIS</span> </span>&#123;<br>    <br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> n;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> m;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span>[] low;<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">LIS</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] arr)</span> </span>&#123;<br>        n = arr.length;<br>        m = arr.length;<br>        low = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[m];<br>        <span class="hljs-keyword">int</span> tot = <span class="hljs-number">0</span>;<br>        low[<span class="hljs-number">0</span>] = arr[<span class="hljs-number">0</span>];<br>        <br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; ++i) &#123;<br>            <span class="hljs-keyword">if</span> (arr[i] &gt;= low[tot]) &#123;<br>                low[++tot] = arr[i];<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-keyword">int</span> idx = binSearch(arr, arr[i]);<br>            &#125;<br>        &#125;<br>        <br>        <span class="hljs-keyword">return</span> tot;<br>    &#125;<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">binSearch</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] arr, <span class="hljs-keyword">int</span> x)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> l = <span class="hljs-number">0</span>, r = arr.length, mid;<br>        <span class="hljs-keyword">int</span> ret = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">while</span> (l &lt;= r) &#123;<br>            mid = l + r &gt;&gt;&gt; <span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">if</span> (arr[mid] &gt;= x) &#123;<br>                r = mid - <span class="hljs-number">1</span>;<br>                ret = <span class="hljs-number">0</span>;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                l = mid + <span class="hljs-number">1</span>;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ret;<br>    &#125;<br>    <br>    <br>&#125;<br><br><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;最长不下降子序列的本质思想是 贪心+dp：以 &lt;code&gt;a[i]&lt;/code&gt; 为结尾的LIS可以通过以 &lt;code&gt;a[i - 1]&lt;/code&gt; 为结尾的 &lt;code&gt;LIS +&lt;/code&gt; 求得&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="笔记" scheme="http://blog.31415x.cf/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>【日记】2021-12-12 周记随笔</title>
@@ -405,29 +424,6 @@
     <category term="ACM" scheme="http://blog.31415x.cf/tags/ACM/"/>
     
     <category term="题解" scheme="http://blog.31415x.cf/tags/%E9%A2%98%E8%A7%A3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ACM-简单图论刷题</title>
-    <link href="http://blog.31415x.cf/2019/10/07/ACM-%E7%AE%80%E5%8D%95%E5%9B%BE%E8%AE%BA%E5%88%B7%E9%A2%98/"/>
-    <id>http://blog.31415x.cf/2019/10/07/ACM-%E7%AE%80%E5%8D%95%E5%9B%BE%E8%AE%BA%E5%88%B7%E9%A2%98/</id>
-    <published>2019-10-07T09:58:20.000Z</published>
-    <updated>2019-10-15T12:32:05.488Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting/dist/Meting.min.js"></script><p>做一些简单图论题，， <a href="https://codeforces.com/problemset?order=BY_RATING_ASC&amp;tags=graphs%2C2000-">list</a></p><span id="more"></span><h1 id="463D-Gargari-and-Permutations-多个串的LCS"><a href="#463D-Gargari-and-Permutations-多个串的LCS" class="headerlink" title="463D    Gargari and Permutations 多个串的LCS"></a>463D    Gargari and Permutations 多个串的LCS</h1><p>对于每一对数： <code>&lt;i, j&gt;</code> ，，如果每一个串的j都在i前面的话连一条边 <code>i-&gt;j</code> ，，然后跑找一个最长路，，<a href="https://codeforces.com/problemset/submission/463/62052575">code</a></p><h1 id="449B-Jzzhu-and-Cities-最短路判必经边"><a href="#449B-Jzzhu-and-Cities-最短路判必经边" class="headerlink" title="449B    Jzzhu and Cities 最短路判必经边"></a>449B    Jzzhu and Cities 最短路判必经边</h1><p>直接跑最短路并记录每个点的路径数，最后可删边对的点v如果路径数大于1或者是这条边的权值小于最短路的值就说明这边可删 （路径数很多以单模），，，记得前面去重就行了，，或者跑完最短路抠出的新图判这个点的入度大于1否，，</p><p>本来是道乱搞题，，最开始的想法错了些就全否了，，不断的写假算法，，，<del>（失去理智</del> <a href="https://codeforces.com/contest/449/submission/62090227">code</a></p><h1 id="558C-Amr-and-Chemistry-暴力？？"><a href="#558C-Amr-and-Chemistry-暴力？？" class="headerlink" title="558C    Amr and Chemistry 暴力？？"></a>558C    Amr and Chemistry 暴力？？</h1><p>一开始看到tag有一个shortest path 以为是根据一些关系来建张图，，然后跑最短路得到答案，，，但是发现不管怎么建边，，最短路都是求得的，，，和最短路没啥关系，，妥妥的暴力，，最后看了官方题解，，才发现将求每个数的情况的搜索看成了最短路，，我,,,emmmmmmm <a href="https://codeforces.com/contest/558/submission/62109249">code</a></p><h1 id="739B-Alyona-and-a-tree-dfs-路径二分"><a href="#739B-Alyona-and-a-tree-dfs-路径二分" class="headerlink" title="739B    Alyona and a tree dfs+路径二分"></a>739B    Alyona and a tree dfs+路径二分</h1><p>这题不错，，</p><p>假定 $dep[u]$ 表示从根节点到点 <code>u</code> 的一条链的前缀路径长度，，这样这条链上的任意一条路径长度就知道了，，然后对于当前访问的一个点 <code>v</code> ，先考虑这个点对上面的某些满足条件的点的贡献：上面的点中存在这样的点 <code>u</code> ，使得 $dep[v] - dep[u] &lt;= a[v]$ 也就是说 <code>v</code> 在 <code>u</code> 的子树中并且路径长度是不大于点权的，，这样的话 <code>u</code> 的个数加一，，</p><p>同样，，这段路径间的点的也满足这样的条件，，因为路径长度是单调的，，所以，，我们只要找到一个满足条件的最远的一个点 <code>u</code> 的上一个，</p><p>（寻找的方法是：将上面的条件转换以下，， $dep[v] - a[v] &lt;= dep[u]$ 又因为dep是单调递增的，，所以找这个 <code>u</code> 就是找一个刚好 $dep[u]$ 是大于等于 $dep[v] - a[v]$ 的点即可），，，，</p><p>将其的答案减一，，然后利用他更新他的上面的点（看成都不算这个点的贡献，，而 <code>u</code> 到 <code>v</code> 的点都会加上一个1），，，对于每一个点考虑dfs中的所有儿子节点的贡献和即可，，<a href="https://codeforces.com/contest/739/submission/62394729">code</a></p><h1 id="1217D-Coloring-Edges-判环-染色"><a href="#1217D-Coloring-Edges-判环-染色" class="headerlink" title="1217D    Coloring Edges 判环+染色"></a>1217D    Coloring Edges 判环+染色</h1><p><a href="https://codeforces.com/contest/1217/submission/61395907">直接拓扑排序判环染色</a>，，<a href="https://codeforces.com/contest/1217/submission/61365723">或者利用dfs的性质来染色判环</a></p><h1 id="842C-Ilya-And-The-Tree-dfs-优化"><a href="#842C-Ilya-And-The-Tree-dfs-优化" class="headerlink" title="842C    Ilya And The Tree dfs+优化"></a>842C    Ilya And The Tree dfs+优化</h1><p>一道搜索题，，刚开始我直接将搜索到的每一条路径的所有数的因数扔到了map中，，然后遍历尝试找一个最大的因数并且其数量是大于等于n-1的，，，但是这样会随着路径的长度map的大小不断地增加，，即使控制反向遍历也会爆栈等等，，可以先假设每一条路径都去掉根节点，这样每一个点的答案就是 $ans[v]=__gcd(ans[u], a[v])$ ，，，然后如果一定加上根节点的话，答案一定是根节点的一个因数，，所以map直接保存的就是根节点的因数，，再像上面那样遍历一遍和第一次得到的答案取最大就行了，，<a href="https://codeforces.com/contest/842/submission/62238501">code</a></p><h1 id="1213G-Path-Queries-并查集"><a href="#1213G-Path-Queries-并查集" class="headerlink" title="1213G    Path Queries 并查集"></a>1213G    Path Queries 并查集</h1><p>离线询问，然后利用并查集将符合当前询问的所有两个点放到一堆集合中，，此时的答案就是每一个集合的边数 $m$ 的 $m(m + 1)/2$ ，，，询问排序后之前加的边也是满足条件的，，，这样就可以利用前一个答案来获得当前的询问的答案，，更新的方式是，，，将这条边的两个点所在的集合的大小 $a, b$ 清空，，然后答案 $ans = ans - (a <em> (a + 1) / 2) - (b </em> (b + 1) / 2) + ((a + b + 1) * (a + b + 2) / 2))$  ，，最后合并集合即可，，刚开始我是用并查集维护边，，，因为要建图，，一直T，，，emmm <a href="https://codeforces.com/contest/1213/submission/62347660">code</a></p><h1 id="776D-The-Door-Problem-2sat"><a href="#776D-The-Door-Problem-2sat" class="headerlink" title="776D    The Door Problem 2sat"></a>776D    The Door Problem 2sat</h1><p>2sat板子题吧，，直接按题意找出限制关系建图判以下就行了，，之前写过，，<a href="https://codeforces.com/contest/776/submission/52218310">code</a></p><h1 id="767C-Garland-dfs-贪心"><a href="#767C-Garland-dfs-贪心" class="headerlink" title="767C    Garland dfs+贪心"></a>767C    Garland dfs+贪心</h1><p>dfs搜出所有的 $sum/3$ 和 $2*sum/3$ 的子树，，记前者为1，后面的为2，，</p><p>记录搜的过程中的1的出现位置，如果出现一个2，并且它的子树中有一个1，那么这就是一个答案，，直接输出后退出程序就行了，，没有跳过</p><p>如果找到一个1的同时他的子树中有一个1，，那么这个1不要，，继续搜，，，最后如果搜到的1超过两个输出就行了，，没有的话就是无解，，，<a href="https://codeforces.com/contest/767/submission/62419845">code</a></p><p><del>（很简单的一道题，，思路很早就通了，，就是实现的时候因为一些细节疯狂wa，，emmmmm</del></p><h1 id=""><a href="#" class="headerlink" title=" "></a> </h1>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;做一些简单图论题，， &lt;a href=&quot;https://codeforces.com/problemset?order=BY_RATING_ASC&amp;amp;tags=graphs%2C2000-&quot;&gt;list&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Codeforces" scheme="http://blog.31415x.cf/categories/Codeforces/"/>
-    
-    
-    <category term="ACM" scheme="http://blog.31415x.cf/tags/ACM/"/>
-    
-    <category term="刷题" scheme="http://blog.31415x.cf/tags/%E5%88%B7%E9%A2%98/"/>
     
   </entry>
   
