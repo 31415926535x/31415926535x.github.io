@@ -185,6 +185,52 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2019/09/11/c++%E8%B0%83%E8%AF%95%E5%9C%A8%E5%AE%B9%E5%99%A8%E9%87%8A%E6%94%BE%E5%86%85%E5%AD%98%E6%97%B6%E6%8A%A5Unknown-Signal-%E6%88%96-Trace-breakpoint-trap%E5%BC%82%E5%B8%B8/" target="_blank">
+          c++调试在容器释放内存时报Unknown Signal 或 Trace/breakpoint trap异常
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2019/09/11/c++%E8%B0%83%E8%AF%95%E5%9C%A8%E5%AE%B9%E5%99%A8%E9%87%8A%E6%94%BE%E5%86%85%E5%AD%98%E6%97%B6%E6%8A%A5Unknown-Signal-%E6%88%96-Trace-breakpoint-trap%E5%BC%82%E5%B8%B8/" target="_blank">
+          
+          
+            
+          
+          在做一道题时，用到的板子中出现了很多的容器的使用，，一开始都是开MAXN大小的容器，，但是有几率出现程序运行完后不正常退出，，
+在多次尝试断点调试后，发现主要的异常是程序在结束时，要进行资源的释放，，但是可能空间开的MAXN和使用的不匹配，就会出现未知错误，，或者是 Trace/breakpoint trap 异常，，把申请时的 vector&lt;edge&gt; g[MAXN] 改为 vect
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-09-11 17:55" pubdate>
+              2019-09-11
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%8A%A5%E9%94%99/">报错</a>
+            
+              <a href="/tags/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">解决方法</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2019/09/07/2019%E5%BE%90%E5%B7%9E%E7%BD%91%E7%BB%9C%E8%B5%9B-%C2%96The-Preliminary-Contest-for-ICPC-Asia-Xuzhou-2019/" target="_blank">
           2019徐州网络赛-The Preliminary Contest for ICPC Asia Xuzhou 2019
         </a>
@@ -659,42 +705,6 @@
             <i class="iconfont icon-date"></i>
             <time datetime="2019-08-04 15:56" pubdate>
               2019-08-04
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2019/08/03/ACM-%E7%BD%91%E7%BB%9C%E6%B5%81-%E8%B4%B9%E7%94%A8%E6%B5%81/" target="_blank">
-          ACM-网络流-费用流
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2019/08/03/ACM-%E7%BD%91%E7%BB%9C%E6%B5%81-%E8%B4%B9%E7%94%A8%E6%B5%81/" target="_blank">
-          
-          
-            
-          
-          费用流就是网络流的一个变形，，，平常的网络流就是一个只有流量的网络，，如果限制每一个边的流量有一个单位的费用，，要求一个最大流的同时保证费用的最小（大）就是费用流的解法，，，除了kaungbin板子上的两个费用流的解法，，uestc在多校的一道题的标程使用 dijkstra 实现的，，貌似时效性不错，，记录一下，，
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2019-08-03 09:52" pubdate>
-              2019-08-03
             </time>
           </div>
         
